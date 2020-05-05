@@ -1,0 +1,44 @@
+Строй компанияга
+ 
+ - dom
+  	-id
+  	-name
+  	-floor (Этаж)
+  	-addres
+
+ - kvartira
+ 	-id
+ 	-dom_id
+ 	-number_kv
+ 	-floor
+ 	-kvm
+ 	-contract
+ 	-klient_id
+ 	-price_kvm
+ 	-pice_kvm_som
+
+ - client
+ 	-id
+ 	-Name
+ 	-date_lc
+ 	-tel_nom
+ 	-address
+ 	-
+ - cars
+ 	-mar
+ 	-date
+ 	-info
+ 	-p_sum
+ 	-p_valyta
+ 	-prod_sum
+ 	-prod_valyta
+
+
+
+
+
+
+
+
+
+

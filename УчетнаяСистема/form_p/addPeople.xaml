@@ -1,0 +1,48 @@
+﻿<Window x:Class="УчетнаяСистема.form_p.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:УчетнаяСистема.form_p"
+        mc:Ignorable="d"
+        Title="addPeople" Height="406.25" Width="601.25" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" WindowStartupLocation="CenterScreen">
+    <Grid Margin="15" Background="White">
+        <Grid.Effect>
+            <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.4"/>
+        </Grid.Effect>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border Background="#0A6E9E">
+
+            </Border>
+            <Canvas Grid.Row="1">
+                <Border Height="217" 
+                        BorderThickness="1,1,1,1"
+                        BorderBrush="#FFC1C0C0"
+                        Canvas.Left="21" Canvas.Top="39" Width="181">
+                    <Image x:Name="image" Source="../images/foto_people/people.JPG" />
+                </Border>
+                <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Ф.И.О" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="297" Canvas.Top="48"/>
+                <Label Content="Ф.И.О" Canvas.Left="215" Canvas.Top="47" FontSize="13" />
+                <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Телефон номер" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="297" Canvas.Top="116"/>
+                <Label Content="Тел. номер" Canvas.Left="212" Canvas.Top="115" FontSize="13" />
+                <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" AN" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="298" Canvas.Top="147"/>
+                <Label Content="Адресс" Canvas.Left="214" Canvas.Top="178" FontSize="13" />
+                <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Адресс" Height="73" Width="254" HorizontalAlignment="Right" Canvas.Left="298" Canvas.Top="179"/>
+                <Label Content="Дата рож." Canvas.Left="212" Canvas.Top="80" FontSize="13" />
+                <DatePicker Style="{DynamicResource styleDatePicker}" Canvas.Left="297" Canvas.Top="81" Width="252" Height="24"/>
+                <Label Content="AN" Canvas.Left="214" Canvas.Top="147" FontSize="13" />
+                <Button Style="{DynamicResource Button_blue}" Content="Сохранить"
+                    x:Name="button" Canvas.Left="380" Canvas.Top="295" Width="168" Height="26"/>
+                <Button Style="{DynamicResource Button_White}" Content="Отмена"
+                    x:Name="button2" Canvas.Left="203" Canvas.Top="295" Width="168" Height="25"/>
+
+
+            </Canvas>
+        </Grid>
+    </Grid>
+</Window>
