@@ -76,7 +76,7 @@
             <Setter Property="BorderBrush" Value="#DDDDDD" />
             <Setter Property="HorizontalGridLinesBrush" Value="#DDDDDD" />
             <Setter Property="VerticalGridLinesBrush" Value="#DDDDDD" />
-            
+            <Setter Property="ColumnWidth" Value="*"/>
             
             <Setter Property="RowStyle">
                 <Setter.Value>

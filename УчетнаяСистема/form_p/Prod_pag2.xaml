@@ -6,14 +6,66 @@
       xmlns:col="clr-namespace:System.Collections;assembly=mscorlib" 
       xmlns:local="clr-namespace:УчетнаяСистема"
       mc:Ignorable="d" 
-      d:DesignHeight="620" d:DesignWidth="1100"
-      Title="Prod_pag2">
+      d:DesignHeight="720" d:DesignWidth="1100"
+      Title="Prod_pag2" Loaded="Page_Loaded">
 
     <Grid Background="White">
-        <Border Grid.Column="1" Padding="5" Background="#F4F4F4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="89*"/>
+        </Grid.RowDefinitions>
+
+        <Canvas Grid.Row="0">
+            <TextBox x:Name="FIO" FontSize="14" 
+                     Style="{DynamicResource textbox_style}" 
+                     Tag=" Ф.И.О" Height="24" Width="208" 
+                     HorizontalAlignment="Right" Canvas.Left="117" Canvas.Top="36"/>
+            <Label Content="Клиент" Canvas.Left="35" Canvas.Top="34" FontSize="13" />
+            <Label Content="Договор" Canvas.Left="36" Canvas.Top="128" FontSize="13" />
+            <TextBox x:Name="textbox_dogovor" FontSize="14"  
+                     Style="{DynamicResource textbox_style}"
+                     Tag=" Договор" Height="24" Width="201" HorizontalAlignment="Right" Canvas.Left="119" Canvas.Top="130"/>
+            <Label Content="Сумма" Canvas.Left="440" Canvas.Top="35" FontSize="13" />
+            <TextBox x:Name="textbox_cars" FontSize="14"  Style="{DynamicResource textbox_style}"
+                     Tag=" Машина" Height="24" Width="203" HorizontalAlignment="Right" Canvas.Left="119" Canvas.Top="97"/>
+            <Label Content="Квартира" Canvas.Left="36" Canvas.Top="64" FontSize="13" />
+            <Label Content="Машина" Canvas.Left="35" Canvas.Top="98" FontSize="13" />
+            <Button Style="{DynamicResource Button_blue}" Content="Продать"
+                    x:Name="registr_client_btn"
+                        Click="registr_client_btn_Click"
+                        Canvas.Left="387" Canvas.Top="171" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221"/>
+            <TextBox x:Name="textbox_summa" FontSize="14"  Style="{DynamicResource textbox_style}"
+                     Tag=" Сумма (ДОЛЛАР)" Height="24" Width="209" HorizontalAlignment="Right" Canvas.Left="524" Canvas.Top="36"/>
+            <Button Style="{DynamicResource Button_blue}" Content=""
+                x:Name="show_client_btn"
+                Click="show_client_btn_Click"
+                Canvas.Left="333" Canvas.Top="34" Width="32" Height="26"/>
+            <ComboBox Width="203" Canvas.Left="119" Canvas.Top="68" x:Name="ComboBox2"  IsEditable="True" Height="22"/>
+            <Label Content="Курс валюта" Canvas.Left="437" Canvas.Top="69" FontSize="13" />
+            <TextBox x:Name="textbox_kusr" FontSize="14" 
+                     Style="{DynamicResource textbox_style}"
+                     Tag=" Курс валюта" Height="23" Width="209"
+                     HorizontalAlignment="Right" Canvas.Left="525"
+                     Canvas.Top="69" KeyUp="textbox_kusr_KeyUp"  />
+            <Button Style="{DynamicResource Button_blue}" Content=""
+                x:Name="show_client_Cars"
+                Click="show_client_Cars_Click"
+                Canvas.Left="332" Canvas.Top="96" Width="32" Height="26"/>
+            <Label Content="Сумма" Canvas.Left="443" Canvas.Top="101" FontSize="13" />
+            <TextBox x:Name="textbox_som" FontSize="14"  
+                     Style="{DynamicResource textbox_style}" 
+                     Tag=" Сумма (СОМ)" Height="23" Width="209"
+                     HorizontalAlignment="Right" Canvas.Left="524" Canvas.Top="101" />
+
+
+        </Canvas>
+
+
+
+        <Border Grid.Row="1" Padding="5" Background="#F4F4F4" Grid.RowSpan="2">
             <StackPanel  Background="White" >
                 <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
-                    <Label Content="KG Group Компаниясы" FontSize="16" Foreground="#00C3FF" ></Label>
+                    <Label Content="Продажа" FontSize="16" Foreground="#00C3FF" ></Label>
                     <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" Tag=" Поиск данные" Height="25" Width="200" Margin="5" HorizontalAlignment="Right">
 
                     </TextBox>
@@ -21,14 +73,8 @@
                 <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
                   
-                  ColumnHeaderStyle="{DynamicResource hederstyle}" ItemsSource="{DynamicResource ResourceKey=phones}"  MouseDown="DataGrid_MouseDown">
-                    <DataGrid.Resources>
-                        <col:ArrayList x:Key="phones">
-                            <local:Phone id="1" Title="Примова Клара Бердибаевна " Company="Ниссан X-TRAIL 380 000 сом, Форд транзит- 300 000 сом" Price="54990"  />
-                            <local:Phone id="2" Title="Lumia 950" Company="Microsoft" Price="39990" />
-                            <local:Phone id="3" Title="Nexus 5X" Company="Google" Price="29990" />
-                        </col:ArrayList>
-                    </DataGrid.Resources>
+                  ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1"  MouseDown="DataGrid_MouseDown" MouseDoubleClick="dataGridView1_MouseDoubleClick">
+
                 </DataGrid>
             </StackPanel>
         </Border>

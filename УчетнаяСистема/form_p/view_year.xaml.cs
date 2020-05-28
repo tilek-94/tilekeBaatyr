@@ -21,11 +21,11 @@ namespace УчетнаяСистема.form_p
     /// </summary>
     public partial class view_year : Window
     {
-        ObservableCollection<Employee> employees = new ObservableCollection<Employee>();
+       /* ObservableCollection<Employee> employees = new ObservableCollection<Employee>();*/
         public view_year()
         {
             InitializeComponent();
-            employees.Add(new Employee { ID = 1, year=2019, Name = "февраль",  Type = EmployeeType.Normal, BirthDate = new DateTime(1980, 1, 1) });
+            /*employees.Add(new Employee { ID = 1, year=2019, Name = "февраль",  Type = EmployeeType.Normal, BirthDate = new DateTime(1980, 1, 1) });
             employees.Add(new Employee { ID = 1, year=2019, Name = "Март", IsMale = true, Type = EmployeeType.Normal, BirthDate = new DateTime(1980, 1, 1) });
             employees.Add(new Employee { ID = 1, year=2019, Name = "апрель", IsMale = true, Type = EmployeeType.Normal, BirthDate = new DateTime(1980, 1, 1) });
             employees.Add(new Employee { ID = 1, year=2019, Name = "май", IsMale = true, Type = EmployeeType.Normal, SiteID = new Uri("http://localhost/4322"), BirthDate = new DateTime(1980, 1, 1) });
@@ -45,12 +45,12 @@ namespace УчетнаяСистема.form_p
             ListCollectionView collectionView = new ListCollectionView(employees);
             collectionView.GroupDescriptions.Add(new PropertyGroupDescription("year"));
             myDataGrid.ItemsSource = collectionView;
-        }
+   */     }
 
         private void myDataGrid_MouseUp(object sender, MouseButtonEventArgs e)
-        {
+        {/*
             Employee employee = myDataGrid.SelectedItem as Employee;
-            MessageBox.Show("ID"+employee.ID);
+            MessageBox.Show("ID"+employee.ID);*/
         }
     }
 }

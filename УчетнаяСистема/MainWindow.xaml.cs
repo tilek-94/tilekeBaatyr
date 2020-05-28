@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using УчетнаяСистема.form_p;
+using УчетнаяСистема.registr;
 
 namespace УчетнаяСистема
 {
@@ -38,7 +39,9 @@ namespace УчетнаяСистема
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            pag.Navigate(new System.Uri("form_p/Prod_pag2.xaml", UriKind.RelativeOrAbsolute));
+            registr_flat registr_Flat = new registr_flat();
+            registr_Flat.ShowDialog();
+           // pag.Navigate(new System.Uri("form_p/Prod_pag2.xaml", UriKind.RelativeOrAbsolute));
 
         }
 
@@ -69,7 +72,7 @@ namespace УчетнаяСистема
         }
         private void Button_Clic(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
         private void button_people_Click(object sender, RoutedEventArgs e)
@@ -85,6 +88,17 @@ namespace УчетнаяСистема
         private void lock_button_Click(object sender, RoutedEventArgs e)
         {
             OpenWindows();
+        }
+
+        private void Button_Close_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void grafBtn_Click(object sender, RoutedEventArgs e)
+        {
+            pag.Navigate(new System.Uri("form_p/Prod_pag2.xaml", UriKind.RelativeOrAbsolute));
+            
         }
     }
     public class Phone

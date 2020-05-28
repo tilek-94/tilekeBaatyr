@@ -100,7 +100,7 @@
 
 
                     <Border HorizontalAlignment="Left" Margin="5,0,0,0">
-                        <Button Style="{DynamicResource menuButton}">
+                        <Button Style="{DynamicResource menuButton}" x:Name="grafBtn" Click="grafBtn_Click">
                             <StackPanel>
 
                                 <Image>

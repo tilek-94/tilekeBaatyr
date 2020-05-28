@@ -7,7 +7,7 @@
       xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
       mc:Ignorable="d" 
       d:DesignHeight="620" d:DesignWidth="1100"
-      Title="Peple_pag">
+      Title="Peple_pag" Loaded="Page_Loaded">
 
     <Grid Background="White">
         <Grid.RowDefinitions>
@@ -29,31 +29,26 @@
                 <Border Height="217" 
                         BorderThickness="1,1,1,1"
                         BorderBrush="#FFC1C0C0"
-                        Canvas.Left="21" Canvas.Top="39" Width="181">
-                    <Image x:Name="image" Source="../images/foto_people/people.JPG" />
+                        Canvas.Left="21" Canvas.Top="39"
+                        x:Name="load_foto"
+                        
+                        Width="181" MouseDown="load_foto_MouseDown">
+                    <Image x:Name="image"  Source="../images/foto_people/people.JPG" />
                 </Border>
-                <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Ф.И.О" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="297" Canvas.Top="48"/>
+                <TextBox x:Name="FIO" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Ф.И.О" Height="24" Width="418" HorizontalAlignment="Right" Canvas.Left="297" Canvas.Top="48"/>
                 <Label Content="Ф.И.О" Canvas.Left="215" Canvas.Top="47" FontSize="13" />
-                <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Телефон номер" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="297" Canvas.Top="116"/>
+                <TextBox x:Name="tel_nom" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Телефон номер" Height="24" Width="418" HorizontalAlignment="Right" Canvas.Left="297" Canvas.Top="116"/>
                 <Label Content="Тел. номер" Canvas.Left="212" Canvas.Top="115" FontSize="13" />
-                <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" AN" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="298" Canvas.Top="147"/>
+                <TextBox x:Name="AN" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" AN" Height="24" Width="418" HorizontalAlignment="Right" Canvas.Left="299" Canvas.Top="147"/>
                 <Label Content="Адресс" Canvas.Left="214" Canvas.Top="178" FontSize="13" />
-                <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Адресс" Height="73" Width="254" HorizontalAlignment="Right" Canvas.Left="298" Canvas.Top="179"/>
+                <TextBox x:Name="address" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Адресс" Height="73" Width="418" HorizontalAlignment="Right" Canvas.Left="299" Canvas.Top="179"/>
                 <Label Content="Дата рож." Canvas.Left="212" Canvas.Top="80" FontSize="13" />
-                <DatePicker Style="{DynamicResource styleDatePicker}" Canvas.Left="297" Canvas.Top="81" Width="252" Height="24"/>
+                <DatePicker x:Name="data_r" Style="{DynamicResource styleDatePicker}" Canvas.Left="297" Canvas.Top="81" Width="415" Height="24"/>
                 <Label Content="AN" Canvas.Left="214" Canvas.Top="147" FontSize="13" />
                 <Button Style="{DynamicResource Button_blue}" Content="Сохранить"
-                    x:Name="button" Canvas.Left="384" Canvas.Top="259" Width="168" Height="26"/>
-                <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Ф.И.О" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="723" Canvas.Top="50"/>
-                <Label Content="Ф.И.О" Canvas.Left="641" Canvas.Top="48" FontSize="13" />
-                <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Телефон номер" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="723" Canvas.Top="118"/>
-                <Label Content="Тел. номер" Canvas.Left="638" Canvas.Top="116" FontSize="13" />
-                <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" AN" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="724" Canvas.Top="148"/>
-                <Label Content="Адресс" Canvas.Left="640" Canvas.Top="180" FontSize="13" />
-                <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Адресс" Height="74" Width="254" HorizontalAlignment="Right" Canvas.Left="724" Canvas.Top="180"/>
-                <Label Content="Дата рож." Canvas.Left="638" Canvas.Top="82" FontSize="13" />
-                <Label Content="AN" Canvas.Left="640" Canvas.Top="148" FontSize="13" />
-                <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Ф.И.О" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="723" Canvas.Top="85"/>
+                    x:Name="registr_client_btn"
+                        Click="registr_client_btn_Click"
+                        Canvas.Left="384" Canvas.Top="259" Width="168" Height="26"/>
 
 
             </Canvas>
@@ -73,15 +68,9 @@
                 </DockPanel>
                 <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
-                  
-                  ColumnHeaderStyle="{DynamicResource hederstyle}" ItemsSource="{DynamicResource ResourceKey=phones}">
-                    <DataGrid.Resources>
-                        <col:ArrayList x:Key="phones">
-                            <local:Phone id="1" Title="Примова Клара Бердибаевна " Company="Ниссан X-TRAIL 380 000 сом, Форд транзит- 300 000 сом" Price="54990"  />
-                            <local:Phone id="2" Title="Lumia 950" Company="Microsoft" Price="39990" />
-                            <local:Phone id="3" Title="Nexus 5X" Company="Google" Price="29990" />
-                        </col:ArrayList>
-                    </DataGrid.Resources>
+                  x:Name="dataGridView1"
+                  ColumnHeaderStyle="{DynamicResource hederstyle}">
+                   
                 </DataGrid>
             </StackPanel>
         </Border>

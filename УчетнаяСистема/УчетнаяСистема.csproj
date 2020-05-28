@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>E:\c#\MySQL\MySql.Data.DLL</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -55,7 +58,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="All_classes\test.cs" />
+    <Compile Include="All_classes\dbConnect.cs" />
+    <Compile Include="All_classes\DopClass.cs" />
     <Compile Include="form_p\addBuilding.xaml.cs">
       <DependentUpon>addBuilding.xaml</DependentUpon>
     </Compile>
@@ -79,6 +83,12 @@
     </Compile>
     <Compile Include="form_p\view_year.xaml.cs">
       <DependentUpon>view_year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="registr\registr_flat.xaml.cs">
+      <DependentUpon>registr_flat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="registr\registr_type_flat.xaml.cs">
+      <DependentUpon>registr_type_flat.xaml</DependentUpon>
     </Compile>
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
@@ -130,6 +140,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="registr\registr_flat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="registr\registr_type_flat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

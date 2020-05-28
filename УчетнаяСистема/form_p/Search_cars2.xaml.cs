@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using УчетнаяСистема.All_classes;
 
 namespace УчетнаяСистема.form_p
 {
@@ -22,6 +24,67 @@ namespace УчетнаяСистема.form_p
         public Search_cars2()
         {
             InitializeComponent();
+        }
+        dbConnect dbCon = new dbConnect();
+        public delegate void MessageID(string id, string name);
+        public event MessageID mes_;
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            dbCon.Registr("INSERT INTO cars(marka,data,nomer,prih_summ,kurs,info)" +
+                "values (" +
+                "'" + marka.Text + "'," +
+                "'" + data.Text + "'," +
+                "'"+ nomer.Text + "'," +
+                "'" + prih_summ.Text + "'," +
+                "'" + kurs.Text + "'," +
+                "'" + info.Text + "')");
+            dbCon.eventDysplay += delegate (DataTable db)
+            {
+                dataGridView1.ItemsSource = db.DefaultView;
+            };
+            dbCon.SoursData("SELECT * FROM cars");
+        }
+
+        private void myDataGrid_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            dbCon.eventDysplay += delegate (DataTable db)
+            {
+                dataGridView1.ItemsSource = db.DefaultView;
+            };
+            dbCon.SoursData("SELECT * FROM cars");
+
+        }
+        string id_1 = "", marka_1;
+        private void dataGridView1_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            
+            DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
+            int index = dataGridView1.CurrentCell.Column.DisplayIndex;
+             id_1 = dataRow.Row.ItemArray[0].ToString();
+             marka_1 = dataRow.Row.ItemArray[1].ToString();
+            string data_1 = dataRow.Row.ItemArray[2].ToString();
+            string nomer_1 = dataRow.Row.ItemArray[3].ToString();
+            string prih_summ_1 = dataRow.Row.ItemArray[4].ToString();
+            string kurs_1 = dataRow.Row.ItemArray[5].ToString();
+            string info_1 = dataRow.Row.ItemArray[6].ToString();
+            /*,data,nomer,prih_summ,kurs,info;*/
+            marka.Text = marka_1;
+            data.Text = data_1;
+            nomer.Text = nomer_1;
+            prih_summ.Text = prih_summ_1;
+            kurs.Text = kurs_1;
+            info.Text = info_1;
+        }
+
+        private void button_vbor_Click(object sender, RoutedEventArgs e)
+        {
+            mes_(id_1,marka_1);
+            this.Close();
         }
     }
 }

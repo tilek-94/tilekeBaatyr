@@ -5,44 +5,82 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:УчетнаяСистема.form_p"
         mc:Ignorable="d"
-        Title="addPeople" Height="406.25" Width="601.25" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" WindowStartupLocation="CenterScreen">
+        Title="addPeople" Height="678.876" Width="601.25" 
+        AllowsTransparency="True" WindowStyle="None"
+        Background="{x:Null}" WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded"
+        >
     <Grid Margin="15" Background="White">
         <Grid.Effect>
             <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.4"/>
         </Grid.Effect>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="15"/>
-                <RowDefinition/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="120*"/>
             </Grid.RowDefinitions>
 
-            <Border Background="#0A6E9E">
+            <Border Background="#0A6E9E"  x:Name="brd_Mov" MouseDown="brd_Mov_MouseDown">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" />
 
+                </StackPanel>
             </Border>
-            <Canvas Grid.Row="1">
+            <Canvas Grid.Row="1" Grid.RowSpan="2">
                 <Border Height="217" 
                         BorderThickness="1,1,1,1"
                         BorderBrush="#FFC1C0C0"
-                        Canvas.Left="21" Canvas.Top="39" Width="181">
-                    <Image x:Name="image" Source="../images/foto_people/people.JPG" />
+                        Canvas.Left="21" Canvas.Top="20" Width="181">
+                    <Image x:Name="image" Source="../images/foto_people/people.JPG" Margin="0,3" />
                 </Border>
-                <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Ф.И.О" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="297" Canvas.Top="48"/>
-                <Label Content="Ф.И.О" Canvas.Left="215" Canvas.Top="47" FontSize="13" />
-                <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Телефон номер" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="297" Canvas.Top="116"/>
-                <Label Content="Тел. номер" Canvas.Left="212" Canvas.Top="115" FontSize="13" />
-                <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" AN" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="298" Canvas.Top="147"/>
-                <Label Content="Адресс" Canvas.Left="214" Canvas.Top="178" FontSize="13" />
-                <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Адресс" Height="73" Width="254" HorizontalAlignment="Right" Canvas.Left="298" Canvas.Top="179"/>
-                <Label Content="Дата рож." Canvas.Left="212" Canvas.Top="80" FontSize="13" />
-                <DatePicker Style="{DynamicResource styleDatePicker}" Canvas.Left="297" Canvas.Top="81" Width="252" Height="24"/>
-                <Label Content="AN" Canvas.Left="214" Canvas.Top="147" FontSize="13" />
-                <Button Style="{DynamicResource Button_blue}" Content="Сохранить"
-                    x:Name="button" Canvas.Left="380" Canvas.Top="295" Width="168" Height="26"/>
-                <Button Style="{DynamicResource Button_White}" Content="Отмена"
-                    x:Name="button2" Canvas.Left="203" Canvas.Top="295" Width="168" Height="25"/>
+                <TextBox x:Name="FIO" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Ф.И.О" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="297" Canvas.Top="21" />
+                <Label Content="Ф.И.О" Canvas.Left="215" Canvas.Top="20" FontSize="13" />
+                <TextBox x:Name="tel_nom" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Телефон номер" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="297" Canvas.Top="89"/>
+                <Label Content="Тел. номер" Canvas.Left="212" Canvas.Top="88" FontSize="13" />
+                <TextBox x:Name="AN" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" AN" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="298" Canvas.Top="120"/>
+                <Label Content="Адресс" Canvas.Left="214" Canvas.Top="151" FontSize="13" />
+                <TextBox x:Name="address" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Адресс" Height="73" Width="254" HorizontalAlignment="Right" Canvas.Left="298" Canvas.Top="152"/>
+                <Label Content="Дата рож." Canvas.Left="212" Canvas.Top="53" FontSize="13" />
+                <DatePicker x:Name="data_r" Style="{DynamicResource styleDatePicker}" Canvas.Left="297" Canvas.Top="54" Width="252" Height="24"/>
+                <Label Content="AN" Canvas.Left="214" Canvas.Top="120" FontSize="13" />
+                <Button Style="{DynamicResource Button_White}" Content="Удалить"
+                    x:Name="button2" Canvas.Left="395" 
+                        Click="button2_Click"
+                        Canvas.Top="262" Width="168" Height="26"/>
+                <Button Style="{DynamicResource  Button_blue}" Content="Сохранить"
+                    x:Name="button"  Click="button_Click" Canvas.Left="218" Canvas.Top="264" Width="168" Height="25"/>
+                <Button Style="{DynamicResource Button_blue}" Content="Выбрать"
+                    x:Name="select_btn"  Click="select_btn_Click" Canvas.Left="306" Canvas.Top="231" Width="168" Height="25"/>
 
 
             </Canvas>
+
+            <Border Grid.Row="2" Padding="5" Background="#F4F4F4">
+                <StackPanel  Background="White" >
+                    <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
+                        <Label Content="KG Group Компаниясы" FontSize="16" Foreground="#00C3FF" ></Label>
+
+                        <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" 
+                                 Tag=" Поиск данные" Height="25"
+                                 Width="200" Margin="5"
+                                 HorizontalAlignment="Right"
+                                 x:Name="textbox_searsh" KeyDown="textbox_searsh_KeyDown"
+                                 >
+
+                        </TextBox>
+
+                    </DockPanel>
+                    <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
+                  HeadersVisibility="Column"
+                  x:Name="dataGridView1"
+                  ColumnHeaderStyle="{DynamicResource hederstyle}"
+                   MouseUp="myDataGrid_MouseUp"
+                              >
+
+                    </DataGrid>
+                </StackPanel>
+            </Border>
         </Grid>
     </Grid>
 </Window>

@@ -7,11 +7,11 @@
       xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="1100"
-      Title="addBuilding">
+      Title="addBuilding" Loaded="Page_Loaded">
 
     <Grid Background="White">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="29*"/>
+            <ColumnDefinition Width="400"/>
             <ColumnDefinition Width="81*"/>
         </Grid.ColumnDefinitions>
         <Border Grid.Column="1" Padding="5" Background="#F4F4F4">
@@ -24,42 +24,60 @@
                 </DockPanel>
                 <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
-                  
-                  ColumnHeaderStyle="{DynamicResource hederstyle}" ItemsSource="{DynamicResource ResourceKey=phones}">
-                    <DataGrid.Resources>
-                        <col:ArrayList x:Key="phones">
-                            <local:Phone id="1" Title="Примова Клара Бердибаевна " Company="Ниссан X-TRAIL 380 000 сом, Форд транзит- 300 000 сом" Price="54990"  />
-                            <local:Phone id="2" Title="Lumia 950" Company="Microsoft" Price="39990" />
-                            <local:Phone id="3" Title="Nexus 5X" Company="Google" Price="29990" />
-                        </col:ArrayList>
-                    </DataGrid.Resources>
+                  x:Name="dataGridView1"
+                  ColumnHeaderStyle="{DynamicResource hederstyle}" >
+
                 </DataGrid>
             </StackPanel>
         </Border>
         <Canvas>
-            <Label Content="Регистрация жилой комплекс" FontSize="16" Foreground="#00C3FF" Canvas.Left="30" Canvas.Top="45" ></Label>
-            <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Называния жилой комплекс" Height="24" Width="243" HorizontalAlignment="Right" Canvas.Left="26" Canvas.Top="82"/>
-            <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Количество этажей" Height="24" Width="243" HorizontalAlignment="Right" Canvas.Left="26" Canvas.Top="113"/>
-            <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Адресс комплекса" Height="105" Width="243" HorizontalAlignment="Right" Canvas.Left="26" Canvas.Top="144"/>
-            <Button Content="Отмена" Canvas.Left="21" Canvas.Top="261" Height="25" Width="125" Background="White" BorderThickness="2" BorderBrush="#0A6E9E" >
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Foreground" Value="#0A6E9E"/>
-                    </Style>
-                </Button.Style>
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="5,0,0,5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-            <Button Content="Регистрация" Canvas.Left="146" Canvas.Top="261" Height="25" Width="125" Background="#0A6E9E" Foreground="White" BorderThickness="0" >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="0,5,5,0"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
+            <Grid>
+                <Border Margin="14,44,-388,-394" BorderThickness="1" Padding="10" BorderBrush="#C1C0C0">
+                    <Canvas Margin="-7,-53,-17,-1">
+                        <Label Content="Регистрация жилой комплекс" x:Name="messageReg" FontSize="16" Foreground="#00C3FF" Canvas.Left="115" Canvas.Top="54" ></Label>
+                        <TextBox FontSize="14" x:Name="text1"  Style="{DynamicResource textbox_style}" Tag=" Называния жилой комплекс" Height="24" Width="243" HorizontalAlignment="Right" Canvas.Left="111" Canvas.Top="91" />
+                        <TextBox FontSize="14" x:Name="text2" Style="{DynamicResource textbox_style}" Tag=" Количество этажей" Height="24" Width="139" HorizontalAlignment="Right" Canvas.Left="110" Canvas.Top="122" PreviewTextInput="text1_PreviewTextInput" />
+                        <TextBox FontSize="14" x:Name="text3" Style="{DynamicResource textbox_style}" Tag=" Количество квартир" Height="24" Width="140" HorizontalAlignment="Right" Canvas.Left="109" Canvas.Top="155" PreviewTextInput="text1_PreviewTextInput" />
+                        <TextBox FontSize="14" x:Name="text4"  Style="{DynamicResource textbox_style}" Tag=" Количество подезд" Height="24" Width="138" HorizontalAlignment="Right" Canvas.Left="109" Canvas.Top="187" PreviewTextInput="text1_PreviewTextInput" />
+                        <TextBox FontSize="14" x:Name="text5"  Style="{DynamicResource textbox_style}" Tag=" Адресс комплекса" Height="67" Width="243" HorizontalAlignment="Right" Canvas.Left="110" Canvas.Top="247" TextWrapping="Wrap" />
+                        <Button Content="Регистрация" 
+                    Canvas.Left="58"
+                     x:Name="btnRegistr" Click="btnRegistr_Click"
+                    Canvas.Top="326"
+                    Cursor="Hand"
+                    Height="24" Width="124" Background="White" BorderThickness="2" BorderBrush="#0A6E9E" >
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Foreground" Value="#0A6E9E"/>
+                                </Style>
+                            </Button.Style>
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="5,0,0,5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button Content="Удалить"
+                    Canvas.Left="182" 
+                    Cursor="Hand"
+                    Canvas.Top="325" Height="25" Width="126" 
+                                Background="#0A6E9E" Foreground="White" BorderThickness="0" >
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="0,5,5,0"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Label x:Name="label" Content="Названия" Canvas.Left="21" Canvas.Top="88" Width="79"/>
+                        <Label x:Name="label_Copy" Content="Этаж" Canvas.Left="22" Canvas.Top="117" Width="79"/>
+                        <Label x:Name="label_Copy1" Content="Кол. этаж" Canvas.Left="21" Canvas.Top="152" Width="84"/>
+                        <Label x:Name="label_Copy2" Content="Кол. подезд" Canvas.Left="21" Canvas.Top="182" Width="84"/>
+                        <TextBox FontSize="14" x:Name="text6"  Style="{DynamicResource textbox_style}" Tag=" Номер дом" Height="24" Width="138" HorizontalAlignment="Right" Canvas.Left="109" Canvas.Top="216" PreviewTextInput="text1_PreviewTextInput" />
+                        <Label x:Name="label_Copy3" Content="№" Canvas.Left="20" Canvas.Top="211" Width="84"/>
+                        <Label x:Name="label_Copy4" Content="Адресс" Canvas.Left="22" Canvas.Top="247" Width="84"/>
+                    </Canvas>
+                </Border>
+            </Grid>
         </Canvas>
     </Grid>
 </Page>
