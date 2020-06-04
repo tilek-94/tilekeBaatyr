@@ -59,6 +59,22 @@ namespace УчетнаяСистема.All_classes
             connection.Close();
             eventDysplay2(a);
         }
+
+        public string DisplayReturn(string s)
+        {
+            connection.Open();
+            string sql = s,value="";
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                value = reader[0].ToString();
+               
+            }
+            connection.Close();
+            return value;
+        }
+
         public string[] RedInfor(string s)
         {
             connection.Open();
@@ -68,9 +84,9 @@ namespace УчетнаяСистема.All_classes
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-               f[1]= reader[0].ToString();
-               f[2]= reader[1].ToString();
-               f[3]= reader[2].ToString();
+               f[0]= reader[0].ToString();
+               f[1]= reader[1].ToString();
+               f[2]= reader[2].ToString();
 
             }
             connection.Close();

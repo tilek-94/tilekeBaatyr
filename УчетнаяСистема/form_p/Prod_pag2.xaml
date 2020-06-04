@@ -25,7 +25,7 @@
             <TextBox x:Name="textbox_dogovor" FontSize="14"  
                      Style="{DynamicResource textbox_style}"
                      Tag=" Договор" Height="24" Width="201" HorizontalAlignment="Right" Canvas.Left="119" Canvas.Top="130"/>
-            <Label Content="Сумма" Canvas.Left="440" Canvas.Top="35" FontSize="13" />
+            <Label Content="Цена кв." Canvas.Left="438" Canvas.Top="62" FontSize="13" />
             <TextBox x:Name="textbox_cars" FontSize="14"  Style="{DynamicResource textbox_style}"
                      Tag=" Машина" Height="24" Width="203" HorizontalAlignment="Right" Canvas.Left="119" Canvas.Top="97"/>
             <Label Content="Квартира" Canvas.Left="36" Canvas.Top="64" FontSize="13" />
@@ -34,28 +34,39 @@
                     x:Name="registr_client_btn"
                         Click="registr_client_btn_Click"
                         Canvas.Left="387" Canvas.Top="171" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221"/>
-            <TextBox x:Name="textbox_summa" FontSize="14"  Style="{DynamicResource textbox_style}"
-                     Tag=" Сумма (ДОЛЛАР)" Height="24" Width="209" HorizontalAlignment="Right" Canvas.Left="524" Canvas.Top="36"/>
             <Button Style="{DynamicResource Button_blue}" Content=""
                 x:Name="show_client_btn"
                 Click="show_client_btn_Click"
                 Canvas.Left="333" Canvas.Top="34" Width="32" Height="26"/>
-            <ComboBox Width="203" Canvas.Left="119" Canvas.Top="68" x:Name="ComboBox2"  IsEditable="True" Height="22"/>
-            <Label Content="Курс валюта" Canvas.Left="437" Canvas.Top="69" FontSize="13" />
-            <TextBox x:Name="textbox_kusr" FontSize="14" 
-                     Style="{DynamicResource textbox_style}"
-                     Tag=" Курс валюта" Height="23" Width="209"
-                     HorizontalAlignment="Right" Canvas.Left="525"
-                     Canvas.Top="69" KeyUp="textbox_kusr_KeyUp"  />
+            <ComboBox Width="203" Canvas.Left="119" Canvas.Top="68" 
+                      x:Name="ComboBox2"  IsEditable="True" Height="22"
+                      DropDownClosed="ComboBox2_DropDownClosed"
+                      />
+            
+            <Label Content="Курс валюта" Canvas.Left="437" Canvas.Top="94" FontSize="13" />
             <Button Style="{DynamicResource Button_blue}" Content=""
                 x:Name="show_client_Cars"
                 Click="show_client_Cars_Click"
                 Canvas.Left="332" Canvas.Top="96" Width="32" Height="26"/>
-            <Label Content="Сумма" Canvas.Left="443" Canvas.Top="101" FontSize="13" />
-            <TextBox x:Name="textbox_som" FontSize="14"  
-                     Style="{DynamicResource textbox_style}" 
-                     Tag=" Сумма (СОМ)" Height="23" Width="209"
-                     HorizontalAlignment="Right" Canvas.Left="524" Canvas.Top="101" />
+            <Label Content="Сумма" Canvas.Left="443" Canvas.Top="127" FontSize="13" />
+
+            <Label x:Name="label_kvm"
+                   BorderBrush="#FFABADB3"
+                   BorderThickness="1"
+                   Content="" Height="27" Canvas.Left="524" Canvas.Top="29" Width="208"/>
+            <Label Content="Кв. м." Canvas.Left="446" Canvas.Top="31" FontSize="13" />
+            <Label x:Name="label_sena"
+                BorderBrush="#FFABADB3"
+                BorderThickness="1"
+                Content="" Height="26" Canvas.Left="524" Canvas.Top="62" Width="208"/>
+            <Label x:Name="label_kurs"
+                BorderBrush="#FFABADB3"
+                BorderThickness="1"
+                Content="" Height="26" Canvas.Left="524" Canvas.Top="93" Width="208"/>
+            <Label x:Name="label_summ"
+                BorderBrush="#FFABADB3"
+                BorderThickness="1"
+                Content="" Height="26" Canvas.Left="523" Canvas.Top="126" Width="208"/>
 
 
         </Canvas>

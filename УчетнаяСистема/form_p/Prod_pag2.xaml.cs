@@ -29,6 +29,7 @@ namespace УчетнаяСистема.form_p
             InitializeComponent();
         }
         dbConnect dbCon = new dbConnect();
+        dbConnect dbCon2 = new dbConnect();
         int cars_id = 0;
         int client_id = 0;
         private void DataGrid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -38,14 +39,20 @@ namespace УчетнаяСистема.form_p
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+
             dbCon.eventDysplay += delegate (DataTable db)
             {
                 dataGridView1.ItemsSource = db.DefaultView;
-            };
-            dbCon.SoursData("select * from zakaz");
+                for (int i = 0; i < db.Rows.Count; i++)
+                {
+                   //MessageBox.Show( db.Rows[0][7].ToString());
 
-           string[] s = dbCon.RedInfor("SELECT floor,porch,count_kv FROM dom WHERE id='6'");
-            DelegATE(Convert.ToInt32( s[3]));
+                }
+            };
+            dbCon.SoursData("SELECT * FROM zakaz_z ");
+
+            string[] s = dbCon.RedInfor("SELECT floor,porch,count_kv FROM dom WHERE id='6'");
+            DelegATE(Convert.ToInt32( s[2]));
         }
         private void DelegATE(int f)
         {
@@ -69,13 +76,21 @@ namespace УчетнаяСистема.form_p
 
         private void registr_client_btn_Click(object sender, RoutedEventArgs e)
         {
-            dbCon.Registr("INSERT INTO zakaz(dom_id,klient_id,number_f,cars_id,contract,price_kvm,kurs) " +
-                  "values('6','" + client_id + "','" + ComboBox2.Text + "','" + cars_id + "','" + textbox_dogovor.Text + "','"+ textbox_summa .Text+ "','"+ textbox_kusr.Text+ "')");
+            dbCon.Registr("INSERT INTO zakaz(dom_id,klient_id,number_f,cars_id,contract,price_kvm,kurs,kvm) " +
+                  "values('6','" + client_id + "','" + ComboBox2.Text + "','" + cars_id + "','" + textbox_dogovor.Text + "','"+ sena_kvm.Replace(',','.') + "'" +
+                  ",'"+kurs.Replace(',', '.') + "','"+kvm.Replace(',', '.') + "')");
             dbCon.eventDysplay += delegate (DataTable db)
             {
                 dataGridView1.ItemsSource = db.DefaultView;
             };
-            dbCon.SoursData("select * from zakaz");
+            dbCon.SoursData("SELECT zakaz.id, dom.name as 'Дом',client.name as 'Клиент', " +
+                "cars.marka as 'Машина марка', zakaz.number_f as 'Номер квартира', " +
+                " zakaz.contract as 'Контракт', zakaz.kvm as 'Квадрат м.'," +
+                "zakaz.price_kvm as 'Цена за 1 кв. м.', zakaz.kurs as 'Курс валюта'," +
+                " zakaz.price_kvm * zakaz.kvm as 'Цена кв. доллар'," +
+                " ROUND((zakaz.price_kvm * zakaz.kvm) * zakaz.kurs, 2) as 'Цена кв. сом'" +
+                " FROM zakaz JOIN dom JOIN client JOIN cars ON dom.id = zakaz.dom_id and " +
+                "zakaz.klient_id = client.id and zakaz.cars_id = cars.id; ");
 
         }
 
@@ -104,41 +119,26 @@ namespace УчетнаяСистема.form_p
             search_Cars2.ShowDialog();
         }
 
-        private void address_Copy1_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-        double summa = 0,kurs=0,som=0;
-
-        private void textbox_som_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-           
-        }
-
-        private void textbox_kusr_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void textbox_kusr_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (textbox_kusr.Text != "") { 
-            summa = Convert.ToDouble(textbox_summa.Text);
-            kurs = Convert.ToDouble(textbox_kusr.Text);
-            som = summa * kurs;
-            textbox_som.Text = Convert.ToString(som);
-            }
-
+        string sena_kvm = "", kurs = "", kvm = "", summa = "", summa_kg = "";
+        private void ComboBox2_DropDownClosed(object sender, EventArgs e)
+        {           
+            dbCon2.eventDysplay += delegate (DataTable db)
+            {
+                sena_kvm=db.Rows[0][0].ToString();
+                kurs = db.Rows[0][1].ToString();
+                kvm = db.Rows[0][2].ToString();
+                summa = db.Rows[0][3].ToString();
+                summa_kg = db.Rows[0][4].ToString();
+            };
+            dbCon2.SoursData("SELECT  sena_kvm,kurs,sum(kvm), sena_kvm*sum(kvm),ROUND((sena_kvm*kurs)*sum(kvm),2) FROM " +
+                "flat join type_flat on flat.dom_id = type_flat.dom_id and " +
+                "flat.porch = type_flat.porch and flat.room = type_flat.room and flat.number_f = '"+ ComboBox2.Text+ "' " +
+                "and flat.type_flat = type_flat.`type`  ");
+            label_kvm.Content = kvm;
+            label_sena.Content = summa;
+            label_kurs.Content = kurs;
+            label_summ.Content = summa_kg;
         }
 
-        private void textbox_som_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void textbox_kusr_KeyDown(object sender, KeyEventArgs e)
-        {
-            
-        }
     }
 }

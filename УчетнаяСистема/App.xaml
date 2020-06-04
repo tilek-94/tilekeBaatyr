@@ -71,6 +71,42 @@
             </Setter>
         </Style>
 
+        <Style x:Key="menuCom" TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Margin" Value="0,0,0,1"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                                BorderThickness="5,0,0,0"
+                                BorderBrush="{x:Null}"
+                                Background="{x:Null}"
+                                >
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#7F1C82B4"/>
+                                <Setter TargetName="border" Property="Background" Value="#7F1C82B4"/>
+                                <Setter TargetName="border" Property="BorderThickness" Value="0,0,0,3"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="White"/>
+                                <Setter TargetName="border" Property="Background" Value="#7F1C82B4"/>
+                                <Setter TargetName="border" Property="BorderThickness" Value="0,0,0,3"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style TargetType="DataGrid" x:Key="grid_xml">
             <!-- Make the border and grid lines a little less imposing -->
             <Setter Property="BorderBrush" Value="#DDDDDD" />

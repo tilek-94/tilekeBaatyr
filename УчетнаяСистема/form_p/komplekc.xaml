@@ -6,84 +6,351 @@
       xmlns:local="clr-namespace:УчетнаяСистема.form_p"
       mc:Ignorable="d" 
       d:DesignHeight="650" d:DesignWidth="1100"
-      Title="komplekc">
+      Title="komplekc" Loaded="Page_Loaded">
 
-    <Grid Background="#0A6E9E">
+    <Grid Background="WhiteSmoke">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Content="+" Width="200" x:Name="button2" Click="button2_Click" ></Button>
-        <WrapPanel x:Name="WrapPanel1" Grid.Row="1">
+        <WrapPanel x:Name="WrapPanel1" Grid.Row="1" HorizontalAlignment="Center">
 
+           
             <Border HorizontalAlignment="Left" Margin="30,30,0,0" x:Name="border1">
-                <Button Style="{DynamicResource menuButton}" x:Name="button1" Click="button1_Click">
+                <Button Style="{DynamicResource menuCom}" x:Name="button1"   Click="button1_Click">
                     <StackPanel>
 
                         <Image>
                             <Image.Style>
                                 <Style TargetType="Image">
-                                    <Setter Property="Source" Value="../images/house.png" />
-                                    <Setter Property="Width" Value="40"/>
+                                    
+                                    <Setter Property="Source" Value="../images/dom2.png" />
+                                    <Setter Property="Width" Value="180"/>
                                     <Style.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Source" Value="../images/house2.png"/>
+                                            <Setter Property="Source" Value="../images/dom2.png"/>
 
                                         </Trigger>
                                     </Style.Triggers>
                                 </Style>
                             </Image.Style>
                         </Image>
-                        <TextBlock Margin="0,6,0,0" Foreground="White">ЖИЛОЙ КОМПЛЕКС</TextBlock>
+                        <TextBlock Margin="0,6,0,0"
+                                   HorizontalAlignment="Center"
+                                   Foreground="#0A6E9E"
+                                   FontSize="18"
+                                   x:Name="textBlock1"
+                                   >
+                            Тилеке баатыр
+                        </TextBlock>
                     </StackPanel>
                 </Button>
             </Border>
 
-            <Border HorizontalAlignment="Left" Margin="30,30,0,0" x:Name="border2">
-                <Button Style="{DynamicResource menuButton}" x:Name="button3" Click="button1_Click">
-                    <StackPanel>
-
-                        <Image>
-                            <Image.Style>
-                                <Style TargetType="Image">
-                                    <Setter Property="Source" Value="../images/house.png" />
-                                    <Setter Property="Width" Value="40"/>
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Source" Value="../images/house2.png"/>
-
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Image.Style>
-                        </Image>
-                        <TextBlock Margin="0,6,0,0" Foreground="White">ЖИЛОЙ КОМПЛЕКС</TextBlock>
-                    </StackPanel>
-                </Button>
-            </Border>
             <Border HorizontalAlignment="Left" Margin="30,30,0,0" x:Name="border3">
-                <Button Style="{DynamicResource menuButton}" x:Name="button4" Click="button1_Click">
+                <Button Style="{DynamicResource menuCom}" x:Name="button3" Click="button1_Click">
                     <StackPanel>
 
                         <Image>
                             <Image.Style>
                                 <Style TargetType="Image">
-                                    <Setter Property="Source" Value="../images/house.png" />
-                                    <Setter Property="Width" Value="40"/>
+
+                                    <Setter Property="Source" Value="../images/dom2.png" />
+                                    <Setter Property="Width" Value="180"/>
                                     <Style.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Source" Value="../images/house2.png"/>
+                                            <Setter Property="Source" Value="../images/dom2.png"/>
 
                                         </Trigger>
                                     </Style.Triggers>
                                 </Style>
                             </Image.Style>
                         </Image>
-                        <TextBlock Margin="0,6,0,0" Foreground="White">ЖИЛОЙ КОМПЛЕКС</TextBlock>
+                        <TextBlock Margin="0,6,0,0" Foreground="#0A6E9E"
+                                   FontSize="18"
+                                    HorizontalAlignment="Center"
+                                    x:Name="textBlock3"
+                                   >ЖИЛОЙ КОМПЛЕКС</TextBlock>
                     </StackPanel>
                 </Button>
             </Border>
 
+            <Border HorizontalAlignment="Left" Margin="30,30,0,0">
+                <Button Style="{DynamicResource menuCom}" x:Name="button4" Click="button1_Click">
+                    <StackPanel>
+
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+
+                                    <Setter Property="Source" Value="../images/dom2.png" />
+                                    <Setter Property="Width" Value="180"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="../images/dom2.png"/>
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <TextBlock Margin="0,6,0,0" Foreground="#0A6E9E"
+                                   FontSize="18"
+                                    HorizontalAlignment="Center"
+                                    x:Name="textBlock4"
+                                   >ЖИЛОЙ КОМПЛЕКС</TextBlock>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <Border HorizontalAlignment="Left" Margin="30,30,0,0" >
+                <Button Style="{DynamicResource menuCom}" x:Name="button5" Click="button1_Click">
+                    <StackPanel>
+
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+
+                                    <Setter Property="Source" Value="../images/dom2.png" />
+                                    <Setter Property="Width" Value="180"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="../images/dom2.png"/>
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <TextBlock Margin="0,6,0,0" Foreground="#0A6E9E"
+                                   FontSize="18"
+                                    HorizontalAlignment="Center"
+                                    x:Name="textBlock5"
+                                   >ЖИЛОЙ КОМПЛЕКС</TextBlock>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <Border HorizontalAlignment="Left" Margin="30,30,0,0" >
+                <Button Style="{DynamicResource menuCom}" x:Name="button6" Click="button1_Click">
+                    <StackPanel>
+
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+
+                                    <Setter Property="Source" Value="../images/dom2.png" />
+                                    <Setter Property="Width" Value="180"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="../images/dom2.png"/>
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <TextBlock Margin="0,6,0,0" Foreground="#0A6E9E"
+                                   FontSize="18"
+                                    HorizontalAlignment="Center"
+                                    x:Name="textBlock6"
+                                   >ЖИЛОЙ КОМПЛЕКС</TextBlock>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <Border HorizontalAlignment="Left" Margin="30,30,0,0" >
+                <Button Style="{DynamicResource menuCom}" x:Name="button7" Click="button1_Click">
+                    <StackPanel>
+
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+
+                                    <Setter Property="Source" Value="../images/dom2.png" />
+                                    <Setter Property="Width" Value="180"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="../images/dom2.png"/>
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <TextBlock Margin="0,6,0,0" Foreground="#0A6E9E"
+                                   FontSize="18"
+                                    HorizontalAlignment="Center"
+                                    x:Name="textBlock7"
+                                   >ЖИЛОЙ КОМПЛЕКС</TextBlock>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <Border HorizontalAlignment="Left" Margin="30,30,0,0" >
+                <Button Style="{DynamicResource menuCom}" x:Name="button8" Click="button1_Click">
+                    <StackPanel>
+
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+
+                                    <Setter Property="Source" Value="../images/dom2.png" />
+                                    <Setter Property="Width" Value="180"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="../images/dom2.png"/>
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <TextBlock Margin="0,6,0,0" Foreground="#0A6E9E"
+                                   FontSize="18"
+                                    HorizontalAlignment="Center"
+                                    x:Name="textBlock8"
+                                   >ЖИЛОЙ КОМПЛЕКС</TextBlock>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <Border HorizontalAlignment="Left" Margin="30,30,0,0" >
+                <Button Style="{DynamicResource menuCom}" x:Name="button9" Click="button1_Click">
+                    <StackPanel>
+
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+
+                                    <Setter Property="Source" Value="../images/dom2.png" />
+                                    <Setter Property="Width" Value="180"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="../images/dom2.png"/>
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <TextBlock Margin="0,6,0,0" Foreground="#0A6E9E"
+                                   FontSize="18"
+                                    HorizontalAlignment="Center"
+                                    x:Name="textBlock9"
+                                   >ЖИЛОЙ КОМПЛЕКС</TextBlock>
+                    </StackPanel>
+                </Button>
+            </Border>
+            <Border HorizontalAlignment="Left" Margin="30,30,0,0" >
+                <Button Style="{DynamicResource menuCom}" x:Name="button10" Click="button1_Click">
+                    <StackPanel>
+
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+
+                                    <Setter Property="Source" Value="../images/dom2.png" />
+                                    <Setter Property="Width" Value="180"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="../images/dom2.png"/>
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <TextBlock Margin="0,6,0,0" Foreground="#0A6E9E"
+                                   FontSize="18"
+                                    x:Name="textBlock10"
+                                   >ЖИЛОЙ КОМПЛЕКС</TextBlock>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <Border HorizontalAlignment="Left" Margin="30,30,0,0" >
+                <Button Style="{DynamicResource menuCom}" x:Name="button11" Click="button1_Click">
+                    <StackPanel>
+
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+
+                                    <Setter Property="Source" Value="../images/dom2.png" />
+                                    <Setter Property="Width" Value="180"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="../images/dom2.png"/>
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <TextBlock Margin="0,6,0,0" Foreground="#0A6E9E"
+                                   FontSize="18"
+                                    x:Name="textBlock11"
+                                   >ЖИЛОЙ КОМПЛЕКС</TextBlock>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <Border HorizontalAlignment="Left" Margin="30,30,0,0" >
+                <Button Style="{DynamicResource menuCom}" x:Name="button12" Click="button1_Click">
+                    <StackPanel>
+
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+
+                                    <Setter Property="Source" Value="../images/dom2.png" />
+                                    <Setter Property="Width" Value="180"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="../images/dom2.png"/>
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <TextBlock Margin="0,6,0,0" Foreground="#0A6E9E"
+                                   FontSize="18"
+                                    x:Name="textBlock12"
+                                   >ЖИЛОЙ КОМПЛЕКС</TextBlock>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <Border HorizontalAlignment="Left" Margin="30,30,0,0" >
+                <Button Style="{DynamicResource menuCom}" x:Name="button13" Click="button1_Click">
+                    <StackPanel>
+
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+
+                                    <Setter Property="Source" Value="../images/dom2.png" />
+                                    <Setter Property="Width" Value="180"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="../images/dom2.png"/>
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <TextBlock Margin="0,6,0,0" Foreground="#0A6E9E"
+                                   FontSize="18"
+                                    x:Name="textBlock13"
+                                   >ЖИЛОЙ КОМПЛЕКС</TextBlock>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+           
         </WrapPanel>
     </Grid>
 </Page>

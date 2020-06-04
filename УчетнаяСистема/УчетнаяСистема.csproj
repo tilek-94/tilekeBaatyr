@@ -60,6 +60,7 @@
     </ApplicationDefinition>
     <Compile Include="All_classes\dbConnect.cs" />
     <Compile Include="All_classes\DopClass.cs" />
+    <Compile Include="All_classes\staticClass.cs" />
     <Compile Include="form_p\addBuilding.xaml.cs">
       <DependentUpon>addBuilding.xaml</DependentUpon>
     </Compile>
@@ -244,6 +245,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\icon\clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\dom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\dom2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -32,18 +32,6 @@ namespace УчетнаяСистема.registr
         dbConnect dbCon2 = new dbConnect();
         string[] s;
 
-        private void test_Click(object sender, RoutedEventArgs e)
-        {
-            //dbCon.eventDysplay += delegate (DataTable db)
-            //{
-            //    ComboBox1.ItemsSource = db.DefaultView;
-            //    ComboBox1.DisplayMemberPath = "floor";
-            //    ComboBox1.SelectedValuePath = "id";
-            //};
-            //dbCon.SoursData("SELECT * FROM kvartira");
-
-            
-        }
         private void RegistData(string s)
         {
             
@@ -63,19 +51,19 @@ namespace УчетнаяСистема.registr
             s = dbCon.RedInfor("SELECT floor,porch,count_kv FROM dom WHERE id='6'");
             //MessageBox.Show("1");
 
-            for (int i = 1; i <= Convert.ToInt16(s[1]); i++)
+            for (int i = 1; i <= Convert.ToInt16(s[0]); i++)
             {
                 ComboBox_E.Items.Add(i.ToString());
                 
             }
 
-            for (int i = 1; i <= Convert.ToInt16(s[2]); i++)
+            for (int i = 1; i <= Convert.ToInt16(s[1]); i++)
             {
                 ComboBox_P.Items.Add(i.ToString());
 
             }
             
-            DelegATE(Convert.ToInt16(s[3]));
+            DelegATE(Convert.ToInt16(s[2]));
             RegistData("select id, number_f as 'Номер квартира',floor as 'Этаж', porch as 'Подъезд',type_flat as 'Тип картира' from flat");
 
 
@@ -106,9 +94,11 @@ namespace УчетнаяСистема.registr
             if (true)
             {
 
-                dbCon.Registr("INSERT INTO flat(dom_id,number_f,floor,porch,type_flat) " +
-                  "values('6','" + ComboBox_kv.Text + "','" + ComboBox_E.Text + "','" + ComboBox_P.Text + "','" +ComboBox_t.Text +"')");
-                RegistData("select id, number_f as 'Номер квартира',floor as 'Этаж', porch as 'Подъезд',type_flat as 'Тип картира' from flat");
+                dbCon.Registr("INSERT INTO flat(dom_id,floor,porch,room,type_flat,number_f,sena_kvm,kurs) " +
+                  "values('6','" + ComboBox_E.Text + "','" + ComboBox_P.Text + "','" + ComboBox_flat.Text + "','" +ComboBox_t.Text + "','" + ComboBox_kv.Text + "','" + textBox_sena.Text + "','"+ textBox1_valyta.Text + "')");
+                
+                RegistData("select * from flat");
+                
                 DelegATE(Convert.ToInt16(s[3]));
 
 
@@ -120,11 +110,6 @@ namespace УчетнаяСистема.registr
 
         }
 
-        
-        private void DisplayData2()
-        {
-
-        }
 
         private void btn_open_reg_typ_Click(object sender, RoutedEventArgs e)
         {
@@ -132,28 +117,43 @@ namespace УчетнаяСистема.registr
             registr_Type_Flat.ShowDialog();
         }
 
-        private void ComboBox_P_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboBox_t_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
-           
-            ComboBoxk_kom.Items.Clear();
             dbConnect dbCon = new dbConnect();
             dbCon.eventDysplay += delegate (DataTable db)
             {
-           for (int i = 0; i < db.Rows.Count; i++)
-                {
-                    ComboBoxk_kom.Items.Add(db.Rows[i][0].ToString());
-                   
-                }
-               
-                
+                type_flat_listwiew.ItemsSource = db.DefaultView;
             };
-          
-            dbCon.SoursData("SELECT room FROM properties_flat WHERE dom_id='6' and porch='" + ComboBox_P.SelectedItem.ToString()+"' GROUP BY room");
+            dbCon.SoursData("SELECT name,kvm from properties_flat" +
+                " WHERE dom_id='6' and porch='" + ComboBox_P.Text + "'" +
+                " and type_f='" + ComboBox_t.SelectedItem.ToString() + "' and room='" + ComboBox_flat.Text + "'");
         }
 
-        private void ComboBoxk_kom_SelectionChanged(object sender, SelectionChangedEventArgs e)
+      
+
+        private void ComboBox_P_DropDownClosed(object sender, EventArgs e)
         {
+
+            ComboBox_flat.Items.Clear();
+            dbConnect dbCon = new dbConnect();
+            dbCon.eventDysplay += delegate (DataTable db)
+            {
+                for (int i = 0; i < db.Rows.Count; i++)
+                {
+                    ComboBox_flat.Items.Add(db.Rows[i][0].ToString());
+
+                }
+
+
+            };
+           // MessageBox.Show(ComboBox_P.Text);
+            dbCon.SoursData("SELECT room FROM type_flat WHERE dom_id='6' and porch='" + ComboBox_P.Text + "' GROUP BY room");
+
+        }
+
+        private void ComboBoxk_kom_DropDownClosed(object sender, EventArgs e)
+        {
+
             ComboBox_t.Items.Clear();
             dbConnect dbCon = new dbConnect();
             dbCon.eventDysplay += delegate (DataTable db)
@@ -161,26 +161,41 @@ namespace УчетнаяСистема.registr
                 for (int i = 0; i < db.Rows.Count; i++)
                 {
                     ComboBox_t.Items.Add(db.Rows[i][0].ToString());
-                    
+
                 }
 
 
             };
 
-            dbCon.SoursData(" SELECT type_f FROM properties_flat WHERE porch='"+ComboBox_P.Text+"' and dom_id=6 and room='"+ ComboBoxk_kom.SelectedItem.ToString() + "' GROUP BY type_f;");
+            dbCon.SoursData(" SELECT type FROM type_flat WHERE dom_id='6' and porch='" + ComboBox_P.Text + "' and room='" + ComboBox_flat.Text + "' GROUP BY type;");
 
         }
 
-        private void ComboBox_t_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboBox_t_DropDownClosed(object sender, EventArgs e)
         {
-            dbConnect dbCon = new dbConnect();
-            dbCon.eventDysplay += delegate (DataTable db)
+            Display();
+        }
+
+        void Display()
+        {
+            dbCon2.eventDysplay += delegate (DataTable db)
             {
-                DataGrid2.ItemsSource = db.DefaultView;
+                type_flat_listwiew.ItemsSource = db.DefaultView;
             };
-            dbCon.SoursData("SELECT name,kvm from properties_flat" +
+            dbCon2.SoursData("SELECT name,kvm FROM type_flat" +
                 " WHERE dom_id='6' and porch='" + ComboBox_P.Text + "'" +
-                " and type_f='" + ComboBox_t.SelectedItem.ToString() + "' and room='" + ComboBoxk_kom.Text + "'");
+                " and type='" + ComboBox_t.Text + "' and room='" + ComboBox_flat.Text + "'");
+
+            TextBlock_kvm.Text = "Всего: " + dbCon2.DisplayReturn("SELECT SUM(kvm) FROM type_flat " +
+                " WHERE dom_id='6' and porch='" + ComboBox_P.Text + "'" +
+                " and type='" + ComboBox_t.Text + "' and room='" + ComboBox_flat.Text + "'") + " кв. м.";
+
+        }
+
+        private void textBox1_valyta_KeyUp(object sender, KeyEventArgs e)
+        {
+            double summa= Convert.ToDouble(textBox_sena.Text) * Convert.ToDouble(textBox1_valyta.Text);
+            textBox1_summa.Text = summa.ToString();
         }
     }
     public class Phone

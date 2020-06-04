@@ -27,7 +27,7 @@
 
                     </StackPanel>
                 </Border>
-                <DockPanel Grid.Row="1">
+                <DockPanel Grid.Row="1" x:Name="Menu">
                     <Border HorizontalAlignment="Left" Margin="5,0,0,0">
                         <Button Style="{DynamicResource menuButton}" x:Name="button1" Click="button1_Click">
                         <StackPanel>

@@ -26,14 +26,11 @@ namespace УчетнаяСистема
         {
             InitializeComponent();
         }
-       
+        public delegate void OpenForm();
+        public event OpenForm openform;
+
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            //Os_Grid.Children.Add(new Page1());
-            //if (pag.Content != null)
-            //    pag.Content = null;
-            //else
-            //pag.Content = new Page1();
             pag.Navigate(new System.Uri("form_p/addBuilding.xaml", UriKind.RelativeOrAbsolute));
         }
 
@@ -47,9 +44,13 @@ namespace УчетнаяСистема
 
         private void Loaded_Window(object sender, RoutedEventArgs e)
         {
+            //Menu.Visibility= Visibility.Hidden;
             pag.Navigate(new System.Uri("form_p/addBuilding.xaml", UriKind.RelativeOrAbsolute));
+            pag.Navigate(new System.Uri("form_p/komplekc.xaml", UriKind.RelativeOrAbsolute));
             OpenWindows();
         }
+
+        
 
         private void OpenWindows()
         {
@@ -90,10 +91,6 @@ namespace УчетнаяСистема
             OpenWindows();
         }
 
-        private void Button_Close_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void grafBtn_Click(object sender, RoutedEventArgs e)
         {

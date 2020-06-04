@@ -18,24 +18,41 @@
         <Border Background="White" Grid.Column="1" Grid.Row="0">
 
             <Canvas>
+                <TextBox FontSize="14" Name="textBox_sena"  Style="{DynamicResource textbox_style}"  Height="24" Width="79" HorizontalAlignment="Right" Canvas.Left="254" Canvas.Top="86" />
+
+                <TextBlock Width="180" x:Name="TextBlock_kvm" FontSize="20" Canvas.Left="483" Canvas.Top="124" >Всего:</TextBlock>
+
 
                 <Button Style="{DynamicResource Button_blue}" Content="Сохранить"
-                    x:Name="button12" Click="button1_Click" Canvas.Left="68" Canvas.Top="126" Width="168" Height="26"/>
+                    x:Name="button12" Click="button1_Click" Canvas.Left="68" 
+                        Canvas.Top="126" Width="168" Height="26"/>
                 <Button Style="{DynamicResource Button_White}" Content="Отмена"
                     x:Name="button22" Canvas.Left="250" Canvas.Top="126" Width="168" Height="25"/>
-                <ComboBox Width="79" Canvas.Left="253" Canvas.Top="53" BorderThickness="1 1 1 1" x:Name="ComboBox_P" Background="{x:Null}" IsEditable="True" Height="23" SelectionChanged="ComboBox_P_SelectionChanged"/>
-                <Label x:Name="label12" Content="Этаж" Canvas.Left="36" Canvas.Top="53" Height="26" Width="58"/>
+                <ComboBox Width="79" Canvas.Left="253"
+                          Canvas.Top="53" BorderThickness="1 1 1 1" 
+                          x:Name="ComboBox_P" Background="{x:Null}" 
+                          IsEditable="True" Height="23" 
+                          DropDownClosed="ComboBox_P_DropDownClosed"
+                          />
+                <Label x:Name="label12" Content="Этаж"
+ Canvas.Left="36" Canvas.Top="53" Height="26" Width="58"/>
                 <Label x:Name="label22" Content="Подъезд" Canvas.Left="181" Canvas.Top="53" Height="26" Width="58" RenderTransformOrigin="0.513,0.038"/>
                 <ComboBox Width="83" Canvas.Left="78" Canvas.Top="53" x:Name="ComboBox_E"  IsEditable="True" Height="23"/>
                 <ComboBox Width="81" Canvas.Left="80"
-                          
                           Canvas.Top="88" x:Name="ComboBox_kv"  IsEditable="True" Height="23"/>
                 <Label x:Name="label32" Content="Квартира" Canvas.Left="16" Canvas.Top="85" Height="26" Width="72" RenderTransformOrigin="1.069,0.596"/>
                 <Label x:Name="label32_Copy" Content="Тип квартира" Canvas.Left="511" Canvas.Top="53" Height="26" Width="89" RenderTransformOrigin="1.069,0.596"/>
-                <ComboBox Width="70" Canvas.Left="596" Canvas.Top="53" BorderThickness="1 1 1 1" x:Name="ComboBox_t" Background="{x:Null}" IsEditable="True" Height="23" SelectionChanged="ComboBox_t_SelectionChanged"/>
+                <ComboBox Width="70" Canvas.Left="596"
+                          Canvas.Top="53" BorderThickness="1 1 1 1" 
+                          x:Name="ComboBox_t" Background="{x:Null}"
+                          IsEditable="True" Height="23"
+                          DropDownClosed="ComboBox_t_DropDownClosed"
+                          />
                 <Label x:Name="label32_Copy1" Content="Комната" Canvas.Left="357" Canvas.Top="53" Height="26" Width="72" RenderTransformOrigin="1.069,0.596"/>
-                <ComboBox Width="81" Canvas.Left="414" Canvas.Top="53" x:Name="ComboBoxk_kom"  IsEditable="True" Height="23" SelectionChanged="ComboBoxk_kom_SelectionChanged">
-                    
+                <ComboBox Width="81" Canvas.Left="414" Canvas.Top="53" 
+                          x:Name="ComboBox_flat"  IsEditable="True"
+                          Height="23" DropDownClosed="ComboBoxk_kom_DropDownClosed">
+
                 </ComboBox>
                 <Button  Content="Регистрация тип квартира"
                       Background="{x:Null}"
@@ -48,13 +65,25 @@
                          Cursor="Hand"
                          Height="25" />
                 <DataGrid Width="700" Canvas.Left="1"
-                          x:Name="DataGrid2"
+                          x:Name="type_flat_listwiew"
                             ColumnHeaderStyle="{DynamicResource hederstyle}"
                           FontSize="12"  Style="{DynamicResource grid_xml}"
                           Canvas.Top="160" Height="189"
                           >
 
                 </DataGrid>
+                <Label x:Name="label22_Copy" Content="Цена за 1квм" Canvas.Left="173" Canvas.Top="84" Height="26" Width="84" RenderTransformOrigin="0.513,0.038"/>
+                <TextBox FontSize="14" x:Name="textBox1_valyta" 
+                         Style="{DynamicResource textbox_style}" 
+                         KeyUp="textBox1_valyta_KeyUp"
+                         Height="24" Width="79" HorizontalAlignment="Right" 
+                         Canvas.Left="417" Canvas.Top="86" />
+                <Label x:Name="label22_Copy1" Content="Курс валюта" Canvas.Left="341" Canvas.Top="86" Height="26" Width="79" RenderTransformOrigin="0.513,0.038"/>
+                <TextBox FontSize="14" x:Name="textBox1_summa" 
+                         Style="{DynamicResource textbox_style}" 
+                         Height="24" Width="79" HorizontalAlignment="Right" 
+                         Canvas.Left="594" Canvas.Top="86" />
+                <Label x:Name="label22_Copy2" Content="Курс валюта" Canvas.Left="516" Canvas.Top="87" Height="26" Width="79" RenderTransformOrigin="0.513,0.038"/>
             </Canvas>
 
 
