@@ -68,6 +68,9 @@
     <Compile Include="All_classes\dbConnect.cs" />
     <Compile Include="All_classes\DopClass.cs" />
     <Compile Include="All_classes\staticClass.cs" />
+    <Compile Include="Bron_WinDow.xaml.cs">
+      <DependentUpon>Bron_WinDow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="form_p\addBuilding.xaml.cs">
       <DependentUpon>addBuilding.xaml</DependentUpon>
     </Compile>
@@ -110,6 +113,10 @@
     <Compile Include="Window2.xaml.cs">
       <DependentUpon>Window2.xaml</DependentUpon>
     </Compile>
+    <Page Include="Bron_WinDow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="form_p\addBuilding.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
