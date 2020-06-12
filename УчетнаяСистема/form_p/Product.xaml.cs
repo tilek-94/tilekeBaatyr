@@ -28,5 +28,10 @@ namespace УчетнаяСистема.form_p
         {
 
         }
+
+        private void Button_Clic(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

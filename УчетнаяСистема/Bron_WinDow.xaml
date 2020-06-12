@@ -5,8 +5,80 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:УчетнаяСистема"
         mc:Ignorable="d"
-        Title="Bron_WinDow" Height="450" Width="800">
-    <Grid>
-        
+        Height="700"  Width="700" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
+    <Grid Background="White" Margin="10">
+        <Grid.Effect>
+            <DropShadowEffect Opacity="0.5" Direction="260" ShadowDepth="1"/>
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="280"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
+        <Grid Grid.Row="1" Margin="0,1,0,334" Grid.RowSpan="2">
+            <StackPanel Margin="30,0,30,0">
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label  Content="Ф.И.О" Margin="0,0,0,0"/>
+
+                    <TextBox FontSize="14" x:Name="text1"  Style="{DynamicResource textbox_style}" Tag="Ф.И.О" Height="24" Width="250" HorizontalAlignment="Right"  Margin="85,0,0,0"/>
+                    <Button Style="{DynamicResource Button_Add}" Width="32" Height="26" Margin="20,0,0,0">
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Setter Property="Source" Value="images/icon/add.png" />
+                                    <Setter Property="Width" Value="40"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="images/icon/add1.png"/>
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label  Content="Номеры квартира" Margin="0,0,0,0"/>
+                    <ComboBox Width="250" Margin="18,0,0,0"
+                        IsEditable="True" Height="22" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label  Content="Цена за квартира" Margin="0,0,0,0"/>
+                    <TextBox FontSize="14"   Style="{DynamicResource textbox_style}" Tag="Цена за квартира" Height="24" Width="250" HorizontalAlignment="Right"  Margin="22,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label  Content="Курс валюта" Margin="0,0,0,0"/>
+                    <TextBox FontSize="14"   Style="{DynamicResource textbox_style}" Tag="Курс валюта" Height="24" Width="250" HorizontalAlignment="Right"  Margin="51,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label  Content="Сумма сом" Margin="0,0,0,0"/>
+                    <TextBox FontSize="14"   Style="{DynamicResource textbox_style}" Tag="Сумма сом" Height="24" Width="250" HorizontalAlignment="Right"  Margin="60,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0" HorizontalAlignment="Center">
+                    <Button Style="{DynamicResource Button_blue}" Content="Удалить" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221" Margin="0,0,0,0" />
+                    <Button Style="{DynamicResource Button_blue}" Content="Сохранить" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221" Margin="5,0,0,0"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+
+        <Border Grid.Row="2" Padding="5" Background="#F4F4F4">
+            <StackPanel  Background="White" >
+                <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
+                    <Label Content="Брон квартиры" FontSize="16" Foreground="#00C3FF" ></Label>
+                    <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" Tag=" Поиск данные" Height="25" Width="200" Margin="5" HorizontalAlignment="Right">
+
+                    </TextBox>
+                </DockPanel>
+                <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
+                  HeadersVisibility="Column"
+                  x:Name="dataGridView1"
+                  ColumnHeaderStyle="{DynamicResource hederstyle}" >
+
+                </DataGrid>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

@@ -12,10 +12,11 @@
             <DropShadowEffect Opacity="0.5" Direction="260" ShadowDepth="1"/>
         </Grid.Effect>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="280"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
         <Grid Grid.Row="1" Margin="0,1,0,334" Grid.RowSpan="2">
             <TextBox FontSize="14" x:Name="text4"  Style="{DynamicResource textbox_style}" Tag=" Доллар"  Width="242" Height="25" HorizontalAlignment="Right" Canvas.Left="109" Canvas.Top="187"  Margin="0,86,81,204" TextChanged="text4_TextChanged" />
             <TextBox FontSize="14" x:Name="text5"  Style="{DynamicResource textbox_style}" Tag=" Характеристика твар" Height="67" Width="243" HorizontalAlignment="Right" Canvas.Left="110" Canvas.Top="247" TextWrapping="Wrap" Margin="0,12,79,236" />
