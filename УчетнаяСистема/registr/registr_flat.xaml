@@ -18,7 +18,6 @@
         <Border Background="White" Grid.Column="1" Grid.Row="0">
 
             <Canvas>
-                <TextBox FontSize="14" Name="textBox_sena"  Style="{DynamicResource textbox_style}"  Height="24" Width="79" HorizontalAlignment="Right" Canvas.Left="254" Canvas.Top="86" />
 
                 <TextBlock Width="180" x:Name="TextBlock_kvm" FontSize="20" Canvas.Left="483" Canvas.Top="124" >Всего:</TextBlock>
 
@@ -72,18 +71,6 @@
                           >
 
                 </DataGrid>
-                <Label x:Name="label22_Copy" Content="Цена за 1квм" Canvas.Left="173" Canvas.Top="84" Height="26" Width="84" RenderTransformOrigin="0.513,0.038"/>
-                <TextBox FontSize="14" x:Name="textBox1_valyta" 
-                         Style="{DynamicResource textbox_style}" 
-                         KeyUp="textBox1_valyta_KeyUp"
-                         Height="24" Width="79" HorizontalAlignment="Right" 
-                         Canvas.Left="417" Canvas.Top="86" />
-                <Label x:Name="label22_Copy1" Content="Курс валюта" Canvas.Left="341" Canvas.Top="86" Height="26" Width="79" RenderTransformOrigin="0.513,0.038"/>
-                <TextBox FontSize="14" x:Name="textBox1_summa" 
-                         Style="{DynamicResource textbox_style}" 
-                         Height="24" Width="79" HorizontalAlignment="Right" 
-                         Canvas.Left="594" Canvas.Top="86" />
-                <Label x:Name="label22_Copy2" Content="Курс валюта" Canvas.Left="516" Canvas.Top="87" Height="26" Width="79" RenderTransformOrigin="0.513,0.038"/>
             </Canvas>
 
 

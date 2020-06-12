@@ -1,0 +1,56 @@
+﻿<Window x:Class="УчетнаяСистема.form_p.Product"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:УчетнаяСистема.form_p"
+        mc:Ignorable="d"
+        Title="Product" Height="700" 
+        Width="550" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
+    <Grid Background="White" Margin="10">
+        <Grid.Effect>
+            <DropShadowEffect Opacity="0.5" Direction="260" ShadowDepth="1"/>
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="280"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Margin="0,1,0,334" Grid.RowSpan="2">
+            <TextBox FontSize="14" x:Name="text4"  Style="{DynamicResource textbox_style}" Tag=" Доллар"  Width="242" Height="25" HorizontalAlignment="Right" Canvas.Left="109" Canvas.Top="187"  Margin="0,86,81,204" TextChanged="text4_TextChanged" />
+            <TextBox FontSize="14" x:Name="text5"  Style="{DynamicResource textbox_style}" Tag=" Характеристика твар" Height="67" Width="243" HorizontalAlignment="Right" Canvas.Left="110" Canvas.Top="247" TextWrapping="Wrap" Margin="0,12,79,236" />
+            <TextBox FontSize="14" x:Name="text4_Copy"  Style="{DynamicResource textbox_style}" Tag=" Курс"  Width="242" Height="25" HorizontalAlignment="Right"  Margin="0,119,82,171" />
+            <TextBox FontSize="14" x:Name="text4_Copy1"  Style="{DynamicResource textbox_style}" Tag=" Сом"  Width="242" Height="25" HorizontalAlignment="Right" Margin="0,156,82,134" />
+            <Button Style="{DynamicResource Button_blue}" Content="Сохранить"
+                x:Name="button"  Margin="97,201,265,88"/>
+            <Button Style="{DynamicResource Button_White}" Content="Удалить"
+                x:Name="button2" Margin="275,202,87,88"/>
+            <Button Style="{DynamicResource Button_blue}" Content="Выбрать"
+                x:Name="button_vbor" Margin="99,235,88,54"/>
+
+
+
+            <Label x:Name="label" Content="Характеристика твара" Margin="50,15,341,272"/>
+            <Label x:Name="label_Copy" Content="Цена товара на долларах" Margin="50,84,325,204"/>
+            <Label x:Name="label_Copy1" Content="Курс валюта" Margin="48,119,357,170"/>
+            <Label x:Name="label_Copy2" Content="Цена на сомах" Margin="50,155,355,133"/>
+        </Grid>
+
+        <Border Grid.Row="2" Padding="5" Background="#F4F4F4">
+            <StackPanel  Background="White" >
+                <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
+                    <Label Content="KG Group Компаниясы" FontSize="16" Foreground="#00C3FF" ></Label>
+                    <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" Tag=" Поиск данные" Height="25" Width="200" Margin="5" HorizontalAlignment="Right">
+
+                    </TextBox>
+                </DockPanel>
+                <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
+                  HeadersVisibility="Column"
+                  x:Name="dataGridView1"
+                  ColumnHeaderStyle="{DynamicResource hederstyle}" >
+
+                </DataGrid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

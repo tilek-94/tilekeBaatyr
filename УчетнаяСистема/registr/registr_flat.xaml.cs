@@ -94,8 +94,8 @@ namespace УчетнаяСистема.registr
             if (true)
             {
 
-                dbCon.Registr("INSERT INTO flat(dom_id,floor,porch,room,type_flat,number_f,sena_kvm,kurs) " +
-                  "values('6','" + ComboBox_E.Text + "','" + ComboBox_P.Text + "','" + ComboBox_flat.Text + "','" +ComboBox_t.Text + "','" + ComboBox_kv.Text + "','" + textBox_sena.Text + "','"+ textBox1_valyta.Text + "')");
+                dbCon.Registr("INSERT INTO flat(dom_id,floor,porch,room,type_flat,number_f) " +
+                  "values('6','" + ComboBox_E.Text + "','" + ComboBox_P.Text + "','" + ComboBox_flat.Text + "','" +ComboBox_t.Text + "','" + ComboBox_kv.Text + "')");
                 
                 RegistData("select * from flat");
                 
@@ -191,12 +191,12 @@ namespace УчетнаяСистема.registr
                 " and type='" + ComboBox_t.Text + "' and room='" + ComboBox_flat.Text + "'") + " кв. м.";
 
         }
-
+/*
         private void textBox1_valyta_KeyUp(object sender, KeyEventArgs e)
         {
             double summa= Convert.ToDouble(textBox_sena.Text) * Convert.ToDouble(textBox1_valyta.Text);
             textBox1_summa.Text = summa.ToString();
-        }
+        }*/
     }
     public class Phone
     {

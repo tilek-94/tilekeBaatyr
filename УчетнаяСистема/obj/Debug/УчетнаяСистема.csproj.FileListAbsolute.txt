@@ -78,3 +78,9 @@ D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\registr\registr_f
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\registr\registr_flat.baml
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\registr\registr_type_flat.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\registr\registr_type_flat.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\Syncfusion.Shared.WPF.dll
+D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\Syncfusion.Shared.WPF.xml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Product.g.cs
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Product.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\exchange.g.cs
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\exchange.baml

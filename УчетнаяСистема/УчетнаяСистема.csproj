@@ -38,8 +38,13 @@
     <Reference Include="MySql.Data">
       <HintPath>E:\c#\MySQL\MySql.Data.DLL</HintPath>
     </Reference>
+    <Reference Include="ReachFramework" />
+    <Reference Include="Syncfusion.Shared.WPF, Version=18.1460.0.42, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -49,6 +54,8 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -70,11 +77,17 @@
     <Compile Include="form_p\Cars_pag.xaml.cs">
       <DependentUpon>Cars_pag.xaml</DependentUpon>
     </Compile>
+    <Compile Include="form_p\exchange.xaml.cs">
+      <DependentUpon>exchange.xaml</DependentUpon>
+    </Compile>
     <Compile Include="form_p\komplekc.xaml.cs">
       <DependentUpon>komplekc.xaml</DependentUpon>
     </Compile>
     <Compile Include="form_p\Peple_pag.xaml.cs">
       <DependentUpon>Peple_pag.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="form_p\Product.xaml.cs">
+      <DependentUpon>Product.xaml</DependentUpon>
     </Compile>
     <Compile Include="form_p\Prod_pag2.xaml.cs">
       <DependentUpon>Prod_pag2.xaml</DependentUpon>
@@ -109,11 +122,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="form_p\exchange.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="form_p\komplekc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="form_p\Peple_pag.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="form_p\Product.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

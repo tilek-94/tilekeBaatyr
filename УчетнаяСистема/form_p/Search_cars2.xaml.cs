@@ -26,7 +26,7 @@ namespace УчетнаяСистема.form_p
             InitializeComponent();
         }
         dbConnect dbCon = new dbConnect();
-        public delegate void MessageID(string id, string name);
+        public delegate void MessageID(string id, string name,string summa,string kurs);
         public event MessageID mes_;
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -59,7 +59,7 @@ namespace УчетнаяСистема.form_p
             dbCon.SoursData("SELECT * FROM cars");
 
         }
-        string id_1 = "", marka_1;
+        string id_1 = "", marka_1, prih_summ_1="", kurs_1="";
         private void dataGridView1_MouseUp(object sender, MouseButtonEventArgs e)
         {
             
@@ -69,8 +69,8 @@ namespace УчетнаяСистема.form_p
              marka_1 = dataRow.Row.ItemArray[1].ToString();
             string data_1 = dataRow.Row.ItemArray[2].ToString();
             string nomer_1 = dataRow.Row.ItemArray[3].ToString();
-            string prih_summ_1 = dataRow.Row.ItemArray[4].ToString();
-            string kurs_1 = dataRow.Row.ItemArray[5].ToString();
+             prih_summ_1 = dataRow.Row.ItemArray[4].ToString();
+             kurs_1 = dataRow.Row.ItemArray[5].ToString();
             string info_1 = dataRow.Row.ItemArray[6].ToString();
             /*,data,nomer,prih_summ,kurs,info;*/
             marka.Text = marka_1;
@@ -83,7 +83,7 @@ namespace УчетнаяСистема.form_p
 
         private void button_vbor_Click(object sender, RoutedEventArgs e)
         {
-            mes_(id_1,marka_1);
+            mes_(id_1,marka_1, prih_summ_1, kurs_1);
             this.Close();
         }
     }

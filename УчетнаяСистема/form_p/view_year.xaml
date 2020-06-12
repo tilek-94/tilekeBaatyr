@@ -6,7 +6,11 @@
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib" 
         xmlns:local="clr-namespace:УчетнаяСистема"
         mc:Ignorable="d"
-        Title="view_year" Height="650" Width="800" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="view_year" Height="650"
+        Width="800" AllowsTransparency="True"
+        WindowStyle="None" Background="{x:Null}"
+        Loaded="Window_Loaded" 
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Background="White" Margin="15">
         <Grid.Effect>
             <DropShadowEffect Direction="270" BlurRadius="10" ShadowDepth="0" Opacity="0.45"/>
@@ -15,7 +19,7 @@
             <RowDefinition Height="15"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Border Background="#0A6E9E">
+        <Border Background="#F4F4F4">
 
         </Border>
         <Border Grid.Row="1" Padding="5" Background="#F4F4F4">

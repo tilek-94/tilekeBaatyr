@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using УчетнаяСистема.All_classes;
+using System.Data;
+using System.ComponentModel;
 
 namespace УчетнаяСистема.form_p
 {
@@ -21,8 +23,8 @@ namespace УчетнаяСистема.form_p
     /// </summary>
     public partial class view_year : Window
     {
-       /* ObservableCollection<Employee> employees = new ObservableCollection<Employee>();*/
-        public view_year()
+        /*ObservableCollection<Employee> employees = new ObservableCollection<Employee>();
+      */  public view_year()
         {
             InitializeComponent();
             /*employees.Add(new Employee { ID = 1, year=2019, Name = "февраль",  Type = EmployeeType.Normal, BirthDate = new DateTime(1980, 1, 1) });
@@ -41,16 +43,32 @@ namespace УчетнаяСистема.form_p
             employees.Add(new Employee { ID = 7, year = 2018, Name = "Brian", IsMale = true, Type = EmployeeType.Normal, SiteID = new Uri("http://localhost/4322"), BirthDate = new DateTime(1942, 1, 1) });
             employees.Add(new Employee { ID = 8, year = 2017, Name = "Santa", IsMale = true, Type = EmployeeType.Normal, SiteID = new Uri("http://localhost/4432"), BirthDate = new DateTime(1976, 2, 1) });
             employees.Add(new Employee { ID = 9, year = 2017, Name = "Ruby", IsMale = false, Type = EmployeeType.Normal, SiteID = new Uri("http://localhost/4872"), BirthDate = new DateTime(1990, 3, 1) });
-
+*//*
             ListCollectionView collectionView = new ListCollectionView(employees);
-            collectionView.GroupDescriptions.Add(new PropertyGroupDescription("year"));
-            myDataGrid.ItemsSource = collectionView;
-   */     }
+            collectionView.GroupDescriptions.Add(new чPropertyGroupDescription("year"));
+            myDataGrid.ItemsSource = collectionView;*/
+       }
 
         private void myDataGrid_MouseUp(object sender, MouseButtonEventArgs e)
         {/*
             Employee employee = myDataGrid.SelectedItem as Employee;
             MessageBox.Show("ID"+employee.ID);*/
+        }
+        dbConnect dbCon = new dbConnect();
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            dbCon.eventDysplay += delegate (DataTable db)
+            {
+                myDataGrid.ItemsSource = db.DefaultView;
+            };
+            dbCon.SoursData("SELECT * FROM zakaz");
+            ICollectionView cvTasks = CollectionViewSource.GetDefaultView(myDataGrid.ItemsSource);
+            if (cvTasks != null && cvTasks.CanGroup == true)
+            {
+                cvTasks.GroupDescriptions.Clear();
+                cvTasks.GroupDescriptions.Add(new PropertyGroupDescription("klient_id"));
+               
+            }
         }
     }
 }
