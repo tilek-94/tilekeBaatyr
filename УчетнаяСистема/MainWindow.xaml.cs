@@ -27,7 +27,7 @@ namespace УчетнаяСистема
             InitializeComponent();
         }
         public delegate void OpenForm();
-        public event OpenForm openform;
+       // public event OpenForm openform;
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
