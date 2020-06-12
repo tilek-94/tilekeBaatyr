@@ -23,5 +23,10 @@ namespace УчетнаяСистема.form_p
         {
             InitializeComponent();
         }
+
+        private void ComboBox2_DropDownClosed(object sender, EventArgs e)
+        {
+
+        }
     }
 }

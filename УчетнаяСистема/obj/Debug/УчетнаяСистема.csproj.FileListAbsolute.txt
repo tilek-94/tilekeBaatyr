@@ -38,7 +38,6 @@ D:\Проект\УчетнаяСистема\УчетнаяСистема\obj\De
 D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\УчетнаяСистема.exe.config
 D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\УчетнаяСистема.exe
 D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\УчетнаяСистема.pdb
-D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.csprojAssemblyReference.cache
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\addBuilding.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\addPeople.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Cars_pag.g.cs
@@ -69,17 +68,13 @@ D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\Window2.baml
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.g.resources
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.Properties.Resources.resources
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.csproj.GenerateResource.cache
-D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.csproj.CoreCompileInputs.cache
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.exe
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.pdb
-D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\MySql.Data.DLL
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.csproj.CopyComplete
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\registr\registr_flat.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\registr\registr_flat.baml
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\registr\registr_type_flat.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\registr\registr_type_flat.baml
-D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\Syncfusion.Shared.WPF.dll
-D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\Syncfusion.Shared.WPF.xml
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Product.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Product.baml
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\exchange.g.cs

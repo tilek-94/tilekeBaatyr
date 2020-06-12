@@ -16,6 +16,65 @@
         <Grid.Effect>
             <DropShadowEffect BlurRadius="10" Direction="270" Opacity="0.5" ShadowDepth="0"/>
         </Grid.Effect>
+        <Grid Grid.Row="1">
+            <StackPanel Margin="30,0,30,0">
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label  Content="Ф.И.О" Margin="0,0,0,0"/>
+
+                    <TextBox FontSize="14" x:Name="text1"  Style="{DynamicResource textbox_style}" Tag="Ф.И.О" Height="24" Width="250" HorizontalAlignment="Right"  Margin="85,0,0,0"/>
+                    <Button Style="{DynamicResource Button_Add}" Width="32" Height="26" Margin="20,0,0,0">
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Setter Property="Source" Value="..\images\icon\add.png" />
+                                    <Setter Property="Width" Value="40"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="..\images\icon\add1.png"/>
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label  Content="Имя товар" Margin="0,0,0,0"/>
+
+                    <TextBox FontSize="14"   Style="{DynamicResource textbox_style}" Tag="Имя товар" Height="24" Width="250" HorizontalAlignment="Right"  Margin="60,0,0,0"/>
+                    <Button Style="{DynamicResource Button_blue}"  Width="32" Height="26" Margin="20,0,0,0">
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Setter Property="Source" Value="..\images\icon\add.png" />
+                                    <Setter Property="Width" Value="40"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="..\images\icon\add1.png"/>
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label  Content="Номеры квартира" Margin="0,0,0,0"/>
+                    <ComboBox Width="250" Margin="18,0,0,0"
+                        IsEditable="True" Height="22"
+                       
+                      />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Button Style="{DynamicResource Button_blue}" Content="Удалить" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221" />
+                    <Button Style="{DynamicResource Button_blue}" Content="Выбрать" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221" Margin="20,0"/>
+                    <Button Style="{DynamicResource Button_blue}" Content="Сохранить" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
         <Border Grid.Row="2" Padding="5" Background="#F4F4F4">
             <StackPanel  Background="White" >
                 <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">

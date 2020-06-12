@@ -35,10 +35,12 @@
                     x:Name="registr_client_btn"
                         Click="registr_client_btn_Click"
                         Canvas.Left="387" Canvas.Top="171" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221"/>
-            <Button Style="{DynamicResource Button_blue}" Content=""
+            <Button Style="{DynamicResource Button_blue}"
                 x:Name="show_client_btn"
                 Click="show_client_btn_Click"
-                Canvas.Left="333" Canvas.Top="34" Width="32" Height="26"/>
+                Canvas.Left="333" Canvas.Top="34" Width="32" Height="26">
+               
+            </Button>
             <ComboBox Width="203" Canvas.Left="119" Canvas.Top="68" 
                       x:Name="ComboBox2"  IsEditable="True" Height="22"
                       DropDownClosed="ComboBox2_DropDownClosed"

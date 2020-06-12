@@ -313,6 +313,35 @@
             <Setter Property="BorderBrush" Value="#FFC1C0C0"/>
             
         </Style>
+        
+        <!--Добавить кнопкасына стил-->
+        <Style x:Key="Button_Add" TargetType="Button">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                                BorderThickness="0,0,0,0"
+                                CornerRadius="5"
+                                BorderBrush="{x:Null}"
+                                Background="#0A6E9E"
+                                >
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#0A6E9E"/>
+                                <Setter TargetName="border" Property="Background" Value="White"/>
+                                <Setter TargetName="border" Property="BorderThickness" Value="2,2,2,2"/>
+                                <Setter  Property="Foreground" Value="#0A6E9E"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
         <Style x:Key="Button_blue" TargetType="Button">
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Foreground" Value="White"/>
@@ -326,7 +355,7 @@
                                 BorderBrush="{x:Null}"
                                 Background="#0A6E9E"
                                 >
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
