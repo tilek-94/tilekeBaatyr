@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:УчетнаяСистема"
         mc:Ignorable="d"
-        Height="700"  Width="700" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
+        Height="700"  Width="700" WindowStartupLocation="CenterScreen" 
+        Loaded="Window_Loaded"
+        AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
     <Grid Background="White" Margin="10">
         <Grid.Effect>
             <DropShadowEffect Opacity="0.5" Direction="260" ShadowDepth="1"/>
@@ -17,12 +19,14 @@
         </Grid.RowDefinitions>
         <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
         <Grid Grid.Row="1" Margin="0,1,0,334" Grid.RowSpan="2">
-            <StackPanel Margin="30,0,30,0">
+            <StackPanel Margin="88,-1,116,1">
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Ф.И.О" Margin="0,0,0,0"/>
 
                     <TextBox FontSize="14" x:Name="text1"  Style="{DynamicResource textbox_style}" Tag="Ф.И.О" Height="24" Width="250" HorizontalAlignment="Right"  Margin="85,0,0,0"/>
-                    <Button Style="{DynamicResource Button_Add}" Width="32" Height="26" Margin="20,0,0,0">
+                    <Button Style="{DynamicResource Button_Add}" Width="32"
+                            x:Name="view_btn" Click="view_btn_Click"
+                            Height="26" Margin="20,0,0,0">
                         <Image>
                             <Image.Style>
                                 <Style TargetType="Image">
@@ -42,23 +46,33 @@
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Номеры квартира" Margin="0,0,0,0"/>
                     <ComboBox Width="250" Margin="18,0,0,0"
+                              x:Name="ComboBox1"
                         IsEditable="True" Height="22" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Цена за квартира" Margin="0,0,0,0"/>
-                    <TextBox FontSize="14"   Style="{DynamicResource textbox_style}" Tag="Цена за квартира" Height="24" Width="250" HorizontalAlignment="Right"  Margin="22,0,0,0"/>
+                    <TextBox FontSize="14"   
+                             x:Name="textBox1"
+                             Style="{DynamicResource textbox_style}" Tag="Цена за квартира" Height="24" Width="250" HorizontalAlignment="Right"  Margin="22,0,0,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Курс валюта" Margin="0,0,0,0"/>
-                    <TextBox FontSize="14"   Style="{DynamicResource textbox_style}" Tag="Курс валюта" Height="24" Width="250" HorizontalAlignment="Right"  Margin="51,0,0,0"/>
+                    <TextBox FontSize="14" 
+                             x:Name="textBox2"
+                             KeyUp="textBox2_KeyUp"
+                             Style="{DynamicResource textbox_style}" Tag="Курс валюта" Height="24" Width="250" HorizontalAlignment="Right"  Margin="51,0,0,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Сумма сом" Margin="0,0,0,0"/>
-                    <TextBox FontSize="14"   Style="{DynamicResource textbox_style}" Tag="Сумма сом" Height="24" Width="250" HorizontalAlignment="Right"  Margin="60,0,0,0"/>
+                    <TextBox FontSize="14" 
+                             x:Name="textBox3"
+                             Style="{DynamicResource textbox_style}" Tag="Сумма сом" Height="24" Width="250" HorizontalAlignment="Right"  Margin="60,0,0,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0" HorizontalAlignment="Center">
-                    <Button Style="{DynamicResource Button_blue}" Content="Удалить" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221" Margin="0,0,0,0" />
-                    <Button Style="{DynamicResource Button_blue}" Content="Сохранить" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221" Margin="5,0,0,0"/>
+                    <Button Style="{DynamicResource Button_blue}" 
+                            x:Name="registr_btn" Click="registr_btn_Click"
+                            Content="Сохранить" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221" Margin="0,0,0,0" />
+                    <Button Style="{DynamicResource Button_blue}" Content="Удалить" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221" Margin="5,0,0,0"/>
                 </StackPanel>
 
             </StackPanel>

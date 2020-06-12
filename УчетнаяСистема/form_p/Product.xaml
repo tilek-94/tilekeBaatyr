@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:УчетнаяСистема.form_p"
         mc:Ignorable="d"
         Title="Product" Height="700" 
-        Width="550" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
+        Width="550" WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded"
+        AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
     <Grid Background="White" Margin="10">
         <Grid.Effect>
             <DropShadowEffect Opacity="0.5" Direction="260" ShadowDepth="1"/>
@@ -17,24 +19,24 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
-        <Grid Grid.Row="1" Margin="0,1,0,334" Grid.RowSpan="2">
-            <TextBox FontSize="14" x:Name="text4"  Style="{DynamicResource textbox_style}" Tag=" Доллар"  Width="242" Height="25" HorizontalAlignment="Right" Canvas.Left="109" Canvas.Top="187"  Margin="0,86,81,204" TextChanged="text4_TextChanged" />
-            <TextBox FontSize="14" x:Name="text5"  Style="{DynamicResource textbox_style}" Tag=" Характеристика твар" Height="67" Width="243" HorizontalAlignment="Right" Canvas.Left="110" Canvas.Top="247" TextWrapping="Wrap" Margin="0,12,79,236" />
-            <TextBox FontSize="14" x:Name="text4_Copy"  Style="{DynamicResource textbox_style}" Tag=" Курс"  Width="242" Height="25" HorizontalAlignment="Right"  Margin="0,119,82,171" />
-            <TextBox FontSize="14" x:Name="text4_Copy1"  Style="{DynamicResource textbox_style}" Tag=" Сом"  Width="242" Height="25" HorizontalAlignment="Right" Margin="0,156,82,134" />
+        <Grid Grid.Row="1" Margin="0,1,0,327" Grid.RowSpan="2">
+            <TextBox FontSize="14" x:Name="text2"  Style="{DynamicResource textbox_style}" Tag=" Доллар"  Width="299" Height="25" HorizontalAlignment="Right" Canvas.Left="109" Canvas.Top="187"  Margin="0,87,44,205" TextChanged="text4_TextChanged" />
+            <TextBox FontSize="14" x:Name="text1"  Style="{DynamicResource textbox_style}" Tag=" Характеристика твар" Height="67" Width="300" HorizontalAlignment="Right" Canvas.Left="110" Canvas.Top="247" TextWrapping="Wrap" Margin="0,13,42,237" />
+            <TextBox FontSize="14" x:Name="text3"  Style="{DynamicResource textbox_style}" Tag=" Курс"  Width="298" Height="25" HorizontalAlignment="Right"  Margin="0,120,46,172" />
+            <TextBox FontSize="14" x:Name="text4"  Style="{DynamicResource textbox_style}" Tag=" Сом"  Width="298" Height="25" HorizontalAlignment="Right" Margin="0,157,46,135" />
             <Button Style="{DynamicResource Button_blue}" Content="Сохранить"
-                x:Name="button"  Margin="97,201,265,88"/>
-            <Button Style="{DynamicResource Button_White}" Content="Удалить"
+                x:Name="button_save" Click="button_save_Click" Margin="97,201,265,88"/>
+            <Button Style="{DynamicResource Button_blue}" Content="Удалить"
                 x:Name="button2" Margin="275,202,87,88"/>
             <Button Style="{DynamicResource Button_blue}" Content="Выбрать"
-                x:Name="button_vbor" Margin="99,235,88,54"/>
+                x:Name="button_vbor" Click="button_vbor_Click" Margin="99,235,88,54"/>
 
 
 
-            <Label x:Name="label" Content="Характеристика твара" Margin="50,15,341,272"/>
-            <Label x:Name="label_Copy" Content="Цена товара на долларах" Margin="50,84,325,204"/>
-            <Label x:Name="label_Copy1" Content="Курс валюта" Margin="48,119,357,170"/>
-            <Label x:Name="label_Copy2" Content="Цена на сомах" Margin="50,155,355,133"/>
+            <Label x:Name="label" Content="Характеристика твара" Margin="30,15,361,272"/>
+            <Label x:Name="label_Copy" Content="Цена товара на долларах" Margin="30,84,345,204"/>
+            <Label x:Name="label_Copy1" Content="Курс валюта" Margin="28,119,377,170"/>
+            <Label x:Name="label_Copy2" Content="Цена на сомах" Margin="30,155,375,133"/>
         </Grid>
 
         <Border Grid.Row="2" Padding="5" Background="#F4F4F4">
@@ -48,7 +50,10 @@
                 <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
                   x:Name="dataGridView1"
-                  ColumnHeaderStyle="{DynamicResource hederstyle}" >
+                  CanUserAddRows="False"
+                   MouseUp="myDataGrid_MouseUp"
+                  ColumnHeaderStyle="{DynamicResource hederstyle}" 
+                          MouseDoubleClick="dataGridView1_MouseDoubleClick" >
 
                 </DataGrid>
             </StackPanel>

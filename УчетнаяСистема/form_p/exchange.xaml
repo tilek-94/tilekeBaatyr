@@ -23,7 +23,9 @@
                     <Label  Content="Ф.И.О" Margin="0,0,0,0"/>
 
                     <TextBox FontSize="14" x:Name="text1"  Style="{DynamicResource textbox_style}" Tag="Ф.И.О" Height="24" Width="250" HorizontalAlignment="Right"  Margin="85,0,0,0"/>
-                    <Button Style="{DynamicResource Button_Add}" Width="32" Height="26" Margin="20,0,0,0">
+                    <Button Style="{DynamicResource Button_Add}" Width="32" Height="26"
+                             x:Name="view_client_btn" Click="view_client_btn_Click"
+                            Margin="20,0,0,0">
                         <Image>
                             <Image.Style>
                                 <Style TargetType="Image">
@@ -43,8 +45,10 @@
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Имя товар" Margin="0,0,0,0"/>
 
-                    <TextBox FontSize="14"   Style="{DynamicResource textbox_style}" Tag="Имя товар" Height="24" Width="250" HorizontalAlignment="Right"  Margin="60,0,0,0"/>
-                    <Button Style="{DynamicResource Button_blue}"  Width="32" Height="26" Margin="20,0,0,0">
+                    <TextBox FontSize="14" x:Name="text2"  Style="{DynamicResource textbox_style}" Tag="Имя товар" Height="24" Width="250" HorizontalAlignment="Right"  Margin="60,0,0,0"/>
+                    <Button Style="{DynamicResource Button_blue}" 
+                             x:Name="view_product_btn" Click="view_product_btn_Click"
+                            Width="32" Height="26" Margin="20,0,0,0">
                         <Image>
                             <Image.Style>
                                 <Style TargetType="Image">
@@ -69,9 +73,8 @@
                       />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
-                    <Button Style="{DynamicResource Button_blue}" Content="Удалить" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221" />
-                    <Button Style="{DynamicResource Button_blue}" Content="Выбрать" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221" Margin="20,0"/>
-                    <Button Style="{DynamicResource Button_blue}" Content="Сохранить" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221"/>
+                    <Button Style="{DynamicResource Button_blue}" Content="Сохранить"
+                            Width="293" Height="26" RenderTransformOrigin="0.494,-0.221" Margin="150,0,0,0"/>
                 </StackPanel>
 
             </StackPanel>

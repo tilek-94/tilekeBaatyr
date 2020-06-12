@@ -93,7 +93,7 @@ namespace УчетнаяСистема.form_p
         private void show_client_btn_Click(object sender, RoutedEventArgs e)
         {
             Window1 window1 = new Window1();
-          window1.ValueChanged += new Action<string,string>((x,y) =>//подписываемся на событие
+          window1.ValueChanged += new Action<string,string>((x,y) =>
             {
                 client_id = Convert.ToInt32(x);
                 FIO.Text = y;

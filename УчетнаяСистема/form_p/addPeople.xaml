@@ -73,7 +73,9 @@
                     </DockPanel>
                     <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
+                   CanUserAddRows="False"
                   x:Name="dataGridView1"
+                   MouseDoubleClick="dataGridView1_MouseDoubleClick"           
                   ColumnHeaderStyle="{DynamicResource hederstyle}"
                    MouseUp="myDataGrid_MouseUp"
                               >
