@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,29 +13,40 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using УчетнаяСистема.All_classes;
 
 namespace УчетнаяСистема.form_p
 {
     /// <summary>
     /// Логика взаимодействия для Cars_pag.xaml
     /// </summary>
-    public partial class Cars_pag : Page
+    public partial class Cars_pag : Window
     {
         public Cars_pag()
         {
             InitializeComponent();
         }
 
-        private void DataGrid_KeyDown(object sender, KeyEventArgs e)
+        
+        dbConnect dbCon = new dbConnect();
+        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-        }
-
-        private void DataGrid_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
             Search_cars2 search_Cars2 = new Search_cars2();
             search_Cars2.ShowDialog();
-            
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Display();
+        }
+        void Display()
+        {
+            dbCon.eventDysplay += delegate (DataTable db)
+            {
+                dataGridView1.DataContext = db;
+            };
+            dbCon.SoursData("SELECT * FROM cars ORDER BY id DESC");
+
         }
     }
 }

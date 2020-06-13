@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:УчетнаяСистема.form_p"
         mc:Ignorable="d"
         Title="exchange" Height="650" Width="700" Background="{x:Null}" 
-        AllowsTransparency="True" WindowStyle="None">
+        AllowsTransparency="True" Loaded="Window_Loaded" WindowStyle="None">
     <Grid Background="White" Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
@@ -69,11 +69,12 @@
                     <Label  Content="Номеры квартира" Margin="0,0,0,0"/>
                     <ComboBox Width="250" Margin="18,0,0,0"
                         IsEditable="True" Height="22"
-                       
+                       x:Name="ComboBox1"
                       />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Button Style="{DynamicResource Button_blue}" Content="Сохранить"
+                            x:Name="registr_btn" Click="registr_btn_Click"
                             Width="293" Height="26" RenderTransformOrigin="0.494,-0.221" Margin="150,0,0,0"/>
                 </StackPanel>
 
@@ -89,6 +90,7 @@
                 </DockPanel>
                 <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
+                  CanUserAddRows="False"
                   ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1">
                 </DataGrid>
             </StackPanel>

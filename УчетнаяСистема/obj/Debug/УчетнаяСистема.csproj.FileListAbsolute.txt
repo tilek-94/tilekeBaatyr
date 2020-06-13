@@ -50,7 +50,6 @@ D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\MainWindow.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\Window1.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\Window2.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\App.g.cs
-D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема_MarkupCompile.cache
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема_MarkupCompile.lref
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\App.baml
