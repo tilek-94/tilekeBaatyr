@@ -82,10 +82,8 @@ namespace УчетнаяСистема.form_p
             dbCon.Registr("INSERT INTO zakaz(dom_id,klient_id,number_f,cars_id,contract,price_kvm,kurs,kvm,data_n,data_k) " +
                   "values('6','" + client_id + "','" + ComboBox2.Text + "','" + cars_id + "','" + textbox_dogovor.Text + "','"+ (dollar.ToString()).Replace(',','.') + "'" +
                   ",'"+(kurs.ToString()).Replace(',', '.') + "','"+kvm.Replace(',', '.') + "','"+data_n+"','"+data_k+"')");
-            dbCon.eventDysplay += delegate (DataTable db)
-            {
-                dataGridView1.ItemsSource = db.DefaultView;
-            };
+           
+            dbCon.eventDysplay +=  db=>  { dataGridView1.ItemsSource = db.DefaultView; };
             dbCon.SoursData("SELECT * FROM zakaz_z ORDER BY id DESC");
 
         }
@@ -106,8 +104,9 @@ namespace УчетнаяСистема.form_p
         {
 
             Search_cars2 search_Cars2 = new Search_cars2();
-            search_Cars2.mes_ += delegate (string x, string y, string summ, string kurs)
+            search_Cars2.mes_ += (x,  y,  summ, kurs)=>
             {
+                
                 cars_id = Convert.ToInt32(x);
                 summ_cars = Convert.ToDouble(summ);
                 kurs_cars = Convert.ToDouble(kurs);
