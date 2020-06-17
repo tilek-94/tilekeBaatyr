@@ -12,7 +12,7 @@
     <Grid Background="White" Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="300"/>
-            <RowDefinition Height="177*"/>
+            <RowDefinition Height="178*"/>
         </Grid.RowDefinitions>
         <Grid.Effect>
             <DropShadowEffect BlurRadius="10" Direction="270" Opacity="0.5" ShadowDepth="0"/>
