@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Proj\УчетнаяСистема\obj\Debug\
+D:\Proj\УчетнаяСистема\obj\Release\
 УчетнаяСистема
 none
 false
-DEBUG;TRACE
+TRACE
 D:\Proj\УчетнаяСистема\App.xaml
 16409249868
 
-24227815771
-211702630667
+23-1095966105
+20121420265
 Bron_WinDow.xaml;form_p\addBuilding.xaml;form_p\addPeople.xaml;form_p\Cars_pag.xaml;form_p\exchange.xaml;form_p\komplekc.xaml;form_p\Peple_pag.xaml;form_p\Product.xaml;form_p\Prod_pag2.xaml;form_p\Search_cars2.xaml;form_p\view_year.xaml;MainWindow.xaml;registr\registr_flat.xaml;registr\registr_type_flat.xaml;Window1.xaml;Window2.xaml;
 
 True
