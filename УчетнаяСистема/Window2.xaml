@@ -6,8 +6,5 @@
         xmlns:local="clr-namespace:УчетнаяСистема"
         mc:Ignorable="d"
         Title="Window2" Height="250" Width="600">
-    <Grid>
-        <Button Content="Maksat" Height="25" Width="50"/>
-
-    </Grid>
+    <Grid/>
 </Window>
