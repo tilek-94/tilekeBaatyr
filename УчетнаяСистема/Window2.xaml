@@ -6,7 +6,5 @@
         xmlns:local="clr-namespace:УчетнаяСистема"
         mc:Ignorable="d"
         Title="Window2" Height="250" Width="600">
-    <Grid>
-        
-    </Grid>
+    <Grid/>
 </Window>

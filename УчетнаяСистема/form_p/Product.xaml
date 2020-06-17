@@ -18,6 +18,7 @@
             <RowDefinition Height="280"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Border Background="#0A6E9E" Grid.Row="0"/>
         <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
         <Grid Grid.Row="1" Margin="0,1,0,327" Grid.RowSpan="2">
             <TextBox FontSize="14" x:Name="text2"  Style="{DynamicResource textbox_style}" Tag=" Доллар"  Width="299" Height="25" HorizontalAlignment="Right" Canvas.Left="109" Canvas.Top="187"  Margin="0,87,44,205" TextChanged="text4_TextChanged" />

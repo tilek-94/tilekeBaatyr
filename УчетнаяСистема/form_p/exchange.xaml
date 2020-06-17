@@ -16,6 +16,7 @@
         <Grid.Effect>
             <DropShadowEffect BlurRadius="10" Direction="270" Opacity="0.5" ShadowDepth="0"/>
         </Grid.Effect>
+        <Border Background="#0A6E9E" Grid.Row="0"/>
         <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
         <Grid Grid.Row="1">
             <StackPanel Margin="30,0,30,0">
