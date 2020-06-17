@@ -7,9 +7,10 @@
       xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
       mc:Ignorable="d" 
       d:DesignHeight="620" d:DesignWidth="1100"
-      Title="Cars_pag">
+      Title="Cars_pag" Loaded="Page_Loaded">
 
     <Grid Background="White">
+        
         <Border Grid.Column="1" Padding="5" Background="#F4F4F4">
             <StackPanel  Background="White" >
                 <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
@@ -18,20 +19,91 @@
 
                     </TextBox>
                 </DockPanel>
-                <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
+                <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" AutoGenerateColumns="False"
                   HeadersVisibility="Column"
-                  
-                  ColumnHeaderStyle="{DynamicResource hederstyle}" ItemsSource="{DynamicResource ResourceKey=phones}" KeyDown="DataGrid_KeyDown" MouseDown="DataGrid_MouseDown">
-                    <DataGrid.Resources>
-                        <col:ArrayList x:Key="phones">
-                            <local:Phone id="1" Title="Примова Клара Бердибаевна " Company="Ниссан X-TRAIL 380 000 сом, Форд транзит- 300 000 сом" Price="54990"  />
-                            <local:Phone id="2" Title="Lumia 950" Company="Microsoft" Price="39990" />
-                            <local:Phone id="3" Title="Nexus 5X" Company="Google" Price="29990" />
-                        </col:ArrayList>
-                    </DataGrid.Resources>
+                  ColumnHeaderStyle="{DynamicResource hederstyle}" 
+                         x:Name="dataGridView1"
+                          CanUserAddRows="False"
+                          ItemsSource="{Binding}"
+                          >
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="№" Binding="{Binding id}" />
+                        <DataGridTextColumn Header="Марка" Binding="{Binding marka}" />
+                        <DataGridTextColumn Header="Номер машины" Binding="{Binding nomer}" />
+                        <DataGridTextColumn Header="Дата" Binding="{Binding data}" />
+                        <DataGridTextColumn Header="Цена на долларах" Binding="{Binding prih_summ}" />
+                        <DataGridTextColumn Header="Курс валюта" Binding="{Binding kurs}" />
+                    </DataGrid.Columns>
+
+
+                    <DataGrid.RowDetailsTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Background="White">
+                                <StackPanel Margin="40,20,0,10" >
+                                    <Border BorderBrush="#FFC1C0C0" BorderThickness="1" Padding="5">
+                                    <Image  Width="250" Source="/УчетнаяСистема;component/images/foto_people/unnamed.png" />
+                                    </Border>
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" Margin="50,0,0,0">
+                                    <StackPanel Orientation="Horizontal"  Margin="0,5,0,0">
+                                    <Label Content="Машина марка  " FontSize="13"  />
+                                    <TextBox  FontSize="14" 
+                                              Text="{Binding marka}"
+                                              Style="{DynamicResource textbox_style}" Height="22"  Width="254"  Margin="10,5,0,0" />
+                                </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="Дата покупки  " FontSize="13"  />
+                                         <DatePicker
+                                             Text="{Binding data}"
+                                             Style="{DynamicResource styleDatePicker}" Height="22"  Width="254" Margin="18,5,0,0" />
+
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="Номер машина  " FontSize="13"  />
+                                        <TextBox 
+                                            Text="{Binding nomer}"
+                                            FontSize="14"  Style="{DynamicResource textbox_style}" Height="22"  Width="254"  Margin="7,5,0,0" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="Адресс        " FontSize="13"  />
+                                        <TextBox  FontSize="14"
+                                                  Text="{Binding address}"
+                                                  Style="{DynamicResource textbox_style}" Height="80"  Width="254"  Margin="35,5,0,10" />
+                                    </StackPanel>
+                                </StackPanel>
+
+
+                                <StackPanel Orientation="Vertical" Margin="50,0,0,0">
+                                    <StackPanel Orientation="Horizontal"  Margin="0,5,0,0">
+                                        <Label Content="Приход сумма (Доллар) " FontSize="13"  />
+                                        <TextBox  FontSize="14" 
+                                                  Text="{Binding prih_summ}"
+                                                  Style="{DynamicResource textbox_style}" Height="22"  Width="254"  Margin="10,5,0,0" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="Курс валюта  " FontSize="13"  />
+                                        <TextBox  FontSize="14" 
+                                                  Text="{Binding kurs}"
+                                                  Style="{DynamicResource textbox_style}" Height="22"  Width="100"  Margin="75,5,0,0" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="Приход сумма (Сом)  " FontSize="13"  />
+                                        <TextBox  FontSize="14"  Style="{DynamicResource textbox_style}" Height="22"  Width="254"  Margin="27,5,0,0" />
+                                    </StackPanel>
+                                   
+                                </StackPanel>
+
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGrid.RowDetailsTemplate>
+
+
                 </DataGrid>
             </StackPanel>
         </Border>
+
+       
 
     </Grid>
 </Page>

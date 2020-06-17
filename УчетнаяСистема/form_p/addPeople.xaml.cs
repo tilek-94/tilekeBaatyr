@@ -118,8 +118,15 @@ namespace УчетнаяСистема.form_p
 
         private void select_btn_Click(object sender, RoutedEventArgs e)
         {
+            if (name != "")
+            {
+                ValueChanged(id, name);
+                this.Close();
+            }
+        }
 
-
+        private void dataGridView1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
             if (name != "")
             {
                 ValueChanged(id, name);

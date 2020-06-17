@@ -18,35 +18,29 @@ using УчетнаяСистема.All_classes;
 namespace УчетнаяСистема.form_p
 {
     /// <summary>
-    /// Логика взаимодействия для Cars_pag.xaml
+    /// Interaction logic for analisF.xaml
     /// </summary>
-    public partial class Cars_pag : Page
+    public partial class analisF : Page
     {
-        public Cars_pag()
+        public analisF()
         {
             InitializeComponent();
         }
-
-        
-        dbConnect dbCon = new dbConnect();
-        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            Search_cars2 search_Cars2 = new Search_cars2();
-            search_Cars2.ShowDialog();
-        }
-
+           dbConnect dbCon = new dbConnect();
         private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            Display();
-        }
-        void Display()
         {
             dbCon.eventDysplay += delegate (DataTable db)
             {
                 dataGridView1.DataContext = db;
             };
-            dbCon.SoursData("SELECT * FROM cars ORDER BY id DESC");
-
+            dbCon.SoursData("select `zakaz`.`id` ,`dom`.`name` ,`client`.`name`  as 'name_cl'," +
+                "`cars`.`marka` ,`cars`.`prih_summ` ,`zakaz`.`number_f` ,`zakaz`.`contract`," +
+                " `zakaz`.`kvm`  ,`zakaz`.`price_kvm` ,`zakaz`.`kurs` ," +
+                "(`zakaz`.`price_kvm` * `zakaz`.`kvm`) as som ," +
+                "round(((`zakaz`.`price_kvm` * `zakaz`.`kvm`) * `zakaz`.`kurs`),2) as" +
+                " summa  from (((`zakaz` join `dom`) join `client`) join `cars` " +
+                "on(((`dom`.`id` = `zakaz`.`dom_id`) and (`zakaz`.`klient_id` = `client`.`id`) " +
+                "and (`zakaz`.`cars_id` = `cars`.`id`))))");
         }
     }
 }

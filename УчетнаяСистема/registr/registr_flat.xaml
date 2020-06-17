@@ -6,15 +6,19 @@
       xmlns:local="clr-namespace:УчетнаяСистема.registr" 
       xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
       mc:Ignorable="d"
-      Title="Регистрация квартира" Loaded="Page_Loaded" Width="712" Height="720" WindowStartupLocation="CenterScreen">
+      Title="Регистрация квартира"
+        Background="{x:Null}"
+        Loaded="Page_Loaded" Width="712" Height="720" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None">
 
-    <Grid Background="White">
+    <Grid Background="White" Margin="10">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="350"/>
             <RowDefinition Height="89*"/>
         </Grid.RowDefinitions>
-
+        <Grid.Effect>
+        <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.4"/>
+        </Grid.Effect>
         <Border Background="White" Grid.Column="1" Grid.Row="0">
 
             <Canvas>

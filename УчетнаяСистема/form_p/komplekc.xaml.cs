@@ -22,7 +22,7 @@ namespace УчетнаяСистема.form_p
     /// <summary>
     /// Логика взаимодействия для komplekc.xaml
     /// </summary>
-    public partial class komplekc : Window
+    public partial class komplekc : Page
 
     {
         public komplekc()

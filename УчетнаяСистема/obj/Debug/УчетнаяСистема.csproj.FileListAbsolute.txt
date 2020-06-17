@@ -50,7 +50,6 @@ D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\MainWindow.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\Window1.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\Window2.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\App.g.cs
-D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема_MarkupCompile.cache
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема_MarkupCompile.lref
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\App.baml
@@ -82,3 +81,7 @@ D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\exchange.b
 D:\Project\tilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.csprojAssemblyReference.cache
 D:\Project\tilekeBaatyr\УчетнаяСистема\obj\Debug\Bron_WinDow.g.cs
 D:\Project\tilekeBaatyr\УчетнаяСистема\obj\Debug\Bron_WinDow.baml
+D:\project\tilekeBaatyr\УчетнаяСистема\bin\Debug\MySql.Data.DLL
+D:\project\tilekeBaatyr\УчетнаяСистема\bin\Debug\Syncfusion.Shared.WPF.dll
+D:\project\tilekeBaatyr\УчетнаяСистема\bin\Debug\Syncfusion.Shared.WPF.xml
+D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.csproj.CoreCompileInputs.cache

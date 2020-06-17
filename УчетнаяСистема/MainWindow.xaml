@@ -146,7 +146,33 @@
                     </Border>
 
                     <Border HorizontalAlignment="Left" Margin="5,0,0,0">
-                        <Button Style="{DynamicResource menuButton}">
+                        <Button Style="{DynamicResource menuButton}" x:Name="obmen_btn" Click="obmen_btn_Click">
+                            <StackPanel>
+
+                                <Image>
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Setter Property="Source" Value="images/booking_480px.png" />
+                                            <Setter Property="Width" Value="35
+                                                    "/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Source" Value="images/booking_480px.png"/>
+
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                                <TextBlock Foreground="White"  Margin="0,10,0,0" TextAlignment="Center"
+                                 TextWrapping="Wrap">ОБМЕН КВАРТИРЫ</TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </Border>
+
+
+                    <Border HorizontalAlignment="Left" Margin="5,0,0,0">
+                        <Button Style="{DynamicResource menuButton}" x:Name="bron_btn" Click="bron_btn_Click">
                             <StackPanel>
 
                                 <Image>

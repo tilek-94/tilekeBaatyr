@@ -97,6 +97,18 @@ namespace УчетнаяСистема
             pag.Navigate(new System.Uri("form_p/Prod_pag2.xaml", UriKind.RelativeOrAbsolute));
             
         }
+
+        private void bron_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Bron_WinDow bron_WinDow = new Bron_WinDow();
+            bron_WinDow.ShowDialog();
+        }
+
+        private void obmen_btn_Click(object sender, RoutedEventArgs e)
+        {
+            exchange ex = new exchange();
+            ex.ShowDialog();
+        }
     }
     public class Phone
     {
