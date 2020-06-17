@@ -85,3 +85,5 @@ D:\project\tilekeBaatyr\УчетнаяСистема\bin\Debug\MySql.Data.DLL
 D:\project\tilekeBaatyr\УчетнаяСистема\bin\Debug\Syncfusion.Shared.WPF.dll
 D:\project\tilekeBaatyr\УчетнаяСистема\bin\Debug\Syncfusion.Shared.WPF.xml
 D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.csproj.CoreCompileInputs.cache
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\analis.g.cs
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\analis.baml

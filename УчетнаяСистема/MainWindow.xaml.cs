@@ -36,9 +36,9 @@ namespace УчетнаяСистема
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            registr_flat registr_Flat = new registr_flat();
-            registr_Flat.ShowDialog();
-           // pag.Navigate(new System.Uri("form_p/Prod_pag2.xaml", UriKind.RelativeOrAbsolute));
+           /* registr_flat registr_Flat = new registr_flat();
+            registr_Flat.ShowDialog();*/
+           pag.Navigate(new System.Uri("form_p/analis.xaml", UriKind.RelativeOrAbsolute));
 
         }
 

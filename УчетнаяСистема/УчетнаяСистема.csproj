@@ -77,6 +77,9 @@
     <Compile Include="form_p\addPeople.xaml.cs">
       <DependentUpon>addPeople.xaml</DependentUpon>
     </Compile>
+    <Compile Include="form_p\analis.xaml.cs">
+      <DependentUpon>analis.xaml</DependentUpon>
+    </Compile>
     <Compile Include="form_p\Cars_pag.xaml.cs">
       <DependentUpon>Cars_pag.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="form_p\addPeople.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="form_p\analis.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
