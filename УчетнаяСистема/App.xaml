@@ -6,7 +6,7 @@
     <Application.Resources>
         <Style x:Key="btnCloseOS" TargetType="Button">
             <Setter Property="Width" Value="35"/>
-            <Setter Property="Background" Value="White"/>
+            <Setter Property="Background" Value="Beige"/>
             <Setter Property="BorderThickness" Value="0,0,0,0"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
@@ -15,7 +15,7 @@
                         <Border Name="border"
                                 BorderThickness="0,0,0,0"
                                 BorderBrush="Red"
-                                Background="White"
+                                Background="Beige"
                                 >
                             <Grid>
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -39,6 +39,7 @@
             <Setter Property="Background" Value="White"/>
             <Setter Property="Margin" Value="0,0,0,1"/>
             <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="100"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
                 <Setter.Value>

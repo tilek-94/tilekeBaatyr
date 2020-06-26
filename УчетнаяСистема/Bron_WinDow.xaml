@@ -17,9 +17,7 @@
             <RowDefinition Height="280"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" Background="#0A6E9E">
-
-        </Border>
+        <Border Grid.Row="0" Background="#0A6E9E"/>
         <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
         <Grid Grid.Row="1" Margin="0,1,0,334" Grid.RowSpan="2">
             <StackPanel Margin="88,-1,116,1">
