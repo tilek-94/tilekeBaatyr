@@ -101,6 +101,18 @@
     <Compile Include="form_p\Search_cars2.xaml.cs">
       <DependentUpon>Search_cars2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="form_p\ViewCarsinAnalise.xaml.cs">
+      <DependentUpon>ViewCarsinAnalise.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="form_p\viewClient.xaml.cs">
+      <DependentUpon>viewClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="form_p\viewFlat.xaml.cs">
+      <DependentUpon>viewFlat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="form_p\viewPeopleinAnalis.xaml.cs">
+      <DependentUpon>viewPeopleinAnalis.xaml</DependentUpon>
+    </Compile>
     <Compile Include="form_p\view_year.xaml.cs">
       <DependentUpon>view_year.xaml</DependentUpon>
     </Compile>
@@ -157,6 +169,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="form_p\Search_cars2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="form_p\ViewCarsinAnalise.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="form_p\viewClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="form_p\viewFlat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="form_p\viewPeopleinAnalis.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

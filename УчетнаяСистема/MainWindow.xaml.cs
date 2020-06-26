@@ -109,6 +109,12 @@ namespace УчетнаяСистема
             exchange ex = new exchange();
             ex.ShowDialog();
         }
+
+        private void prod_btn_Click(object sender, RoutedEventArgs e)
+        {
+            registr_flat registr_Flat = new registr_flat();
+            registr_Flat.ShowDialog();
+        }
     }
     public class Phone
     {

@@ -1,0 +1,81 @@
+﻿<Window x:Class="УчетнаяСистема.form_p.viewFlat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:УчетнаяСистема.form_p"
+        mc:Ignorable="d"
+        Title="viewFlat" Height="650" Width="500" 
+        AllowsTransparency="True" WindowStyle="None" Loaded="Window_Loaded"
+        Background="{x:Null}" WindowStartupLocation="CenterOwner" >
+    <Grid Background="White" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="32*"/>
+        </Grid.RowDefinitions>
+        <Grid.Effect>
+            <DropShadowEffect ShadowDepth="0" BlurRadius="10" Direction="270" Opacity="0.7"/>
+        </Grid.Effect>
+        <Border Background="#0A6E9E" Grid.Row="0" Height="20" VerticalAlignment="Top"/>
+
+        <Grid Grid.Row="1" Margin="0,1,0,3" Grid.RowSpan="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="296*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Margin="37,-1,1,1">
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label  Content="Этаж квартира" Margin="0,0,0,0"/>
+
+                    <TextBox FontSize="14" x:Name="text1"
+                             IsReadOnly = "True"
+                             Style="{DynamicResource textbox_style}" 
+                             Tag="Этаж квартира" Height="24" Width="250" 
+                             HorizontalAlignment="Right"  Margin="30,0,0,0" KeyDown="text1_KeyDown"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label  Content="Подездь квартира" Margin="0,0,0,0"/>
+                    <TextBox FontSize="14" x:Name="tex"
+                             IsReadOnly = "True"
+                             Style="{DynamicResource textbox_style}" 
+                             Tag="Подездь квартира" Height="24" Width="250" 
+                             HorizontalAlignment="Right"  Margin="10,0,0,0"/>
+                    
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label  Content="Номеры квартира" Margin="0,0,0,0"/>
+                    <TextBox FontSize="14"   
+                             x:Name="textBox1"
+                             Style="{DynamicResource textbox_style}" 
+                             Tag="Номеры квартира" Height="24" Width="250" 
+                             HorizontalAlignment="Right"  Margin="10,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label  Content="Всего м2" Margin="0,0,0,0"/>
+                    <TextBox FontSize="14"   
+                             x:Name="tex2"
+                             Style="{DynamicResource textbox_style}" 
+                             Tag="Всего м2" Height="24" Width="250" 
+                             HorizontalAlignment="Right"  Margin="60,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0" HorizontalAlignment="Center"/>
+
+            </StackPanel>
+        </Grid>
+
+        <Border Grid.Row="2" Padding="5" Background="#F4F4F4">
+            <StackPanel  Background="White" >
+                <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
+                  HeadersVisibility="Column"
+                  CanUserAddRows="False"
+                  ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1">
+                </DataGrid>
+            </StackPanel>
+        </Border>
+
+
+
+    </Grid>
+</Window>

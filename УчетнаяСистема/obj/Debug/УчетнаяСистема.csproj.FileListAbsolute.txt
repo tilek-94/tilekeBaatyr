@@ -87,3 +87,11 @@ D:\project\tilekeBaatyr\УчетнаяСистема\bin\Debug\Syncfusion.Shared
 D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.csproj.CoreCompileInputs.cache
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\analis.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\analis.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\viewClient.g.cs
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\viewClient.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\viewFlat.g.cs
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\viewFlat.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\viewPeopleinAnalis.g.cs
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\viewPeopleinAnalis.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\ViewCarsinAnalise.g.cs
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\ViewCarsinAnalise.baml

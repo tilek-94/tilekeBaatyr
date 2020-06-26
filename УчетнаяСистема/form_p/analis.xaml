@@ -17,27 +17,29 @@
 
                     </TextBox>
                 </DockPanel>
-                <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" AutoGenerateColumns="False"
+                <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}"
+                  AutoGenerateColumns="False"
                   HeadersVisibility="Column"
                   ColumnHeaderStyle="{DynamicResource hederstyle}" 
                          x:Name="dataGridView1"
                           CanUserAddRows="False"
                           ItemsSource="{Binding}"
+                          MouseDoubleClick="dataGridView1_MouseDoubleClick" ColumnDisplayIndexChanged="dataGridView1_ColumnDisplayIndexChanged"
                           >
 
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="№" Binding="{Binding id}" />
-                        <DataGridTextColumn Header="Марка" Binding="{Binding number_f}" />
-                        <DataGridTextColumn Header="Номер машины" Binding="{Binding floor}" />
-                        <DataGridTextColumn Header="Дата" Binding="{Binding kvm}" />
-                        <DataGridTextColumn Header="Цена на долларах" Binding="{Binding contract}" />
-                        <DataGridTextColumn Header="Курс валюта" Binding="{Binding name}" />
-                        <DataGridTextColumn Header="Курс валюта" Binding="{Binding marka}" />
-                        <DataGridTextColumn Header="Курс валюта" Binding="{Binding kurs}" />
-                        <DataGridTextColumn Header="Курс валюта" Binding="{Binding price_kvm}" />
-                        <DataGridTextColumn Header="Курс валюта" Binding="{Binding som}" />
-                        <DataGridTextColumn Header="Курс валюта" Binding="{Binding us}" />
-                        <DataGridTextColumn Header="Курс валюта" Binding="{Binding kg}" />
+                        <DataGridTextColumn Width="40" Header="№" Binding="{Binding id}" />
+                        <DataGridTextColumn Width="70" Header="№ Квартира" Binding="{Binding number_f}" />
+                        <DataGridTextColumn Width="70" Header="Этаж" Binding="{Binding floor}" />
+                        <DataGridTextColumn Width="70" Header="м2" Binding="{Binding kvm}" />
+                        <DataGridTextColumn Width="90"  Header="№ Договор" Binding="{Binding contract}" />
+                        <DataGridTextColumn Width="180" Header="Ф.И.О клиент" Binding="{Binding name}" />
+                        <DataGridTextColumn Width="100" Header="Макрка машина" Binding="{Binding marka}" />
+                        <DataGridTextColumn Width="90" Header="Курс валюта" Binding="{Binding kurs}" />
+                        <DataGridTextColumn Width="100" Header="Цен доллор м2" Binding="{Binding price_kvm}" />
+                        <DataGridTextColumn  Width="100" Header="Цена сом м2" Binding="{Binding som}" />
+                        <DataGridTextColumn Width="100" Header="Сумма на доллар" Binding="{Binding us}" />
+                        <DataGridTextColumn Width="130" Header="Сумма на сом" Binding="{Binding kg}" />
                     </DataGrid.Columns>
 
 

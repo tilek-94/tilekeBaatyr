@@ -1,0 +1,14 @@
+﻿<Window x:Class="УчетнаяСистема.form_p.viewClient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:УчетнаяСистема.form_p"
+      mc:Ignorable="d" 
+      d:DesignHeight="450"
+      Title="viewClient" Width="476.46">
+
+    <Grid>
+
+    </Grid>
+</Window>

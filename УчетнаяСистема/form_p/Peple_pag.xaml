@@ -11,7 +11,7 @@
 
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="310"/>
+            <RowDefinition Height="340"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
