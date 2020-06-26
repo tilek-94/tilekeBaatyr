@@ -1,4 +1,10 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
+using System.IO;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using MySql.Data.MySqlClient;
 
 namespace УчетнаяСистема.All_classes
@@ -86,6 +92,57 @@ namespace УчетнаяСистема.All_classes
             connection.Close();
             return f;
 
+        }
+        public void For_Kompleks_Window(WrapPanel Panell, Button button,TextBlock textblock,Image image,string surot)
+        {
+            Grid grid = new Grid();
+            grid.Height = 250;
+            grid.Width = 240;
+            grid.Margin = new Thickness(20, 30, 0, 0);
+
+            ImageSource src = Base64StringToImageSource(surot);
+            image.Height = 200;
+            image.Width = 200;
+            image.Name = "image";
+            BitmapImage b = new BitmapImage();
+            b.BeginInit();
+            b.UriSource = new Uri("../images/dom2.png", UriKind.Relative);
+            b.EndInit();
+            image.Source = b;
+
+            Grid border = new Grid();
+            border.HorizontalAlignment = HorizontalAlignment.Stretch;
+            border.VerticalAlignment = VerticalAlignment.Bottom;
+            border.Height = double.NaN;
+            border.Background = Brushes.White;
+
+            //TextBlock textblock = new TextBlock();
+            Color color = (Color)ColorConverter.ConvertFromString("#0A6E9E");
+            textblock.Foreground = new SolidColorBrush(color);
+            textblock.FontSize = 18;
+            textblock.HorizontalAlignment = HorizontalAlignment.Center;
+            textblock.TextWrapping = TextWrapping.Wrap;
+            textblock.Text = "Maksat";
+            textblock.Name = "textblock";
+
+            button.Content = image;
+            border.Children.Add(textblock);
+            grid.Children.Add(button);
+            grid.Children.Add(border);
+            Panell.Children.Add(grid);
+        }
+        public static System.Windows.Media.ImageSource Base64StringToImageSource(string base64String)
+        {
+            using (MemoryStream stream = new MemoryStream(Convert.FromBase64String(base64String)))
+            {
+                System.Windows.Media.Imaging.BitmapImage bi = new System.Windows.Media.Imaging.BitmapImage();
+                bi.BeginInit();
+                bi.StreamSource = stream;
+                bi.CacheOption = System.Windows.Media.Imaging.BitmapCacheOption.OnLoad;
+                bi.EndInit();
+                bi.Freeze();
+                return bi;
+            }
         }
     }
 }
