@@ -8,13 +8,16 @@
         Title="ViewCarsinAnalise" Height="350" Width="1100" Background="{x:Null}" AllowsTransparency="True" WindowStyle="None">
     <Grid Margin="10" Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="287*"/>
         </Grid.RowDefinitions>
         <Grid.Effect>
             <DropShadowEffect BlurRadius="10" ShadowDepth="1" Opacity="0.5" Direction="27"/>
         </Grid.Effect>
-        <Border Background="#0A6E9E" Grid.Row="0" Height="20" VerticalAlignment="Top"/>
+        <Grid Grid.Row="0" >
+            <Border  Background="#0A6E9E" Height="10" VerticalAlignment="Top"/>
+            <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
+        </Grid>
 
         <Canvas Grid.Row="1">
             <Border Height="217" 

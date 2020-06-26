@@ -16,8 +16,7 @@ using УчетнаяСистема.All_classes;
 
 namespace УчетнаяСистема.form_p
 {
-    /// <summary>
-   /// </summary>
+    
     public partial class Window1 : Window
     {
         public event Action<string,string> ValueChanged;

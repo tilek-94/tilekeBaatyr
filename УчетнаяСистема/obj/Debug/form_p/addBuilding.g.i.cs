@@ -42,7 +42,7 @@ namespace УчетнаяСистема.form_p {
     public partial class addBuilding : System.Windows.Controls.Page, System.Windows.Markup.IComponentConnector {
         
         
-        #line 27 "..\..\..\form_p\addBuilding.xaml"
+        #line 28 "..\..\..\form_p\addBuilding.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.DataGrid dataGridView1;
         
@@ -50,7 +50,7 @@ namespace УчетнаяСистема.form_p {
         #line hidden
         
         
-        #line 37 "..\..\..\form_p\addBuilding.xaml"
+        #line 43 "..\..\..\form_p\addBuilding.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label messageReg;
         
@@ -58,7 +58,7 @@ namespace УчетнаяСистема.form_p {
         #line hidden
         
         
-        #line 38 "..\..\..\form_p\addBuilding.xaml"
+        #line 44 "..\..\..\form_p\addBuilding.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox text1;
         
@@ -66,7 +66,7 @@ namespace УчетнаяСистема.form_p {
         #line hidden
         
         
-        #line 39 "..\..\..\form_p\addBuilding.xaml"
+        #line 45 "..\..\..\form_p\addBuilding.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox text2;
         
@@ -74,7 +74,7 @@ namespace УчетнаяСистема.form_p {
         #line hidden
         
         
-        #line 40 "..\..\..\form_p\addBuilding.xaml"
+        #line 46 "..\..\..\form_p\addBuilding.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox text3;
         
@@ -82,7 +82,7 @@ namespace УчетнаяСистема.form_p {
         #line hidden
         
         
-        #line 41 "..\..\..\form_p\addBuilding.xaml"
+        #line 47 "..\..\..\form_p\addBuilding.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox text4;
         
@@ -90,7 +90,7 @@ namespace УчетнаяСистема.form_p {
         #line hidden
         
         
-        #line 42 "..\..\..\form_p\addBuilding.xaml"
+        #line 48 "..\..\..\form_p\addBuilding.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox text5;
         
@@ -98,7 +98,7 @@ namespace УчетнаяСистема.form_p {
         #line hidden
         
         
-        #line 45 "..\..\..\form_p\addBuilding.xaml"
+        #line 51 "..\..\..\form_p\addBuilding.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btnRegistr;
         
@@ -106,7 +106,7 @@ namespace УчетнаяСистема.form_p {
         #line hidden
         
         
-        #line 71 "..\..\..\form_p\addBuilding.xaml"
+        #line 77 "..\..\..\form_p\addBuilding.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label label;
         
@@ -114,7 +114,7 @@ namespace УчетнаяСистема.form_p {
         #line hidden
         
         
-        #line 72 "..\..\..\form_p\addBuilding.xaml"
+        #line 78 "..\..\..\form_p\addBuilding.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label label_Copy;
         
@@ -122,7 +122,7 @@ namespace УчетнаяСистема.form_p {
         #line hidden
         
         
-        #line 73 "..\..\..\form_p\addBuilding.xaml"
+        #line 79 "..\..\..\form_p\addBuilding.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label label_Copy1;
         
@@ -130,7 +130,7 @@ namespace УчетнаяСистема.form_p {
         #line hidden
         
         
-        #line 74 "..\..\..\form_p\addBuilding.xaml"
+        #line 80 "..\..\..\form_p\addBuilding.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label label_Copy2;
         
@@ -138,7 +138,7 @@ namespace УчетнаяСистема.form_p {
         #line hidden
         
         
-        #line 75 "..\..\..\form_p\addBuilding.xaml"
+        #line 81 "..\..\..\form_p\addBuilding.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox text6;
         
@@ -146,7 +146,7 @@ namespace УчетнаяСистема.form_p {
         #line hidden
         
         
-        #line 76 "..\..\..\form_p\addBuilding.xaml"
+        #line 82 "..\..\..\form_p\addBuilding.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label label_Copy3;
         
@@ -154,7 +154,7 @@ namespace УчетнаяСистема.form_p {
         #line hidden
         
         
-        #line 77 "..\..\..\form_p\addBuilding.xaml"
+        #line 83 "..\..\..\form_p\addBuilding.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label label_Copy4;
         
@@ -211,7 +211,7 @@ namespace УчетнаяСистема.form_p {
             case 5:
             this.text2 = ((System.Windows.Controls.TextBox)(target));
             
-            #line 39 "..\..\..\form_p\addBuilding.xaml"
+            #line 45 "..\..\..\form_p\addBuilding.xaml"
             this.text2.PreviewTextInput += new System.Windows.Input.TextCompositionEventHandler(this.text1_PreviewTextInput);
             
             #line default
@@ -220,7 +220,7 @@ namespace УчетнаяСистема.form_p {
             case 6:
             this.text3 = ((System.Windows.Controls.TextBox)(target));
             
-            #line 40 "..\..\..\form_p\addBuilding.xaml"
+            #line 46 "..\..\..\form_p\addBuilding.xaml"
             this.text3.PreviewTextInput += new System.Windows.Input.TextCompositionEventHandler(this.text1_PreviewTextInput);
             
             #line default
@@ -229,7 +229,7 @@ namespace УчетнаяСистема.form_p {
             case 7:
             this.text4 = ((System.Windows.Controls.TextBox)(target));
             
-            #line 41 "..\..\..\form_p\addBuilding.xaml"
+            #line 47 "..\..\..\form_p\addBuilding.xaml"
             this.text4.PreviewTextInput += new System.Windows.Input.TextCompositionEventHandler(this.text1_PreviewTextInput);
             
             #line default
@@ -241,7 +241,7 @@ namespace УчетнаяСистема.form_p {
             case 9:
             this.btnRegistr = ((System.Windows.Controls.Button)(target));
             
-            #line 45 "..\..\..\form_p\addBuilding.xaml"
+            #line 51 "..\..\..\form_p\addBuilding.xaml"
             this.btnRegistr.Click += new System.Windows.RoutedEventHandler(this.btnRegistr_Click);
             
             #line default
@@ -262,7 +262,7 @@ namespace УчетнаяСистема.form_p {
             case 14:
             this.text6 = ((System.Windows.Controls.TextBox)(target));
             
-            #line 75 "..\..\..\form_p\addBuilding.xaml"
+            #line 81 "..\..\..\form_p\addBuilding.xaml"
             this.text6.PreviewTextInput += new System.Windows.Input.TextCompositionEventHandler(this.text1_PreviewTextInput);
             
             #line default
