@@ -5,14 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:УчетнаяСистема.registr"
         mc:Ignorable="d"
-        Title="registr_type_flat" Height="650" Width="542.153" Loaded="Window_Loaded">
+        Title="registr_type_flat" Height="650" Width="542" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="213*"/>
             <RowDefinition Height="406*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <Border Grid.Column="0" Grid.Row="0" >
+        <Grid Grid.Row="0" >
+            <Border  Background="#0A6E9E" Height="10" VerticalAlignment="Top" Width="660"/>
+            <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
+        </Grid>
+        <Border Grid.Column="0" Grid.Row="1" >
 
             <Canvas>
                  <Button Style="{DynamicResource Button_blue}" Content="Сохранить"
@@ -68,11 +73,11 @@
                   HeadersVisibility="Column"
                   x:Name="type_flat_listwiew"
                  CanUserAddRows="False"
-                  Grid.Row="1"
+                  Grid.Row="2"
                   ColumnHeaderStyle="{DynamicResource hederstyle}" >
 
         </DataGrid>
-        <Border Grid.Row="2">
+        <Border Grid.Row="3">
             <TextBlock Width="180" x:Name="TextBlock_kvm" FontSize="20" Margin="326,6,28,4" >Всего:</TextBlock>
 
         </Border>

@@ -21,12 +21,10 @@
                 <RowDefinition Height="120*"/>
             </Grid.RowDefinitions>
 
-            <Border Background="#0A6E9E"  x:Name="brd_Mov" MouseDown="brd_Mov_MouseDown">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" />
-
-                </StackPanel>
-            </Border>
+            <Grid Grid.Row="0" >
+                <Border  Background="#0A6E9E" Height="10" VerticalAlignment="Top" Width="660"/>
+                <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
+            </Grid>
             <Canvas Grid.Row="1" Grid.RowSpan="2">
                 <Border Height="217" 
                         BorderThickness="1,1,1,1"

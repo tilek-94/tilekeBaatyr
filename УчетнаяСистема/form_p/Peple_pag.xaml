@@ -18,13 +18,11 @@
 
         <Grid Grid.Row="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="35"/>
+               
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Border Background="#0A6E9E">
-
-            </Border>
+          
             <Canvas Grid.Row="1">
                 <Border Height="217" 
                         BorderThickness="1,1,1,1"

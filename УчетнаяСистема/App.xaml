@@ -406,7 +406,7 @@
         <Style x:Key="Dynamik_Image" TargetType="Image">
 
             
-            <Setter Property="Width" Value="180"/>
+            <Setter Property="Width" Value="170"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Source" Value="../images/dom2.png"/>
@@ -414,6 +414,79 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <!--TabItem стили-->
+        <Style TargetType="TabItem" x:Key="Tab_Item">
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Foreground" Value="#FF0A6E9E"/>
+            <Setter Property="BorderBrush" Value="#FF0A6E9E"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Grid Name="Panel">
+                            <ContentPresenter x:Name="ContentSite"
+                                        VerticalAlignment="Stretch"
+                                        HorizontalAlignment="Center"
+                                        ContentSource="Header"
+                                        Margin="5,0"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Panel" Property="Background" Value="#FF0A6E9E" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter TargetName="Panel" Property="Background" Value="White" />
+                                <Setter Property="Foreground" Value="#FF0A6E9E" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        
+        
+        <Style x:Key="Add_Button_MRZ" TargetType="Button">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Border Name="border" 
+                                BorderThickness="0,0,0,0"
+                                CornerRadius="5"
+                                BorderBrush="{x:Null}"
+                                Background="#0A6E9E"
+                                >
 
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}"/>
+                            </Border>
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Image x:Name="add" Source="images/icon/add.png" Height="25" Width="25"/>
+                            </StackPanel>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#0A6E9E"/>
+                                <Setter TargetName="border" Property="Background" Value="White"/>
+                                <Setter TargetName="border" Property="BorderThickness" Value="2,2,2,2"/>
+                                <Setter TargetName="add" Property="Source" Value="images/icon/add1.png"/>
+                                <Setter  Property="Foreground" Value="#0A6E9E"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#0A6E9E"/>
+                                <Setter TargetName="border" Property="Background" Value="White"/>
+                                <Setter TargetName="border" Property="BorderThickness" Value="2,2,2,2"/>
+                                <Setter TargetName="add" Property="Source" Value="images/icon/add.png"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>

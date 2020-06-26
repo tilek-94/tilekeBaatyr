@@ -36,7 +36,7 @@ namespace УчетнаяСистема.form_p
             {
                 Grid grid = new Grid();
                 grid.Height = 250;
-                grid.Width = 250;
+                grid.Width = 240;
                 grid.Margin = new Thickness(20,30,0,0);
 
 

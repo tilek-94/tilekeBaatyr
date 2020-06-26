@@ -36,10 +36,6 @@ namespace УчетнаяСистема.form_p
 
         }
 
-        private void Button_Clic(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -77,6 +73,11 @@ namespace УчетнаяСистема.form_p
                 ValueChanged(id, name);
                 this.Close();
             }
+        }
+
+        private void Button_Clic(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
         private void button_save_Click(object sender, RoutedEventArgs e)

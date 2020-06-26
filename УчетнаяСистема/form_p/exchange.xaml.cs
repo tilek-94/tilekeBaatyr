@@ -28,10 +28,7 @@ namespace УчетнаяСистема.form_p
         }
         dbConnect dbCon = new dbConnect();
         int client_id = 0, product_id;
-        private void Button_Clic(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+     
 
         private void view_client_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -74,6 +71,11 @@ namespace УчетнаяСистема.form_p
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Display();
+        }
+
+        private void Button_Clic(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
         void Display()

@@ -61,6 +61,11 @@ namespace УчетнаяСистема.form_p
         }
         string id_1 = "", marka_1, prih_summ_1="", kurs_1="";
 
+        private void Button_Clic(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
         private void dataGridView1_ColumnDisplayIndexChanged(object sender, DataGridColumnEventArgs e)
         {
             int index = dataGridView1.SelectedCells[0].Column.DisplayIndex;

@@ -35,7 +35,7 @@
                     x:Name="registr_client_btn"
                         Click="registr_client_btn_Click"
                         Canvas.Left="387" Canvas.Top="171" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221"/>
-            <Button Style="{DynamicResource Button_blue}"
+            <Button Style="{StaticResource Add_Button_MRZ}"
                 x:Name="show_client_btn"
                 Click="show_client_btn_Click"
                 Canvas.Left="333" Canvas.Top="34" Width="32" Height="26">
@@ -47,7 +47,7 @@
                       />
 
             <Label Content="Курс валюта" Canvas.Left="398" Canvas.Top="94" FontSize="13" />
-            <Button Style="{DynamicResource Button_blue}" Content=""
+            <Button Style="{StaticResource Add_Button_MRZ}" Content=""
                 x:Name="show_client_Cars"
                 Click="show_client_Cars_Click"
                 Canvas.Left="332" Canvas.Top="96" Width="32" Height="26"/>

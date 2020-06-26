@@ -191,12 +191,17 @@ namespace УчетнаяСистема.registr
                 " and type='" + ComboBox_t.Text + "' and room='" + ComboBox_flat.Text + "'") + " кв. м.";
 
         }
-/*
-        private void textBox1_valyta_KeyUp(object sender, KeyEventArgs e)
+
+        private void Button_Clic(object sender, RoutedEventArgs e)
         {
-            double summa= Convert.ToDouble(textBox_sena.Text) * Convert.ToDouble(textBox1_valyta.Text);
-            textBox1_summa.Text = summa.ToString();
-        }*/
+            this.Close();
+        }
+        /*
+       private void textBox1_valyta_KeyUp(object sender, KeyEventArgs e)
+       {
+           double summa= Convert.ToDouble(textBox_sena.Text) * Convert.ToDouble(textBox1_valyta.Text);
+           textBox1_summa.Text = summa.ToString();
+       }*/
     }
     public class Phone
     {

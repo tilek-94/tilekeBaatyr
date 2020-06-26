@@ -23,6 +23,8 @@ namespace УчетнаяСистема
         public Window1()
         {
             InitializeComponent();
+            this.MaxWidth = SystemParameters.MaximizedPrimaryScreenWidth;
+            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
         int f { get; set; } = 0;
         private void button_1_Click(object sender, RoutedEventArgs e)

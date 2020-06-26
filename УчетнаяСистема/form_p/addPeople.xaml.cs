@@ -111,10 +111,7 @@ namespace УчетнаяСистема.form_p
             
         }
 
-        private void Button_Clic(object sender, RoutedEventArgs e)
-        {
-            
-        }
+       
 
         private void select_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -132,6 +129,11 @@ namespace УчетнаяСистема.form_p
                 ValueChanged(id, name);
                 this.Close();
             }
+        }
+
+        private void Button_Clic(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -13,13 +13,18 @@
     <Grid Background="White" Margin="10">
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="350"/>
             <RowDefinition Height="89*"/>
         </Grid.RowDefinitions>
         <Grid.Effect>
         <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.4"/>
         </Grid.Effect>
-        <Border Background="White" Grid.Column="1" Grid.Row="0">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" >
+            <Border  Background="#0A6E9E" Height="10" VerticalAlignment="Top" Width="660"/>
+            <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
+        </StackPanel>
+        <Border Background="White" Grid.Column="1" Grid.Row="1">
 
             <Canvas>
 
@@ -67,7 +72,7 @@
                          Width="154" 
                          Cursor="Hand"
                          Height="25" />
-                <DataGrid Width="700" Canvas.Left="1"
+                <DataGrid Width="690" Canvas.Left="1"
                           x:Name="type_flat_listwiew"
                             ColumnHeaderStyle="{DynamicResource hederstyle}"
                           FontSize="12"  Style="{DynamicResource grid_xml}"
@@ -82,7 +87,7 @@
 
         <Border Padding="5" Background="#F4F4F4" Grid.Column="0" Margin="0,180,0,0" Grid.Row="1"/>
 
-        <Border Grid.Row="1" Padding="5" Background="#F4F4F4" Grid.Column="1">
+        <Border Grid.Row="2" Padding="5" Background="#F4F4F4" Grid.Column="1">
             <StackPanel  Background="White" >
                 <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
                     <Label Content="KG Group Компаниясы" FontSize="16" Foreground="#00C3FF" ></Label>
