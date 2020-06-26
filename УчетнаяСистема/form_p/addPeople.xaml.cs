@@ -16,9 +16,7 @@ using УчетнаяСистема.All_classes;
 
 namespace УчетнаяСистема.form_p
 {
-    /// <summary>
-    /// Логика взаимодействия для Window1.xaml
-    /// </summary>
+    
     public partial class Window1 : Window
     {
         public event Action<string,string> ValueChanged;
