@@ -44,12 +44,6 @@ namespace УчетнаяСистема.form_p
                messageReg.Content= "Заполните все полии";
                 messageReg.Foreground = Brushes.Red;
             }
-
-
-
-
-
-
         }
 
         private void text1_PreviewTextInput(object sender, TextCompositionEventArgs e)

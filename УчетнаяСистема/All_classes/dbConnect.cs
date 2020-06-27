@@ -95,8 +95,7 @@ namespace УчетнаяСистема.All_classes
         }
         ImageSource src;
         public void For_Kompleks_Window(WrapPanel Panell, Button button,string text,string surot)
-        {
-            
+        {            
             Grid grid = new Grid();
             grid.Height = 250;
             grid.Width = 190;
@@ -111,7 +110,7 @@ namespace УчетнаяСистема.All_classes
             ImageBrush ib = new ImageBrush();
             ib.ImageSource = src;
             Border image = new Border();
-            image.Margin = new Thickness(3,3,3,3) ;
+            image.Margin = new Thickness(3,3,3,3);
             image.Height = 200;
             image.Width = 185;
             image.CornerRadius= new CornerRadius(13,13,13,13);
