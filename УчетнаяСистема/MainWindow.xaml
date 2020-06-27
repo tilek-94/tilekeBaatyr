@@ -284,6 +284,9 @@
             <TabItem Header="dddd" Style="{DynamicResource Tab_Item}">
 
             </TabItem>
+            <TabItem Header="ddd" Style="{DynamicResource Tab_Item}">
+
+            </TabItem>
         </TabControl>
                 <Grid Grid.Row="2" x:Name="Os_Grid" >
 
