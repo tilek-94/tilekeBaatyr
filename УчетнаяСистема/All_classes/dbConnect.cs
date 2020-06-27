@@ -99,20 +99,26 @@ namespace УчетнаяСистема.All_classes
             
             Grid grid = new Grid();
             grid.Height = 250;
-            grid.Width = 240;
-            grid.Margin = new Thickness(20, 30, 0, 0);
+            grid.Width = 190;
+            grid.Margin = new Thickness(60, 15, 0, 0);
 
             if (surot != String.Empty)
             {
                 src = Base64StringToImageSource(surot);
+                
             }
-            Image image = new Image();
+            
+            ImageBrush ib = new ImageBrush();
+            ib.ImageSource = src;
+            Border image = new Border();
+            image.Margin = new Thickness(3,3,3,3);
             image.Height = 200;
-            image.Width = 200;
+            image.Width = 185;
+            image.CornerRadius= new CornerRadius(13,13,13,13);
             image.Name = "image";
             if (surot!= String.Empty)
             {
-                image.Source = src;
+                image.Background=ib;
             }
 
             Grid border = new Grid();

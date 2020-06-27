@@ -32,7 +32,7 @@ namespace УчетнаяСистема.All_classes
               "Portable Network Graphic (*.png)|*.png";
             if (open.ShowDialog() == true)
             {
-                img.Source = new BitmapImage(new Uri(open.FileName));
+                img.Source = new BitmapImage(new Uri(open.FileName)); 
             }
             if (open.FileName != String.Empty)
             {
@@ -41,7 +41,17 @@ namespace УчетнаяСистема.All_classes
         }
         public string Base64()
         {
-            return BASE64.ToString();
+            return BASE64; 
+     
         }
+        public byte[] ImageToByteArray(System.Drawing.Image imageIn)
+        {
+            using (var ms = new MemoryStream())
+            {
+                imageIn.Save(ms, imageIn.RawFormat);
+                return ms.ToArray();
+            }
+        }
+
     }
 }

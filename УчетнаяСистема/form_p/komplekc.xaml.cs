@@ -49,7 +49,7 @@ namespace УчетнаяСистема.form_p
                             Button button = new Button();
                             button.VerticalAlignment = VerticalAlignment.Top;
                             button.Style = (Style)this.TryFindResource("menuCom");
-                            button.Name = Convert.ToString(reader["id"].ToString());
+                            button.Name = "Dom" + reader["id"].ToString();
                             button.Click += new RoutedEventHandler(Button_Click);
                             dbCon.For_Kompleks_Window(Panell, button, reader["name"].ToString(), reader["img"].ToString());
 

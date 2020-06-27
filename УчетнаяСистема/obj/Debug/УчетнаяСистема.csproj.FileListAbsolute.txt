@@ -156,3 +156,4 @@ D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема.c
 D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема.csproj.CopyComplete
 D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема.exe
 D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема.pdb
+D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема.csprojAssemblyReference.cache

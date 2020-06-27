@@ -32,13 +32,13 @@
             </StackPanel>
         </Border>
         <Grid Grid.Column="1">
-            <StackPanel Margin="0,50,0,0">
-                <Image Source="image_for_pages/dom.png" Height="150" Width="150"/>
-                <Button Content="Добавить картинки" 
+            <StackPanel HorizontalAlignment="Center" Margin="0,43,5,0">
+                <Image x:Name="Kompleks_image" Source="image_for_pages/dom.png" Height="150" Width="150" Stretch="UniformToFill" />
+                <Button Content="Добавить картинки" Margin="0,5" Style="{DynamicResource Button_blue}" FontSize="12"
                     Cursor="Hand"
                     Height="25" Width="150" 
-                                Background="#0A6E9E" Foreground="White" BorderThickness="0" >
-                    <Button.Resources>
+                                Background="#0A6E9E" Foreground="White" BorderThickness="0" Click="Button_Click">
+                    <Button.Resources >
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="0,5,5,0"/>
                         </Style>

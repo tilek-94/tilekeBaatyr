@@ -75,13 +75,13 @@
         <Style x:Key="menuCom" TargetType="Button">
             <Setter Property="Background" Value="White"/>
             <Setter Property="Margin" Value="0,0,0,1"/>
-            <Setter Property="Width" Value="200"/>
+            <Setter Property="Width" Value="190"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Name="border" 
-                                BorderThickness="5,0,0,0"
+                                CornerRadius="7,7,7,7"
                                 BorderBrush="{x:Null}"
                                 Background="{x:Null}"
                                 >
