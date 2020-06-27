@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:УчетнаяСистема.form_p"
         mc:Ignorable="d"
-        Title="viewFlat" Height="650" Width="500" 
+        Title="viewFlat" Height="550" Width="500" 
         AllowsTransparency="True" WindowStyle="None" Loaded="Window_Loaded"
         Background="{x:Null}" WindowStartupLocation="CenterOwner" >
     <Grid Background="White" Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="200"/>
+            <RowDefinition Height="160"/>
             <RowDefinition Height="32*"/>
         </Grid.RowDefinitions>
         <Grid.Effect>

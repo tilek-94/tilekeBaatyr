@@ -22,6 +22,7 @@ namespace УчетнаяСистема.form_p
     /// </summary>
     public partial class addBuilding : Page
     {
+        Open_File open = new Open_File();
         public addBuilding()
         {
             InitializeComponent();
@@ -32,9 +33,9 @@ namespace УчетнаяСистема.form_p
 
             if (text1.Text != "" && text2.Text != "" && text3.Text != "" && text4.Text != "" && text5.Text != "" && text6.Text != "")
             {
-                dbCon.Registr("INSERT INTO dom(name,floor,porch,count_kv,nom_kv,addres) " +
+                dbCon.Registr("INSERT INTO dom(name,floor,porch,count_kv,nom_flat,addres,img) " +
                   "values('"+text1.Text+"'," +
-                 "'"+text2.Text+"','"+text3.Text+ "','" + text4.Text + "','" + text6.Text + "','" + text5.Text + "')");
+                 "'"+text2.Text+"','"+text3.Text+ "','" + text4.Text + "','" + text6.Text + "','" + text5.Text + "','" + open.Base64() + "')");
                RegistData("select * from dom");
                 messageReg.Foreground = Brushes.Green;
             }
@@ -43,12 +44,6 @@ namespace УчетнаяСистема.form_p
                messageReg.Content= "Заполните все полии";
                 messageReg.Foreground = Brushes.Red;
             }
-
-
-
-
-
-
         }
 
         private void text1_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -68,6 +63,12 @@ namespace УчетнаяСистема.form_p
             };
             dbCon.SoursData(s);
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+            open.Open_Image(Kompleks_image);
         }
     }
 }
