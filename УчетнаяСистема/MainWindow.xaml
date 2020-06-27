@@ -22,7 +22,10 @@
             </StackPanel>
         </Border>
         <TabControl  BorderThickness="0" Grid.Row="1" >
-            <TabItem Header="Главный" Style="{DynamicResource Tab_Item}"  >
+            <TabItem Header=" Главная " Style="{DynamicResource Tab_Item}">
+
+            </TabItem>
+            <TabItem Header="Ввод данных" Style="{DynamicResource Tab_Item}"  >
                 <Grid>
                     <Border Background="#0A6E9E" VerticalAlignment="Top">
                         <Grid>

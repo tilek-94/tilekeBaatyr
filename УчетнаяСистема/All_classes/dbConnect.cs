@@ -5,7 +5,7 @@ namespace УчетнаяСистема.All_classes
 {
     class dbConnect
     {
-        MySqlConnection connection = new MySqlConnection("datasource=192.168.0.101; port=3306;Initial Catalog='u_system';username=STROI2;password=123456;CharSet=utf8;");
+        MySqlConnection connection = new MySqlConnection("datasource=192.168.0.103; port=3306;Initial Catalog='u_system';username=STROI2;password=123456;CharSet=utf8;");
         public delegate void DisplaySourse(DataTable db);
         public delegate void DisplaySourse2(string[] a);
         public event DisplaySourse eventDysplay;
