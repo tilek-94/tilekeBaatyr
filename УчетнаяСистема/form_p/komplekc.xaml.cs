@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -33,12 +34,34 @@ namespace УчетнаяСистема.form_p
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-           
-                Button button = new Button();
-                button.VerticalAlignment = VerticalAlignment.Top;
-                button.Style = (Style)this.TryFindResource("menuCom") ;
-                button.Name = "button";
-                button.Click += new RoutedEventHandler(Button_Click);               
+
+            dbCon.connection.Open();
+            using (MySqlCommand cmd = new MySqlCommand("select id,name,img from dom", dbCon.connection))
+            {
+                
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            Button button = new Button();
+                            button.VerticalAlignment = VerticalAlignment.Top;
+                            button.Style = (Style)this.TryFindResource("menuCom");
+                            button.Name = "Dom" + reader["id"].ToString();
+                            button.Click += new RoutedEventHandler(Button_Click);
+                            dbCon.For_Kompleks_Window(Panell, button, reader["name"].ToString(), reader["img"].ToString());
+
+                        }
+                    }
+
+                }
+
+            }
+            dbCon.connection.Close();
+            dbCon.connection.Dispose();
+
 
         }
         public void Button_Click(object sender, RoutedEventArgs e)

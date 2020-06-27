@@ -11,7 +11,7 @@ namespace УчетнаяСистема.All_classes
 {
     class dbConnect
     {
-        MySqlConnection connection = new MySqlConnection("datasource=192.168.0.101; port=3306;Initial Catalog='u_system';username=STROI2;password=123456;CharSet=utf8;");
+        public MySqlConnection connection = new MySqlConnection("datasource=192.168.0.103; port=3306;Initial Catalog='u_system';username=STROI2;password=123456;CharSet=utf8;");
         public delegate void DisplaySourse(DataTable db);
         public delegate void DisplaySourse2(string[] a);
         public event DisplaySourse eventDysplay;
@@ -93,22 +93,33 @@ namespace УчетнаяСистема.All_classes
             return f;
 
         }
-        public void For_Kompleks_Window(WrapPanel Panell, Button button,TextBlock textblock,Image image,string surot)
+        ImageSource src;
+        public void For_Kompleks_Window(WrapPanel Panell, Button button,string text,string surot)
         {
+            
             Grid grid = new Grid();
             grid.Height = 250;
-            grid.Width = 240;
-            grid.Margin = new Thickness(20, 30, 0, 0);
+            grid.Width = 190;
+            grid.Margin = new Thickness(60, 15, 0, 0);
 
-            ImageSource src = Base64StringToImageSource(surot);
+            if (surot != String.Empty)
+            {
+                src = Base64StringToImageSource(surot);
+                
+            }
+            
+            ImageBrush ib = new ImageBrush();
+            ib.ImageSource = src;
+            Border image = new Border();
+            image.Margin = new Thickness(3,3,3,3) ;
             image.Height = 200;
-            image.Width = 200;
+            image.Width = 185;
+            image.CornerRadius= new CornerRadius(13,13,13,13);
             image.Name = "image";
-            BitmapImage b = new BitmapImage();
-            b.BeginInit();
-            b.UriSource = new Uri("../images/dom2.png", UriKind.Relative);
-            b.EndInit();
-            image.Source = b;
+            if (surot!= String.Empty)
+            {
+                image.Background=ib;
+            }
 
             Grid border = new Grid();
             border.HorizontalAlignment = HorizontalAlignment.Stretch;
@@ -116,13 +127,13 @@ namespace УчетнаяСистема.All_classes
             border.Height = double.NaN;
             border.Background = Brushes.White;
 
-            //TextBlock textblock = new TextBlock();
+            TextBlock textblock = new TextBlock();
             Color color = (Color)ColorConverter.ConvertFromString("#0A6E9E");
             textblock.Foreground = new SolidColorBrush(color);
             textblock.FontSize = 18;
             textblock.HorizontalAlignment = HorizontalAlignment.Center;
             textblock.TextWrapping = TextWrapping.Wrap;
-            textblock.Text = "Maksat";
+            textblock.Text = text;
             textblock.Name = "textblock";
 
             button.Content = image;
