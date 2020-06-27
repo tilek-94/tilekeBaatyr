@@ -22,8 +22,16 @@
 
             </StackPanel>
         </Border>
+<<<<<<< HEAD
         <TabControl  BorderThickness="0" Grid.Row="1" Grid.RowSpan="2" Height="117" HorizontalAlignment="Stretch" VerticalAlignment="Top">
             <TabItem Header="Главный" Style="{DynamicResource Tab_Item}"  >
+=======
+        <TabControl  BorderThickness="0" Grid.Row="1" >
+            <TabItem Header=" Главная " Style="{DynamicResource Tab_Item}">
+
+            </TabItem>
+            <TabItem Header="Ввод данных" Style="{DynamicResource Tab_Item}"  >
+>>>>>>> 82632f92233a0a33b1b3debb8139e75834c0ae34
                 <Grid>
                     <Border Background="#0A6E9E" VerticalAlignment="Top">
                         <Grid>

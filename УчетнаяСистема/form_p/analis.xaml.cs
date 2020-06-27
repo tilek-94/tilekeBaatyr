@@ -46,7 +46,7 @@ namespace УчетнаяСистема.form_p
                 DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
                 string marka_1 = dataRow.Row.ItemArray[0].ToString();
                 viewFlat view_lat = new viewFlat();
-                view_lat.sqlQery = "SELECT t.name, t.kvm FROM flat f inner join " +
+                view_lat.sqlQery = "SELECT t.name, t.kvm, f.floor,f.porch,f.number_f FROM flat f inner join " +
                     "type_flat t on t.dom_id = '6' and t.porch = f.porch " +
                     "and t.room = f.room and t.`type`= f.type_flat and f.number_f = '"+ marka_1 + "' ";
                 view_lat.ShowDialog();
