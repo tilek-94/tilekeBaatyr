@@ -104,8 +104,6 @@ D:\Kompany\УчетнаяСистема\bin\Debug\BouncyCastle.Crypto.dll
 D:\Kompany\УчетнаяСистема\bin\Debug\Ubiety.Dns.Core.dll
 D:\Kompany\УчетнаяСистема\bin\Debug\Renci.SshNet.dll
 D:\Kompany\УчетнаяСистема\bin\Debug\MySql.Data.xml
-D:\Kompany\УчетнаяСистема\bin\Debug\Syncfusion.Shared.WPF.xml
-D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема.csprojAssemblyReference.cache
 D:\Kompany\УчетнаяСистема\obj\Debug\Bron_WinDow.g.cs
 D:\Kompany\УчетнаяСистема\obj\Debug\form_p\addBuilding.g.cs
 D:\Kompany\УчетнаяСистема\obj\Debug\form_p\addPeople.g.cs
