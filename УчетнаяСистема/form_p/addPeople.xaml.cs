@@ -62,11 +62,27 @@ namespace УчетнаяСистема.form_p
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            if (FIO.Text != "" && data_r.Text != "" && AN.Text != "" && address.Text != "")
+            if (FIO.Text != "" && data_r.Text != "" && AN.Text != "" && data_p.Text != "" && vdan.Text != "" && address_p.Text != "" && address.Text != "")
             {
-                dbCon.Registr("INSERT INTO client(name,data,tel_nom,AN,address) " +
-                  "values('" + FIO.Text + "','" + data_r.Text + "','" + tel_nom.Text + "','"+AN.Text+"','" + address.Text + "'" +
+                dbCon.Registr("INSERT INTO client(name,data,tel_nom,AN,data_vdan,vdan_uch,address_pas,address) " +
+                  "values(" +
+                  "'" + FIO.Text + "'," +
+                  "'" + data_r.Text + "'," +
+                  "'" + tel_nom.Text + "'," +
+                  "'" + AN.Text + "'," +
+                  "'" + data_p.Text + "'," +
+                  "'" + vdan.Text + "'," +
+                  "'" +address_p.Text+"'," +
+                  "'" + address.Text + "'" +
                   ")");
+                FIO.Text = "";
+                data_r.Text = "";
+                tel_nom.Text = "";
+                AN.Text = "";
+                data_p.Text = "";
+                vdan.Text = "";
+                address_p.Text = "";
+                address.Text = "";
                 RegistData("SELECT * FROM client");
 
 
@@ -74,7 +90,7 @@ namespace УчетнаяСистема.form_p
             }
             else
             {
-                MessageBox.Show("ds");
+                MessageBox.Show("Заполниет все неоходимый поле!");
             }
         }
         string id = "0";
@@ -86,14 +102,21 @@ namespace УчетнаяСистема.form_p
              id = dataRow.Row.ItemArray[0].ToString();
             name = dataRow.Row.ItemArray[1].ToString();
             string data = dataRow.Row.ItemArray[2].ToString();
-            string AN_data = dataRow.Row.ItemArray[3].ToString();
-            string tel = dataRow.Row.ItemArray[4].ToString();
+            string tel = dataRow.Row.ItemArray[3].ToString();
+            string AN_data = dataRow.Row.ItemArray[4].ToString();
+            string data_v = dataRow.Row.ItemArray[5].ToString();
+            string vdan_uch = dataRow.Row.ItemArray[6].ToString();
+            string address_pas = dataRow.Row.ItemArray[7].ToString();
             string addr = dataRow.Row.ItemArray[5].ToString();
             FIO.Text = name;
             data_r.Text = data;
             AN.Text = AN_data;
             tel_nom.Text = tel;
+            data_p.Text= data_v;
+            vdan.Text= vdan_uch;
+            address_p.Text = address_pas;
             address.Text = addr;
+
 
         }
 

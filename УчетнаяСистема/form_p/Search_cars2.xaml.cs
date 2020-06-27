@@ -30,19 +30,29 @@ namespace УчетнаяСистема.form_p
         public event MessageID mes_;
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            dbCon.Registr("INSERT INTO cars(marka,data,nomer,prih_summ,kurs,info)" +
+            if(marka.Text!="" && data.Text!="" && nomer.Text != "" && condition_t.Text != "" && prih_summ.Text != "" && kurs.Text != "" && client_id != 0) {
+            dbCon.Registr("INSERT INTO cars(marka,data,nomer,condition_c, prih_summ,kurs,client_id)" +
                 "values (" +
                 "'" + marka.Text + "'," +
                 "'" + data.Text + "'," +
                 "'"+ nomer.Text + "'," +
+                "'"+ condition_t.Text + "'," +
                 "'" + prih_summ.Text + "'," +
                 "'" + kurs.Text + "'," +
-                "'" + info.Text + "')");
+                "'"+client_id+"')");
             dbCon.eventDysplay += delegate (DataTable db)
             {
                 dataGridView1.ItemsSource = db.DefaultView;
             };
-            dbCon.SoursData("SELECT * FROM cars");
+            dbCon.SoursData("SELECT id,marka,data,nomer,condition_c," +
+                "prih_summ, kurs, prih_summ * kurs as summ_som," +
+                "(SELECT name FROM client WHERE id = client_id) as client" +
+                ",datatim FROM cars");
+            }
+            else
+            {
+                MessageBox.Show("Maalymat tolgon");
+            }
         }
 
         private void myDataGrid_MouseUp(object sender, MouseButtonEventArgs e)
@@ -56,14 +66,30 @@ namespace УчетнаяСистема.form_p
             {
                 dataGridView1.ItemsSource = db.DefaultView;
             };
-            dbCon.SoursData("SELECT * FROM cars");
+            dbCon.SoursData("SELECT id,marka,data,nomer,condition_c," +
+                "prih_summ, kurs, prih_summ * kurs as summ_som," +
+                "(SELECT name FROM client WHERE id = client_id) as client" +
+                ",datatim FROM cars");
 
         }
-        string id_1 = "", marka_1, prih_summ_1="", kurs_1="";
+        string id_1 = "", marka_1, prih_summ_1 = "", kurs_1 = "";
+        int client_id=0;
 
         private void Button_Clic(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void show_client_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 window1 = new Window1();
+            window1.ValueChanged += new Action<string, string>((x, y) =>
+            {
+                client_id = Convert.ToInt32(x);
+                FIO.Text = y;
+
+            });
+            window1.ShowDialog();
         }
 
         private void dataGridView1_ColumnDisplayIndexChanged(object sender, DataGridColumnEventArgs e)
@@ -73,7 +99,7 @@ namespace УчетнаяСистема.form_p
 
         private void dataGridView1_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            
+            try { 
             DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
             int index = dataGridView1.CurrentCell.Column.DisplayIndex;
              id_1 = dataRow.Row.ItemArray[0].ToString();
@@ -89,13 +115,15 @@ namespace УчетнаяСистема.form_p
             nomer.Text = nomer_1;
             prih_summ.Text = prih_summ_1;
             kurs.Text = kurs_1;
-            info.Text = info_1;
+            
+            }
+            catch { }
         }
 
         private void button_vbor_Click(object sender, RoutedEventArgs e)
         {
-            mes_(id_1,marka_1, prih_summ_1, kurs_1);
-            this.Close();
+            /*mes_(id_1,marka_1, prih_summ_1, kurs_1);
+            this.Close();*/
         }
     }
 }
