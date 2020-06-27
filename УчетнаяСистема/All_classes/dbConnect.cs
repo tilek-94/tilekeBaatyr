@@ -111,7 +111,7 @@ namespace УчетнаяСистема.All_classes
             ImageBrush ib = new ImageBrush();
             ib.ImageSource = src;
             Border image = new Border();
-            image.Margin = new Thickness(3,3,3,3);
+            image.Margin = new Thickness(3,3,3,3) ;
             image.Height = 200;
             image.Width = 185;
             image.CornerRadius= new CornerRadius(13,13,13,13);
