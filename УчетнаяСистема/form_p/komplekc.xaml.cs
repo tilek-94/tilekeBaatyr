@@ -36,7 +36,7 @@ namespace УчетнаяСистема.form_p
            
                 Button button = new Button();
                 button.VerticalAlignment = VerticalAlignment.Top;
-                button.Style = (Style)this.TryFindResource("menuCom");
+                button.Style = (Style)this.TryFindResource("menuCom") ;
                 button.Name = "button";
                 button.Click += new RoutedEventHandler(Button_Click);               
 
