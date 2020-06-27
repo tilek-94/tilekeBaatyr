@@ -12,9 +12,10 @@
     <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400"/>
-            <ColumnDefinition Width="81*"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Border Grid.Column="1" Padding="5" Background="#F4F4F4">
+        <Border Grid.Column="2" Padding="5" Background="#F4F4F4" Grid.ColumnSpan="2">
             <StackPanel  Background="White" >
                 <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
                     <Label Content="KG Group Компаниясы" FontSize="16" Foreground="#00C3FF" ></Label>
@@ -30,6 +31,21 @@
                 </DataGrid>
             </StackPanel>
         </Border>
+        <Grid Grid.Column="1">
+            <StackPanel HorizontalAlignment="Center" Margin="0,43,5,0">
+                <Image x:Name="Kompleks_image" Source="image_for_pages/dom.png" Height="150" Width="150" Stretch="UniformToFill" />
+                <Button Content="Добавить картинки" Margin="0,5" Style="{DynamicResource Button_blue}" FontSize="12"
+                    Cursor="Hand"
+                    Height="25" Width="150" 
+                                Background="#0A6E9E" Foreground="White" BorderThickness="0" Click="Button_Click">
+                    <Button.Resources >
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="0,5,5,0"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+        </Grid>
         <Canvas>
             <Grid>
                 <Border Margin="14,44,-388,-394" BorderThickness="1" Padding="10" BorderBrush="#C1C0C0">
@@ -81,3 +97,5 @@
         </Canvas>
     </Grid>
 </Page>
+
+    

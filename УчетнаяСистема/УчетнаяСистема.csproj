@@ -67,6 +67,7 @@
     </ApplicationDefinition>
     <Compile Include="All_classes\dbConnect.cs" />
     <Compile Include="All_classes\DopClass.cs" />
+    <Compile Include="All_classes\Open_File.cs" />
     <Compile Include="All_classes\staticClass.cs" />
     <Compile Include="Bron_WinDow.xaml.cs">
       <DependentUpon>Bron_WinDow.xaml</DependentUpon>
@@ -310,7 +311,7 @@
     <Resource Include="images\icon\clock.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\dom.png" />
+    <Resource Include="form_p\image_for_pages\dom.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\dom2.png" />
