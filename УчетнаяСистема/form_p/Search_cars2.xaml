@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:УчетнаяСистема.form_p"
         mc:Ignorable="d"
-        Title="Search_cars2" Height="650" Loaded="Window_Loaded"
+        Title="Search_cars2" Height="650"  Loaded="Window_Loaded"
         Width="1100" AllowsTransparency="True"
         WindowStyle="None" Background="{x:Null}" 
         WindowStartupLocation="CenterScreen">
