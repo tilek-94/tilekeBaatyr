@@ -157,3 +157,5 @@ D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема.c
 D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема.exe
 D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема.pdb
 D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема.csprojAssemblyReference.cache
+D:\Kompany\УчетнаяСистема\obj\Debug\Bron_Klient.g.cs
+D:\Kompany\УчетнаяСистема\obj\Debug\Bron_Klient.baml

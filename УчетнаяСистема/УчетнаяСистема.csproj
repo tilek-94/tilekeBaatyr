@@ -69,6 +69,9 @@
     <Compile Include="All_classes\DopClass.cs" />
     <Compile Include="All_classes\Open_File.cs" />
     <Compile Include="All_classes\staticClass.cs" />
+    <Compile Include="Bron_Klient.xaml.cs">
+      <DependentUpon>Bron_Klient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Bron_WinDow.xaml.cs">
       <DependentUpon>Bron_WinDow.xaml</DependentUpon>
     </Compile>
@@ -129,6 +132,10 @@
     <Compile Include="Window2.xaml.cs">
       <DependentUpon>Window2.xaml</DependentUpon>
     </Compile>
+    <Page Include="Bron_Klient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Bron_WinDow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
