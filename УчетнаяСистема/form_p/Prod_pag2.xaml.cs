@@ -120,7 +120,7 @@ namespace УчетнаяСистема.form_p
         double dollar = 0,kurs=0,som=0;
 
         private void textbox_kurs_KeyUp(object sender, KeyEventArgs e)
-        {
+        {/*
             if (textbox_kurs.Text != "" && textbox_Dol.Text!="" )
             {
                 dollar = Convert.ToDouble(textbox_Dol.Text);
@@ -142,18 +142,23 @@ namespace УчетнаяСистема.form_p
             label_summ_Som_itog.Content = Convert.ToString(((Convert.ToDouble(kvm) * dollar) * kurs)-(summ_cars*kurs_cars))+" Сом";
                 label_summ_Cars.Content = summ_cars.ToString();
             }
-
+*/
         }
         string data_n = "",data_k="";
 
         private void Calendar2_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
-            data_k = Calendar2.DisplayDate.ToString("yyyy-MM-dd");
+           // data_k = Calendar2.DisplayDate.ToString("yyyy-MM-dd");
+        }
+
+        private void textbox_Dol_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
 
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
-            data_n = Calendar1.DisplayDate.ToString("yyyy-MM-dd");
+           // data_n = Calendar1.DisplayDate.ToString("yyyy-MM-dd");
         }
 
         private void textbox_cars_Copy1_KeyUp(object sender, KeyEventArgs e)
