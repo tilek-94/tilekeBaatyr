@@ -17,8 +17,10 @@ using УчетнаяСистема.All_classes;
 
 namespace УчетнаяСистема.form_p
 {
-    /// <summary>
+    /// <summary> 
+    /// 
     /// Логика взаимодействия для addBuilding.xaml
+    /// 
     /// </summary>
     public partial class addBuilding : Page
     {

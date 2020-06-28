@@ -131,6 +131,7 @@ D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема.c
 D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема.csproj.CopyComplete
 D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема.exe
 D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема.pdb
+D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема.csprojAssemblyReference.cache
 D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\BouncyCastle.Crypto.dll
 D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\Google.Protobuf.dll
 D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\MySqlBackup.dll
@@ -141,10 +142,8 @@ D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\Renci.SshNet.xml
 D:\Kompany\УчетнаяСистема\bin\Debug\MySqlBackup.dll
 D:\Kompany\УчетнаяСистема\bin\Debug\Google.Protobuf.xml
 D:\Kompany\УчетнаяСистема\bin\Debug\Renci.SshNet.xml
-D:\Kompany\УчетнаяСистема\obj\Debug\Bron_Klient.g.cs
 D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема_MarkupCompile.lref
 D:\Kompany\УчетнаяСистема\obj\Debug\App.baml
-D:\Kompany\УчетнаяСистема\obj\Debug\Bron_Klient.baml
 D:\Kompany\УчетнаяСистема\obj\Debug\Bron_WinDow.baml
 D:\Kompany\УчетнаяСистема\obj\Debug\form_p\addBuilding.baml
 D:\Kompany\УчетнаяСистема\obj\Debug\form_p\addPeople.baml
@@ -165,4 +164,3 @@ D:\Kompany\УчетнаяСистема\obj\Debug\registr\registr_flat.baml
 D:\Kompany\УчетнаяСистема\obj\Debug\registr\registr_type_flat.baml
 D:\Kompany\УчетнаяСистема\obj\Debug\Window1.baml
 D:\Kompany\УчетнаяСистема\obj\Debug\Window2.baml
-D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема.csprojAssemblyReference.cache
