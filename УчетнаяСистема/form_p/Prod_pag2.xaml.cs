@@ -74,7 +74,7 @@ namespace УчетнаяСистема.form_p
         private void dataGridView1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             view_year view_Year = new view_year();
-            view_Year.ShowDialog();
+            //view_Year.ShowDialog();
         }
 
         private void registr_client_btn_Click(object sender, RoutedEventArgs e)

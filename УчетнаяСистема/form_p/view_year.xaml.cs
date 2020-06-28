@@ -21,7 +21,7 @@ namespace УчетнаяСистема.form_p
     /// <summary>
     /// Логика взаимодействия для view_year.xaml
     /// </summary>
-    public partial class view_year : Window
+    public partial class view_year : Page
     {
         /*ObservableCollection<Employee> employees = new ObservableCollection<Employee>();
       */  public view_year()

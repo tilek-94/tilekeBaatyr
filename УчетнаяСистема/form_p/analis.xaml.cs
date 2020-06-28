@@ -66,7 +66,7 @@ namespace УчетнаяСистема.form_p
             else if (columnIndex>6)
             {
                 view_year View_Year = new view_year();
-                View_Year.ShowDialog();
+                //View_Year.ShowDialog();
 
             }
         }
