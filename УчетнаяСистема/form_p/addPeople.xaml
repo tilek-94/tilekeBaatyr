@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:УчетнаяСистема.form_p"
         mc:Ignorable="d"
-        Title="addPeople" Height="678.876" Width="1000" 
+        Title="addPeople" Height="678" Width="1000" 
         AllowsTransparency="True" WindowStyle="None"
         Background="{x:Null}" WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded"
@@ -18,7 +18,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="270"/>
-                <RowDefinition Height="120*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" >
@@ -30,7 +30,7 @@
                         BorderThickness="1,1,1,1"
                         BorderBrush="#FFC1C0C0"
                         Canvas.Left="21" Canvas.Top="20" Width="181">
-                    <Image x:Name="image" Source="../images/foto_people/people.JPG" Margin="0,3" />
+                    <Image x:Name="image" Source="../images/foto_people/people.JPG" Margin="0,3" MouseDown="image_MouseDown" Stretch="UniformToFill"/>
                 </Border>
                 <TextBox x:Name="FIO" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Ф.И.О" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="297" Canvas.Top="21" />
                 <Label Content="Ф.И.О" Canvas.Left="215" Canvas.Top="20" FontSize="13" />

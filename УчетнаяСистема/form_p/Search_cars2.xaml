@@ -8,8 +8,8 @@
         Title="Search_cars2" Height="650"  Loaded="Window_Loaded"
         Width="1100" AllowsTransparency="True"
         WindowStyle="None" Background="{x:Null}" 
-        WindowStartupLocation="CenterScreen">
-    <Grid Background="White" Margin="15">
+        WindowStartupLocation="CenterScreen" BorderBrush="#FF0A6E9E" BorderThickness="1">
+    <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition Height="300"/>

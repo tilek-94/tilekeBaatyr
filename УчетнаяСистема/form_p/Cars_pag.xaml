@@ -13,13 +13,13 @@
         
         <Border Grid.Column="1" Padding="5" Background="#F4F4F4">
             <StackPanel  Background="White" >
-                <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
-                    <Label Content="KG Group Компаниясы" FontSize="16" Foreground="#00C3FF" ></Label>
-                    <Button Content="  add  " Click="Button_Click" HorizontalAlignment="Right" ></Button>
+                <Grid  Background="#F4F4F4" HorizontalAlignment="Stretch">
+                    <Label Content="KG Group Компаниясы" FontSize="16" Foreground="#00C3FF" HorizontalAlignment="Left"></Label>
+                    <Button Content="Добавить" Click="Button_Click" HorizontalAlignment="Right" Margin="0,0,212,0" Style="{DynamicResource Button_blue}" Width="168" Height="25"></Button>
                     <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" Tag=" Поиск данные" Height="25" Width="200" Margin="5" HorizontalAlignment="Right">
                         
                     </TextBox>
-                </DockPanel>
+                </Grid>
                 <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
                   
@@ -45,19 +45,19 @@
                             <StackPanel Orientation="Horizontal" Background="White">
                                 <StackPanel Margin="40,20,0,10" >
                                     <Border BorderBrush="#FFC1C0C0" BorderThickness="1" Padding="5">
-                                    <Image  Width="250" Source="/УчетнаяСистема;component/images/foto_people/unnamed.png" />
+                                        <Image x:Name="Data_Image"  Width="250" Source="/УчетнаяСистема;component/images/foto_people/unnamed.png"/>
                                     </Border>
                                 </StackPanel>
                                 <StackPanel Orientation="Vertical" Margin="50,0,0,0">
                                     <StackPanel Orientation="Horizontal"  Margin="0,5,0,0">
-                                    <Label Content="Машина марка  " FontSize="13"  />
-                                    <TextBox  FontSize="14" 
+                                        <Label Content="Машина марка  " FontSize="13"  />
+                                        <TextBox  FontSize="14" 
                                               Text="{Binding marka}"
                                               Style="{DynamicResource textbox_style}" Height="22"  Width="254"  Margin="10,5,0,0" />
-                                </StackPanel>
+                                    </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <Label Content="Дата покупки  " FontSize="13"  />
-                                         <DatePicker
+                                        <DatePicker
                                              Text="{Binding data}"
                                              Style="{DynamicResource styleDatePicker}" Height="22"  Width="254" Margin="18,5,0,0" />
 
@@ -69,9 +69,9 @@
                                             FontSize="14"  Style="{DynamicResource textbox_style}" Height="22"  Width="254"  Margin="7,5,0,0" />
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
-                                        <Label Content="Адресс        " FontSize="13"  />
+                                        <Label Content="Состояние  " FontSize="13"  />
                                         <TextBox  FontSize="14"
-                                                  Text="{Binding address}"
+                                                  Text="{Binding condition_c}"
                                                   Style="{DynamicResource textbox_style}" Height="80"  Width="254"  Margin="35,5,0,10" />
                                     </StackPanel>
                                 </StackPanel>
@@ -92,9 +92,17 @@
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <Label Content="Приход сумма (Сом)  " FontSize="13"  />
-                                        <TextBox  FontSize="14"  Style="{DynamicResource textbox_style}" Height="22"  Width="254"  Margin="27,5,0,0" />
+                                        <TextBox  FontSize="14" Text="{Binding summ_som}"  Style="{DynamicResource textbox_style}" Height="22"  Width="254"  Margin="27,5,0,0" />
                                     </StackPanel>
-                                   
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="Клиент" FontSize="13"  />
+                                        <TextBox  FontSize="14" Text="{Binding client}"  Style="{DynamicResource textbox_style}" Height="22"  Width="254"  Margin="114,5,0,0" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="Дата покупки" FontSize="13"  />
+                                        <TextBox  FontSize="14" Text="{Binding datatim, StringFormat='dd-MM-yyyy HH:mm'}"  Style="{DynamicResource textbox_style}" Height="22"  Width="254"  Margin="76,5,0,0" />
+                                    </StackPanel>
+
                                 </StackPanel>
 
                             </StackPanel>
