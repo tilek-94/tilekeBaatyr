@@ -19,6 +19,7 @@ namespace УчетнаяСистема.form_p
 {
     /// <summary>
     /// Логика взаимодействия для addBuilding.xaml
+    /// 
     /// </summary>
     public partial class addBuilding : Page
     {
