@@ -19,6 +19,7 @@ namespace УчетнаяСистема.form_p
     
     public partial class Window1 : Window
     {
+        Open_File file = new Open_File();           
         public event Action<string,string> ValueChanged;
         public Window1()
         {
@@ -155,6 +156,11 @@ namespace УчетнаяСистема.form_p
         private void Button_Clic(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            file.Open_Image(image);
         }
     }
 }

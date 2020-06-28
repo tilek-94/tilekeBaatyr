@@ -56,6 +56,7 @@ namespace УчетнаяСистема.form_p
         {
             Search_cars2 search_Cars2 = new Search_cars2();
             search_Cars2.flag = true;
+            search_Cars2.Height = 335;
             search_Cars2.ShowDialog();
         }
     }

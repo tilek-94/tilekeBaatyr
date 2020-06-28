@@ -46,39 +46,11 @@ namespace УчетнаяСистема.form_p
             dbCon.SoursData(s);
 
         }
-        private void registr_client_btn_Click(object sender, RoutedEventArgs e)
-        {
-            if (FIO.Text != "" && data_r.Text != "" && AN.Text != "" && address.Text != "" )
-            {
-                dbCon.Registr("INSERT INTO client(name,data,tel_nom,address,foto) " +
-                  "values('" + FIO.Text + "','" + data_r.Text + "','"+AN.Text+ "','" + address.Text + "'" +
-                  ",'"+ getJPGFromImageControl(image.Source as BitmapImage) +"')");
-                RegistData("SELECT * FROM client");
-
-                
-
-            }
-            else
-            {
-                MessageBox.Show("ds");   
-            }
-        }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             RegistData("SELECT * FROM client");
         }
-
-        private void load_foto_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            OpenFileDialog opf = new OpenFileDialog();
-            opf.Filter = "Chose Image(*.jpg; *.png; *.fig)|*.jpg; *.png; *.gif";
-            if (opf.ShowDialog() == true)
-            {
-                image.Source= new BitmapImage(new Uri(opf.FileName));
-            }
-        }
-
         public byte[] getJPGFromImageControl(BitmapImage imageC)
         {
             MemoryStream memStream = new MemoryStream();
@@ -86,6 +58,13 @@ namespace УчетнаяСистема.form_p
             encoder.Frames.Add(BitmapFrame.Create(imageC));
             encoder.Save(memStream);
             return memStream.ToArray();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 search_Cars2 = new Window1();
+            search_Cars2.Height = 330;
+            search_Cars2.ShowDialog();
         }
     }
 }
