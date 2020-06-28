@@ -133,3 +133,10 @@ D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема.c
 D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема.exe
 D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема.pdb
 D:\Kompany\УчетнаяСистема\obj\Debug\УчетнаяСистема.csprojAssemblyReference.cache
+D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\BouncyCastle.Crypto.dll
+D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\Google.Protobuf.dll
+D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\MySqlBackup.dll
+D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\Renci.SshNet.dll
+D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\Google.Protobuf.xml
+D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\MySql.Data.xml
+D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\Renci.SshNet.xml

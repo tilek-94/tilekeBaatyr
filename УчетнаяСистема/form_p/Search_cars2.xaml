@@ -71,7 +71,7 @@
                 Style="{DynamicResource textbox_style}" 
                      Text="{Binding SelectedItem.client, ElementName=dataGridView1}"
                 Tag=" Ф.И.О" Height="24" Width="208" 
-                HorizontalAlignment="Right" Canvas.Left="818" Canvas.Top="123"/>
+                HorizontalAlignment="Right" Canvas.Left="818" Canvas.Top="122"/>
             <Label Content="Клиент" Canvas.Left="706" Canvas.Top="121" FontSize="13" Width="77" />
             <Button Style="{StaticResource Add_Button_MRZ}"
                 x:Name="show_client_btn"
@@ -89,7 +89,10 @@
             <StackPanel  Background="White" >
                 <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
                     <Label Content="KG Group Компаниясы" FontSize="16" Foreground="#00C3FF" ></Label>
-                    <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" Tag=" Поиск данные" Height="25" Width="200" Margin="5" HorizontalAlignment="Right">
+                    <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" 
+                             x:Name="TextBox_search"
+                             KeyDown="TextBox_KeyDown"
+                             Tag=" Поиск данные" Height="25" Width="200" Margin="5" HorizontalAlignment="Right">
 
                     </TextBox>
                 </DockPanel>
@@ -99,7 +102,8 @@
                   ItemsSource="{Binding}"
                           AutoGenerateColumns="False"
                   ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1"
-                         MouseDoubleClick="dataGridView1_MouseUp" ColumnDisplayIndexChanged="dataGridView1_ColumnDisplayIndexChanged">
+                         MouseDoubleClick="dataGridView1_MouseUp"
+                          ColumnDisplayIndexChanged="dataGridView1_ColumnDisplayIndexChanged">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="№" Binding="{Binding id}" Width="50" />
                         <DataGridTextColumn Header="Марка" Binding="{Binding marka}" />

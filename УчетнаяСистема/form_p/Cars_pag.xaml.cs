@@ -45,8 +45,18 @@ namespace УчетнаяСистема.form_p
             {
                 dataGridView1.DataContext = db;
             };
-            dbCon.SoursData("SELECT * FROM cars ORDER BY id DESC");
+            dbCon.SoursData("SELECT id,marka,data,nomer,condition_c," +
+                "prih_summ, kurs, prih_summ * kurs as summ_som," +
+                "(SELECT name FROM client WHERE id = client_id) as client" +
+                ",datatim FROM cars");
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Search_cars2 search_Cars2 = new Search_cars2();
+            search_Cars2.flag = true;
+            search_Cars2.ShowDialog();
         }
     }
 }

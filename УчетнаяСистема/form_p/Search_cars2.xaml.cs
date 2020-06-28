@@ -28,6 +28,7 @@ namespace УчетнаяСистема.form_p
         dbConnect dbCon = new dbConnect();
         public delegate void MessageID(string id, string name,string summa,string kurs);
         public event MessageID mes_;
+        public bool flag = false;
         private void button_Click(object sender, RoutedEventArgs e)
         {
             if(marka.Text!="" && data.Text!="" && nomer.Text != "" && condition_t.Text != "" && prih_summ.Text != "" && kurs.Text != "" && client_id != 0) {
@@ -62,6 +63,19 @@ namespace УчетнаяСистема.form_p
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            if (flag == false) { 
+            Display();
+
+
+            }
+            else
+            {
+                dataGridView1.Visibility=Visibility.Collapsed;
+            }
+        }
+
+        void Display()
+        {
             dbCon.eventDysplay += delegate (DataTable db)
             {
                 dataGridView1.ItemsSource = db.DefaultView;
@@ -72,6 +86,7 @@ namespace УчетнаяСистема.form_p
                 ",datatim FROM cars");
 
         }
+
         string id_1 = "", marka_1, prih_summ_1 = "", kurs_1 = "";
         int client_id=0;
 
@@ -90,6 +105,18 @@ namespace УчетнаяСистема.form_p
 
             });
             window1.ShowDialog();
+        }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            dbCon.eventDysplay += delegate (DataTable db)
+            {
+                dataGridView1.ItemsSource = db.DefaultView;
+            };
+            dbCon.SoursData("SELECT id,marka,data,nomer,condition_c," +
+                "prih_summ, kurs, prih_summ * kurs as summ_som," +
+                "(SELECT name FROM client WHERE id = client_id) as client" +
+                ",datatim FROM cars WHERE nomer LIKE '%"+TextBox_search.Text+ "%' or marka LIKE '%"+TextBox_search.Text+"%'");
         }
 
         private void dataGridView1_ColumnDisplayIndexChanged(object sender, DataGridColumnEventArgs e)
