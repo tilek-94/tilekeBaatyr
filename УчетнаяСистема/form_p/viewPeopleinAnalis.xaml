@@ -11,7 +11,7 @@
       Title="viewPeopleinAnalis" 
         AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
 
-    <Grid Background="White" Margin="10">
+    <Grid  Background="White" Margin="10" >
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="397*"/>
