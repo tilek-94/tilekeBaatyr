@@ -14,13 +14,13 @@
         </Grid.Effect>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
-            <RowDefinition Height="200"/>
+            <RowDefinition Height="250"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Border Grid.Row="0" Background="#0A6E9E" Height="10" VerticalAlignment="Top"/>
         <Button x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right" Click="Button_Close_Click"/>
         <Grid Grid.Row="1" Margin="0,1,0,334" Grid.RowSpan="2">
-            <StackPanel Margin="88,-1,116,128">
+            <StackPanel Margin="88,-1,116,58">
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Ф.И.О  клиент" Margin="0,0,0,0"/>
 
@@ -45,6 +45,10 @@
                     </Button>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label  Content="Дата" Margin="0,0,0,0"/>
+                    <DatePicker x:Name="data1" Height="26" Margin="94,0,0,0" Width="249" Style="{DynamicResource styleDatePicker}" ></DatePicker>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Доллар" Margin="0,0,0,0"/>
                     <TextBox FontSize="14"   
                              x:Name="textBox1"
@@ -63,11 +67,16 @@
                              x:Name="textBox3"
                              Style="{DynamicResource textbox_style}" Tag="Сумма сом" Height="24" Width="250" HorizontalAlignment="Right"  Margin="60,0,0,0"/>
                 </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0" HorizontalAlignment="Center">
+                    <Button Style="{DynamicResource Button_blue}" 
+                            x:Name="registr_btn" Click="registr_btn_Click"
+                            Content="Сохранить" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221" Margin="112,0,0,0" />
+                </StackPanel>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2">
             <ScrollViewer VerticalScrollBarVisibility="Hidden">
-                <Frame x:Name="Frame_Bron_Klient" NavigationUIVisibility="Hidden" >
+                <Frame x:Name="Frame_Bron_Klient" NavigationUIVisibility="Hidden" Height="435" >
 
                 </Frame>
             </ScrollViewer>

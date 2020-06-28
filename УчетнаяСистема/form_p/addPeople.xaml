@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:УчетнаяСистема.form_p"
         mc:Ignorable="d"
-        Title="addPeople" Height="678.876" Width="601.25" 
+        Title="addPeople" Height="678.876" Width="1000" 
         AllowsTransparency="True" WindowStyle="None"
         Background="{x:Null}" WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded"
@@ -17,12 +17,12 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
-                <RowDefinition Height="300"/>
+                <RowDefinition Height="270"/>
                 <RowDefinition Height="120*"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" >
-                <Border  Background="#0A6E9E" Height="10" VerticalAlignment="Top" Width="660"/>
+                <Border  Background="#0A6E9E" Height="10" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
                 <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
             </Grid>
             <Canvas Grid.Row="1" Grid.RowSpan="2">
@@ -36,22 +36,28 @@
                 <Label Content="Ф.И.О" Canvas.Left="215" Canvas.Top="20" FontSize="13" />
                 <TextBox x:Name="tel_nom" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Телефон номер" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="297" Canvas.Top="89"/>
                 <Label Content="Тел. номер" Canvas.Left="212" Canvas.Top="88" FontSize="13" />
-                <TextBox x:Name="AN" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" AN" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="298" Canvas.Top="120"/>
-                <Label Content="Адресс" Canvas.Left="214" Canvas.Top="151" FontSize="13" />
-                <TextBox x:Name="address" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Адресс" Height="73" Width="254" HorizontalAlignment="Right" Canvas.Left="298" Canvas.Top="152"/>
+                <TextBox x:Name="AN" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" AN" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="678" Canvas.Top="22"/>
+                <Label Content="Адресс" Canvas.Left="214" Canvas.Top="122" FontSize="13" />
+                <TextBox x:Name="address" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Адресс" Height="73" Width="254" HorizontalAlignment="Right" Canvas.Left="298" Canvas.Top="123"/>
                 <Label Content="Дата рож." Canvas.Left="212" Canvas.Top="53" FontSize="13" />
                 <DatePicker x:Name="data_r" Style="{DynamicResource styleDatePicker}" Canvas.Left="297" Canvas.Top="54" Width="252" Height="24"/>
-                <Label Content="AN" Canvas.Left="214" Canvas.Top="120" FontSize="13" />
+                <Label Content="AN" Canvas.Left="576" Canvas.Top="22" FontSize="13" />
                 <Button Style="{DynamicResource Button_White}" Content="Удалить"
-                    x:Name="button2" Canvas.Left="395" 
+                    x:Name="button2" Canvas.Left="569" 
                         Click="button2_Click"
-                        Canvas.Top="262" Width="168" Height="26"/>
+                        Canvas.Top="222" Width="168" Height="26"/>
                 <Button Style="{DynamicResource  Button_blue}" Content="Сохранить"
-                    x:Name="button"  Click="button_Click" Canvas.Left="218" Canvas.Top="264" Width="168" Height="25"/>
-                <Button Style="{DynamicResource Button_blue}" Content="Выбрать"
-                    x:Name="select_btn"  Click="select_btn_Click" Canvas.Left="306" Canvas.Top="231" Width="168" Height="25"/>
+                    x:Name="button"  Click="button_Click" Canvas.Left="392" Canvas.Top="224" Width="168" Height="25"/>
+                <TextBox x:Name="vdan" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Выданный" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="679" Canvas.Top="88" />
+                <Label Content="Выданный" Canvas.Left="576" Canvas.Top="87" FontSize="13" />
+                <Label Content="Дата выданный" Canvas.Left="575" Canvas.Top="50" FontSize="13" />
+                <DatePicker x:Name="data_p" Style="{DynamicResource styleDatePicker}" Canvas.Left="679" Canvas.Top="53" Width="252" Height="24"/>
+                <Label Content="Адресс по пас." Canvas.Left="575" Canvas.Top="121" FontSize="13" />
+                <TextBox x:Name="address_p" FontSize="14"
+                        Style="{DynamicResource textbox_style}" Tag=" Адресс по паспорт" Height="73" Width="254" HorizontalAlignment="Right" Canvas.Left="679" Canvas.Top="122"/>
 
-
+               
+                                              
             </Canvas>
 
             <Border Grid.Row="2" Padding="5" Background="#F4F4F4">
@@ -76,7 +82,20 @@
                    MouseDoubleClick="dataGridView1_MouseDoubleClick"           
                   ColumnHeaderStyle="{DynamicResource hederstyle}"
                    MouseUp="myDataGrid_MouseUp"
+                   AutoGenerateColumns="False"
+                   ItemsSource="{Binding}"
                               >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="№" Binding="{Binding id}" Width="50" />
+                            <DataGridTextColumn Header="Ф.И.О" Binding="{Binding name}" />
+                            <DataGridTextColumn Header="Дата рождения" Binding="{Binding data}" />
+                            <DataGridTextColumn Header="Телефон номер" Binding="{Binding tel_nom}" />
+                            <DataGridTextColumn Header="Паспорт серии" Binding="{Binding AN}" />
+                            <DataGridTextColumn Header="Дата выдачи" Binding="{Binding data_vdan}" />
+                            <DataGridTextColumn Header="Орган выдавший документ" Binding="{Binding vdan_uch}" />
+                            <DataGridTextColumn Header="Место жительства" Binding="{Binding address_pas}" />
+                            <DataGridTextColumn Header="Фактический адресс" Binding="{Binding address}" />
+                        </DataGrid.Columns>
 
                     </DataGrid>
                 </StackPanel>

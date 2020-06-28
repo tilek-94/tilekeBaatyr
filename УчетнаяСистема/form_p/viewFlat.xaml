@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:УчетнаяСистема.form_p"
         mc:Ignorable="d"
-        Title="viewFlat" Height="650" Width="500" 
+        Title="viewFlat" Height="550" Width="500" 
         AllowsTransparency="True" WindowStyle="None" Loaded="Window_Loaded"
         Background="{x:Null}" WindowStartupLocation="CenterOwner" >
     <Grid Background="White" Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="200"/>
+            <RowDefinition Height="160"/>
             <RowDefinition Height="32*"/>
         </Grid.RowDefinitions>
         <Grid.Effect>
@@ -39,7 +39,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Подездь квартира" Margin="0,0,0,0"/>
-                    <TextBox FontSize="14" x:Name="tex"
+                    <TextBox FontSize="14" x:Name="text2"
                              IsReadOnly = "True"
                              Style="{DynamicResource textbox_style}" 
                              Tag="Подездь квартира" Height="24" Width="250" 
@@ -49,20 +49,13 @@
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Номеры квартира" Margin="0,0,0,0"/>
                     <TextBox FontSize="14"   
-                             x:Name="textBox1"
+                             x:Name="text3"
                              Style="{DynamicResource textbox_style}" 
                              Tag="Номеры квартира" Height="24" Width="250" 
                              HorizontalAlignment="Right"  Margin="10,0,0,0"/>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
-                    <Label  Content="Всего м2" Margin="0,0,0,0"/>
-                    <TextBox FontSize="14"   
-                             x:Name="tex2"
-                             Style="{DynamicResource textbox_style}" 
-                             Tag="Всего м2" Height="24" Width="250" 
-                             HorizontalAlignment="Right"  Margin="60,0,0,0"/>
-                </StackPanel>
+                
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0" HorizontalAlignment="Center"/>
 
             </StackPanel>

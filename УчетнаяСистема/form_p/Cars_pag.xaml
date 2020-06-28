@@ -19,7 +19,8 @@
 
                     </TextBox>
                 </DockPanel>
-                <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" AutoGenerateColumns="False"
+                <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
+                          AutoGenerateColumns="False"
                   HeadersVisibility="Column"
                   ColumnHeaderStyle="{DynamicResource hederstyle}" 
                          x:Name="dataGridView1"
