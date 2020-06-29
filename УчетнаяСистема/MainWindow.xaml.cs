@@ -44,10 +44,11 @@ namespace УчетнаяСистема
 
         private void Loaded_Window(object sender, RoutedEventArgs e)
         {
+            Kompleks_hause kompleks = new Kompleks_hause();
             //Menu.Visibility= Visibility.Hidden;
-            pag.Navigate(new System.Uri("form_p/addBuilding.xaml", UriKind.RelativeOrAbsolute));
-            pag.Navigate(new System.Uri("form_p/komplekc.xaml", UriKind.RelativeOrAbsolute));
             OpenWindows();
+            kompleks.ShowDialog();
+            pag.Navigate(new System.Uri("form_p/analis.xaml", UriKind.RelativeOrAbsolute));
         }
 
         
@@ -73,7 +74,7 @@ namespace УчетнаяСистема
         }
         private void Button_Clic(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Application.Current.Shutdown();
         }
 
         private void button_people_Click(object sender, RoutedEventArgs e)
@@ -114,6 +115,12 @@ namespace УчетнаяСистема
         {
             registr_flat registr_Flat = new registr_flat();
             registr_Flat.ShowDialog();
+        }
+
+        private void Glavnyi_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Kompleks_hause kompleks = new Kompleks_hause();
+            kompleks.Show();
         }
     }
     public class Phone

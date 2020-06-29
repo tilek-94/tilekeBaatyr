@@ -234,3 +234,5 @@ D:\Komp\tilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСис
 D:\Komp\tilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.csproj.CopyComplete
 D:\Komp\tilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.exe
 D:\Komp\tilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.pdb
+D:\Komp\tilekeBaatyr\УчетнаяСистема\obj\Debug\Kompleks_hause.g.cs
+D:\Komp\tilekeBaatyr\УчетнаяСистема\obj\Debug\Kompleks_hause.baml
