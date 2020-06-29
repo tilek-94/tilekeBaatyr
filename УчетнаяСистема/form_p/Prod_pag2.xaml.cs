@@ -161,23 +161,33 @@ namespace УчетнаяСистема.form_p
            // data_n = Calendar1.DisplayDate.ToString("yyyy-MM-dd");
         }
 
-        private void textbox_cars_Copy1_KeyUp(object sender, KeyEventArgs e)
+        private void ComboBox3_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
 
+        private void textbox_cars_Copy1_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+        string[] LangName = new string[3];
         private void ComboBox2_DropDownClosed(object sender, EventArgs e)
-        {           
-            dbCon2.eventDysplay += delegate (DataTable db)
-            {
-                kvm = db.Rows[0][0].ToString();
-               
-            };
-            dbCon2.SoursData("SELECT  sum(kvm) FROM flat join type_flat on flat.dom_id = type_flat.dom_id and " +
-                "                flat.porch = type_flat.porch and flat.room = type_flat.room and flat.number_f = '3'" +
-                "                and flat.type_flat = type_flat.`type` ");
-            label_kvm.Content = kvm;
-            
+        {
+            lang lanG = new lang();
+           LangName =lanG.ReturnName(ComboBox3.Text);
+            l1.Content = LangName[1];
+            l2.Content = LangName[1];
+            l3.Content = LangName[1];
+            l4.Content = LangName[1];
+            l12.Content = LangName[2];
+            l22.Content = LangName[2];
+            l32.Content = LangName[2];
+            l42.Content = LangName[2];
+            li2.Content= LangName[2]+":";
+            li1.Content=LangName[1]+":";
+            //MessageBox.Show(LangName[1]+" "+ LangName[2]);
+
+
         }
 
     }

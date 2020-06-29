@@ -86,6 +86,7 @@
     </ApplicationDefinition>
     <Compile Include="All_classes\dbConnect.cs" />
     <Compile Include="All_classes\DopClass.cs" />
+    <Compile Include="All_classes\lang.cs" />
     <Compile Include="All_classes\Open_File.cs" />
     <Compile Include="All_classes\staticClass.cs" />
     <Compile Include="Bron_Klient.xaml.cs">
