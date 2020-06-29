@@ -173,6 +173,12 @@ namespace УчетнаяСистема.form_p
         string[] LangName = new string[3];
         private void ComboBox2_DropDownClosed(object sender, EventArgs e)
         {
+            /*TextBlock_kvm.Text = "Всего: " + dbCon2.DisplayReturn("SELECT SUM(kvm) FROM type_flat " +
+                " WHERE dom_id='6' and porch='" + ComboBox_P.Text + "'" +
+                " and type='" + ComboBox_t.Text + "' and room='" + ComboBox_flat.Text + "'") + " кв. м.";
+*/
+
+            /*
             lang lanG = new lang();
            LangName =lanG.ReturnName(ComboBox3.Text);
             l1.Content = LangName[1];
@@ -184,7 +190,7 @@ namespace УчетнаяСистема.form_p
             l32.Content = LangName[2];
             l42.Content = LangName[2];
             li2.Content= LangName[2]+":";
-            li1.Content=LangName[1]+":";
+            li1.Content=LangName[1]+":";*/
             //MessageBox.Show(LangName[1]+" "+ LangName[2]);
 
 
