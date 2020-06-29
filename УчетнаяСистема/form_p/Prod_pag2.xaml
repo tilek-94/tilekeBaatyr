@@ -19,83 +19,115 @@
         <Canvas Grid.Row="0">
             <TextBox x:Name="FIO" FontSize="14" 
                      Style="{DynamicResource textbox_style}" 
-                     Tag=" Ф.И.О" Height="24" Width="208" 
+                     Tag=" Ф.И.О" Height="24" Width="200" 
                      HorizontalAlignment="Right" Canvas.Left="117" Canvas.Top="36"/>
-            <Label Content="Клиент" Canvas.Left="35" Canvas.Top="34" FontSize="13" />
-            <Label Content="Договор" Canvas.Left="36" Canvas.Top="128" FontSize="13" />
+            <Label Content="Клиент" Canvas.Left="37" Canvas.Top="30" FontSize="14" Foreground="#5C554F" />
+            <Label Content="Договор" Canvas.Left="36" Canvas.Top="163" FontSize="14" Foreground="#5C554F" />
             <TextBox x:Name="textbox_dogovor" FontSize="14"  
                      Style="{DynamicResource textbox_style}"
-                     Tag=" Договор" Height="24" Width="201" HorizontalAlignment="Right" Canvas.Left="119" Canvas.Top="130"/>
-            <Label Content="Доллар за 1кв. м." Canvas.Left="377" Canvas.Top="63" FontSize="13" />
+                     Tag=" Договор" Height="24" Width="200" HorizontalAlignment="Right" Canvas.Left="116" Canvas.Top="165"/>
+
+            <Label Content="Доллар за 1кв. м."  Foreground="#5C554F"
+                   Canvas.Left="385" Canvas.Top="30" FontSize="14" />
+
             <TextBox x:Name="textbox_cars" FontSize="14"  Style="{DynamicResource textbox_style}"
-                     Tag=" Машина" Height="24" Width="203" HorizontalAlignment="Right" Canvas.Left="119" Canvas.Top="97"/>
-            <Label Content="Квартира" Canvas.Left="36" Canvas.Top="64" FontSize="13" />
-            <Label Content="Машина" Canvas.Left="35" Canvas.Top="98" FontSize="13" />
+                     Tag=" Машина" Height="24" Width="200" HorizontalAlignment="Right" Canvas.Left="117" Canvas.Top="131"/>
+
+            <Label Content="Квартира" Canvas.Left="35" Canvas.Top="64" FontSize="14" Foreground="#5C554F" />
+
+            <Label Content="Машина" Canvas.Left="35" Canvas.Top="131" FontSize="14" Foreground="#5C554F" />
+
             <Button Style="{DynamicResource Button_blue}" Content="Продать"
                     x:Name="registr_client_btn"
                         Click="registr_client_btn_Click"
-                        Canvas.Left="387" Canvas.Top="171" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221"/>
+                        Canvas.Left="394" Canvas.Top="207" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221"/>
+
             <Button Style="{StaticResource Add_Button_MRZ}"
                 x:Name="show_client_btn"
                 Click="show_client_btn_Click"
                 Canvas.Left="333" Canvas.Top="34" Width="32" Height="26">
-               
+
             </Button>
-            <ComboBox Width="203" Canvas.Left="119" Canvas.Top="68" 
-                      x:Name="ComboBox2"  IsEditable="True" Height="22"
+
+            <ComboBox Width="200" Canvas.Left="117" Canvas.Top="68" 
+                      x:Name="ComboBox2"  IsEditable="True" Height="24"
                       DropDownClosed="ComboBox2_DropDownClosed"
                       />
-
-            <Label Content="Курс валюта" Canvas.Left="398" Canvas.Top="94" FontSize="13" />
             <Button Style="{StaticResource Add_Button_MRZ}" Content=""
                 x:Name="show_client_Cars"
                 Click="show_client_Cars_Click"
-                Canvas.Left="332" Canvas.Top="96" Width="32" Height="26"/>
-            <Label Content="Сом за 1кв. м." Canvas.Left="382" Canvas.Top="125" FontSize="13" />
+                Canvas.Left="332" Canvas.Top="125" Width="32" Height="26"/>
+
+            <Label Content="Сом за 1кв. м." Canvas.Left="778" Canvas.Top="32" FontSize="14" Foreground="#5C554F" />
 
             <Label x:Name="label_kvm"
                    BorderBrush="#FFABADB3"
                    BorderThickness="1"
-                   Content="" Height="27" Canvas.Left="485" Canvas.Top="29" Width="208"/>
-            <Label Content="Кв. м." Canvas.Left="407" Canvas.Top="31" FontSize="13" />
-            <TextBox x:Name="textbox_Dol" FontSize="14"  Style="{DynamicResource textbox_style}"
-                Tag=" Доллар" Height="24" Width="203" HorizontalAlignment="Right" Canvas.Left="487" Canvas.Top="64"/>
-            <TextBox x:Name="textbox_kurs" FontSize="14" 
+                   Content="" Height="24" Canvas.Left="117" Canvas.Top="100" Width="200"/>
+
+            <Label Content="Кв. м." Canvas.Left="36" Canvas.Top="95" FontSize="14" Foreground="#5C554F" />
+
+            <TextBox x:Name="textbox_Dol" FontSize="14" 
                      Style="{DynamicResource textbox_style}"
-                Tag=" Кур валюта" Height="24" Width="203" 
-                     HorizontalAlignment="Right" KeyUp="textbox_kurs_KeyUp"
-                     Canvas.Left="488" Canvas.Top="96"/>
+                Tag=" Доллар" Height="24" Width="200" 
+                     HorizontalAlignment="Right" Canvas.Left="512" Canvas.Top="34" TextChanged="textbox_Dol_TextChanged"/>
+
             <TextBox x:Name="textbox_Som" FontSize="14"  Style="{DynamicResource textbox_style}"
-                Tag=" Сом" Height="24" Width="203" HorizontalAlignment="Right" Canvas.Left="488" Canvas.Top="126"/>
+                Tag=" Сом" Height="24" Width="200" HorizontalAlignment="Right" Canvas.Left="914" Canvas.Top="33"/>
+
             <Label x:Name="label_summ_Dol"
                 BorderBrush="#FFABADB3"
                 BorderThickness="1"
-                Content="" Height="26" Canvas.Left="726" Canvas.Top="44" Width="208"/>
+                Content="" Height="24" Canvas.Left="512" Canvas.Top="66" Width="200"/>
+
             <Label x:Name="label_summ_Som"
                 BorderBrush="#FFABADB3"
                 BorderThickness="1"
-                Content="" Height="26" Canvas.Left="726" Canvas.Top="89" Width="208"/>
-            <Label Content="Сумма долларах" Canvas.Left="726" Canvas.Top="21" FontSize="13" />
-            <Label Content="Сумма сомах" Canvas.Left="726" Canvas.Top="66" FontSize="13" />
-            <Calendar x:Name="Calendar1" Canvas.Left="955" Canvas.Top="20"
-                      SelectedDatesChanged="Calendar_SelectedDatesChanged"
-                      Foreground="#FF004EF5" Background="{x:Null}" BorderBrush="#FF478EE4" />
-            <Calendar Canvas.Left="1145" Canvas.Top="20" Foreground="#FF004EF5"
-                      x:Name="Calendar2" SelectedDatesChanged="Calendar2_SelectedDatesChanged"
-                      Background="{x:Null}" BorderBrush="#FF478EE4"/>
+                Content="" Height="24" Canvas.Left="914" Canvas.Top="65" Width="200"/>
+            <Label Content="Сумма $" Canvas.Left="385" Canvas.Top="64" FontSize="14" Foreground="#5C554F" />
+
+            <Label Content="Сумма Сом" Canvas.Left="778" Canvas.Top="64" FontSize="14" Foreground="#5C554F"/>
+
             <Label x:Name="label_summ_Dol_itog"
-                Content="" Height="35" Canvas.Left="891" 
+                Content="" Height="auto" Canvas.Left="891" 
                    Canvas.Top="196" Width="144" FontWeight="Bold" FontSize="14"/>
+
             <Label x:Name="label_summ_Som_itog"
                    FontSize="14"
-                Content="" Height="35" Canvas.Left="1135" Canvas.Top="194" Width="208" FontWeight="Bold"/>
-            <Label Content="Итого долларах." Canvas.Left="777" Canvas.Top="193" FontSize="13" />
-            <Label Content="Итого сомах." Canvas.Left="1036" Canvas.Top="193" FontSize="13" />
+                Content="" Height="auto" Canvas.Left="1135" Canvas.Top="194" Width="208" FontWeight="Bold"/>
+
+            <Label Content="Итого долларах." Canvas.Left="777" Canvas.Top="193" FontSize="14" Foreground="#5C554F" />
+
+            <Label Content="Итого сомах." Canvas.Left="1036" Canvas.Top="193" FontSize="14" Foreground="#5C554F" />
+
             <Label x:Name="label_summ_Cars"
                 BorderBrush="#FFABADB3"
                 BorderThickness="1"
-                Content="" Height="26" Canvas.Left="727" Canvas.Top="137" Width="208"/>
-            <Label Content="Цена машина долларах" Canvas.Left="726" Canvas.Top="112" FontSize="13" />
+                Content="" Height="24" Canvas.Left="512" Canvas.Top="138" Width="198"/>
+
+            <Label Content="Цена машина $" Canvas.Left="386" Canvas.Top="140" FontSize="14" Foreground="#5C554F" />
+
+            <Label x:Name="label_summ_Cars_Copy"
+                BorderBrush="#FFABADB3"
+                BorderThickness="1"
+                Content="" Height="24" Canvas.Left="916" Canvas.Top="136" Width="199"/>
+
+            <Label Content="Цена машина Сом" Canvas.Left="777" Canvas.Top="138" FontSize="14" Foreground="#5C554F" />
+
+            <Label x:Name="label_summ_Cars_Copy2"
+                BorderBrush="#FFABADB3"
+                BorderThickness="1"
+                Content="" Height="24" Canvas.Left="511" Canvas.Top="100" Width="200"/>
+
+            <TextBlock Text="Первоначальный взнос $" TextWrapping="Wrap" Foreground="#5C554F"
+                       Canvas.Left="389" Canvas.Top="99" FontSize="14" Height="36" Width="113" />
+            <Label x:Name="label_summ_Cars_Copy3"
+                BorderBrush="#FFABADB3"
+                BorderThickness="1"
+                Content="" Height="24" Canvas.Left="915" Canvas.Top="98" Width="200"/>
+
+            <TextBlock Text="Первоначальный взнос Сом" TextWrapping="Wrap" Canvas.Left="782" 
+                       Canvas.Top="97" FontSize="14" Foreground="#5C554F" Height="36" Width="116" />
 
 
         </Canvas>

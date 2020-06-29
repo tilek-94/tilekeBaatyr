@@ -166,3 +166,5 @@ D:\Kompany\УчетнаяСистема\obj\Debug\Window1.baml
 D:\Kompany\УчетнаяСистема\obj\Debug\Window2.baml
 D:\Kompany\УчетнаяСистема\obj\Debug\Bron_Klient.g.cs
 D:\Kompany\УчетнаяСистема\obj\Debug\Bron_Klient.baml
+D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\Bron_Klient.g.cs
+D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\Bron_Klient.baml
