@@ -4,6 +4,95 @@
              xmlns:local="clr-namespace:УчетнаяСистема"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        
+
+        <Style x:Key="Kurs_Valut_Button" TargetType="Button">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                                BorderThickness="0,0,0,0"
+                                CornerRadius="5"
+                                BorderBrush="{x:Null}"
+                                Background="#33cc33"
+                                >
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#2eb82e"/>
+                                <Setter TargetName="border" Property="Background" Value="#2eb82e"/>
+                                <Setter TargetName="border" Property="BorderThickness" Value="2,2,2,2"/>
+                                <Setter  Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#29a329"/>
+                                <Setter TargetName="border" Property="Background" Value="#29a329"/>
+                                <Setter TargetName="border" Property="BorderThickness" Value="2,2,2,2"/>
+                                <Setter  Property="Foreground" Value="White"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <Style TargetType="TabItem" x:Key="Tab_Item_Valuta">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="#FF40568D"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Grid Name="Panel">
+                            <ContentPresenter x:Name="ContentSite"
+                                        VerticalAlignment="Stretch"
+                                        HorizontalAlignment="Center"
+                                        ContentSource="Header"
+                                        Margin="5,0"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Panel" Property="Background" Value="{x:Null}" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter TargetName="Panel" Property="Background" Value="{x:Null}" />
+                                <Setter Property="Foreground" Value="#FF40568D" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="Panel" Property="Background" Value="{x:Null}" />
+                                <Setter Property="Foreground" Value="#FF40568D" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
         <Style x:Key="btnCloseOS" TargetType="Button">
             <Setter Property="Width" Value="35"/>
             <Setter Property="Background" Value="Beige"/>
@@ -488,5 +577,43 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="nkbr_style" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <TextBox Text="{Binding Path=Text,
+                                                RelativeSource={RelativeSource TemplatedParent}, 
+                                                Mode=TwoWay,
+                                                UpdateSourceTrigger=PropertyChanged}"
+                                 x:Name="textSource" 
+                                 Background="Transparent" 
+                                 BorderBrush="{x:Null}" 
+                                 Foreground="#40568D"
+                                 BorderThickness="0,0,0,0"
+                                 Panel.ZIndex="2" />
+                            <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">
+                                <TextBox.Style>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Setter Property="Foreground" Value="Transparent"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
+                                                <Setter Property="Foreground" Value="#828282"/>
+                                                <Setter Property="FontSize" Value="14"/>
+                                                <Setter Property="SelectionBrush" Value="{x:Null}"/>
+                                                <Setter Property="BorderThickness" Value="0,0,0,0"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
     </Application.Resources>
 </Application>

@@ -168,3 +168,7 @@ D:\Kompany\УчетнаяСистема\obj\Debug\Bron_Klient.g.cs
 D:\Kompany\УчетнаяСистема\obj\Debug\Bron_Klient.baml
 D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\Bron_Klient.g.cs
 D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\Bron_Klient.baml
+D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\Kurs.g.cs
+D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\Kurs.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\MessageO.g.cs
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\MessageO.baml

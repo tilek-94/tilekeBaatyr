@@ -30,10 +30,16 @@ namespace УчетнаяСистема.form_p
         }
         dbConnect dbCon = new dbConnect();
         dbConnect dbCon2 = new dbConnect();
+        RaschetSum raschetSum = new RaschetSum();
+        lang lanG = new lang();
         int cars_id = 0;
         int client_id = 0;
+        string currency_id="0";
         double summ_cars = 0;
         double kurs_cars = 0;
+        double m2 = 0,sena=0, vznos=0,summ=0;
+        double usd = 0, eur = 0, rub = 0; 
+        
 
         private void DataGrid_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -151,9 +157,53 @@ namespace УчетнаяСистема.form_p
            // data_k = Calendar2.DisplayDate.ToString("yyyy-MM-dd");
         }
 
-        private void textbox_Dol_TextChanged(object sender, TextChangedEventArgs e)
+        private void textBox_vz_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (currency_id != "0")
+            {
+                if (textBox_vz.Text != "")
+                    vznos = Convert.ToDouble(textBox_vz.Text);
+                else vznos = 0;
+                textbox_Som_vz2.Text = raschetSum.Kurs(ComboBox3.Text, vznos, usd, eur, rub).ToString();
+            }
+        }
+
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void textbox_Dol_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (textbox_Dol.Text != "") { 
+
+            if (label_kvm.Text != "") { 
+                m2 = Convert.ToDouble(label_kvm.Text);
+            sena = Convert.ToDouble(textbox_Dol.Text);
+            summ = m2 * sena;
+            textbox_Summ.Text = summ.ToString();
+            }
+            else
+                m2 = 0;
+            if (currency_id != "0") { 
+                textbox_m2.Text = Convert.ToString(raschetSum.Kurs(ComboBox3.Text, sena, usd, eur, rub));
+            textbox_summ.Text = raschetSum.Kurs(ComboBox3.Text, summ, usd, eur, rub).ToString();
+            }
+            }
+        }
+
+        private void btn_valuta_Click(object sender, RoutedEventArgs e)
+        {   
+
+            Kurs kurs = new Kurs();
+            kurs.del_+=(nid,nusd,neur,nrub )=> {
+                currency_id = nid;
+                usd = Convert.ToDouble( nusd.Replace('.',','));
+                eur = Convert.ToDouble(neur.Replace('.', ','));
+                rub = Convert.ToDouble(nrub.Replace('.', ','));
+
+                };
+            kurs.ShowDialog();
         }
 
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
@@ -166,21 +216,19 @@ namespace УчетнаяСистема.form_p
 
         }
 
-        private void textbox_cars_Copy1_KeyUp(object sender, KeyEventArgs e)
+        private void ComboBox3_DropDownClosed(object sender, EventArgs e)
         {
+            textbox_m2.Text =Convert.ToString(raschetSum.Kurs(ComboBox3.Text, sena, usd, eur, rub) );
+            textbox_summ.Text = raschetSum.Kurs(ComboBox3.Text, summ, usd, eur, rub).ToString();
+            if (textBox_vz.Text != "")
+                vznos = Convert.ToDouble(textBox_vz.Text);
+            else vznos = 0;
 
-        }
-        string[] LangName = new string[3];
-        private void ComboBox2_DropDownClosed(object sender, EventArgs e)
-        {
-            /*TextBlock_kvm.Text = "Всего: " + dbCon2.DisplayReturn("SELECT SUM(kvm) FROM type_flat " +
-                " WHERE dom_id='6' and porch='" + ComboBox_P.Text + "'" +
-                " and type='" + ComboBox_t.Text + "' and room='" + ComboBox_flat.Text + "'") + " кв. м.";
-*/
+            textbox_Som_vz2.Text = raschetSum.Kurs(ComboBox3.Text, vznos, usd, eur, rub).ToString();
 
-            /*
-            lang lanG = new lang();
-           LangName =lanG.ReturnName(ComboBox3.Text);
+            // MessageBox.Show();
+
+            LangName =lanG.ReturnName(ComboBox3.Text);
             l1.Content = LangName[1];
             l2.Content = LangName[1];
             l3.Content = LangName[1];
@@ -190,7 +238,29 @@ namespace УчетнаяСистема.form_p
             l32.Content = LangName[2];
             l42.Content = LangName[2];
             li2.Content= LangName[2]+":";
-            li1.Content=LangName[1]+":";*/
+            li1.Content=LangName[1]+":";
+        }
+
+        private void textbox_cars_Copy1_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+        string[] LangName = new string[3];
+        private void ComboBox2_DropDownClosed(object sender, EventArgs e)
+        {
+            dbCon2.eventDysplay += delegate (DataTable db)
+            {
+                kvm = db.Rows[0][0].ToString();
+
+            };
+            dbCon2.SoursData("SELECT  sum(kvm) FROM flat join type_flat on flat.dom_id = type_flat.dom_id and " +
+                "                flat.porch = type_flat.porch and flat.room = type_flat.room and flat.number_f = '"+ComboBox2.Text+"'" +
+                "                and flat.type_flat = type_flat.`type` ");
+            if (kvm == "")
+                label_kvm.Text = "";
+            label_kvm.Text = kvm;
+
+            
             //MessageBox.Show(LangName[1]+" "+ LangName[2]);
 
 

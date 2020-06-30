@@ -28,37 +28,40 @@ namespace УчетнаяСистема.form_p
         dbConnect dbCon = new dbConnect();
         public delegate void MessageID(string id, string name,string summa,string kurs);
         public event MessageID mes_;
+        RaschetSum raschetSum = new RaschetSum();
+        lang lanG = new lang();
         public bool flag = false;
+        string currency_id = "0", basaSum = "0", typeV = "";
+        double sena = 0;
+        double usd = 0, eur = 0, rub = 0;
+        string[] LangName = new string[3];
+        string activUSD = "0";
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            if(marka.Text!="" && data.Text!="" && nomer.Text != "" && condition_t.Text != "" && prih_summ.Text != "" && kurs.Text != "" && client_id != 0) {
-            dbCon.Registr("INSERT INTO cars(marka,data,nomer,condition_c, prih_summ,kurs,client_id)" +
+            if(marka.Text!="" && data.Text!="" && nomer.Text  != "" && ComboBox3.Text != "" && condition_t.Text != "" && activUSD != "0" && currency_id != "" && client_id != 0) {
+            dbCon.Registr("INSERT INTO cars(marka,data,nomer,condition_c, prih_summ,type_v,kurs,client_id)" +
                 "values (" +
                 "'" + marka.Text + "'," +
                 "'" + data.Text + "'," +
                 "'"+ nomer.Text + "'," +
                 "'"+ condition_t.Text + "'," +
-                "'" + prih_summ.Text + "'," +
-                "'" + kurs.Text + "'," +
-                "'"+client_id+"')");
-            dbCon.eventDysplay += delegate (DataTable db)
-            {
-                dataGridView1.ItemsSource = db.DefaultView;
-            };
-            dbCon.SoursData("SELECT id,marka,data,nomer,condition_c," +
-                "prih_summ, kurs, prih_summ * kurs as summ_som," +
-                "(SELECT name FROM client WHERE id = client_id) as client" +
-                ",datatim FROM cars");
+                "'" + activUSD.Replace(',','.') + "'," +
+                "'" + typeV+ "'," +
+                "'" + currency_id + "'," +
+                "'" +client_id+"')");
+                marka.Text = "";
+                data.Text = "";
+                nomer.Text = "";
+                condition_t.Text = "";
+                text_sum1.Text = "";
+                text_sum2.Text = "";
+                FIO.Text = "";
+                Display();
             }
             else
             {
                 MessageBox.Show("Maalymat tolgon");
             }
-        }
-
-        private void myDataGrid_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -80,15 +83,78 @@ namespace УчетнаяСистема.form_p
             {
                 dataGridView1.ItemsSource = db.DefaultView;
             };
-            dbCon.SoursData("SELECT id,marka,data,nomer,condition_c," +
-                "prih_summ, kurs, prih_summ * kurs as summ_som," +
-                "(SELECT name FROM client WHERE id = client_id) as client" +
-                ",datatim FROM cars");
+            dbCon.SoursData("SELECT c.id,c.marka,c.data,c.nomer,c.condition_c," +
+                "IF(c.type_v = '(KGS)', ROUND(c.prih_summ / cur.usd, 2), c.prih_summ) AS to_usd," +
+                "IF(c.type_v = '(USD)', ROUND(c.prih_summ * cur.usd, 2), c.prih_summ) AS Rto_kgs," +
+                "(SELECT name FROM client WHERE id = c.client_id) as client, " +
+                "datatim FROM cars c INNER JOIN currency cur ON c.kurs = cur.id WHERE c.remov=0 " +
+                "ORDER BY  c.id DESC;");
 
         }
 
         string id_1 = "", marka_1, prih_summ_1 = "", kurs_1 = "";
-        int client_id=0;
+
+        private void ComboBox3_DropDownClosed(object sender, EventArgs e)
+        {
+            Raschot();
+        }
+        void Raschot()
+        {
+            if(ComboBox3.Text!="" && currency_id != "0") {
+            sena = text_sum1.Text!="" ?  Convert.ToDouble(text_sum1.Text) : 0;
+            LangName = lanG.ReturnName(ComboBox3.Text);
+            l1.Content = LangName[1];
+            l2.Content = LangName[2];
+            text_sum2.Text = Convert.ToString(raschetSum.Kurs(ComboBox3.Text, sena, usd, eur, rub));
+            activUSD = sena.ToString();
+                if (LangName[1] == "(KGS)")
+                {
+                    basaSum = text_sum1.Text.Replace(',', '.');
+                    typeV = "(KGS)";
+                }
+                else if (LangName[1] == "(USD)")
+                {
+                    basaSum = text_sum1.Text.Replace(',', '.');
+                    typeV = "(USD)";
+                }
+                else if (LangName[1] == "(EUR)" || LangName[1] == "(RUB)")
+                {
+                    basaSum = text_sum2.Text.Replace(',', '.');
+                    typeV = "(KGS)";
+                }
+            }
+        }
+
+
+        private void text_sum1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Raschot();
+        }
+
+        int client_id =0;
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        int columnIndex = 0;
+        private void dataGridView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            columnIndex = dataGridView1.CurrentColumn.DisplayIndex;
+            if (columnIndex==9)
+            {
+                MessageO messageO = new MessageO();
+                messageO.ShowDialog();
+            }
+            
+        }
+
+        private void x1_Click(object sender, RoutedEventArgs e)
+        {
+                MessageO messageO = new MessageO();
+                messageO.ShowDialog();
+            
+        }
 
         private void Button_Clic(object sender, RoutedEventArgs e)
         {
@@ -113,16 +179,37 @@ namespace УчетнаяСистема.form_p
             {
                 dataGridView1.ItemsSource = db.DefaultView;
             };
-            dbCon.SoursData("SELECT id,marka,data,nomer,condition_c," +
-                "prih_summ, kurs, prih_summ * kurs as summ_som," +
-                "(SELECT name FROM client WHERE id = client_id) as client" +
-                ",datatim FROM cars WHERE nomer LIKE '%"+TextBox_search.Text+ "%' or marka LIKE '%"+TextBox_search.Text+"%'");
+            dbCon.SoursData("SELECT c.id,c.marka,c.data,c.nomer,c.condition_c, " +
+                "IF(c.type_v = '(KGS)', ROUND(c.prih_summ / cur.usd, 2), c.prih_summ) AS to_usd," +
+                "IF(c.type_v = '(USD)', ROUND(c.prih_summ * cur.usd, 2), c.prih_summ) AS Rto_kgs, " +
+                "(SELECT name FROM client WHERE id = c.client_id) as client, " +
+                "datatim FROM cars c INNER JOIN currency cur ON c.kurs = cur.id WHERE c.remov = 0 and " +
+                "CONCAT_WS('', c.marka, c.nomer) LIKE '%"+ TextBox_search.Text +"%'");
+        }
+
+        private void btn_valuta_Click(object sender, RoutedEventArgs e)
+        {
+            Kurs kurs = new Kurs();
+            kurs.del_ += (nid, nusd, neur, nrub) => {
+                currency_id = nid;
+                usd = Convert.ToDouble(nusd.Replace('.', ','));
+                eur = Convert.ToDouble(neur.Replace('.', ','));
+                rub = Convert.ToDouble(nrub.Replace('.', ','));
+
+            };
+            kurs.ShowDialog();
         }
 
         private void dataGridView1_ColumnDisplayIndexChanged(object sender, DataGridColumnEventArgs e)
         {
-            int index = dataGridView1.SelectedCells[0].Column.DisplayIndex;
-        }
+
+           // int index = dataGridView1.SelectedCells[0].Column.DisplayIndex;
+            int columnIndex = dataGridView1.CurrentColumn.DisplayIndex;
+            MessageBox.Show(columnIndex.ToString());
+            if (columnIndex > 0 && 4 > columnIndex)
+            { 
+            }
+            }
 
         private void dataGridView1_MouseUp(object sender, MouseButtonEventArgs e)
         {
@@ -140,9 +227,7 @@ namespace УчетнаяСистема.form_p
             marka.Text = marka_1;
             data.Text = data_1;
             nomer.Text = nomer_1;
-            prih_summ.Text = prih_summ_1;
-            kurs.Text = kurs_1;
-            
+                                   
             }
             catch { }
         }

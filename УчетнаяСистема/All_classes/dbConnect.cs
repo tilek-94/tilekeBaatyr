@@ -13,7 +13,7 @@ namespace УчетнаяСистема.All_classes
     {
 
 
-        public MySqlConnection connection = new MySqlConnection("datasource=192.168.0.103; port=3306;Initial Catalog='u_system';username=STROI2;password=123456;CharSet=utf8;");
+        public MySqlConnection connection = new MySqlConnection("datasource=192.168.0.105; port=3306;Initial Catalog='u_system';username=STROI2;password=123456;CharSet=utf8;");
 
 
         public delegate void DisplaySourse(DataTable db);
@@ -23,6 +23,15 @@ namespace УчетнаяСистема.All_classes
         public dbConnect() {
           }
 
+        public void RemoveData(string table,int id)
+        {
+            connection.Open();
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "UPDATE "+table+" SET remov='1' WHERE id='"+id+"';";
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
         public void SoursData(string s)
         {
            // string s = "select * from kvartira";
@@ -147,7 +156,7 @@ namespace УчетнаяСистема.All_classes
         }
         public static System.Windows.Media.ImageSource Base64StringToImageSource(string base64String)
         {
-            using (MemoryStream stream = new MemoryStream(Convert.FromBase64String(base64String)))
+            /*using (MemoryStream stream = new MemoryStream(Convert.FromBase64String(base64String)))
             {
                 System.Windows.Media.Imaging.BitmapImage bi = new System.Windows.Media.Imaging.BitmapImage();
                 bi.BeginInit();
@@ -156,7 +165,8 @@ namespace УчетнаяСистема.All_classes
                 bi.EndInit();
                 bi.Freeze();
                 return bi;
-            }
+            }*/
+            return null;
         }
     }
 }
