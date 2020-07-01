@@ -13,7 +13,7 @@ namespace УчетнаяСистема.All_classes
     {
 
 
-        public MySqlConnection connection = new MySqlConnection("datasource=127.168.0.101; port=3306;Initial Catalog='u_system';username=STROI2;password=123456;CharSet=utf8;");
+        public MySqlConnection connection = new MySqlConnection("datasource=192.168.0.108; port=3306;Initial Catalog='u_system';username=STROI2;password=123456;CharSet=utf8;");
 
 
         public delegate void DisplaySourse(DataTable db);
@@ -22,6 +22,15 @@ namespace УчетнаяСистема.All_classes
         public event DisplaySourse2 eventDysplay2;
         public dbConnect() {
           }
+        public void RemoveData(string table, string id)
+        {
+            connection.Open();
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "UPDATE " + table + " SET remov='1' WHERE id='" + id + "';";
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
 
         public void SoursData(string s)
         {
@@ -78,6 +87,25 @@ namespace УчетнаяСистема.All_classes
             connection.Close();
             return value;
         }
+        public string[] ReadMassiv(string s)
+        {
+            string[] a = new string[20];
+            int i = 0;
+            connection.Open();
+            string sql = s;
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                a[0] = reader[0].ToString();
+                a[1] = reader[1].ToString();
+                a[2] = reader[2].ToString();
+                a[3] = reader[3].ToString();
+
+            }
+            connection.Close();
+            return a;
+        }
 
         public string[] RedInfor(string s)
         {
@@ -96,23 +124,24 @@ namespace УчетнаяСистема.All_classes
             connection.Close();
             return f;
 
-        }       
-        public void For_Kompleks_Window(WrapPanel Panell, Button button,string text,byte[] img)
-        {            
+        }
+        ImageSource src;
+        public void For_Kompleks_Window(WrapPanel Panell, Button button, string text, byte[] img)
+        {
             Grid grid = new Grid();
             grid.Height = 250;
             grid.Width = 190;
             grid.Margin = new Thickness(60, 15, 0, 0);
 
-       
-            MemoryStream stream1 = new MemoryStream(img);           
+
+            MemoryStream stream1 = new MemoryStream(img);
             ImageBrush ib = new ImageBrush();
             ib.ImageSource = BitmapFrame.Create(stream1, BitmapCreateOptions.IgnoreImageCache, BitmapCacheOption.OnLoad);
             Border image = new Border();
-            image.Margin = new Thickness(3,3,3,3);
+            image.Margin = new Thickness(3, 3, 3, 3);
             image.Height = 200;
             image.Width = 185;
-            image.CornerRadius= new CornerRadius(13,13,13,13);
+            image.CornerRadius = new CornerRadius(13, 13, 13, 13);
             image.Name = "image";
             image.Background = ib;
 

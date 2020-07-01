@@ -24,7 +24,8 @@
                          x:Name="dataGridView1"
                           CanUserAddRows="False"
                           ItemsSource="{Binding}"
-                          MouseDoubleClick="dataGridView1_MouseDoubleClick" ColumnDisplayIndexChanged="dataGridView1_ColumnDisplayIndexChanged"
+                          MouseDoubleClick="dataGridView1_MouseDoubleClick" 
+                          ColumnDisplayIndexChanged="dataGridView1_ColumnDisplayIndexChanged"
                           >
 
                     <DataGrid.Columns>

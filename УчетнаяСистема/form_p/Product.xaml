@@ -23,23 +23,49 @@
             <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
         </Grid>
         <Grid Grid.Row="1" Margin="0,1,0,327" Grid.RowSpan="2">
-            <TextBox FontSize="14" x:Name="text2"  Style="{DynamicResource textbox_style}" Tag=" Доллар"  Width="299" Height="25" HorizontalAlignment="Right" Canvas.Left="109" Canvas.Top="187"  Margin="0,87,44,205" TextChanged="text4_TextChanged" />
+            <TextBox FontSize="14" x:Name="textBox1" 
+                     TextChanged="textBox1_TextChanged"
+                     Style="{DynamicResource textbox_style}" Tag=" Цена товар"  Width="253" Height="25" HorizontalAlignment="Right" Canvas.Left="109" Canvas.Top="187"  Margin="0,121,90,171"  />
             <TextBox FontSize="14" x:Name="text1"  Style="{DynamicResource textbox_style}" Tag=" Характеристика твар" Height="67" Width="300" HorizontalAlignment="Right" Canvas.Left="110" Canvas.Top="247" TextWrapping="Wrap" Margin="0,13,42,237" />
-            <TextBox FontSize="14" x:Name="text3"  Style="{DynamicResource textbox_style}" Tag=" Курс"  Width="298" Height="25" HorizontalAlignment="Right"  Margin="0,120,46,172" />
-            <TextBox FontSize="14" x:Name="text4"  Style="{DynamicResource textbox_style}" Tag=" Сом"  Width="298" Height="25" HorizontalAlignment="Right" Margin="0,157,46,135" />
+            <TextBox FontSize="14" x:Name="textBox2"  Style="{DynamicResource textbox_style}" Tag=" Сумма товар"  Width="252" Height="25" HorizontalAlignment="Right" Margin="0,157,92,135" />
             <Button Style="{DynamicResource Button_blue}" Content="Сохранить"
                 x:Name="button_save" Click="button_save_Click" Margin="97,201,265,88"/>
             <Button Style="{DynamicResource Button_blue}" Content="Удалить"
                 x:Name="button2" Margin="275,202,87,88"/>
-            <Button Style="{DynamicResource Button_blue}" Content="Выбрать"
-                x:Name="button_vbor" Click="button_vbor_Click" Margin="99,235,88,54"/>
 
 
 
             <Label x:Name="label" Content="Характеристика твара" Margin="30,15,361,272"/>
-            <Label x:Name="label_Copy" Content="Цена товара на долларах" Margin="30,84,345,204"/>
-            <Label x:Name="label_Copy1" Content="Курс валюта" Margin="28,119,377,170"/>
-            <Label x:Name="label_Copy2" Content="Цена на сомах" Margin="30,155,375,133"/>
+            <Label x:Name="label_Copy" Content="Цена товара " Margin="30,118,345,170"/>
+            <Label x:Name="label_Copy1" Content="Курс валюта" Margin="27,85,378,204"/>
+            <Label x:Name="label_Copy2" Content="Сумма " Margin="30,155,375,133"/>
+            <Button  Content="Валюта"
+                     
+                x:Name="btn_valuta"
+                Click="btn_valuta_Click"
+                RenderTransformOrigin="0.494,-0.221" Background="{x:Null}" 
+                BorderThickness="2,2,2,2"
+                BorderBrush="#FF0A6E9E"
+                Cursor="Hand"
+                Margin="187,88,230,205"  
+                Foreground="#FF0A6E9E"/>
+            <ComboBox x:Name="ComboBox3"
+                IsEditable="True" 
+                DropDownClosed="ComboBox3_DropDownClosed"
+                      Margin="337,87,94,204"
+                      >
+                <TextBlock><Run Text="USD-KGS"/></TextBlock>
+                <TextBlock><Run Text="KGS-USD"/></TextBlock>
+                <TextBlock><Run Text="RUB-KGS"/></TextBlock>
+                <TextBlock><Run Text="KGS-RUB"/></TextBlock>
+                <TextBlock><Run Text="EUR-KGS"/></TextBlock>
+                <TextBlock><Run Text="KGS-EUR"/></TextBlock>
+
+            </ComboBox>
+            <Label Content="(USD)" x:Name="l1" Foreground="#5C554F" Margin="105,117,382,173"
+                FontSize="13" />
+            <Label Content="(KGS)" x:Name="l2" Foreground="#5C554F" Margin="75,154,414,136"
+                FontSize="13" />
         </Grid>
 
         <Border Grid.Row="2" Padding="5" Background="#F4F4F4">
@@ -50,13 +76,23 @@
 
                     </TextBox>
                 </DockPanel>
-                <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
+                <DataGrid FontSize="12"  
+                  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
+                   AutoGenerateColumns="False"       
                   x:Name="dataGridView1"
                   CanUserAddRows="False"
                    MouseUp="myDataGrid_MouseUp"
+                   ItemsSource="{Binding}"
                   ColumnHeaderStyle="{DynamicResource hederstyle}" 
                           MouseDoubleClick="dataGridView1_MouseDoubleClick" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="№" Binding="{Binding id}" Width="50" />
+                        <DataGridTextColumn Header="Товар" Binding="{Binding name}" />
+                        <DataGridTextColumn Header="Цена товар (USD)" Binding="{Binding to_usd}" />
+                        <DataGridTextColumn Header="Цена товар (KGS)" Binding="{Binding Rto_kgs}" />
+                        <DataGridTextColumn Header="Дата" Binding="{Binding data, StringFormat='dd-MM-yyyy HH:mm'}" />
+                        </DataGrid.Columns>
 
                 </DataGrid>
             </StackPanel>

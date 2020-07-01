@@ -67,6 +67,6 @@ namespace УчетнаяСистема
             MainWindow win = new MainWindow();
             win.IsEnabled = true;
             this.Hide();
-        }      
+        }
     }
 }

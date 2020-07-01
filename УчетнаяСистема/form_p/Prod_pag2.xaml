@@ -73,7 +73,7 @@
                      HorizontalAlignment="Right" Canvas.Left="536" 
                      Canvas.Top="34" TextChanged="textbox_Dol_TextChanged"/>
 
-            <TextBox x:Name="textbox_Som" FontSize="14" 
+            <TextBox x:Name="textbox_m2" FontSize="14" 
                      IsReadOnly="True"
                      Style="{DynamicResource textbox_style}"
                       
@@ -96,16 +96,17 @@
 
             <TextBox x:Name="textBox_vz"
                 BorderBrush="#FFABADB3"
+                     TextChanged="textBox_vz_TextChanged"
                      Style="{DynamicResource textbox_style}" Tag=" Первоначальный взнос"
                 BorderThickness="1"
                  Height="24" Canvas.Left="535" Canvas.Top="102" Width="200"/>
 
             <TextBlock Text="Первоначальный взнос" TextWrapping="Wrap" Foreground="#5C554F"
                        Canvas.Left="389" Canvas.Top="99" FontSize="14" Height="36" Width="113" />
-            <ComboBox Width="88" Canvas.Left="1219" Canvas.Top="32" 
+            <ComboBox Width="88" Canvas.Left="1222" Canvas.Top="35" 
                 x:Name="ComboBox3"  IsEditable="True" Height="24"
-
-                DropDownClosed="ComboBox2_DropDownClosed"
+               
+                DropDownClosed="ComboBox3_DropDownClosed"
                       >
                 <TextBlock>USD-KGS</TextBlock>
                 <TextBlock>KGS-USD</TextBlock>
@@ -115,7 +116,7 @@
                 <TextBlock>KGS-EUR</TextBlock>
 
             </ComboBox>
-            <DatePicker Canvas.Left="1112" Canvas.Top="64"  Width="200"/>
+            <DatePicker Canvas.Left="1112" Canvas.Top="64"  Width="200" SelectedDateChanged="DatePicker_SelectedDateChanged"   />
             <DatePicker Canvas.Left="1112" Canvas.Top="101"  Width="200"/>
             <Label Content="" x:Name="l1" Foreground="#5C554F"
                 Canvas.Left="447" Canvas.Top="30" FontSize="13"  />
@@ -144,33 +145,43 @@
                 Canvas.Left="817" Canvas.Top="195" FontSize="13" />
             <Label Content="" x:Name="li2" Foreground="#5C554F" FontWeight="Bold"
                 Canvas.Left="1077" Canvas.Top="195" FontSize="13" />
-            <TextBox x:Name="textbox_Dol_Copy" FontSize="14" 
+            <TextBox x:Name="textbox_Summ" FontSize="14" 
                 Style="{DynamicResource textbox_style}"
                 Tag=" Сумма" Height="24" Width="200" 
                     IsReadOnly="True"
                 HorizontalAlignment="Right" Canvas.Left="536" Canvas.Top="67" TextChanged="textbox_Dol_TextChanged"/>
-            <TextBox x:Name="textbox_Som_Copy" IsReadOnly="True"
+            <TextBox x:Name="textbox_summ" IsReadOnly="True"
                      FontSize="14"  Style="{DynamicResource textbox_style}"
                 Tag=" Сумма" Height="24" Width="200" HorizontalAlignment="Right" Canvas.Left="878" Canvas.Top="66"/>
-            <TextBox x:Name="textbox_Som_Copy1" FontSize="14"  
+            <TextBox x:Name="textbox_Som_vz2" FontSize="14"  
                      IsReadOnly="True"
                      Style="{DynamicResource textbox_style}"
                 Tag=" Первоначальный взнос" Height="24" Width="200" HorizontalAlignment="Right" Canvas.Left="878" Canvas.Top="100"/>
-            <TextBox x:Name="textbox_Som_Copy2" FontSize="14" 
+            <TextBox x:Name="textboxCarsKGS" FontSize="14" 
                      IsReadOnly="True"
                      Style="{DynamicResource textbox_style}"
                 Tag=" Цена машина" Height="24" Width="200" HorizontalAlignment="Right" Canvas.Left="879" Canvas.Top="137"/>
 
-            <TextBox x:Name="textbox_Dol_Copy1" FontSize="14" 
+            <TextBox x:Name="textboxCarsUsd" FontSize="14" 
             Style="{DynamicResource textbox_style}"
             Tag=" Цена машина" Width="200" 
             IsReadOnly="True"
                  Height="24"  Canvas.Left="535" Canvas.Top="137"
-          TextChanged="textbox_Dol_TextChanged"  />
+          TextChanged="textboxCarsUsd_TextChanged"  />
             <Button Style="{StaticResource Add_Button_MRZ}" Content=""
                 x:Name="show_client_Cars_Copy"
                 Click="show_client_Cars_Click"
                 Canvas.Left="1240" Canvas.Top="134" Width="32" Height="26"/>
+            <Button  Content="Валюта"
+                     
+                x:Name="btn_valuta"
+                Click="btn_valuta_Click"
+                Canvas.Left="1112" Canvas.Top="34" Width="99" Height="25"
+                     RenderTransformOrigin="0.494,-0.221" Background="{x:Null}" 
+                     BorderThickness="2,2,2,2"
+                     BorderBrush="#FF0A6E9E"
+                     Cursor="Hand"
+                     Foreground="#FF0A6E9E"/>
 
         </Canvas>
 

@@ -42,7 +42,7 @@
                 <Label Content="Дата рож." Canvas.Left="212" Canvas.Top="53" FontSize="13" />
                 <DatePicker x:Name="data_r" Style="{DynamicResource styleDatePicker}" Canvas.Left="297" Canvas.Top="54" Width="252" Height="24"/>
                 <Label Content="AN" Canvas.Left="576" Canvas.Top="22" FontSize="13" />
-                <Button Style="{DynamicResource Button_White}" Content="Удалить"
+                <Button Style="{DynamicResource Button_White}" Content="Отмена"
                     x:Name="button2" Canvas.Left="569" 
                         Click="button2_Click"
                         Canvas.Top="222" Width="168" Height="26"/>
@@ -80,9 +80,9 @@
                    CanUserAddRows="False"
                   x:Name="dataGridView1"
                    MouseDoubleClick="dataGridView1_MouseDoubleClick"           
+                  SelectionChanged="dataGridView1_SelectionChanged"           
                   ColumnHeaderStyle="{DynamicResource hederstyle}"
-                   MouseUp="myDataGrid_MouseUp"
-                   AutoGenerateColumns="False"
+                  AutoGenerateColumns="False"
                    ItemsSource="{Binding}"
                               >
                         <DataGrid.Columns>
@@ -95,6 +95,15 @@
                             <DataGridTextColumn Header="Орган выдавший документ" Binding="{Binding vdan_uch}" />
                             <DataGridTextColumn Header="Место жительства" Binding="{Binding address_pas}" />
                             <DataGridTextColumn Header="Фактический адресс" Binding="{Binding address}" />
+                            <DataGridTemplateColumn Header="Удалить" Width="50" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Background="{x:Null}" x:Name="x1" Click="x1_Click"  BorderThickness="0,0,0,0" Cursor="Hand">
+                                            <Image Source="/УчетнаяСистема;component/images/icon/udalit4.png" Width="20"/>
+                                        </Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
 
                     </DataGrid>

@@ -87,7 +87,9 @@
     <Compile Include="All_classes\dbConnect.cs" />
     <Compile Include="All_classes\DopClass.cs" />
     <Compile Include="All_classes\lang.cs" />
+    <Compile Include="All_classes\log_pass.cs" />
     <Compile Include="All_classes\Open_File.cs" />
+    <Compile Include="All_classes\RaschetSum.cs" />
     <Compile Include="All_classes\staticClass.cs" />
     <Compile Include="Bron_Klient.xaml.cs">
       <DependentUpon>Bron_Klient.xaml</DependentUpon>
@@ -139,6 +141,12 @@
     </Compile>
     <Compile Include="form_p\view_year.xaml.cs">
       <DependentUpon>view_year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Kurs.xaml.cs">
+      <DependentUpon>Kurs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MessageO.xaml.cs">
+      <DependentUpon>MessageO.xaml</DependentUpon>
     </Compile>
     <Compile Include="registr\registr_flat.xaml.cs">
       <DependentUpon>registr_flat.xaml</DependentUpon>
@@ -223,6 +231,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Kurs.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -235,6 +247,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MessageO.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="registr\registr_flat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -356,6 +372,27 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\icon\add1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\Valuta\Amerika.jpg" />
+    <Resource Include="images\Valuta\Close.png" />
+    <Resource Include="images\Valuta\d.png" />
+    <Resource Include="images\Valuta\Evro_Soyus.jpg" />
+    <Resource Include="images\Valuta\Prossent.PNG" />
+    <Resource Include="images\Valuta\Russ.jpg" />
+    <Resource Include="images\Valuta\Undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\icon\udalit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\icon\udalit2.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\icon\udalit3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\icon\udalit4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
