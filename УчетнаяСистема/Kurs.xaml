@@ -90,7 +90,8 @@
                         <Image Source="images/Valuta/Prossent.PNG" Height="24"  HorizontalAlignment="Right" Margin="0,48,10,0" VerticalAlignment="Top"/>
                         <Image Source="images/Valuta/Prossent.PNG" Height="23"  HorizontalAlignment="Right" Margin="0,88,10,0" VerticalAlignment="Top"/>
                         <Image Source="images/Valuta/Prossent.PNG" Height="22"  HorizontalAlignment="Right" Margin="0,129,10,0" VerticalAlignment="Top"/>
-                        <Button x:Name="btnNbkr" Click="btnNbkr_Click" Height="25" VerticalAlignment="Bottom" Style="{DynamicResource Kurs_Valut_Button}" Content="Выбрать"/>
+                        <Button x:Name="btnNbkr" Click="btnNbkr_Click" Height="25" VerticalAlignment="Bottom" 
+                                Style="{DynamicResource  Button_blue}" Content="Выбрать"/>
                     </Grid>
                 </TabItem>
                  </TabControl>

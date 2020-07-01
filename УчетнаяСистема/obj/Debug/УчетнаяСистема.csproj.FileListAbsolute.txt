@@ -78,7 +78,6 @@ D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Product.g.
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Product.baml
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\exchange.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\exchange.baml
-D:\Project\tilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.csprojAssemblyReference.cache
 D:\Project\tilekeBaatyr\УчетнаяСистема\obj\Debug\Bron_WinDow.g.cs
 D:\Project\tilekeBaatyr\УчетнаяСистема\obj\Debug\Bron_WinDow.baml
 D:\project\tilekeBaatyr\УчетнаяСистема\bin\Debug\MySql.Data.DLL
@@ -172,3 +171,4 @@ D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\Kurs.g.cs
 D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\Kurs.baml
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\MessageO.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\MessageO.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.csprojAssemblyReference.cache

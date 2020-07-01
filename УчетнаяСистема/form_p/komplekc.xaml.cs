@@ -34,7 +34,7 @@ namespace УчетнаяСистема.form_p
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-
+/*
             dbCon.connection.Open();
             using (MySqlCommand cmd = new MySqlCommand("select id,name,img from dom", dbCon.connection))
             {
@@ -61,7 +61,7 @@ namespace УчетнаяСистема.form_p
             }
             dbCon.connection.Close();
             dbCon.connection.Dispose();
-
+*/
 
         }
         public void Button_Click(object sender, RoutedEventArgs e)

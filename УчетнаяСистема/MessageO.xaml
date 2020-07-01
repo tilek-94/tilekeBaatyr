@@ -27,9 +27,11 @@
                        HorizontalAlignment="Center" VerticalAlignment="Center">Вы уверренно хотите удалить?</TextBlock>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
 
-                <Button Style="{DynamicResource Button_blue}"  Margin="0,30,0,0"  Content="Да"
+                <Button Style="{DynamicResource Button_blue}"  Margin="0,30,0,0" 
+                        Content="Да" Click="button_Click"
                     x:Name="button"   Width="168" Height="26"/>
-                <Button Style="{DynamicResource Button_White}" Margin="20,30,0,0" Content="НЕТ"
+                <Button Style="{DynamicResource Button_White}" Click="button2_Click"
+                        Margin="20,30,0,0" Content="НЕТ"
                    x:Name="button2"  Width="168" Height="25"/>
             </StackPanel>
         </StackPanel>

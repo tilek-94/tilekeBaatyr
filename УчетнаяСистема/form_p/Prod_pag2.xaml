@@ -157,17 +157,17 @@
                      IsReadOnly="True"
                      Style="{DynamicResource textbox_style}"
                 Tag=" Первоначальный взнос" Height="24" Width="200" HorizontalAlignment="Right" Canvas.Left="878" Canvas.Top="100"/>
-            <TextBox x:Name="textbox_Som_mash" FontSize="14" 
+            <TextBox x:Name="textboxCarsKGS" FontSize="14" 
                      IsReadOnly="True"
                      Style="{DynamicResource textbox_style}"
                 Tag=" Цена машина" Height="24" Width="200" HorizontalAlignment="Right" Canvas.Left="879" Canvas.Top="137"/>
 
-            <TextBox x:Name="textbox_Dol_Copy1" FontSize="14" 
+            <TextBox x:Name="textboxCarsUsd" FontSize="14" 
             Style="{DynamicResource textbox_style}"
             Tag=" Цена машина" Width="200" 
             IsReadOnly="True"
                  Height="24"  Canvas.Left="535" Canvas.Top="137"
-          TextChanged="textbox_Dol_TextChanged"  />
+          TextChanged="textboxCarsUsd_TextChanged"  />
             <Button Style="{StaticResource Add_Button_MRZ}" Content=""
                 x:Name="show_client_Cars_Copy"
                 Click="show_client_Cars_Click"

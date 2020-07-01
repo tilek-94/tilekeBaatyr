@@ -13,7 +13,7 @@ namespace УчетнаяСистема.All_classes
     {
 
 
-        public MySqlConnection connection = new MySqlConnection("datasource=192.168.0.105; port=3306;Initial Catalog='u_system';username=STROI2;password=123456;CharSet=utf8;");
+        public MySqlConnection connection = new MySqlConnection("datasource=192.168.0.108; port=3306;Initial Catalog='u_system';username=STROI2;password=123456;CharSet=utf8;");
 
 
         public delegate void DisplaySourse(DataTable db);
@@ -23,7 +23,7 @@ namespace УчетнаяСистема.All_classes
         public dbConnect() {
           }
 
-        public void RemoveData(string table,int id)
+        public void RemoveData(string table,string id)
         {
             connection.Open();
             MySqlCommand cmd = connection.CreateCommand();
@@ -72,6 +72,25 @@ namespace УчетнаяСистема.All_classes
             connection.Close();
             eventDysplay2(a);
         }
+        public string[] ReadMassiv(string s)
+        {
+            string[] a = new string[20];
+            int i = 0;
+            connection.Open();
+            string sql = s;
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                a[0] = reader[0].ToString();
+                a[1] = reader[1].ToString();
+                a[2] = reader[2].ToString();
+                a[3] = reader[3].ToString();
+                
+            }
+            connection.Close();
+            return a;
+        }
 
         public string DisplayReturn(string s)
         {
@@ -89,7 +108,7 @@ namespace УчетнаяСистема.All_classes
         }
 
         public string[] RedInfor(string s)
-        {
+        { 
             connection.Open();
             string[] f=new string[5];
             string sql = s;
@@ -100,6 +119,8 @@ namespace УчетнаяСистема.All_classes
                f[0]= reader[0].ToString();
                f[1]= reader[1].ToString();
                f[2]= reader[2].ToString();
+               /* if(reader!=null)
+               f[3]= reader[3].ToString();*/
 
             }
             connection.Close();

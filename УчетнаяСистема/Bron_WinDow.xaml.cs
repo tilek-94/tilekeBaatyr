@@ -36,7 +36,7 @@ namespace УчетнаяСистема
         double usd = 0, eur = 0, rub = 0;
         string[] LangName = new string[3];
         double activUSD = 0;
-        int id_1;
+        string id_1="";
 
         private void Button_Clic(object sender, RoutedEventArgs e)
         {
@@ -119,7 +119,7 @@ namespace УчетнаяСистема
         {
             try
             {
-                if (id_1 != 0) { 
+                if (id_1 != "0") { 
                 MessageBoxResult result = MessageBox.Show("Вы хотите удалить данные?","Сообщения", MessageBoxButton.YesNo);
 
                 if(result== MessageBoxResult.Yes)
@@ -139,7 +139,7 @@ namespace УчетнаяСистема
         private void dataGridView1_MouseUp(object sender, MouseButtonEventArgs e)
         {
             DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
-            id_1 = Convert.ToInt16(dataRow.Row.ItemArray[0].ToString());
+            id_1 = dataRow.Row.ItemArray[0].ToString();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

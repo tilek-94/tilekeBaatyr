@@ -26,12 +26,12 @@ namespace УчетнаяСистема.form_p
             InitializeComponent();
         }
         dbConnect dbCon = new dbConnect();
-        public delegate void MessageID(string id, string name,string summa,string kurs);
+        public delegate void MessageID(string id, string name,string USD,string KGS, string Id);
         public event MessageID mes_;
         RaschetSum raschetSum = new RaschetSum();
         lang lanG = new lang();
         public bool flag = false;
-        string currency_id = "0", basaSum = "0", typeV = "";
+        string currency_id = "0", basaSum = "0", typeV = "" , CarsName="";
         double sena = 0;
         double usd = 0, eur = 0, rub = 0;
         string[] LangName = new string[3];
@@ -135,25 +135,68 @@ namespace УчетнаяСистема.form_p
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
         int columnIndex = 0;
         private void dataGridView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             columnIndex = dataGridView1.CurrentColumn.DisplayIndex;
-            if (columnIndex==9)
+            if (columnIndex == 9)
             {
-                MessageO messageO = new MessageO();
-                messageO.ShowDialog();
+                DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
+                if (dataRow != null)
+                {
+                    id_1 = dataRow.Row.ItemArray[0].ToString();
+                    MessageO messageO = new MessageO();
+                    if (id_1 != "")
+                    {
+                        messageO.Id = id_1;
+                        messageO.TableBasa = "cars";
+                        messageO.del_ += () => Display();
+                        messageO.ShowDialog();
+                    }
+                }
             }
-            
+
         }
 
         private void x1_Click(object sender, RoutedEventArgs e)
         {
+            DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
+            if (dataRow != null)
+            {
+                id_1 = dataRow.Row.ItemArray[0].ToString();
                 MessageO messageO = new MessageO();
-                messageO.ShowDialog();
-            
+                if (id_1 != "")
+                {
+                    messageO.Id = id_1;
+                    messageO.TableBasa = "cars";
+                    messageO.del_ += () => Display();
+                    messageO.ShowDialog();
+                }
+            }
+
+        }
+        string[] PriceCars = new string[5];
+        private void dataGridView1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
+            if (dataRow != null)
+            {
+                id_1 = dataRow.Row.ItemArray[0].ToString();
+                CarsName = dataRow.Row.ItemArray[1].ToString();
+                if (id_1 != "")
+                {
+                    PriceCars= dbCon.ReadMassiv("SELECT  c.id, " +
+                        "IF(c.type_v = '(KGS)', ROUND(c.prih_summ / cur.usd, 2), c.prih_summ) AS to_usd, " +
+                        "IF(c.type_v = '(USD)', ROUND(c.prih_summ * cur.usd, 2), c.prih_summ) AS Rto_kgs, c.kurs  " +
+                        "FROM cars c INNER JOIN currency cur ON c.kurs = cur.id and c.id='"+ id_1 + "'");
+                    MessageBox.Show(PriceCars[3]);
+                    mes_(id_1, CarsName, PriceCars[1], PriceCars[2], PriceCars[3]);
+                    this.Close();
+                    
+                }
+            }
         }
 
         private void Button_Clic(object sender, RoutedEventArgs e)
@@ -200,20 +243,10 @@ namespace УчетнаяСистема.form_p
             kurs.ShowDialog();
         }
 
-        private void dataGridView1_ColumnDisplayIndexChanged(object sender, DataGridColumnEventArgs e)
-        {
-
-           // int index = dataGridView1.SelectedCells[0].Column.DisplayIndex;
-            int columnIndex = dataGridView1.CurrentColumn.DisplayIndex;
-            MessageBox.Show(columnIndex.ToString());
-            if (columnIndex > 0 && 4 > columnIndex)
-            { 
-            }
-            }
-
+        
         private void dataGridView1_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            try { 
+            /*try { 
             DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
             int index = dataGridView1.CurrentCell.Column.DisplayIndex;
              id_1 = dataRow.Row.ItemArray[0].ToString();
@@ -223,13 +256,13 @@ namespace УчетнаяСистема.form_p
              prih_summ_1 = dataRow.Row.ItemArray[4].ToString();
              kurs_1 = dataRow.Row.ItemArray[5].ToString();
             string info_1 = dataRow.Row.ItemArray[6].ToString();
-            /*,data,nomer,prih_summ,kurs,info;*/
+            *//*,data,nomer,prih_summ,kurs,info;*//*
             marka.Text = marka_1;
             data.Text = data_1;
             nomer.Text = nomer_1;
                                    
             }
-            catch { }
+            catch { }*/
         }
 
         private void button_vbor_Click(object sender, RoutedEventArgs e)

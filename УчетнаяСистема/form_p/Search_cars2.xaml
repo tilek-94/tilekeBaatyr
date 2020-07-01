@@ -53,7 +53,7 @@
             <Label Content="Сумма" Canvas.Left="725" Canvas.Top="52" FontSize="13" />
             <Button Style="{DynamicResource Button_blue}" Content="Сохранить"
                     x:Name="button" Click="button_Click" Canvas.Left="440" Canvas.Top="228" Width="168" Height="26"/>
-            <Button Style="{DynamicResource Button_White}" Content="Удалить"
+            <Button Style="{DynamicResource Button_White}" Content="Отмена"
                     Click="button2_Click"
                     x:Name="button2" Canvas.Left="618" Canvas.Top="229" Width="168" Height="25"/>
 
@@ -124,12 +124,12 @@
                 <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
                           SelectionChanged="dataGridView1_SelectionChanged"
+                          MouseDoubleClick="dataGridView1_MouseDoubleClick"
                   Height="280"
                   ItemsSource="{Binding}"
                           AutoGenerateColumns="False"
                   ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1"
-                         MouseDoubleClick="dataGridView1_MouseUp"
-                          ColumnDisplayIndexChanged="dataGridView1_ColumnDisplayIndexChanged">
+                         >
                     
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="№" Binding="{Binding id}" Width="50" />
