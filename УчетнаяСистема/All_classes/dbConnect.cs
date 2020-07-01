@@ -98,27 +98,25 @@ namespace УчетнаяСистема.All_classes
 
         }
         ImageSource src;
-        public void For_Kompleks_Window(WrapPanel Panell, Button button,string text,string surot)
-        {            
+        public void For_Kompleks_Window(WrapPanel Panell, Button button, string text, byte[] img)
+        {
             Grid grid = new Grid();
             grid.Height = 250;
             grid.Width = 190;
             grid.Margin = new Thickness(60, 15, 0, 0);
 
-            
-            
+
+            MemoryStream stream1 = new MemoryStream(img);
             ImageBrush ib = new ImageBrush();
-            ib.ImageSource = src;
+            ib.ImageSource = BitmapFrame.Create(stream1, BitmapCreateOptions.IgnoreImageCache, BitmapCacheOption.OnLoad);
             Border image = new Border();
-            image.Margin = new Thickness(3,3,3,3);
+            image.Margin = new Thickness(3, 3, 3, 3);
             image.Height = 200;
             image.Width = 185;
-            image.CornerRadius= new CornerRadius(13,13,13,13);
+            image.CornerRadius = new CornerRadius(13, 13, 13, 13);
             image.Name = "image";
-            if (surot!= String.Empty)
-            {
-                image.Background=ib;
-            }
+            image.Background = ib;
+
 
             Grid border = new Grid();
             border.HorizontalAlignment = HorizontalAlignment.Stretch;
@@ -141,6 +139,6 @@ namespace УчетнаяСистема.All_classes
             grid.Children.Add(border);
             Panell.Children.Add(grid);
         }
-        
+
     }
 }
