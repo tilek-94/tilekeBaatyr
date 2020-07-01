@@ -44,36 +44,72 @@
                         </Image>
                     </Button>
                 </StackPanel>
+                
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Номеры квартира" Margin="0,0,0,0"/>
                     <ComboBox Width="250" Margin="18,0,0,0"
                               x:Name="ComboBox1"
                         IsEditable="True" Height="22" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
-                    <Label  Content="Цена за квартира" Margin="0,0,0,0"/>
-                    <TextBox FontSize="14"   
-                             x:Name="textBox1"
-                             Style="{DynamicResource textbox_style}" Tag="Цена за квартира" Height="24" Width="250" HorizontalAlignment="Right"  Margin="22,0,0,0"/>
-                </StackPanel>
+
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Курс валюта" Margin="0,0,0,0"/>
-                    <TextBox FontSize="14" 
-                             x:Name="textBox2"
-                             KeyUp="textBox2_KeyUp"
-                             Style="{DynamicResource textbox_style}" Tag="Курс валюта" Height="24" Width="250" HorizontalAlignment="Right"  Margin="51,0,0,0"/>
+                    <Button  Content="Валюта"
+                     
+                x:Name="btn_valuta"
+                Click="btn_valuta_Click"
+                 Width="113" Height="24"
+                RenderTransformOrigin="0.494,-0.221" Background="{x:Null}" 
+                BorderThickness="2,2,2,2"
+                BorderBrush="#FF0A6E9E"
+                Cursor="Hand"
+                Margin="50,0,37,0"  
+                Foreground="#FF0A6E9E"/>
+                    <ComboBox Width="99" x:Name="ComboBox3"
+                              IsEditable="True" 
+               DropDownClosed="ComboBox3_DropDownClosed"
+                      >
+                        <TextBlock><Run Text="USD-KGS"/></TextBlock>
+                        <TextBlock><Run Text="KGS-USD"/></TextBlock>
+                        <TextBlock><Run Text="RUB-KGS"/></TextBlock>
+                        <TextBlock><Run Text="KGS-RUB"/></TextBlock>
+                        <TextBlock><Run Text="EUR-KGS"/></TextBlock>
+                        <TextBlock><Run Text="KGS-EUR"/></TextBlock>
+
+                    </ComboBox>
+
                 </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label  Content="Цена за м2" Margin="0,0,0,0"/>
+                    <Label Content="(USD)" x:Name="l1" Foreground="#5C554F" Margin="0,0,0,0"
+                                 FontSize="13" />
+                    <TextBox FontSize="14"   
+                             x:Name="textBox1"
+                             TextChanged="textBox1_TextChanged"
+                             Style="{DynamicResource textbox_style}"
+                             Tag="Цена за квартира" Height="24" Width="250" 
+                             HorizontalAlignment="Right"  Margin="15,0,0,0"/>
+                </StackPanel>
+                
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Сумма сом" Margin="0,0,0,0"/>
+                    <Label Content="(KGS)" x:Name="l2" Foreground="#5C554F" Margin="0,0,0,0"
+                                 FontSize="13" />
                     <TextBox FontSize="14" 
-                             x:Name="textBox3"
-                             Style="{DynamicResource textbox_style}" Tag="Сумма сом" Height="24" Width="250" HorizontalAlignment="Right"  Margin="60,0,0,0"/>
+                             x:Name="textBox2"
+                             Style="{DynamicResource textbox_style}" 
+                             Tag="Сумма сом" Height="24" Width="250"
+                             HorizontalAlignment="Right"  Margin="18,0,0,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0" HorizontalAlignment="Center">
                     <Button Style="{DynamicResource Button_blue}" 
                             x:Name="registr_btn" Click="registr_btn_Click"
                             Content="Сохранить" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221" Margin="0,0,0,0" />
-                    <Button Style="{DynamicResource Button_blue}" Content="Удалить" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221" Margin="5,0,0,0"/>
+                    <Button Style="{DynamicResource Button_blue}"
+                            Content="Удалить" Width="168" Height="26"
+                            Click="Button_Click"
+                            RenderTransformOrigin="0.494,-0.221" Margin="5,0,0,0"/>
                 </StackPanel>
 
             </StackPanel>
@@ -87,10 +123,21 @@
 
                     </TextBox>
                 </DockPanel>
+                
                 <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
                   x:Name="dataGridView1"
-                  ColumnHeaderStyle="{DynamicResource hederstyle}" >
+                  ItemsSource="{Binding}"
+                          AutoGenerateColumns="False"
+                  ColumnHeaderStyle="{DynamicResource hederstyle}" MouseUp="dataGridView1_MouseUp" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="№" Binding="{Binding id}" Width="50" />
+                        <DataGridTextColumn Header="Номер квартира" Binding="{Binding number_f}" />
+                        <DataGridTextColumn Header="Клиент" Binding="{Binding client}" />
+                        <DataGridTextColumn Header="Цена за м2(USD)" Binding="{Binding to_usd}" />
+                        <DataGridTextColumn Header="Цена за м2(KGS)" Binding="{Binding Rto_kgs}" />
+                        <DataGridTextColumn Header="Дата" Binding="{Binding data, StringFormat='dd-MM-yyyy HH:mm'}" />
+                        </DataGrid.Columns>
 
                 </DataGrid>
             </StackPanel>
