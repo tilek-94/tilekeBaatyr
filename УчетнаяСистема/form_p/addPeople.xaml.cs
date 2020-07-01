@@ -160,7 +160,7 @@ namespace УчетнаяСистема.form_p
 
         private void image_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            file.Open_Image(image);
+            //file.Open_Image(image);
         }
     }
 }

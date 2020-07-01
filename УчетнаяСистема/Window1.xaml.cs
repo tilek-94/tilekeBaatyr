@@ -29,7 +29,6 @@ namespace УчетнаяСистема
         int f { get; set; } = 0;
         private void button_1_Click(object sender, RoutedEventArgs e)
         {
-            
             ValueChanged("0");
             f = 1;
             // mainWindow.blur.Radius = 0;

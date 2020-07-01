@@ -105,11 +105,7 @@ namespace УчетнаяСистема.All_classes
             grid.Width = 190;
             grid.Margin = new Thickness(60, 15, 0, 0);
 
-            if (surot != String.Empty)
-            {
-                src = Base64StringToImageSource(surot);
-                
-            }
+            
             
             ImageBrush ib = new ImageBrush();
             ib.ImageSource = src;
@@ -145,18 +141,6 @@ namespace УчетнаяСистема.All_classes
             grid.Children.Add(border);
             Panell.Children.Add(grid);
         }
-        public static System.Windows.Media.ImageSource Base64StringToImageSource(string base64String)
-        {
-            using (MemoryStream stream = new MemoryStream(Convert.FromBase64String(base64String)))
-            {
-                System.Windows.Media.Imaging.BitmapImage bi = new System.Windows.Media.Imaging.BitmapImage();
-                bi.BeginInit();
-                bi.StreamSource = stream;
-                bi.CacheOption = System.Windows.Media.Imaging.BitmapCacheOption.OnLoad;
-                bi.EndInit();
-                bi.Freeze();
-                return bi;
-            }
-        }
+        
     }
 }
