@@ -25,7 +25,7 @@
                   
                   ItemsSource="{Binding}"
                           AutoGenerateColumns="False"
-                  ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1"
+                  ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1" SelectionChanged="dataGridView1_SelectionChanged"
                          >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="№" Binding="{Binding id}" Width="50" />
@@ -41,11 +41,12 @@
                     </DataGrid.Columns>
 
                     <DataGrid.RowDetailsTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Background="White">
+                        <DataTemplate >
+
+                            <StackPanel  Orientation="Horizontal" Background="White">
                                 <StackPanel Margin="40,20,0,10" >
                                     <Border BorderBrush="#FFC1C0C0" BorderThickness="1" Padding="5">
-                                        <Image x:Name="Data_Image"  Width="250" Source="/УчетнаяСистема;component/images/foto_people/unnamed.png"/>
+                                        <Image   Width="250" Name="imgOpenClose" Source="/УчетнаяСистема;component/images/foto_people/unnamed.png"/>
                                     </Border>
                                 </StackPanel>
                                 <StackPanel Orientation="Vertical" Margin="50,0,0,0">

@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using УчетнаяСистема.All_classes;
-
+using MySql.Data.MySqlClient;
 namespace УчетнаяСистема.form_p
 {
     /// <summary>
@@ -25,6 +25,7 @@ namespace УчетнаяСистема.form_p
         public Cars_pag()
         {
             InitializeComponent();
+            
         }
 
         
@@ -58,6 +59,35 @@ namespace УчетнаяСистема.form_p
             search_Cars2.flag = true;
             search_Cars2.Height = 335;
             search_Cars2.ShowDialog();
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataGrid dt = sender as DataGrid;
+            DataRowView selection = dt.SelectedItem as DataRowView;
+            if (selection != null)
+            {
+                dbCon.connection.Open();
+                using (MySqlCommand cmd = new MySqlCommand("select img from dom where id='"+selection["id"]+"'", dbCon.connection))
+                {
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+
+                            }
+                        }
+
+                    }
+
+                }
+                dbCon.connection.Close();
+                dbCon.connection.Dispose();
+            }
         }
     }
 }
