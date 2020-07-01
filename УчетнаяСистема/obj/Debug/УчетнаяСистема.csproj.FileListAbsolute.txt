@@ -240,3 +240,5 @@ D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\Kompleks_hause.g.
 D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\Kompleks_hause.baml
 D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\Kurs.g.cs
 D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\MessageO.g.cs
+D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\Kurs.baml
+D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\MessageO.baml

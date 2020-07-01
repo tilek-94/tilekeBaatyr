@@ -87,6 +87,25 @@ namespace УчетнаяСистема.All_classes
             connection.Close();
             return value;
         }
+        public string[] ReadMassiv(string s)
+        {
+            string[] a = new string[20];
+            int i = 0;
+            connection.Open();
+            string sql = s;
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                a[0] = reader[0].ToString();
+                a[1] = reader[1].ToString();
+                a[2] = reader[2].ToString();
+                a[3] = reader[3].ToString();
+
+            }
+            connection.Close();
+            return a;
+        }
 
         public string[] RedInfor(string s)
         {
