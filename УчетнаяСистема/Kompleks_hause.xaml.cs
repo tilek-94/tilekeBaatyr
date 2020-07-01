@@ -10,36 +10,33 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Markup.Localizer;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using УчетнаяСистема.All_classes;
 
-
-namespace УчетнаяСистема.form_p
+namespace УчетнаяСистема
 {
     /// <summary>
-    /// Логика взаимодействия для komplekc.xaml
+    /// Логика взаимодействия для Window3.xaml
     /// </summary>
-    public partial class komplekc : Page
-
+    public partial class Kompleks_hause : Window
     {
         Open_File open = new Open_File();
         dbConnect dbCon = new dbConnect();
-        public komplekc()
+        public Kompleks_hause()
         {
             InitializeComponent();
+            this.MaxWidth = SystemParameters.MaximizedPrimaryScreenWidth;
+            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
             dbCon.connection.Open();
             using (MySqlCommand cmd = new MySqlCommand("select id,name,img from dom", dbCon.connection))
             {
-                
+
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
 
@@ -52,9 +49,8 @@ namespace УчетнаяСистема.form_p
                             button.Style = (Style)this.TryFindResource("menuCom");
                             button.Name = "Dom" + reader["id"].ToString();
                             button.Click += new RoutedEventHandler(Button_Click);
-                            byte[] aa = (byte[])reader["name"];                            
-                            //dbCon.For_Kompleks_Window(Panell, button, reader["name"].ToString(),open.Byte_To_Image(aa));
-
+                            byte[] array = (byte[])reader["img"];
+                            dbCon.For_Kompleks_Window(Panell, button, reader["name"].ToString(), array);
                         }
                     }
 
@@ -68,11 +64,9 @@ namespace УчетнаяСистема.form_p
         }
         public void Button_Click(object sender, RoutedEventArgs e)
         {
-            Button b = sender as Button;
-            MessageBox.Show(b.Name.ToString());
             MainWindow win = new MainWindow();
-            win.Vod_Dannyx.IsSelected = true;
-        }
-
+            win.IsEnabled = true;
+            this.Hide();
+        }      
     }
 }

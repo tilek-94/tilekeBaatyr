@@ -35,11 +35,12 @@ namespace УчетнаяСистема.form_p
 
             if (text1.Text != "" && text2.Text != "" && text3.Text != "" && text4.Text != "" && text5.Text != "" && text6.Text != "")
             {
-                dbCon.Registr("INSERT INTO dom(name,floor,porch,count_kv,nom_flat,addres,img) " +
+                open.Registr("INSERT INTO dom(name,floor,porch,count_kv,nom_flat,addres,img) " +
                   "values('"+text1.Text+"'," +
-                 "'"+text2.Text+"','"+text3.Text+ "','" + text4.Text + "','" + text6.Text + "','" + text5.Text + "','" + open.Base64() + "')");
+                 "'"+text2.Text+"','"+text3.Text+ "','" + text4.Text + "','" + text6.Text + "','" + text5.Text + "',@bb)");
                RegistData("select * from dom");
                 messageReg.Foreground = Brushes.Green;
+                
             }
             else
             {
@@ -47,6 +48,7 @@ namespace УчетнаяСистема.form_p
                 messageReg.Foreground = Brushes.Red;
             }
         }
+        
 
         private void text1_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
@@ -69,8 +71,7 @@ namespace УчетнаяСистема.form_p
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-            open.Open_Image(Kompleks_image);
+            open.OpenImg(Kompleks_image);
         }
     }
 }
