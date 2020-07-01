@@ -22,6 +22,15 @@ namespace УчетнаяСистема.All_classes
         public event DisplaySourse2 eventDysplay2;
         public dbConnect() {
           }
+        public void RemoveData(string table, string id)
+        {
+            connection.Open();
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "UPDATE " + table + " SET remov='1' WHERE id='" + id + "';";
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
 
         public void SoursData(string s)
         {
