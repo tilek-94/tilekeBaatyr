@@ -41,24 +41,24 @@ namespace УчетнаяСистема.form_p
 
         }
 
+        private void Dysplay()
+        {
+            dbCon.eventDysplay += delegate (DataTable db)
+            {
+                dataGridView1.ItemsSource = db.DefaultView;
+            };
+            dbCon.SoursData("SELECT * FROM client  WHERE remov='0'");
+
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            RegistData("SELECT * FROM client");
-        }
-
-        private void TextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            
-        }
-
-        private void textbox_fio_KeyDown(object sender, KeyEventArgs e)
-        {
-            
+            RegistData("SELECT * FROM client  WHERE remov='0'");
         }
 
         private void textbox_searsh_KeyDown(object sender, KeyEventArgs e)
         {
-            RegistData("SELECT * FROM client WHERE name LIKE '%" + textbox_searsh.Text + "%'");
+            RegistData("SELECT * FROM client WHERE remov='0' and name LIKE '%" + textbox_searsh.Text + "%' ");
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -84,7 +84,7 @@ namespace УчетнаяСистема.form_p
                 vdan.Text = "";
                 address_p.Text = "";
                 address.Text = "";
-                RegistData("SELECT * FROM client");
+                RegistData("SELECT * FROM client WHERE remov='0'");
 
 
 
@@ -98,7 +98,7 @@ namespace УчетнаяСистема.form_p
         string name = "";
         private void myDataGrid_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
+            /*DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
             int index = dataGridView1.CurrentCell.Column.DisplayIndex;
              id = dataRow.Row.ItemArray[0].ToString();
             name = dataRow.Row.ItemArray[1].ToString();
@@ -116,20 +116,15 @@ namespace УчетнаяСистема.form_p
             data_p.Text= data_v;
             vdan.Text= vdan_uch;
             address_p.Text = address_pas;
-            address.Text = addr;
+            address.Text = addr;*/
 
 
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            if (id != "0") { 
-           dbCon.Registr("DELETE FROM client WHERE id='"+id+"'");
-            RegistData("SELECT * FROM client");
-            }
-            else
-           
-                MessageBox.Show("Маалымат тандаңыз");
+            this.Close();
+            
             
         }
 
@@ -162,5 +157,46 @@ namespace УчетнаяСистема.form_p
         {
             //file.Open_Image(image);
         }
+        int client_id = 0;
+        string id_1 = "";
+        int columnIndex = 0;
+        private void dataGridView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            columnIndex = dataGridView1.CurrentColumn.DisplayIndex;
+            if (columnIndex == 9)
+            {
+                DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
+                if (dataRow != null)
+                {
+                    id_1 = dataRow.Row.ItemArray[0].ToString();
+                    MessageO messageO = new MessageO();
+                    if (id_1 != "")
+                    {
+                        messageO.Id = id_1;
+                        messageO.TableBasa = "client";
+                        messageO.del_ += () => Dysplay();
+                        messageO.ShowDialog();
+                    }
+                }
+            }
+        }
+
+        private void x1_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
+            if (dataRow != null)
+            {
+                id_1 = dataRow.Row.ItemArray[0].ToString();
+                MessageO messageO = new MessageO();
+                if (id_1 != "")
+                {
+                    messageO.Id = id_1;
+                    messageO.TableBasa = "client";
+                    messageO.del_ += () => Dysplay();
+                    messageO.ShowDialog();
+                }
+            }
+        }
+
     }
 }

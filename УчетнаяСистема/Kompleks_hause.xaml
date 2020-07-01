@@ -6,15 +6,22 @@
         xmlns:local="clr-namespace:УчетнаяСистема"
         mc:Ignorable="d"
         Height="650" Width="1100" AllowsTransparency="True" 
-        WindowStyle="None" WindowStartupLocation="CenterOwner"   WindowState="Maximized" Loaded="Window_Loaded" Background="{x:Null}">
+        WindowStyle="None" WindowStartupLocation="CenterOwner" Closed="Window_Closed"   WindowState="Maximized" Loaded="Window_Loaded" Background="{x:Null}">
 
     <Grid >
         <Grid.RowDefinitions>
-            <RowDefinition Height="147"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="116.161"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid Background="White" Opacity="0.1"></Grid>
-        <ScrollViewer Grid.Row="1" Background="White" Margin="5,5,10,5">
+        <Border Background="Beige" Grid.Row="0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button  x:Name="Button_Close" Click="Button_Close_Click" Width="50" Style="{DynamicResource btnCloseOS}" />
+
+            </StackPanel>
+        </Border>
+        <Grid Background="White" Opacity="0.1" Grid.Row="1"></Grid>
+        <ScrollViewer Grid.Row="2" Background="White" Margin="5,5,10,5">
             <WrapPanel x:Name="Panell"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></WrapPanel>
         </ScrollViewer>
     </Grid>
