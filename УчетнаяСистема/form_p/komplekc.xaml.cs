@@ -26,6 +26,7 @@ namespace УчетнаяСистема.form_p
     public partial class komplekc : Page
 
     {
+        Open_File open = new Open_File();
         dbConnect dbCon = new dbConnect();
         public komplekc()
         {
@@ -34,7 +35,7 @@ namespace УчетнаяСистема.form_p
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-
+            
             dbCon.connection.Open();
             using (MySqlCommand cmd = new MySqlCommand("select id,name,img from dom", dbCon.connection))
             {
@@ -51,7 +52,8 @@ namespace УчетнаяСистема.form_p
                             button.Style = (Style)this.TryFindResource("menuCom");
                             button.Name = "Dom" + reader["id"].ToString();
                             button.Click += new RoutedEventHandler(Button_Click);
-                            dbCon.For_Kompleks_Window(Panell, button, reader["name"].ToString(), reader["img"].ToString());
+                            byte[] aa = (byte[])reader["name"];                            
+                            //dbCon.For_Kompleks_Window(Panell, button, reader["name"].ToString(),open.Byte_To_Image(aa));
 
                         }
                     }

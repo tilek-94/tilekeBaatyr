@@ -13,7 +13,7 @@ namespace УчетнаяСистема.All_classes
     {
 
 
-        public MySqlConnection connection = new MySqlConnection("datasource=192.168.0.105; port=3306;Initial Catalog='u_system';username=STROI2;password=123456;CharSet=utf8;");
+        public MySqlConnection connection = new MySqlConnection("datasource=127.168.0.101; port=3306;Initial Catalog='u_system';username=STROI2;password=123456;CharSet=utf8;");
 
 
         public delegate void DisplaySourse(DataTable db);
@@ -96,33 +96,26 @@ namespace УчетнаяСистема.All_classes
             connection.Close();
             return f;
 
-        }
-        ImageSource src;
-        public void For_Kompleks_Window(WrapPanel Panell, Button button,string text,string surot)
+        }       
+        public void For_Kompleks_Window(WrapPanel Panell, Button button,string text,byte[] img)
         {            
             Grid grid = new Grid();
             grid.Height = 250;
             grid.Width = 190;
             grid.Margin = new Thickness(60, 15, 0, 0);
 
-            if (surot != String.Empty)
-            {
-                src = Base64StringToImageSource(surot);
-                
-            }
-            
+       
+            MemoryStream stream1 = new MemoryStream(img);           
             ImageBrush ib = new ImageBrush();
-            ib.ImageSource = src;
+            ib.ImageSource = BitmapFrame.Create(stream1, BitmapCreateOptions.IgnoreImageCache, BitmapCacheOption.OnLoad);
             Border image = new Border();
             image.Margin = new Thickness(3,3,3,3);
             image.Height = 200;
             image.Width = 185;
             image.CornerRadius= new CornerRadius(13,13,13,13);
             image.Name = "image";
-            if (surot!= String.Empty)
-            {
-                image.Background=ib;
-            }
+            image.Background = ib;
+
 
             Grid border = new Grid();
             border.HorizontalAlignment = HorizontalAlignment.Stretch;
@@ -145,18 +138,6 @@ namespace УчетнаяСистема.All_classes
             grid.Children.Add(border);
             Panell.Children.Add(grid);
         }
-        public static System.Windows.Media.ImageSource Base64StringToImageSource(string base64String)
-        {
-            using (MemoryStream stream = new MemoryStream(Convert.FromBase64String(base64String)))
-            {
-                System.Windows.Media.Imaging.BitmapImage bi = new System.Windows.Media.Imaging.BitmapImage();
-                bi.BeginInit();
-                bi.StreamSource = stream;
-                bi.CacheOption = System.Windows.Media.Imaging.BitmapCacheOption.OnLoad;
-                bi.EndInit();
-                bi.Freeze();
-                return bi;
-            }
-        }
+
     }
 }

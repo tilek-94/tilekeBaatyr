@@ -49,6 +49,7 @@ namespace УчетнаяСистема
             OpenWindows();
             kompleks.ShowDialog();
             pag.Navigate(new System.Uri("form_p/analis.xaml", UriKind.RelativeOrAbsolute));
+            //this.IsEnabled = false;
         }
 
         

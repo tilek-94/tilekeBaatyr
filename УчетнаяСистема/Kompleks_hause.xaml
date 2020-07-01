@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:УчетнаяСистема"
         mc:Ignorable="d"
-        Height="500" Width="1100" AllowsTransparency="True" 
+        Height="650" Width="1100" AllowsTransparency="True" 
         WindowStyle="None" WindowStartupLocation="CenterOwner"   WindowState="Maximized" Loaded="Window_Loaded" Background="{x:Null}">
 
     <Grid >
@@ -13,10 +13,9 @@
             <RowDefinition Height="147"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid/>
+        <Grid Background="White" Opacity="0.1"></Grid>
         <ScrollViewer Grid.Row="1" Background="White" Margin="5,5,10,5">
             <WrapPanel x:Name="Panell"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></WrapPanel>
         </ScrollViewer>
-
     </Grid>
 </Window>

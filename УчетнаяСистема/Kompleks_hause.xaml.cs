@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ namespace УчетнаяСистема
     /// </summary>
     public partial class Kompleks_hause : Window
     {
+        Open_File open = new Open_File();
         dbConnect dbCon = new dbConnect();
         public Kompleks_hause()
         {
@@ -47,8 +49,8 @@ namespace УчетнаяСистема
                             button.Style = (Style)this.TryFindResource("menuCom");
                             button.Name = "Dom" + reader["id"].ToString();
                             button.Click += new RoutedEventHandler(Button_Click);
-                            dbCon.For_Kompleks_Window(Panell, button, reader["name"].ToString(), reader["img"].ToString());
-
+                            byte[] array = (byte[])reader["img"];
+                            dbCon.For_Kompleks_Window(Panell, button, reader["name"].ToString(), array);
                         }
                     }
 
@@ -61,8 +63,10 @@ namespace УчетнаяСистема
 
         }
         public void Button_Click(object sender, RoutedEventArgs e)
-        {   
+        {
+            MainWindow win = new MainWindow();
+            win.IsEnabled = true;
             this.Hide();
-        }
+        }      
     }
 }
