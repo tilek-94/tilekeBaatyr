@@ -69,9 +69,5 @@ namespace УчетнаяСистема.form_p
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            open.OpenImg(Kompleks_image);
-        }
     }
 }

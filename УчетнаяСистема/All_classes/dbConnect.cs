@@ -13,7 +13,8 @@ namespace УчетнаяСистема.All_classes
     {
 
 
-        public MySqlConnection connection = new MySqlConnection("datasource=192.168.0.108; port=3306;Initial Catalog='u_system';username=STROI2;password=123456;CharSet=utf8;");
+        //public MySqlConnection connection = new MySqlConnection("datasource=192.168.0.108; port=3306;Initial Catalog='u_system';username=STROI2;password=123456;CharSet=utf8;");
+        public MySqlConnection connection = new MySqlConnection("datasource=127.0.0.1; port=3306;Initial Catalog='u_system';username=Maksatbek;password=708141998m;CharSet=utf8;");
 
 
         public delegate void DisplaySourse(DataTable db);
@@ -126,7 +127,7 @@ namespace УчетнаяСистема.All_classes
 
         }
         ImageSource src;
-        public void For_Kompleks_Window(WrapPanel Panell, Button button, string text, byte[] img)
+        public void For_Kompleks_Window(WrapPanel Panell, Button button, string text)
         {
             Grid grid = new Grid();
             grid.Height = 250;
@@ -134,9 +135,8 @@ namespace УчетнаяСистема.All_classes
             grid.Margin = new Thickness(60, 15, 0, 0);
 
 
-            MemoryStream stream1 = new MemoryStream(img);
             ImageBrush ib = new ImageBrush();
-            ib.ImageSource = BitmapFrame.Create(stream1, BitmapCreateOptions.IgnoreImageCache, BitmapCacheOption.OnLoad);
+            ib.ImageSource = new BitmapImage(new Uri("..images/dom2.png", UriKind.RelativeOrAbsolute));
             Border image = new Border();
             image.Margin = new Thickness(3, 3, 3, 3);
             image.Height = 200;
