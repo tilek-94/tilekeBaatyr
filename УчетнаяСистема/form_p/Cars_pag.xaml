@@ -10,20 +10,25 @@
       Title="Cars_pag" Loaded="Page_Loaded">
 
     <Grid Background="White">
-        
-        <Border Grid.Column="1" Padding="5" Background="#F4F4F4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="138*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <Border Padding="5" Background="#F4F4F4" Grid.RowSpan="2" Grid.Row="0">
             <StackPanel  Background="White" >
                 <Grid  Background="#F4F4F4" HorizontalAlignment="Stretch">
                     <Label Content="KG Group Компаниясы" FontSize="16" Foreground="#00C3FF" HorizontalAlignment="Left"></Label>
                     <Button Content="Добавить" Click="Button_Click" HorizontalAlignment="Right" Margin="0,0,212,0" Style="{DynamicResource Button_blue}" Width="168" Height="25"></Button>
                     <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" Tag=" Поиск данные" Height="25" Width="200" Margin="5" HorizontalAlignment="Right">
-                        
+
                     </TextBox>
                 </Grid>
+
                 <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
-                  
-                  ItemsSource="{Binding}"
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                  ItemsSource="{Binding}" VerticalScrollBarVisibility="Auto"
                           AutoGenerateColumns="False"
                   ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1" SelectionChanged="dataGridView1_SelectionChanged"
                          >
@@ -112,10 +117,34 @@
 
 
                 </DataGrid>
+
             </StackPanel>
         </Border>
-
-       
-
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Style="{DynamicResource Pogination_Image}" Margin="5,-11,0,5" Click="Button_Click_2">
+                   <Image Source="image_for_pages/Typicons.png" Height="50" Width="50"/>
+                </Button>
+                <Button x:Name="Left" Style="{DynamicResource Pogination_Image}"  Margin="-13,-11,0,5" Click="Button_Click_1">
+                    <Image Source="image_for_pages/left.png" Height="50" Width="50" Margin="-15,0"/>
+                </Button>
+                <Button x:Name="b_1" Height="50" Style="{DynamicResource Pogination}" Content="1" Margin="20,0,0,0" Click="b_1_Click"/>
+                <Button x:Name="b_2" Height="50" Style="{DynamicResource Pogination}" Content="2" Click="b_2_Click"/>
+                <Button x:Name="b_3" Height="50" Style="{DynamicResource Pogination}" Content="3" Click="b_2_Click"/>
+                <Button x:Name="b_4" Height="50" Style="{DynamicResource Pogination}" Content="4" Click="b_2_Click"/>
+                <Button x:Name="b_5" Height="50" Style="{DynamicResource Pogination}" Content="5" Click="b_2_Click"/>
+                <Button x:Name="b_6" Height="50" Style="{DynamicResource Pogination}" Content="6" Click="b_2_Click"/>
+                <Button x:Name="b_7" Height="50" Style="{DynamicResource Pogination}" Content="7" Click="b_2_Click"/>
+                <Button x:Name="b_8" Height="50" Style="{DynamicResource Pogination}" Content="8" Click="b_2_Click"/>
+                <Button x:Name="b_9" Height="50" Style="{DynamicResource Pogination}" Content="9" Click="b_2_Click"/>
+                <Button x:Name="b_10" Height="50" Style="{DynamicResource Pogination}" Content="10" Margin="5,0,10,0" Click="b_10_Click"/>
+                <Button x:Name="Right" Style="{DynamicResource Pogination_Image}" Margin="5,-11,0,5" Click="Button_Click_1">
+                    <Image Source="image_for_pages/Typicons_e019(3)_48.png" Height="50" Width="50"/>
+                </Button>
+                <Button Style="{DynamicResource Pogination_Image}" Margin="-15,-11,0,5" Click="Button_Click_3">
+                    <Image Source="image_for_pages/Typicons_e046(0)_48.png" Height="50" Width="50"/>
+                </Button>
+             </StackPanel>
+        </Grid>
     </Grid>
 </Page>

@@ -169,13 +169,21 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
+                        <Grid>
                         <Border Name="border" 
                                 CornerRadius="7,7,7,7"
                                 BorderBrush="{x:Null}"
                                 Background="{x:Null}"
                                 >
+                            
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
+                            <Border VerticalAlignment="Center" HorizontalAlignment="Center"  CornerRadius="13,13,13,13" Margin="3,3,3,3" Height="200" Width="185">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="images/dom2.png"  Stretch="UniformToFill"/>
+                                </Border.Background>
+                            </Border>
+                        </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="border" Property="BorderBrush" Value="#7F1C82B4"/>
@@ -613,7 +621,89 @@
                 </Setter.Value>
             </Setter>
         </Style>
+<!--Пагинация стил-->
+        <Style x:Key="Pogination" TargetType="Button">
+            <Setter Property="Margin" Value="5,0,0,0"/>
+            <Setter Property="MinHeight" Value="30"/>
+            <Setter Property="MinWidth" Value="30"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Border Name="border" 
+                                CornerRadius="25"
+                                BorderThickness="1"
+                                BorderBrush="#B2004464"
+                                Background="#e6f7ff"
+                                    Height="30"
+                                    Width="30"
+                                >
+                                <ContentPresenter x:Name="content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#B2004464"/>
+                                <Setter TargetName="border" Property="Background" Value="#FFB9E5F9"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
 
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#FF1C82B4"/>
+                                <Setter TargetName="border" Property="Background" Value="#FF1C82B4"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Пагинация стил-->
+        <Style x:Key="Pogination_Image" TargetType="Button">
+            <Setter Property="Margin" Value="5,0,0,0"/>
+            <Setter Property="MinHeight" Value="50"/>
+            <Setter Property="MinWidth" Value="50"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Border Name="border" 
+                                CornerRadius="25"
+                                BorderThickness="0"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                BorderBrush="{x:Null}"
+                                Background="{x:Null}"
+                                    Height="45"
+                                    Width="45"
+                                   
+                                >
+                                <ContentPresenter x:Name="content" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#B2004464"/>
+                                <Setter TargetName="border" Property="Background" Value="#FFB9E5F9"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#991C82B4"/>
+                                <Setter TargetName="border" Property="Background" Value="#991C82B4"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
     </Application.Resources>
 </Application>

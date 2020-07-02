@@ -304,3 +304,7 @@ D:\Tileke_Baatyr\tilekeBaatyr\УчетнаяСистема\obj\Debug\Учетн�
 D:\Tileke_Baatyr\tilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.csproj.CopyComplete
 D:\Tileke_Baatyr\tilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.exe
 D:\Tileke_Baatyr\tilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.pdb
+D:\Tileke_Baatyr\tilekeBaatyr\УчетнаяСистема\obj\Debug\Kurs.g.cs
+D:\Tileke_Baatyr\tilekeBaatyr\УчетнаяСистема\obj\Debug\MessageO.g.cs
+D:\Tileke_Baatyr\tilekeBaatyr\УчетнаяСистема\obj\Debug\Kurs.baml
+D:\Tileke_Baatyr\tilekeBaatyr\УчетнаяСистема\obj\Debug\MessageO.baml

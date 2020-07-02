@@ -151,12 +151,7 @@ namespace УчетнаяСистема.form_p
         private void Button_Clic(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void image_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            //file.Open_Image(image);
-        }
+        }   
         int client_id = 0;
         string id_1 = "";
         int columnIndex = 0;

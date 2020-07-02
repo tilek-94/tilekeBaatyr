@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using УчетнаяСистема.All_classes;
 
 namespace УчетнаяСистема
 {
@@ -19,6 +20,7 @@ namespace УчетнаяСистема
     /// </summary>
     public partial class Window1 : Window
     {
+        dbConnect conn = new dbConnect();
         public event Action<string> ValueChanged;
         public Window1()
         {
@@ -29,17 +31,28 @@ namespace УчетнаяСистема
         int f { get; set; } = 0;
         private void button_1_Click(object sender, RoutedEventArgs e)
         {
-            ValueChanged("0");
-            f = 1;
-            // mainWindow.blur.Radius = 0;
-            this.Close();
+            string name = conn.DisplayReturn("SELECT * FROM users u " +
+                "INNER JOIN user_roles u_r ON u_r.id = u.id " +
+                "INNER JOIN roles r ON r.id = u_r.role_id " +
+                "WHERE u.login ='" + LogTextBox.Text + "' AND u.parol='" + PassTextBox.Text + "' AND r.name='admin'");
+            if (name != String.Empty)
+            {
+              
+            }
+           
+                ValueChanged("0");
+                f = 1;
+                // mainWindow.blur.Radius = 0;
+                this.Close();
+            
+
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            if(f!=1)
-            Application.Current.Shutdown();
-           
+            if (f != 1)
+                Application.Current.Shutdown();
+
         }
 
         private void button_2_Click(object sender, RoutedEventArgs e)
