@@ -136,7 +136,7 @@ namespace УчетнаяСистема.All_classes
 
 
             ImageBrush ib = new ImageBrush();
-            ib.ImageSource = new BitmapImage(new Uri("..images/dom2.png", UriKind.RelativeOrAbsolute));
+            ib.ImageSource = new BitmapImage(new Uri("../../images/dom2.png", UriKind.RelativeOrAbsolute));
             Border image = new Border();
             image.Margin = new Thickness(3, 3, 3, 3);
             image.Height = 200;
