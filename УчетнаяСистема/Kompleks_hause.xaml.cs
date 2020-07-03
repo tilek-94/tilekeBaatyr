@@ -34,7 +34,7 @@ namespace УчетнаяСистема
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dbCon.connection.Open();
-            using (MySqlCommand cmd = new MySqlCommand("select id,name, from dom", dbCon.connection))
+            using (MySqlCommand cmd = new MySqlCommand("select id,name from dom", dbCon.connection))
             {
 
                 using (MySqlDataReader reader = cmd.ExecuteReader())
