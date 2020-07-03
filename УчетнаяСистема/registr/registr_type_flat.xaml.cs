@@ -32,7 +32,7 @@ namespace УчетнаяСистема.registr
         {
             dbCon.Registr("INSERT INTO type_flat(dom_id,porch,room,type,name,kvm)" +
                 "values (" +
-                "'6'," +
+                "'18'," +
                 "'" + ComboBox_P.Text + "'," +
                 "" + ComboBox_flat.Text + "," +
                 "'" + ComboBox_Type.Text + "'," +
@@ -46,7 +46,7 @@ namespace УчетнаяСистема.registr
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            s = dbCon.RedInfor("SELECT floor,porch,count_kv FROM dom WHERE id='6'");
+            s = dbCon.RedInfor("SELECT floor,porch,count_kv FROM dom WHERE id='18'");
             for (int i = 1; i <= Convert.ToInt16(s[1]); i++)
             {
                 ComboBox_P.Items.Add(i.ToString());
@@ -67,11 +67,11 @@ namespace УчетнаяСистема.registr
                 type_flat_listwiew.ItemsSource = db.DefaultView;
             };
             dbCon.SoursData("SELECT name,kvm FROM type_flat" +
-                " WHERE dom_id='6' and porch='" + ComboBox_P.Text + "'" +
+                " WHERE dom_id='18' and porch='" + ComboBox_P.Text + "'" +
                 " and type='" + ComboBox_Type.Text + "' and room='" + ComboBox_flat.Text + "'");
 
             TextBlock_kvm.Text ="Всего: "+ dbCon.DisplayReturn("SELECT SUM(kvm) FROM type_flat " +
-                " WHERE dom_id='6' and porch='" + ComboBox_P.Text + "'" +
+                " WHERE dom_id='18' and porch='" + ComboBox_P.Text + "'" +
                 " and type='" + ComboBox_Type.Text + "' and room='" + ComboBox_flat.Text + "'")+" кв. м.";
 
         }

@@ -50,7 +50,7 @@ namespace УчетнаяСистема.form_p
             };
             dbCon.SoursData("SELECT * FROM zakaz_z  ORDER BY id DESC ");
 
-            string[] s = dbCon.RedInfor("SELECT floor,porch,count_kv FROM dom WHERE id='6'");
+            string[] s = dbCon.RedInfor("SELECT floor,porch,count_kv FROM dom WHERE id='18'");
             DelegATE(Convert.ToInt32( s[2]));
         }
         private void DelegATE(int f)
@@ -76,7 +76,7 @@ namespace УчетнаяСистема.form_p
         private void registr_client_btn_Click(object sender, RoutedEventArgs e)
         {
             dbCon.Registr("INSERT INTO zakaz(dom_id,klient_id,number_f,cars_id,contract,price_kvm,kurs,kvm,data_n,data_k) " +
-                  "values('6','" + client_id + "','" + ComboBox2.Text + "','" + cars_id + "','" + textbox_dogovor.Text + "','"+ (dollar.ToString()).Replace(',','.') + "'" +
+                  "values('18','" + client_id + "','" + ComboBox2.Text + "','" + cars_id + "','" + textbox_dogovor.Text + "','"+ (dollar.ToString()).Replace(',','.') + "'" +
                   ",'"+(kurs.ToString()).Replace(',', '.') + "','"+kvm.Replace(',', '.') + "','"+data_n+"','"+data_k+"')");
            
             dbCon.eventDysplay +=  db=>  { dataGridView1.ItemsSource = db.DefaultView; };
@@ -138,13 +138,13 @@ namespace УчетнаяСистема.form_p
                     vznos = Convert.ToDouble(textBox_vz.Text);
                 else vznos = 0;
                 textbox_Som_vz2.Text = raschetSum.Kurs(ComboBox3.Text, vznos, usd, eur, rub).ToString();
-                //SummItogo();
+                SummItogo();
             }
         }
 
-        void SummItogo(string valuta)
+        void SummItogo()
         {
-            /*double UsdSum = 0,UsdCars=0;
+            double UsdSum = 0,UsdCars=0;
             double VznosSum = 0, KgsSUM = 0, UsdCarsSum = 0;
             if (textbox_Summ.Text != "")
                 UsdSum = Convert.ToDouble(textbox_Summ.Text);
@@ -152,7 +152,7 @@ namespace УчетнаяСистема.form_p
                 vznos = Convert.ToDouble(textBox_vz.Text);
            if (textboxCarsUsd.Text != "")
                 UsdCars = Convert.ToDouble(textboxCarsUsd.Text);
-            label_summ_Dol_itog.Content = String.Format("{0:C}", UsdSum - (vznos + UsdCars)) + " $";
+            label_summ_Dol_itog.Content = String.Format("{0:C}", UsdSum - (vznos + UsdCars));
 
             if (textbox_summ.Text != "")
                 KgsSUM = Convert.ToDouble(textbox_summ.Text);
@@ -160,12 +160,14 @@ namespace УчетнаяСистема.form_p
                 VznosSum = Convert.ToDouble(textbox_Som_vz2.Text);
             if (textboxCarsKGS.Text != "")
                 UsdCarsSum = Convert.ToDouble(textboxCarsKGS.Text);
-*/
-            //label_summ_Som_itog.Content = String.Format("{0:C}", KgsSUM - (VznosSum + UsdCarsSum))+" Сом";
-            //label_summ_Som_itog.Content = raschetSum.ReaderBasa(valuta,KgsSUM,IdCarsCurs);
-           // textboxCarsKGS.Text = raschetSum.ReaderBasa(ComboBox3.Text, Convert.ToDouble(UsdCars), IdCarsCurs).ToString();
-            //textboxCarsKGS.Text = raschetSum.ReaderBasa(ComboBox3.Text,Convert.ToDouble(UsdCars), IdCarsCurs).ToString();
 
+            label_summ_Som_itog.Content = String.Format("{0:C}", KgsSUM - (VznosSum + UsdCarsSum));
+
+            /*label_summ_Som_itog.Content = raschetSum.ReaderBasa(valuta, KgsSUM, IdCarsCurs);
+            
+            textboxCarsKGS.Text = raschetSum.ReaderBasa(ComboBox3.Text, Convert.ToDouble(UsdCars), IdCarsCurs).ToString();
+            textboxCarsKGS.Text = raschetSum.ReaderBasa(ComboBox3.Text, Convert.ToDouble(UsdCars), IdCarsCurs).ToString();
+*/
         }
 
         private void textboxCarsUsd_TextChanged(object sender, TextChangedEventArgs e)
@@ -186,7 +188,8 @@ namespace УчетнаяСистема.form_p
             }
             else
                 m2 = 0;
-            if (currency_id != "0") { 
+            if (currency_id != "0") {
+                    SummItogo();
                 textbox_m2.Text = Convert.ToString(raschetSum.Kurs(ComboBox3.Text, sena, usd, eur, rub));
             textbox_summ.Text = raschetSum.Kurs(ComboBox3.Text, summ, usd, eur, rub).ToString();
             }
@@ -225,9 +228,9 @@ namespace УчетнаяСистема.form_p
 
             // MessageBox.Show();
             textboxCarsKGS.Text = raschetSum.ReaderBasa(ComboBox3.Text, Convert.ToDouble(KgsCars), IdCarsCurs).ToString();
-            MessageBox.Show(ComboBox3.Text+"--"+ KgsCars+"--"+ IdCarsCurs);
+           /* MessageBox.Show(ComboBox3.Text+"--"+ KgsCars+"--"+ IdCarsCurs);
             MessageBox.Show(raschetSum.ReaderBasa(ComboBox3.Text, Convert.ToDouble(KgsCars), IdCarsCurs).ToString());
-            LangName = lanG.ReturnName(ComboBox3.Text);
+           */ LangName = lanG.ReturnName(ComboBox3.Text);
             l1.Content = LangName[1];
             l2.Content = LangName[1];
             l3.Content = LangName[1];
@@ -240,7 +243,7 @@ namespace УчетнаяСистема.form_p
             li1.Content=LangName[1]+":";
             textboxCarsUsd.Text= raschetSum.ReaderBasa(ComboBox3.Text, Convert.ToDouble(KgsCars), IdCarsCurs).ToString();
             textboxCarsKGS.Text= raschetSum.ReaderBasa2(ComboBox3.Text, Convert.ToDouble(UsdCars), IdCarsCurs).ToString();
-            // SummItogo();
+            SummItogo();
         }
 
         string[] LangName = new string[3];

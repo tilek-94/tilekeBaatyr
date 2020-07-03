@@ -34,7 +34,7 @@
                 <Button Style="{DynamicResource Button_blue}" Content="Сохранить"
                     x:Name="button12" Click="button1_Click" Canvas.Left="68" 
                         Canvas.Top="126" Width="168" Height="26"/>
-                <Button Style="{DynamicResource Button_White}" Content="Отмена"
+                <Button Style="{DynamicResource Button_White}" Content="Отмена" Click="button22_Click"
                     x:Name="button22" Canvas.Left="250" Canvas.Top="126" Width="168" Height="25"/>
                 <ComboBox Width="79" Canvas.Left="253"
                           Canvas.Top="53" BorderThickness="1 1 1 1" 
@@ -85,8 +85,6 @@
 
         </Border>
 
-        <Border Padding="5" Background="#F4F4F4" Grid.Column="0" Margin="0,180,0,0" Grid.Row="1"/>
-
         <Border Grid.Row="2" Padding="5" Background="#F4F4F4" Grid.Column="1">
             <StackPanel  Background="White" >
                 <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
@@ -98,8 +96,29 @@
                 <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
                   x:Name="dataGridView2"
+                          SelectionChanged="dataGridView1_SelectionChanged"
                  CanUserAddRows="False"
+                   ItemsSource="{Binding}"
+                   AutoGenerateColumns="False"
                   ColumnHeaderStyle="{DynamicResource hederstyle}" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="№" Binding="{Binding id}" Width="50" />
+                        <DataGridTextColumn Header="Номер квартира" Binding="{Binding number_f}" />
+                        <DataGridTextColumn Header="Этаж" Binding="{Binding floor}" />
+                        <DataGridTextColumn Header="Подъезд" Binding="{Binding porch}" />
+                        <DataGridTextColumn Header="Тип квартира" Binding="{Binding type_flat}" />
+                       
+                    
+                    <DataGridTemplateColumn Header="Удалить" Width="50" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Background="{x:Null}" x:Name="x1" Click="x1_Click"  BorderThickness="0,0,0,0" Cursor="Hand">
+                                    <Image Source="/УчетнаяСистема;component/images/icon/udalit4.png" Width="20"/>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    </DataGrid.Columns>
 
                 </DataGrid>
             </StackPanel>
