@@ -143,6 +143,7 @@ namespace УчетнаяСистема.form_p
         {
             if (name != "")
             {
+                if (ValueChanged!=null) 
                 ValueChanged(id, name);
                 this.Close();
             }
@@ -151,12 +152,7 @@ namespace УчетнаяСистема.form_p
         private void Button_Clic(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void image_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            //file.Open_Image(image);
-        }
+        }   
         int client_id = 0;
         string id_1 = "";
         int columnIndex = 0;
@@ -178,6 +174,13 @@ namespace УчетнаяСистема.form_p
                         messageO.ShowDialog();
                     }
                 }
+            }
+
+            DataRowView dataRow2 = (DataRowView)dataGridView1.SelectedItem;
+            if (dataRow2 != null)
+            {
+                id = dataRow2.Row.ItemArray[0].ToString();
+                name = dataRow2.Row.ItemArray[1].ToString();
             }
         }
 

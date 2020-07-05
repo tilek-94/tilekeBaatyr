@@ -14,14 +14,16 @@ namespace УчетнаяСистема.All_classes
 
 
         public MySqlConnection connection = new MySqlConnection("datasource=192.168.0.108; port=3306;Initial Catalog='u_system';username=STROI2;password=123456;CharSet=utf8;");
+        //public MySqlConnection connection = new MySqlConnection("datasource=192.168.0.101; port=3306;Initial Catalog='u_system';username=Maksatbek;password=708141998m;CharSet=utf8;");
 
-
+       
         public delegate void DisplaySourse(DataTable db);
         public delegate void DisplaySourse2(string[] a);
         public event DisplaySourse eventDysplay;
         public event DisplaySourse2 eventDysplay2;
-        public dbConnect() {
-          }
+        public dbConnect()
+        {
+        }
         public void RemoveData(string table, string id)
         {
             connection.Open();
@@ -34,7 +36,7 @@ namespace УчетнаяСистема.All_classes
 
         public void SoursData(string s)
         {
-           // string s = "select * from kvartira";
+            // string s = "select * from kvartira";
             connection.Open();
             MySqlCommand cmd = connection.CreateCommand();
             cmd.CommandType = CommandType.Text;
@@ -58,7 +60,7 @@ namespace УчетнаяСистема.All_classes
         }
         public void Display(string s)
         {
-            string[] a= new string[10000];
+            string[] a = new string[10000];
             int i = 0;
             connection.Open();
             string sql = s;
@@ -66,7 +68,7 @@ namespace УчетнаяСистема.All_classes
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-               a[i]= reader[0].ToString();
+                a[i] = reader[0].ToString();
                 i++;
             }
             connection.Close();
@@ -76,17 +78,18 @@ namespace УчетнаяСистема.All_classes
         public string DisplayReturn(string s)
         {
             connection.Open();
-            string sql = s,value="";
+            string sql = s, value = "";
             MySqlCommand command = new MySqlCommand(sql, connection);
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 value = reader[0].ToString();
-               
+
             }
             connection.Close();
             return value;
         }
+
         public string[] ReadMassiv(string s)
         {
             string[] a = new string[20];
@@ -110,23 +113,23 @@ namespace УчетнаяСистема.All_classes
         public string[] RedInfor(string s)
         {
             connection.Open();
-            string[] f=new string[5];
+            string[] f = new string[5];
             string sql = s;
             MySqlCommand command = new MySqlCommand(sql, connection);
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-               f[0]= reader[0].ToString();
-               f[1]= reader[1].ToString();
-               f[2]= reader[2].ToString();
+                f[0] = reader[0].ToString();
+                f[1] = reader[1].ToString();
+                f[2] = reader[2].ToString();
 
             }
             connection.Close();
             return f;
 
         }
-        ImageSource src;
-        public void For_Kompleks_Window(WrapPanel Panell, Button button, string text, byte[] img)
+
+        public void For_Kompleks_Window(WrapPanel Panell, Button button, string text)
         {
             Grid grid = new Grid();
             grid.Height = 250;
@@ -134,9 +137,8 @@ namespace УчетнаяСистема.All_classes
             grid.Margin = new Thickness(60, 15, 0, 0);
 
 
-            MemoryStream stream1 = new MemoryStream(img);
             ImageBrush ib = new ImageBrush();
-            ib.ImageSource = BitmapFrame.Create(stream1, BitmapCreateOptions.IgnoreImageCache, BitmapCacheOption.OnLoad);
+            //ib.ImageSource = new BitmapImage(new System.Uri(@"NewFolder1/dom2.png", UriKind.RelativeOrAbsolute));
             Border image = new Border();
             image.Margin = new Thickness(3, 3, 3, 3);
             image.Height = 200;
@@ -166,6 +168,21 @@ namespace УчетнаяСистема.All_classes
             grid.Children.Add(button);
             grid.Children.Add(border);
             Panell.Children.Add(grid);
+        }
+        public int DisplayReturn1(string s)
+        {
+            connection.Open();
+            string sql = s, value = "";
+            MySqlCommand command = new MySqlCommand(sql, connection);
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                value = reader[0].ToString();
+
+            }
+            int x = Convert.ToInt32(value);
+            connection.Close();
+            return x;
         }
 
     }

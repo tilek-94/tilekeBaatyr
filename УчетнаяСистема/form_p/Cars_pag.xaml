@@ -10,22 +10,28 @@
       Title="Cars_pag" Loaded="Page_Loaded">
 
     <Grid Background="White">
-        
-        <Border Grid.Column="1" Padding="5" Background="#F4F4F4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="138*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <Border Padding="5" Background="#F4F4F4" Grid.RowSpan="2" Grid.Row="0">
             <StackPanel  Background="White" >
                 <Grid  Background="#F4F4F4" HorizontalAlignment="Stretch">
                     <Label Content="KG Group Компаниясы" FontSize="16" Foreground="#00C3FF" HorizontalAlignment="Left"></Label>
                     <Button Content="Добавить" Click="Button_Click" HorizontalAlignment="Right" Margin="0,0,212,0" Style="{DynamicResource Button_blue}" Width="168" Height="25"></Button>
                     <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" Tag=" Поиск данные" Height="25" Width="200" Margin="5" HorizontalAlignment="Right">
-                        
+
                     </TextBox>
                 </Grid>
+
                 <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
-                  
-                  ItemsSource="{Binding}"
+                  HorizontalAlignment="Stretch" 
+                  ItemsSource="{Binding}" VerticalScrollBarVisibility="Auto"
                           AutoGenerateColumns="False"
-                  ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1"
+                          Height="500"
+                  ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1" SelectionChanged="dataGridView1_SelectionChanged"
                          >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="№" Binding="{Binding id}" Width="50" />
@@ -41,11 +47,12 @@
                     </DataGrid.Columns>
 
                     <DataGrid.RowDetailsTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Background="White">
+                        <DataTemplate >
+
+                            <StackPanel  Orientation="Horizontal" Background="White">
                                 <StackPanel Margin="40,20,0,10" >
                                     <Border BorderBrush="#FFC1C0C0" BorderThickness="1" Padding="5">
-                                        <Image x:Name="Data_Image"  Width="250" Source="/УчетнаяСистема;component/images/foto_people/unnamed.png"/>
+                                        <Image   Width="250" Name="imgOpenClose" Source="/УчетнаяСистема;component/images/foto_people/unnamed.png"/>
                                     </Border>
                                 </StackPanel>
                                 <StackPanel Orientation="Vertical" Margin="50,0,0,0">
@@ -111,10 +118,30 @@
 
 
                 </DataGrid>
+
             </StackPanel>
         </Border>
-
-       
-
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,5">
+                <Button Style="{DynamicResource Pogination_Image}" Margin="0,0,-20,0" Click="Button_Click_2" Width="38">
+                    <Image Source="image_for_pages/Typicons.png" Height="40" Width="40" Margin="0,-5,0,0"/>
+                </Button>
+                <Button x:Name="Left" Style="{DynamicResource Pogination_Image}"  Margin="0,0,-10,0" Click="Button_Click_1">
+                    <Image Source="image_for_pages/left.png" Margin="0,-5,0,0" Height="40" Width="40" />
+                </Button>
+                <Button x:Name="b_1" Height="50" Style="{DynamicResource Pogination}" Content="1" Click="b_1_Click"/>
+                <Button x:Name="b_2" Height="50" Style="{DynamicResource Pogination}" Content="2" Click="b_2_Click"/>
+                <Button x:Name="b_3" Height="50" Style="{DynamicResource Pogination}" Content="3" Click="b_2_Click"/>
+                <Button x:Name="b_4" Height="50" Style="{DynamicResource Pogination}" Content="4" Click="b_2_Click"/>
+                <Button x:Name="b_5" Height="50" Style="{DynamicResource Pogination}" Content="5" Click="b_2_Click" Margin="5,0,-5,0"/>
+                
+                <Button x:Name="Right" Style="{DynamicResource Pogination_Image}" Margin="0,0,-25,0" Click="Button_Click_1">
+                    <Image Source="image_for_pages/Typicons_e019(3)_48.png" Margin="0,-5,0,0" Height="40" Width="40"/>
+                </Button>
+                <Button Style="{DynamicResource Pogination_Image}" Margin="0,0,0,0" Click="Button_Click_3">
+                    <Image Source="image_for_pages/Typicons_e046(0)_48.png" Margin="0,-5,0,0" Height="40" Width="40"/>
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

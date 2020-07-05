@@ -22,7 +22,6 @@ namespace УчетнаяСистема
     /// </summary>
     public partial class Kompleks_hause : Window
     {
-        Open_File open = new Open_File();
         dbConnect dbCon = new dbConnect();
         public Kompleks_hause()
         {
@@ -34,7 +33,7 @@ namespace УчетнаяСистема
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dbCon.connection.Open();
-            using (MySqlCommand cmd = new MySqlCommand("select id,name,img from dom", dbCon.connection))
+            using (MySqlCommand cmd = new MySqlCommand("select id,name from dom", dbCon.connection))
             {
 
                 using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -49,8 +48,8 @@ namespace УчетнаяСистема
                             button.Style = (Style)this.TryFindResource("menuCom");
                             button.Name = "Dom" + reader["id"].ToString();
                             button.Click += new RoutedEventHandler(Button_Click);
-                            byte[] array = (byte[])reader["img"];
-                            dbCon.For_Kompleks_Window(Panell, button, reader["name"].ToString(), array);
+                            //byte[] array = (byte[])reader["img"];
+                            dbCon.For_Kompleks_Window(Panell, button, reader["name"].ToString());
                         }
                     }
 
@@ -65,8 +64,20 @@ namespace УчетнаяСистема
         public void Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow win = new MainWindow();
+            Button button = sender as Button;
+            staticClass.StaticDomID = button.Name.ToString().Substring(3);
             win.IsEnabled = true;
-            this.Hide();
+           this.Hide();
+        }
+
+        private void Button_Close_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

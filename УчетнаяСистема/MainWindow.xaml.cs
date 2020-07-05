@@ -117,12 +117,6 @@ namespace УчетнаяСистема
             registr_flat registr_Flat = new registr_flat();
             registr_Flat.ShowDialog();
         }
-
-        private void Glavnyi_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            Kompleks_hause kompleks = new Kompleks_hause();
-            kompleks.Show();
-        }
     }
     public class Phone
     {
