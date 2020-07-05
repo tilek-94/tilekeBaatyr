@@ -30,7 +30,7 @@
                         BorderThickness="1,1,1,1"
                         BorderBrush="#FFC1C0C0"
                         Canvas.Left="21" Canvas.Top="20" Width="181">
-                    <Image x:Name="image" Source="../images/foto_people/people.JPG" Margin="0,3" MouseDown="image_MouseDown" Stretch="UniformToFill"/>
+                    <Image x:Name="image" Source="../images/foto_people/people.JPG" Margin="0,3" Stretch="UniformToFill"/>
                 </Border>
                 <TextBox x:Name="FIO" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Ф.И.О" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="297" Canvas.Top="21" />
                 <Label Content="Ф.И.О" Canvas.Left="215" Canvas.Top="20" FontSize="13" />

@@ -22,7 +22,6 @@ namespace УчетнаяСистема
     /// </summary>
     public partial class Kompleks_hause : Window
     {
-        Open_File open = new Open_File();
         dbConnect dbCon = new dbConnect();
         public Kompleks_hause()
         {
@@ -65,8 +64,10 @@ namespace УчетнаяСистема
         public void Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow win = new MainWindow();
+            Button button = sender as Button;
+            staticClass.StaticDomID = button.Name.ToString().Substring(3);
             win.IsEnabled = true;
-            this.Hide();
+           this.Hide();
         }
 
         private void Button_Close_Click(object sender, RoutedEventArgs e)

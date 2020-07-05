@@ -27,13 +27,7 @@ namespace УчетнаяСистема.form_p
             {
                 dataGridView1.DataContext = db;
             };
-            dbCon.SoursData("SELECT f.number_f, f.floor, " +
-                "(SELECT SUM(kvm)  FROM type_flat WHERE dom_id = '6' " +
-                "and porch = f.porch and type = f.type_flat and room = f.room) as kvm, " +
-                "z.contract, c.name,ca.marka, z.kurs,z.price_kvm, z.price_kvm*z.kurs som, " +
-                "z.price_kvm* kvm as us, ROUND((z.price_kvm * z.kurs) * kvm, 2) as kg " +
-                "FROM flat f left join((zakaz z join client c) join cars ca )  " +
-                "on z.number_f = f.number_f and z.cars_id = ca.id and z.klient_id = c.id ORDER BY f.number_f; ");
+            dbCon.SoursData("SELECT * FROM display WHERE dom_id='"+staticClass.StaticDomID+"'");
 
         }
 
@@ -47,7 +41,7 @@ namespace УчетнаяСистема.form_p
                 string marka_1 = dataRow.Row.ItemArray[0].ToString();
                 viewFlat view_lat = new viewFlat();
                 view_lat.sqlQery = "SELECT t.name, t.kvm, f.floor,f.porch,f.number_f FROM flat f inner join " +
-                    "type_flat t on t.dom_id = '6' and t.porch = f.porch " +
+                    "type_flat t on t.dom_id = '"+ staticClass.StaticDomID + "' and t.porch = f.porch " +
                     "and t.room = f.room and t.`type`= f.type_flat and f.number_f = '"+ marka_1 + "' ";
                 view_lat.ShowDialog();
 

@@ -8,6 +8,6 @@ namespace УчетнаяСистема.All_classes
 {
     class staticClass
     {
-        public static string idDom { get; set; } = "";
+        public static string StaticDomID { get; set; } = "";
     }
 }

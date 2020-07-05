@@ -191,7 +191,7 @@ namespace УчетнаяСистема.form_p
                         "IF(c.type_v = '(KGS)', ROUND(c.prih_summ / cur.usd, 2), c.prih_summ) AS to_usd, " +
                         "IF(c.type_v = '(USD)', ROUND(c.prih_summ * cur.usd, 2), c.prih_summ) AS Rto_kgs, c.kurs  " +
                         "FROM cars c INNER JOIN currency cur ON c.kurs = cur.id and c.id='"+ id_1 + "'");
-                    MessageBox.Show(PriceCars[3]);
+                   // MessageBox.Show(PriceCars[3]);
                     mes_(id_1, CarsName, PriceCars[1], PriceCars[2], PriceCars[3]);
                     this.Close();
                     

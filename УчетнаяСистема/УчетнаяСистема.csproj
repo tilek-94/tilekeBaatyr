@@ -145,6 +145,9 @@
     <Compile Include="Kurs.xaml.cs">
       <DependentUpon>Kurs.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MessageM.xaml.cs">
+      <DependentUpon>MessageM.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MessageO.xaml.cs">
       <DependentUpon>MessageO.xaml</DependentUpon>
     </Compile>
@@ -247,6 +250,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MessageM.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MessageO.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -393,6 +400,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\icon\udalit4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="All_classes\NewFolder1\dom2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="form_p\image_for_pages\left.png" />
+    <Resource Include="form_p\image_for_pages\Typicons_e019%283%29_48.png" />
+    <Resource Include="form_p\image_for_pages\Typicons.png" />
+    <Resource Include="form_p\image_for_pages\Typicons_e046%280%29_48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
