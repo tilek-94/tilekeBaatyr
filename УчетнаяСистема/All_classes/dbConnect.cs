@@ -21,9 +21,6 @@ namespace УчетнаяСистема.All_classes
         public delegate void DisplaySourse2(string[] a);
         public event DisplaySourse eventDysplay;
         public event DisplaySourse2 eventDysplay2;
-        public dbConnect()
-        {
-        }
         public void RemoveData(string table, string id)
         {
             connection.Open();

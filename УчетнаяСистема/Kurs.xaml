@@ -25,7 +25,9 @@
                                 <TextBlock Text="USD/KGS" FontSize="15" Margin="10,0"  VerticalAlignment="Center"/>
                                 <StackPanel Width="170"  VerticalAlignment="Center">
 
-                                    <TextBox Style="{DynamicResource nkbr_style}"  Tag="00.0000" x:Name="USD" FontSize="15" Margin="6,0" FontWeight="Bold" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="150" TextAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}"/>
+                                    <TextBox Style="{DynamicResource nkbr_style}" 
+                                             PreviewTextInput="NumberValidationTextBox"
+                                             Tag="00.0000" x:Name="USD" FontSize="15" Margin="6,0" FontWeight="Bold" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="150" TextAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}"/>
                                 
                                 </StackPanel>
                             </StackPanel>
@@ -33,7 +35,9 @@
                                 <Image Source="images/Valuta/Evro_Soyus.jpg" Height="15" Width="30"   VerticalAlignment="Center" Stretch="Fill" />
                                 <TextBlock Text="EUR/KGS" FontSize="15" Margin="10,0"  VerticalAlignment="Center"/>
                                 <StackPanel Width="170"  VerticalAlignment="Center">
-                                    <TextBox Style="{DynamicResource nkbr_style}"  Tag="00.0000" x:Name="EUR" FontSize="15" Margin="6,0" FontWeight="Bold" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="150" TextAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}"/>
+                                    <TextBox Style="{DynamicResource nkbr_style}" 
+                                              PreviewTextInput="NumberValidationTextBox"
+                                             Tag="00.0000" x:Name="EUR" FontSize="15" Margin="6,0" FontWeight="Bold" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="150" TextAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}"/>
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  HorizontalAlignment="Stretch" Background="#FFF9F9F9" Height="30">
@@ -43,6 +47,7 @@
                                     
                                     <TextBox x:Name="RUB" Style="{DynamicResource  nkbr_style}"
                                              Tag="00.0000" FontSize="15" Margin="6,0" 
+                                              PreviewTextInput="NumberValidationTextBox"
                                              FontWeight="Bold" HorizontalAlignment="Center" 
                                              VerticalAlignment="Center" Width="150"
                                              TextAlignment="Center" Background="{x:Null}" 

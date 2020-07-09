@@ -74,9 +74,10 @@
                          Height="25" />
                 <DataGrid Width="690" Canvas.Left="1"
                           x:Name="type_flat_listwiew"
+                          
                             ColumnHeaderStyle="{DynamicResource hederstyle}"
                           FontSize="12"  Style="{DynamicResource grid_xml}"
-                          Canvas.Top="160" Height="189"
+                          Canvas.Top="160" Height="189" KeyUp="type_flat_listwiew_KeyUp"
                           >
 
                 </DataGrid>

@@ -5,14 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:УчетнаяСистема.registr"
         mc:Ignorable="d"
-        Title="registr_type_flat" Height="650" Width="542" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None">
-    <Grid>
+        Title="registr_type_flat" Height="650" Width="542" 
+        Background="{x:Null}"
+        Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None">
+    <Grid Margin="10" Background="White">
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition Height="213*"/>
             <RowDefinition Height="406*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
+        <Grid.Effect>
+            <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.4"/>
+        </Grid.Effect>
         <Grid Grid.Row="0" >
             <Border  Background="#0A6E9E" Height="10" VerticalAlignment="Top" Width="660"/>
             <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
@@ -20,38 +26,40 @@
         <Border Grid.Column="0" Grid.Row="1" >
 
             <Canvas>
-                 <Button Style="{DynamicResource Button_blue}" Content="Сохранить"
-                    x:Name="btn_registr_type" Click="btn_registr_type_Click"   Width="121" Height="26" Canvas.Left="135" Canvas.Top="123"/>
+                <Button Style="{DynamicResource Button_blue}" Content="Сохранить"
+                    x:Name="btn_registr_type" Click="btn_registr_type_Click"   Width="121" Height="26" Canvas.Left="135" Canvas.Top="143"/>
                 <Button Style="{DynamicResource Button_White}" Content="Удалить"
-                    x:Name="button2" Canvas.Left="280" Canvas.Top="123" Width="101" Height="26"/>
+                    x:Name="button2" Canvas.Left="280" Click="button2_Click" Canvas.Top="143" Width="101" Height="26"/>
 
 
-                <TextBox FontSize="14" Name="textBox1"  Style="{DynamicResource textbox_style}"  Height="24" Width="181" HorizontalAlignment="Right" Canvas.Left="78" Canvas.Top="80" />
-                <ComboBox Width="76" Canvas.Left="397" 
+                <TextBox FontSize="14" Name="textBox1"  Style="{DynamicResource textbox_style}"  
+                         Height="24" Width="181" HorizontalAlignment="Right" 
+                         Canvas.Left="108" Canvas.Top="95" />
+                <ComboBox Width="97" Canvas.Left="333" 
                           DropDownClosed="ComboBox_Type_DropDownClosed"
                           
-                          Canvas.Top="21" BorderThickness="1 1 1 1" 
+                          Canvas.Top="42" BorderThickness="1 1 1 1" 
                           x:Name="ComboBox_Type" Background="{x:Null}"
                           IsEditable="True" Height="23" Cursor="Hand">
-                    <TextBlock>1 тип</TextBlock>
-                    <TextBlock>2 тип</TextBlock>
-                    <TextBlock>3 тип</TextBlock>
-                    <TextBlock>4 тип</TextBlock>
-                    <TextBlock>5 тип</TextBlock>
-                    <TextBlock>6 тип</TextBlock>
+                    <TextBlock>1-тип</TextBlock>
+                    <TextBlock>2-тип</TextBlock>
+                    <TextBlock>3-тип</TextBlock>
+                    <TextBlock>4-тип</TextBlock>
+                    <TextBlock>5-тип</TextBlock>
+                    <TextBlock>6-тип</TextBlock>
                 </ComboBox>
-                <Label x:Name="label2" Content="Подъезд" Canvas.Left="12" Canvas.Top="20" Height="26" Width="58" RenderTransformOrigin="0.513,0.038"/>
-                <ComboBox Width="80" Canvas.Left="75" Canvas.Top="22" x:Name="ComboBox_P"  IsEditable="True" Height="23"/>
+                <Label x:Name="label2" Content="Подъезд" Canvas.Left="108" Canvas.Top="13" Height="26" Width="58" RenderTransformOrigin="0.513,0.038"/>
+                <ComboBox Width="80" Canvas.Left="108" Canvas.Top="42" x:Name="ComboBox_P"  IsEditable="True" Height="23"/>
                 <Label x:Name="label3" Content="Комната" 
-                       Canvas.Left="164" Canvas.Top="20" 
+                       Canvas.Left="211" Canvas.Top="14" 
                        Height="26" Width="72" RenderTransformOrigin="1.069,0.596"/>
-                <Label x:Name="label2_Copy" Content="Названия" Canvas.Left="8" Canvas.Top="76" Height="26" Width="58" RenderTransformOrigin="0.513,0.038"/>
+                <Label x:Name="label2_Copy" Content="Названия" Canvas.Left="108" Canvas.Top="69" Height="26" Width="58" RenderTransformOrigin="0.513,0.038"/>
                 <TextBox FontSize="14" x:Name="textBox2"
                          Style="{DynamicResource textbox_style}" 
                          Height="24" Width="102" 
-                         HorizontalAlignment="Right" Canvas.Left="340" Canvas.Top="80" />
-                <Label x:Name="label2_Copy1" Content="Квадрат м." Canvas.Left="269" Canvas.Top="80" Height="26" Width="69" RenderTransformOrigin="0.513,0.038"/>
-                <ComboBox Width="76" Canvas.Left="221" Canvas.Top="21"
+                         HorizontalAlignment="Right" Canvas.Left="330" Canvas.Top="94" />
+                <Label x:Name="label2_Copy1" Content="Квадрат м." Canvas.Left="325" Canvas.Top="69" Height="26" Width="69" RenderTransformOrigin="0.513,0.038"/>
+                <ComboBox Width="76" Canvas.Left="212" Canvas.Top="42"
                           BorderThickness="1 1 1 1" x:Name="ComboBox_flat" 
                           Background="{x:Null}" IsEditable="True" 
                           Height="23" DropDownClosed="ComboBox_flat_DropDownClosed">
@@ -62,7 +70,7 @@
                     <ComboBoxItem>5</ComboBoxItem>
                     <ComboBoxItem>6</ComboBoxItem>
                 </ComboBox>
-                <Label x:Name="label3_Copy" Content="Тип квартира" Canvas.Left="306" Canvas.Top="19" Height="26" Width="83" RenderTransformOrigin="1.069,0.596"/>
+                <Label x:Name="label3_Copy" Content="Тип квартира" Canvas.Left="329" Canvas.Top="12" Height="26" Width="83" RenderTransformOrigin="1.069,0.596"/>
             </Canvas>
 
 
@@ -72,6 +80,7 @@
         <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
                   x:Name="type_flat_listwiew"
+                 SelectionChanged="type_flat_listwiew_SelectionChanged"
                  CanUserAddRows="False"
                   Grid.Row="2"
                   ColumnHeaderStyle="{DynamicResource hederstyle}" >

@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:УчетнаяСистема.form_p"
         mc:Ignorable="d"
-        Title="ViewCarsinAnalise" Height="350" Width="1100" Background="{x:Null}" AllowsTransparency="True" WindowStyle="None">
+        Loaded="Window_Loaded"
+        Title="ViewCarsinAnalise" Height="330" Width="1100" Background="{x:Null}" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid Margin="10" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
-            <RowDefinition Height="287*"/>
+            <RowDefinition Height="270"/>
         </Grid.RowDefinitions>
         <Grid.Effect>
             <DropShadowEffect BlurRadius="10" ShadowDepth="1" Opacity="0.5" Direction="27"/>
@@ -19,28 +20,81 @@
             <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
         </Grid>
 
-        <Canvas Grid.Row="1">
+        <Canvas Grid.RowSpan="3" Grid.Row="1">
             <Border Height="217" 
                         BorderThickness="1,1,1,1"
                         BorderBrush="#FFC1C0C0"
                         Canvas.Left="15" Canvas.Top="31" Width="300">
                 <Image x:Name="image" Source="../images/foto_people/unnamed.png" Margin="-1,0,1,0" />
             </Border>
-            <TextBox x:Name="marka" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Машина марка" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="427" Canvas.Top="25"/>
+            <TextBox x:Name="text1" FontSize="14"  Style="{DynamicResource textbox_style}" 
+                     Tag=" Машина марка" Height="24" Width="254" HorizontalAlignment="Right"
+                     Text="{Binding SelectedItem.marka, ElementName=dataGridView1}"
+                     Canvas.Left="427" Canvas.Top="25"/>
+
             <Label Content="Машина марка" Canvas.Left="325" Canvas.Top="24" FontSize="13" />
-            <TextBox x:Name="nomer" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Номер машина" Height="24" Width="250" HorizontalAlignment="Right" Canvas.Left="427" Canvas.Top="92"/>
+            <TextBox x:Name="text3" FontSize="14"  Style="{DynamicResource textbox_style}"
+                     Tag=" Номер машина" Height="24" Width="250" HorizontalAlignment="Right"
+                     Text="{Binding SelectedItem.nomer, ElementName=dataGridView1}"
+                     Canvas.Left="427" Canvas.Top="92"/>
             <Label Content="Номер машина" Canvas.Left="323" Canvas.Top="91" FontSize="13" />
-            <TextBox x:Name="prih_summ" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Приход в сумме (Доллар)" Height="24" Width="231" HorizontalAlignment="Right" Canvas.Left="816" Canvas.Top="22"/>
-            <Label Content="Курс валюта" Canvas.Left="704" Canvas.Top="53" FontSize="13" />
-            <TextBox x:Name="kurs" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Курс валюта" Height="23" Width="126" HorizontalAlignment="Right" Canvas.Left="818" Canvas.Top="56"/>
-            <Label Content="Дата" Canvas.Left="326" Canvas.Top="57" FontSize="13" />
-            <DatePicker x:Name="data" Style="{DynamicResource styleDatePicker}" Canvas.Left="427" Canvas.Top="58" Width="252" Height="24"/>
-            <Label Content="Приход в сумме" Canvas.Left="700" Canvas.Top="22" FontSize="13" />
-            <TextBox x:Name="info" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Адресс" Height="73" Width="254" HorizontalAlignment="Right" Canvas.Left="426" Canvas.Top="128"/>
-            <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Приход в сумме (Сом)" Height="24" Width="231" HorizontalAlignment="Right" Canvas.Left="818" Canvas.Top="87"/>
-            <Label Content="Приход в сумме" Canvas.Left="703" Canvas.Top="87" FontSize="13" />
+            <TextBox x:Name="text5" FontSize="14"  Style="{DynamicResource textbox_style}"
+                     Tag=" Приход в сумме" Height="24" Width="231" HorizontalAlignment="Right" 
+                     Text="{Binding SelectedItem.prih_summ, ElementName=dataGridView1}"
+                     Canvas.Left="830" Canvas.Top="52"/>
+            <Label Content="Год выпуска" Canvas.Left="326" Canvas.Top="57" FontSize="13" />
 
+            <DatePicker x:Name="text2" Style="{DynamicResource styleDatePicker}" 
+                        Text="{Binding SelectedItem.data, ElementName=dataGridView1}"
+                        Canvas.Left="427" Canvas.Top="58" Width="252" Height="24"/>
+            <Label Content="Сумма" Canvas.Left="725" Canvas.Top="52" FontSize="13" />
 
+            <TextBox x:Name="text4" FontSize="14"  Style="{DynamicResource textbox_style}" 
+                     Tag=" Состояние" Height="73" Width="254" HorizontalAlignment="Right" 
+                     Text="{Binding SelectedItem.condition_c, ElementName=dataGridView1}"
+                     Canvas.Left="426" Canvas.Top="128"/>
+
+            <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" 
+                     Tag=" Приход в сумме " Height="24" Width="231"
+                     x:Name="text6"
+                     HorizontalAlignment="Right" Canvas.Left="832" Canvas.Top="87"/>
+            <Label Content="Сумма" Canvas.Left="725" Canvas.Top="87" FontSize="13" />
+            <TextBox x:Name="text7" FontSize="14" 
+                Style="{DynamicResource textbox_style}" 
+                     Text="{Binding SelectedItem.client, ElementName=dataGridView1}"
+                Tag=" Ф.И.О" Height="24" Width="231" 
+                HorizontalAlignment="Right" Canvas.Left="832" Canvas.Top="122"/>
+            <Label Content="Клиент" Canvas.Left="725" Canvas.Top="121" FontSize="13" Width="77" />
+            <Label Content="Состояние" Canvas.Left="325" Canvas.Top="125" FontSize="13" />
+            <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" 
+                     x:Name="text8"
+                     Text="{Binding SelectedItem.datatim, ElementName=dataGridView1, StringFormat='dd-MM-yyyy hh:mm'}"
+                     Tag=" Дата покупки" Height="24" Width="231" HorizontalAlignment="Right" Canvas.Left="833" Canvas.Top="157"/>
+            <Label Content="Дата покупки" Canvas.Left="725" Canvas.Top="156" FontSize="13" />
+            <ComboBox Width="99" Canvas.Left="957" Canvas.Top="14" 
+                x:Name="ComboBox3"  IsEditable="True" Height="24"
+               
+                DropDownClosed="ComboBox3_DropDownClosed"
+                      >
+                <TextBlock><Run Text="USD-KGS"/></TextBlock>
+                <TextBlock><Run Text="KGS-USD"/></TextBlock>
+                <TextBlock><Run Text="RUB-KGS"/></TextBlock>
+                <TextBlock><Run Text="KGS-RUB"/></TextBlock>
+                <TextBlock><Run Text="EUR-KGS"/></TextBlock>
+                <TextBlock><Run Text="KGS-EUR"/></TextBlock>
+
+            </ComboBox>
+            <Button  Content="Валюта"
+                 Canvas.Left="833" Canvas.Top="14" Width="113" Height="24"
+                RenderTransformOrigin="0.494,-0.221" Background="{x:Null}" 
+                BorderThickness="2,2,2,2"
+                BorderBrush="#FF0A6E9E"
+                Cursor="Hand"
+                Foreground="#FF0A6E9E"/>
+            <Label Content="" x:Name="l1" Foreground="#5C554F"
+                Canvas.Left="770" Canvas.Top="52" FontSize="13" />
+            <Label Content="" x:Name="l2" Foreground="#5C554F" 
+                Canvas.Left="770" Canvas.Top="87" FontSize="13" />
         </Canvas>
 
     </Grid>

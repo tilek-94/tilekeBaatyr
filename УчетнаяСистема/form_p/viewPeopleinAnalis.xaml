@@ -5,22 +5,22 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:УчетнаяСистема.form_p"
       mc:Ignorable="d" 
-      Height="450"
-        
-        Width="600"
+      Height="350"
+        Loaded="Window_Loaded"
+        Width="1000"
       Title="viewPeopleinAnalis" 
-        AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
+        AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" WindowStartupLocation="CenterScreen">
 
     <Grid  Background="White" Margin="10" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="397*"/>
         </Grid.RowDefinitions>
         <Grid.Effect>
-            <DropShadowEffect Direction="270" ShadowDepth="10" Opacity="0.5" BlurRadius="10"/>
+            <DropShadowEffect Direction="270" ShadowDepth="2" Opacity="0.5" BlurRadius="10"/>
         </Grid.Effect>
         <Grid Grid.Row="0" >
-            <Border  Background="#0A6E9E" Height="10" VerticalAlignment="Top" Width="660"/>
+            <Border  Background="#0A6E9E" Height="10" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
             <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
         </Grid>
         <Canvas Grid.Row="1" Grid.RowSpan="2">
@@ -28,20 +28,28 @@
                         BorderThickness="1,1,1,1"
                         BorderBrush="#FFC1C0C0"
                         Canvas.Left="21" Canvas.Top="20" Width="181">
-                <Image x:Name="image" Source="../images/foto_people/people.JPG" Margin="0,3" />
+                <Image x:Name="image" Source="../images/foto_people/people.JPG" Margin="0,3" Stretch="UniformToFill"/>
             </Border>
-            <TextBox x:Name="FIO" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Ф.И.О" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="297" Canvas.Top="21" />
+            <TextBox x:Name="text1" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Ф.И.О" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="297" Canvas.Top="21" />
             <Label Content="Ф.И.О" Canvas.Left="215" Canvas.Top="20" FontSize="13" />
-            <TextBox x:Name="tel_nom" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Телефон номер" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="297" Canvas.Top="89"/>
+            <TextBox x:Name="text3" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Телефон номер" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="297" Canvas.Top="89"/>
             <Label Content="Тел. номер" Canvas.Left="212" Canvas.Top="88" FontSize="13" />
-            <TextBox x:Name="AN" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" AN" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="298" Canvas.Top="120"/>
-            <Label Content="Адресс" Canvas.Left="214" Canvas.Top="151" FontSize="13" />
-            <TextBox x:Name="address" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Адресс" Height="73" Width="254" HorizontalAlignment="Right" Canvas.Left="298" Canvas.Top="152"/>
+            <TextBox x:Name="text5" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" AN" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="678" Canvas.Top="22"/>
+            <Label Content="Адресс" Canvas.Left="214" Canvas.Top="122" FontSize="13" />
+            <TextBox x:Name="text4" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Адресс" Height="73" Width="254" HorizontalAlignment="Right" Canvas.Left="298" Canvas.Top="123"/>
             <Label Content="Дата рож." Canvas.Left="212" Canvas.Top="53" FontSize="13" />
-            <DatePicker x:Name="data_r" Style="{DynamicResource styleDatePicker}" Canvas.Left="297" Canvas.Top="54" Width="252" Height="24"/>
-            <Label Content="AN" Canvas.Left="214" Canvas.Top="120" FontSize="13" />
-            
-        </Canvas>
+            <DatePicker x:Name="text2" Style="{DynamicResource styleDatePicker}" Canvas.Left="297" Canvas.Top="54" Width="252" Height="24"/>
+            <Label Content="AN" Canvas.Left="576" Canvas.Top="22" FontSize="13" />
+            <TextBox x:Name="text7" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Выданный" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="679" Canvas.Top="88" />
+            <Label Content="Выданный" Canvas.Left="576" Canvas.Top="87" FontSize="13" />
+            <Label Content="Дата выданный" Canvas.Left="575" Canvas.Top="50" FontSize="13" />
+            <DatePicker x:Name="text6" Style="{DynamicResource styleDatePicker}" Canvas.Left="679" Canvas.Top="53" Width="252" Height="24"/>
+            <Label Content="Адресс по пас." Canvas.Left="575" Canvas.Top="121" FontSize="13" />
+            <TextBox x:Name="text8" FontSize="14"
+                        Style="{DynamicResource textbox_style}" Tag=" Адресс по паспорт" Height="73" Width="254" HorizontalAlignment="Right" Canvas.Left="679" Canvas.Top="122"/>
 
+
+
+        </Canvas>
     </Grid>
 </Window>

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="viewFlat" Height="550" Width="500" 
         AllowsTransparency="True" WindowStyle="None" Loaded="Window_Loaded"
-        Background="{x:Null}" WindowStartupLocation="CenterOwner" >
+        Background="{x:Null}" WindowStartupLocation="CenterScreen" >
     <Grid Background="White" Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -27,7 +27,7 @@
                 <RowDefinition Height="296*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <StackPanel Margin="37,-1,1,1">
+            <StackPanel Margin="37,-20,1,1">
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Этаж квартира" Margin="0,0,0,0"/>
 
@@ -55,7 +55,16 @@
                              HorizontalAlignment="Right"  Margin="10,0,0,0"/>
                 </StackPanel>
 
-                
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label  Content="Комната" Margin="0,0,0,0"/>
+                    <TextBox FontSize="14"   
+                             x:Name="text4"
+                             Style="{DynamicResource textbox_style}" 
+                             Tag="Комната" Height="24" Width="250" 
+                             HorizontalAlignment="Right"  Margin="65,0,0,0"/>
+                </StackPanel>
+
+
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0" HorizontalAlignment="Center"/>
 
             </StackPanel>
@@ -64,9 +73,24 @@
         <Border Grid.Row="2" Padding="5" Background="#F4F4F4">
             <StackPanel  Background="White" >
                 <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
+                 
+                  ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1"
                   HeadersVisibility="Column"
                   CanUserAddRows="False"
-                  ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1">
+                          ItemsSource="{Binding}"
+                          AutoGenerateColumns="False"
+                          >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Называние комната" Binding="{Binding name}" Width="120" />
+                        <DataGridTextColumn Header="м2" Binding="{Binding kvm}" />
+                        <DataGridTextColumn Header="Этаж" Binding="{Binding floor}" />
+                        <DataGridTextColumn Header="Подъезд" Binding="{Binding porch}" />
+                        <DataGridTextColumn Header="Номер квартира" Binding="{Binding number_f}" />
+                        <DataGridTextColumn Header="Комната" Binding="{Binding room}" />
+                    
+                    </DataGrid.Columns>
+
+
                 </DataGrid>
             </StackPanel>
         </Border>

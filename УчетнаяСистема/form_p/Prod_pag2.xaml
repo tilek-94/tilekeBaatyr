@@ -17,7 +17,7 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <Canvas Grid.Row="0" Margin="0,1,0,469" Grid.RowSpan="2">
+        <Canvas Grid.Row="0" Margin="0,1,0,0">
             <TextBox x:Name="FIO" FontSize="14" 
                      Style="{DynamicResource textbox_style}" 
                      Tag=" Ф.И.О" Height="24" Width="200" 
@@ -25,7 +25,7 @@
             <Label Content="Клиент" Canvas.Left="37" Canvas.Top="30" FontSize="14" Foreground="#5C554F" />
             <TextBox x:Name="textbox_dogovor" FontSize="14"  
                      Style="{DynamicResource textbox_style}"
-                     Tag=" Договор" Height="24" Width="117" HorizontalAlignment="Right" Canvas.Left="1111" Canvas.Top="135"/>
+                     Tag=" Договор" Height="24" Width="101" HorizontalAlignment="Right" Canvas.Left="1111" Canvas.Top="135"/>
 
             <Label Content="Цена м2."  Foreground="#5C554F"
                    Canvas.Left="385" Canvas.Top="30" FontSize="14" />
@@ -40,7 +40,7 @@
             <Button Style="{DynamicResource Button_blue}" Content="Продать"
                     x:Name="registr_client_btn"
                         Click="registr_client_btn_Click"
-                        Canvas.Left="394" Canvas.Top="207" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221"/>
+                        Canvas.Left="318" Canvas.Top="205" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221"/>
 
             <Button Style="{StaticResource Add_Button_MRZ}"
                 x:Name="show_client_btn"
@@ -69,6 +69,7 @@
             <Label Content="м2 Кв." Canvas.Left="36" Canvas.Top="96" FontSize="14" Foreground="#5C554F" />
 
             <TextBox x:Name="textbox_Dol" FontSize="14" 
+                     PreviewTextInput="NumberValidationTextBox"
                      Style="{DynamicResource textbox_style}"
                 Tag=" Цена квартира за м2" Height="24" Width="200" 
                      HorizontalAlignment="Right" Canvas.Left="536" 
@@ -97,6 +98,7 @@
 
             <TextBox x:Name="textBox_vz"
                 BorderBrush="#FFABADB3"
+                     PreviewTextInput="NumberValidationTextBox"
                      TextChanged="textBox_vz_TextChanged"
                      Style="{DynamicResource textbox_style}" Tag=" Первоначальный взнос"
                 BorderThickness="1"
@@ -172,10 +174,11 @@
             IsReadOnly="True"
                  Height="24"  Canvas.Left="535" Canvas.Top="137"
           TextChanged="textboxCarsUsd_TextChanged"  />
-            <Button Style="{StaticResource Add_Button_MRZ}" Content=""
-                x:Name="show_client_Cars_Copy"
-                Click="show_client_Cars_Click"
-                Canvas.Left="1240" Canvas.Top="134" Width="32" Height="26"/>
+            <Button Style="{StaticResource Button_blue}" Content="График опл."
+                x:Name="btn_graf"
+                Click="btn_graf_Click"
+                    
+                Canvas.Left="1222" Canvas.Top="134" Width="94" Height="26"/>
             <Button  Content="Валюта"
                      
                 x:Name="btn_valuta"
@@ -186,12 +189,16 @@
                      BorderBrush="#FF0A6E9E"
                      Cursor="Hand"
                      Foreground="#FF0A6E9E"/>
+            <Button Style="{DynamicResource Button_White}" Content="Отмена"
+                x:Name="btn_clear"
+                Click="btn_clear_Click"
+                Canvas.Left="525" Canvas.Top="205" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221"/>
 
         </Canvas>
 
 
 
-        <Border Grid.Row="1" Padding="5" Background="#F4F4F4" Grid.RowSpan="2">
+        <Grid Grid.Row="1"  Background="#F4F4F4" Grid.RowSpan="2">
             <StackPanel  Background="White" >
                 <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
                     <Label Content="Продажа" FontSize="16" Foreground="#00C3FF" />
@@ -199,9 +206,10 @@
                 </DockPanel>
 
                 <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
-                  Height="300"        
+                 VerticalAlignment="Stretch"       
                   HeadersVisibility="Column"
                           CanUserAddRows="False"
+                          MaxHeight="300"
                            AutoGenerateColumns="False"
                    ItemsSource="{Binding}"
                   ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1"  
@@ -219,14 +227,13 @@
                         <DataGridTextColumn Header="Цена квартира (KGS)" Binding="{Binding Rto_kgs}" />
                         <DataGridTextColumn Header="Начало дата" Binding="{Binding data_n, StringFormat='dd-MM-yyyy'}" />
                         <DataGridTextColumn Header="Конец датат" Binding="{Binding data_k, StringFormat='dd-MM-yyyy'}" />
-                        
+
                     </DataGrid.Columns>
                 </DataGrid>
-            </StackPanel>
-        </Border>
-        <Grid Grid.Row="2" Background="White"  >
-            <Border VerticalAlignment="Top" BorderThickness="0,1,0,0" BorderBrush="#BEBEBE" />
-        </Grid>
+                
 
+            </StackPanel>
+        </Grid>
+        
     </Grid>
 </Page>

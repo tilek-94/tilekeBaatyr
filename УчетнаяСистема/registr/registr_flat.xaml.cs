@@ -246,6 +246,15 @@ namespace УчетнаяСистема.registr
         {
 
         }
+
+        private void type_flat_listwiew_KeyUp(object sender, KeyEventArgs e)
+        {
+            DataRowView dataRow = (DataRowView)type_flat_listwiew.SelectedItem;
+            if (dataRow != null)
+            {
+                id_1 = dataRow.Row.ItemArray[0].ToString();
+            }
+        }
     }
     public class Phone
     {

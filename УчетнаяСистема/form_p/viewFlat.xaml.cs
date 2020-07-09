@@ -40,6 +40,7 @@ namespace УчетнаяСистема.form_p
                  text1.Text = db.Rows[0][2].ToString();
                 text2.Text = db.Rows[0][3].ToString();
                 text3.Text = db.Rows[0][4].ToString();
+                text4.Text = db.Rows[0][5].ToString();
             };
             dbCon.SoursData(s);
 

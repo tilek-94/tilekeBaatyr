@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -26,8 +27,10 @@ namespace УчетнаяСистема.registr
             InitializeComponent();
         }
         dbConnect dbCon = new dbConnect();
-        string[] s; 
-        
+        string[] s;
+        string porch = "", type = "", room = "";
+        string NameFlat = "";
+
         private void btn_registr_type_Click(object sender, RoutedEventArgs e)
         {
             dbCon.Registr("INSERT INTO type_flat(dom_id,porch,room,type,name,kvm)" +
@@ -60,6 +63,13 @@ namespace УчетнаяСистема.registr
 
 
         }
+        
+        void InsertVariables()
+        {
+            porch= ComboBox_P.Text;
+            room = ComboBox_flat.Text;
+            type = ComboBox_Type.Text;
+        }
         void Display()
         {
             dbCon.eventDysplay += delegate (DataTable db)
@@ -67,11 +77,11 @@ namespace УчетнаяСистема.registr
                 type_flat_listwiew.ItemsSource = db.DefaultView;
             };
             dbCon.SoursData("SELECT name,kvm FROM type_flat" +
-                " WHERE dom_id='18' and porch='" + ComboBox_P.Text + "'" +
+                " WHERE dom_id='"+staticClass.StaticDomID+"' and porch='" + ComboBox_P.Text + "'" +
                 " and type='" + ComboBox_Type.Text + "' and room='" + ComboBox_flat.Text + "'");
 
             TextBlock_kvm.Text ="Всего: "+ dbCon.DisplayReturn("SELECT SUM(kvm) FROM type_flat " +
-                " WHERE dom_id='18' and porch='" + ComboBox_P.Text + "'" +
+                " WHERE dom_id='" + staticClass.StaticDomID + "' and porch='" + ComboBox_P.Text + "'" +
                 " and type='" + ComboBox_Type.Text + "' and room='" + ComboBox_flat.Text + "'")+" кв. м.";
 
         }
@@ -84,6 +94,36 @@ namespace УчетнаяСистема.registr
         private void Button_Clic(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.MessageBox.Show($"id: {staticClass.StaticDomID} p:{porch} r:{room} t:{type} n:{NameFlat}");
+
+            if (NameFlat!="") { 
+
+            dbCon.Registr("DELETE FROM type_flat WHERE dom_id='"+staticClass.StaticDomID+"'" +
+                "and porch='"+porch+"' and room='"+room+"' and type='"+type+"' and name='"+NameFlat+"'");
+                Display();
+            }
+            else
+            {
+                MessageM messageM = new MessageM();
+                messageM.Mees = "Выберите нужные раздель";
+                messageM.ShowDialog();
+            }
+        }
+              
+        private void type_flat_listwiew_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            DataRowView dataRow = (DataRowView)type_flat_listwiew.SelectedItem;
+            if (dataRow != null)
+            {
+                NameFlat = dataRow.Row.ItemArray[0].ToString();
+            }
+            InsertVariables();
+            //MessageBox.Show(id_1);
         }
     }
 }

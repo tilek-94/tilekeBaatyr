@@ -244,31 +244,5 @@ namespace УчетнаяСистема.form_p
         }
 
         
-        private void dataGridView1_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            /*try { 
-            DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
-            int index = dataGridView1.CurrentCell.Column.DisplayIndex;
-             id_1 = dataRow.Row.ItemArray[0].ToString();
-             marka_1 = dataRow.Row.ItemArray[1].ToString();
-            string data_1 = dataRow.Row.ItemArray[2].ToString();
-            string nomer_1 = dataRow.Row.ItemArray[3].ToString();
-             prih_summ_1 = dataRow.Row.ItemArray[4].ToString();
-             kurs_1 = dataRow.Row.ItemArray[5].ToString();
-            string info_1 = dataRow.Row.ItemArray[6].ToString();
-            *//*,data,nomer,prih_summ,kurs,info;*//*
-            marka.Text = marka_1;
-            data.Text = data_1;
-            nomer.Text = nomer_1;
-                                   
-            }
-            catch { }*/
-        }
-
-        private void button_vbor_Click(object sender, RoutedEventArgs e)
-        {
-            /*mes_(id_1,marka_1, prih_summ_1, kurs_1);
-            this.Close();*/
-        }
     }
 }

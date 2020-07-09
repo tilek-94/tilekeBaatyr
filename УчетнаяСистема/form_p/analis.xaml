@@ -29,18 +29,20 @@
                           >
 
                     <DataGrid.Columns>
-                        <DataGridTextColumn Width="40" Header="№" Binding="{Binding id}" />
-                        <DataGridTextColumn Width="70" Header="№ Квартира" Binding="{Binding number_f}" />
+                        <DataGridTextColumn Width="0"  Visibility="Hidden" Foreground="White" Binding="{Binding Zid}" />
+                        <DataGridTextColumn Width="70" Header="№" Binding="{Binding id}" />
+                        <DataGridTextColumn Width="80" Header="№ Квартира" Binding="{Binding number_f}" />
                         <DataGridTextColumn Width="70" Header="Этаж" Binding="{Binding floor}" />
-                        <DataGridTextColumn Width="70" Header="м2" Binding="{Binding kvm}" />
-                        <DataGridTextColumn Width="90"  Header="№ Договор" Binding="{Binding contract}" />
-                        <DataGridTextColumn Width="180" Header="Ф.И.О клиент" Binding="{Binding name}" />
-                        <DataGridTextColumn Width="100" Header="Макрка машина" Binding="{Binding marka}" />
-                        <DataGridTextColumn Width="90" Header="Курс валюта" Binding="{Binding kurs}" />
-                        <DataGridTextColumn Width="100" Header="Цен доллор м2" Binding="{Binding price_kvm}" />
-                        <DataGridTextColumn  Width="100" Header="Цена сом м2" Binding="{Binding som}" />
-                        <DataGridTextColumn Width="100" Header="Сумма на доллар" Binding="{Binding us}" />
-                        <DataGridTextColumn Width="130" Header="Сумма на сом" Binding="{Binding kg}" />
+                        <DataGridTextColumn Width="70" Header="Подезъд" Binding="{Binding porch}" />
+                        <DataGridTextColumn Width="90"  Header="м2 Квартира" Binding="{Binding kvm}" />
+                        <DataGridTextColumn Width="100" Header="Контракт номер" Binding="{Binding contract}" />
+                        <DataGridTextColumn Width="200" Header="Клиент" Binding="{Binding client}" />
+                        <DataGridTextColumn Width="120" Header="Машина марка" Binding="{Binding Cars}" />
+                        <DataGridTextColumn Width="120" Header="Цен доллор м2" Binding="{Binding to_usd}" />
+                        <DataGridTextColumn  Width="120" Header="Цена сом м2" Binding="{Binding Rto_kgs}" />
+                        <DataGridTextColumn Width="120" Header="Сумма на доллар" Binding="{Binding data_n, StringFormat='dd-MM-yyyy '}" />
+                        <DataGridTextColumn Width="130" Header="Сумма на сом" Binding="{Binding data_k, StringFormat='dd-MM-yyyy '}" />
+                        <DataGridTextColumn Width="130" Visibility="Hidden" Binding="{Binding klient_id}" />
                     </DataGrid.Columns>
 
 

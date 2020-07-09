@@ -38,29 +38,67 @@ namespace УчетнаяСистема.form_p
             if (columnIndex>0 && 4> columnIndex)
             {
                 DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
-                string marka_1 = dataRow.Row.ItemArray[0].ToString();
+                string number_f = dataRow.Row.ItemArray[2].ToString();
                 viewFlat view_lat = new viewFlat();
-                view_lat.sqlQery = "SELECT t.name, t.kvm, f.floor,f.porch,f.number_f FROM flat f inner join " +
-                    "type_flat t on t.dom_id = '"+ staticClass.StaticDomID + "' and t.porch = f.porch " +
-                    "and t.room = f.room and t.`type`= f.type_flat and f.number_f = '"+ marka_1 + "' ";
+                view_lat.sqlQery = "SELECT t.name, t.kvm, f.floor,f.porch,f.number_f,f.room FROM flat f inner join " +
+                    "type_flat t on t.dom_id = '"+ staticClass.StaticDomID + "' AND f.dom_id='" + staticClass.StaticDomID + "' and t.porch = f.porch " +
+                    "and t.room = f.room and t.`type`= f.type_flat and f.number_f = '"+ number_f + "' ";
                 view_lat.ShowDialog();
 
 
             }
-            else if(columnIndex == 5)
+            else if(columnIndex == 7)
             {
-                viewPeopleinAnalis peopleinAnalis = new viewPeopleinAnalis();
-                peopleinAnalis.ShowDialog();
-            }
-            else if (columnIndex == 6)
+               viewPeopleinAnalis peopleinAnalis = new viewPeopleinAnalis();
+                
+
+                DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
+                if (dataRow != null)
+                {
+                    if (dataRow.Row.ItemArray[13].ToString() != "") {
+                        string ClientId = dataRow.Row.ItemArray[13].ToString();
+                        peopleinAnalis.ClientID = ClientId;
+                        peopleinAnalis.ShowDialog();
+                    }
+                }
+                    }
+            else if (columnIndex == 8)
             {
-                ViewCarsinAnalise viewCarsinAnalise = new ViewCarsinAnalise();
-                viewCarsinAnalise.ShowDialog();
+                
+                DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
+                if (dataRow != null)
+                {
+                    if (dataRow.Row.ItemArray[8].ToString() != "")
+                    {
+                        ViewCarsinAnalise viewCarsinAnalise = new ViewCarsinAnalise();
+                        string CarsId = dataRow.Row.ItemArray[14].ToString();
+                        viewCarsinAnalise.SqlQury = "SELECT * FROM carsid WHERE id='" + CarsId + "'";
+                        viewCarsinAnalise.ShowDialog();
+                    }
+                }
             }
-            else if (columnIndex>6)
+            else if (columnIndex>8)
             {
                 view_year View_Year = new view_year();
-                //View_Year.ShowDialog();
+                DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
+                if (dataRow != null) { 
+                    if(dataRow.Row.ItemArray[6].ToString()!="" && 
+                        dataRow.Row.ItemArray[7].ToString() != "" && 
+                        dataRow.Row.ItemArray[9].ToString() != "" &&
+                        dataRow.Row.ItemArray[10].ToString() != "" && 
+                        dataRow.Row.ItemArray[11].ToString() != "" &&
+                        dataRow.Row.ItemArray[12].ToString() != "") { 
+                string marka_1 = dataRow.Row.ItemArray[0].ToString();
+                string NumberF = dataRow.Row.ItemArray[2].ToString();
+                string ClientId = dataRow.Row.ItemArray[13].ToString();
+                    //MessageBox.Show(marka_1);
+                    View_Year.ZakazId = marka_1;
+                    View_Year.NumberF= NumberF;
+                    View_Year.ClientId = ClientId;
+                    View_Year.ShowDialog();
+                    }
+                }
+               
 
             }
         }

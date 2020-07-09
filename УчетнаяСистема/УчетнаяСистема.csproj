@@ -84,6 +84,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="All_classes\ChartRapyment.cs" />
     <Compile Include="All_classes\dbConnect.cs" />
     <Compile Include="All_classes\DopClass.cs" />
     <Compile Include="All_classes\lang.cs" />
