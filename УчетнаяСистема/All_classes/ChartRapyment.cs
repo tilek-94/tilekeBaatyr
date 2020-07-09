@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
@@ -45,8 +46,11 @@ namespace УчетнаяСистема.All_classes
                 j = 0;
                 data = range.Start.ToString("MM") + "-" + range.Start.ToString("yyyy");
                 j = Array.IndexOf(month, data);
-                if (j > 0)
+               // MessageBox.Show(j.ToString() + $"-{summ[j]}, {USD[j]}");
+
+                if (j >= 0)
                 {
+                    
                     result.Add(new MyTable(count, range.Start.ToString("yyyy"), range.Start.ToString("MMMM", CultureInfo.CurrentCulture), summ[j]+" Сом", USD[j]+" $", Som.ToString() + " Сом",Dol.ToString() + " $"));
                 }
                 else

@@ -1,20 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Collections.ObjectModel;
 using УчетнаяСистема.All_classes;
-using System.Data;
-using System.ComponentModel;
 using MySql.Data.MySqlClient;
 
 namespace УчетнаяСистема.form_p
@@ -35,7 +21,7 @@ namespace УчетнаяСистема.form_p
         public string ZakazId = "", ClientId="",NumberF="";
         public bool Flag = false;
         public double KGS = 0, USD = 0;
-       public string d1 = "0", d2 = "0", m1 = "0", m2 = "0", y1 = "0", y2 = "0";
+        public string d1 = "0", d2 = "0", m1 = "0", m2 = "0", y1 = "0", y2 = "0";
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             if(Flag==false)

@@ -20,7 +20,7 @@
         <Border Grid.Row="0" Background="#0A6E9E" Height="10" VerticalAlignment="Top"/>
         <Button x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right" Click="Button_Close_Click"/>
         <Grid Grid.Row="1" Margin="0,1,0,334" Grid.RowSpan="2">
-            <StackPanel Margin="88,-1,116,58">
+            <StackPanel Margin="92,-5,74,63">
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Ф.И.О  клиент" Margin="0,0,0,0"/>
 
@@ -45,41 +45,112 @@
                     </Button>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
-                    <Label  Content="Дата" Margin="0,0,0,0"/>
-                    <DatePicker x:Name="data1" Height="26" Margin="94,0,0,0" Width="249" Style="{DynamicResource styleDatePicker}" ></DatePicker>
+                    <Label  Content="Номер квартира" Margin="0,0,0,0"/>
+                    <ComboBox Width="247" 
+                              Margin="30,0,0,0"
+                          SelectedValue="{Binding FilterService.TripLengthFrom, Mode=TwoWay}"
+                          BorderThickness="1 1 1 1" 
+                          x:Name="ComboBox_n" Background="{x:Null}" 
+                          IsEditable="True" Height="22" 
+                          DropDownClosed="ComboBox_P_DropDownClosed"
+                          />
                 </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label  Content="Дата" Margin="0,0,0,0"/>
+                    <DatePicker x:Name="data1" Height="26" Margin="94,0,0,0" Width="245" Style="{DynamicResource styleDatePicker}" ></DatePicker>
+                </StackPanel>
+
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Доллар" Margin="0,0,0,0"/>
                     <TextBox FontSize="14"   
                              x:Name="textBox1"
-                             Style="{DynamicResource textbox_style}" Tag="Доллар" Height="24" Width="250" HorizontalAlignment="Right"  Margin="78,0,0,0"/>
+                             Style="{DynamicResource textbox_style}" Tag="Доллар" Height="24" Width="247" HorizontalAlignment="Right"  Margin="78,0,0,0"/>
+
+
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
-                    <Label  Content="Курс валюта" Margin="0,0,0,0"/>
-                    <TextBox FontSize="14" 
-                             x:Name="textBox2"
-                             KeyUp="textBox2_KeyUp"
-                             Style="{DynamicResource textbox_style}" Tag="Курс валюта" Height="24" Width="250" HorizontalAlignment="Right"  Margin="51,0,0,0"/>
-                </StackPanel>
+
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Сумма сом" Margin="0,0,0,0"/>
                     <TextBox FontSize="14" 
                              x:Name="textBox3"
-                             Style="{DynamicResource textbox_style}" Tag="Сумма сом" Height="24" Width="250" HorizontalAlignment="Right"  Margin="60,0,0,0"/>
+                             Style="{DynamicResource textbox_style}" Tag="Сумма сом" Height="24" Width="243" HorizontalAlignment="Right"  Margin="60,0,0,0"/>
+
+
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0" HorizontalAlignment="Center">
                     <Button Style="{DynamicResource Button_blue}" 
                             x:Name="registr_btn" Click="registr_btn_Click"
-                            Content="Сохранить" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221" Margin="112,0,0,0" />
+                            Content="Сохранить" Width="168" Height="26" 
+                            RenderTransformOrigin="0.494,-0.221" Margin="0,0,0,0" />
                 </StackPanel>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2">
-            <ScrollViewer VerticalScrollBarVisibility="Hidden">
-                <Frame x:Name="Frame_Bron_Klient" NavigationUIVisibility="Hidden" Height="435" >
+            <Border Grid.Row="2" Padding="5" Background="#F4F4F4">
+                <StackPanel  Background="White" >
+                    <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
+                        <Label Content="График платежей" FontSize="16" Foreground="#00C3FF" ></Label>
+                        <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" Tag=" Поиск данные" Height="25" Width="200" Margin="5" HorizontalAlignment="Right">
 
-                </Frame>
-            </ScrollViewer>
+                        </TextBox>
+                    </DockPanel>
+                    <DataGrid x:Name="myDataGrid"
+                          FontSize="12"  
+                          Height="355"
+                          Style="{DynamicResource grid_xml}" 
+                          CanUserAddRows="False"
+                          HeadersVisibility="Column" ColumnHeaderStyle="{DynamicResource hederstyle}"
+                          ItemsSource="{Binding}"
+                              HorizontalScrollBarVisibility="Hidden"
+                          AutoGenerateColumns="False"
+                          >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="50"  Header="№" Binding="{Binding Id}"  />
+                            <DataGridTextColumn Width="70" Header="Год" Binding="{Binding Year_c}" />
+                            <DataGridTextColumn Header="Месяц" Binding="{Binding Month_c}" />
+                            <DataGridTextColumn Header="Цена сумма (KGS)" Binding="{Binding Summak}" />
+                            <DataGridTextColumn Header="Цена сумма (USD)" Binding="{Binding Dollark}" />
+                            <DataGridTextColumn Header="Цена сумма (KGS)" Binding="{Binding Summa}" />
+                            <DataGridTextColumn Header="Цена сумма (USD)" Binding="{Binding Dollar}" />
+
+                        </DataGrid.Columns>
+
+                        <DataGrid.GroupStyle>
+                            <GroupStyle>
+                                <GroupStyle.ContainerStyle>
+                                    <Style TargetType="{x:Type GroupItem}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type GroupItem}">
+                                                    <Expander x:Name="exp" IsExpanded="True"
+                                                 Background="#3F10B3FF"
+                                                 Foreground="Black" Margin="0,-2,0,0" >
+                                                        <Expander.Header>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="{Binding Name}"
+                                                                   Margin="10,0,0,0"
+                                                                   FontSize="16" HorizontalAlignment="Center"  />
+                                                                <TextBlock Text="год"  
+                                                                   Margin="10,0,0,0"
+                                                                   FontSize="16" HorizontalAlignment="Center"  />
+                                                            </StackPanel>
+
+                                                        </Expander.Header>
+                                                        <ItemsPresenter/>
+                                                    </Expander>
+
+
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </GroupStyle.ContainerStyle>
+                            </GroupStyle>
+                        </DataGrid.GroupStyle>
+
+                    </DataGrid>
+                </StackPanel>
+            </Border>
         </Grid>
     </Grid>
 </Window>
