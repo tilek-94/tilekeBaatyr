@@ -44,12 +44,14 @@ namespace УчетнаяСистема
 
         private void Loaded_Window(object sender, RoutedEventArgs e)
         {
+            
             Kompleks_hause kompleks = new Kompleks_hause();
             //Menu.Visibility= Visibility.Hidden;
             OpenWindows();
             kompleks.ShowDialog();
             pag.Navigate(new System.Uri("form_p/analis.xaml", UriKind.RelativeOrAbsolute));
             //this.IsEnabled = false;
+            
         }
 
         
@@ -57,9 +59,13 @@ namespace УчетнаяСистема
         private void OpenWindows()
         {
             Window1 window1 = new Window1();
-            window1.ValueChanged += new Action<string>((x) =>//подписываемся на событие
+            window1.ValueChanged += new Action<string,string>((x,name) =>//подписываемся на событие
             {
                 blur.Radius = Convert.ToInt32(x);
+                if (name != "admin") { 
+                Vod_Dannyx.Visibility = Visibility.Collapsed;
+                Vod_Dannyx_Grig.Visibility = Visibility.Collapsed;
+                }
 
             });
 
@@ -80,7 +86,9 @@ namespace УчетнаяСистема
 
         private void button_people_Click(object sender, RoutedEventArgs e)
         {
-            pag.Navigate(new System.Uri("form_p/Peple_pag.xaml", UriKind.RelativeOrAbsolute));
+            //
+            registr_type_flat registr_Type_Flat = new registr_type_flat();
+            registr_Type_Flat.ShowDialog();
         }
 
         private void button_cars_Click(object sender, RoutedEventArgs e)
@@ -96,8 +104,10 @@ namespace УчетнаяСистема
 
         private void grafBtn_Click(object sender, RoutedEventArgs e)
         {
-            pag.Navigate(new System.Uri("form_p/Prod_pag2.xaml", UriKind.RelativeOrAbsolute));
-            
+            //
+            registr_flat registr_Flat = new registr_flat();
+            registr_Flat.ShowDialog();
+
         }
 
         private void bron_btn_Click(object sender, RoutedEventArgs e)
@@ -114,8 +124,22 @@ namespace УчетнаяСистема
 
         private void prod_btn_Click(object sender, RoutedEventArgs e)
         {
-            registr_flat registr_Flat = new registr_flat();
-            registr_Flat.ShowDialog();
+            
+        }
+
+        private void but_people_Click(object sender, RoutedEventArgs e)
+        {
+            pag.Navigate(new System.Uri("form_p/Peple_pag.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void Btn_Click_Graf(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void prod_btn(object sender, RoutedEventArgs e)
+        {
+            pag.Navigate(new System.Uri("form_p/Prod_pag2.xaml", UriKind.RelativeOrAbsolute));
         }
     }
     public class Phone

@@ -411,5 +411,11 @@
     <Resource Include="form_p\image_for_pages\Typicons.png" />
     <Resource Include="form_p\image_for_pages\Typicons_e046%280%29_48.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\addS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\account_480px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

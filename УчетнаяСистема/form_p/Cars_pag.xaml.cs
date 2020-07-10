@@ -188,7 +188,7 @@ namespace УчетнаяСистема.form_p
         }
 
         private void dataGridView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        {/*
             DataGrid dt = sender as DataGrid;
             DataRowView selection = dt.SelectedItem as DataRowView;
             if (selection != null)
@@ -213,7 +213,7 @@ namespace УчетнаяСистема.form_p
                 }
                 dbCon.connection.Close();
                 dbCon.connection.Dispose();
-            }
+            }*/
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

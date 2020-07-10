@@ -21,7 +21,7 @@ namespace УчетнаяСистема
     public partial class Window1 : Window
     {
         dbConnect conn = new dbConnect();
-        public event Action<string> ValueChanged;
+        public event Action<string,string> ValueChanged;
         public Window1()
         {
             InitializeComponent();
@@ -31,20 +31,25 @@ namespace УчетнаяСистема
         int f { get; set; } = 0;
         private void button_1_Click(object sender, RoutedEventArgs e)
         {
-            /*string name = conn.DisplayReturn("SELECT * FROM users u " +
+            /*string name = conn.DisplayReturn("SELECT r.name FROM users u " +
                 "INNER JOIN user_roles u_r ON u_r.id = u.id " +
                 "INNER JOIN roles r ON r.id = u_r.role_id " +
-                "WHERE u.login ='" + LogTextBox.Text + "' AND u.parol='" + PassTextBox.Text + "' AND r.name='admin'");
+                "WHERE u.login ='" + LogTextBox.Text + "' AND u.parol='" + PassTextBox.Password.ToString() + "'");
             if (name != String.Empty)
             {
-              
+                
+
             }
-           */
-                ValueChanged("0");
-                f = 1;
-                // mainWindow.blur.Radius = 0;
-                this.Close();
-            
+            else
+            {
+                MessageBox.Show("Лоин ката");
+            }*/
+
+            ValueChanged("0", "admin");
+            f = 1;
+            // mainWindow.blur.Radius = 0;
+            this.Close();
+
 
         }
 

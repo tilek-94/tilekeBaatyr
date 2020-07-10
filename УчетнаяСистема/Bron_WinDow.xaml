@@ -132,7 +132,7 @@
                   ColumnHeaderStyle="{DynamicResource hederstyle}" MouseUp="dataGridView1_MouseUp" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="№" Binding="{Binding id}" Width="50" />
-                        <DataGridTextColumn Header="Номер квартира" Binding="{Binding number_f}" />
+                        <DataGridTextColumn Header="Номер квартира" Binding="{Binding flat_id}" />
                         <DataGridTextColumn Header="Клиент" Binding="{Binding client}" />
                         <DataGridTextColumn Header="Цена за м2(USD)" Binding="{Binding to_usd}" />
                         <DataGridTextColumn Header="Цена за м2(KGS)" Binding="{Binding Rto_kgs}" />

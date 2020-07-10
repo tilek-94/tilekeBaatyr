@@ -107,7 +107,7 @@ namespace УчетнаяСистема
 
         private void registr_btn_Click(object sender, RoutedEventArgs e)
         {
-            dbCon.Registr("INSERT INTO bron (client_id,number_f,price_kv,typev,kurs,sotrudnic_id) " +
+            dbCon.Registr("INSERT INTO bron (client_id,flat_id,price_kv,typev,kurs,sotrudnic_id) " +
                 "VALUES ('"+ client_id + "','"+ComboBox1.Text+"','"+ basaSum + "','"+typeV+"','"+ currency_id + "','0')");
             Display();
             ComboBox1.Text = "";
@@ -139,12 +139,13 @@ namespace УчетнаяСистема
         private void dataGridView1_MouseUp(object sender, MouseButtonEventArgs e)
         {
             DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
+            if(dataRow!=null)
             id_1 = dataRow.Row.ItemArray[0].ToString();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            s = dbCon.RedInfor("SELECT floor,porch,count_kv FROM dom WHERE id='6'");
+            s = dbCon.RedInfor("SELECT floor,porch,count_kv FROM dom WHERE id='"+staticClass.StaticDomID+"'");
             DelegATE(Convert.ToInt16(s[2]));
             Display();
 
@@ -170,7 +171,7 @@ namespace УчетнаяСистема
             {
                 dataGridView1.ItemsSource = db.DefaultView;
             };
-            dbCon.SoursData("SELECT b.id, b.number_f, (SELECT name FROM client where id=b.client_id) as client," +
+            dbCon.SoursData("SELECT b.id,b.flat_id, (SELECT name FROM client where id=b.client_id) as client," +
                 "IF(b.typev = '(KGS)', ROUND(b.price_kv / cur.usd, 2), b.price_kv) AS to_usd," +
                 "IF(b.typev = '(USD)', ROUND(b.price_kv * cur.usd, 2), b.price_kv) AS Rto_kgs," +
                 " b.data  FROM bron b INNER JOIN currency cur ON b.kurs = cur.id WHERE remov='0' ORDER BY b.id DESC");
