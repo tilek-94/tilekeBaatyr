@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using УчетнаяСистема.All_classes;
 
 namespace УчетнаяСистема.form_p
@@ -26,29 +17,33 @@ namespace УчетнаяСистема.form_p
             InitializeComponent();
         }
         dbConnect dbCon = new dbConnect();
-        public delegate void MessageID(string id, string name,string USD,string KGS, string Id);
+        public delegate void MessageID(string id, string name, string USD, string KGS, string Id);
+        public delegate void CloseDel();
+        public event CloseDel clDel;
         public event MessageID mes_;
         RaschetSum raschetSum = new RaschetSum();
         lang lanG = new lang();
         public bool flag = false;
-        string currency_id = "0", basaSum = "0", typeV = "" , CarsName="";
+        string currency_id = "0", basaSum = "0", typeV = "", CarsName = "";
         double sena = 0;
         double usd = 0, eur = 0, rub = 0;
         string[] LangName = new string[3];
         string activUSD = "0";
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            if(marka.Text!="" && data.Text!="" && nomer.Text  != "" && ComboBox3.Text != "" && condition_t.Text != "" && activUSD != "0" && currency_id != "" && client_id != 0) {
-            dbCon.Registr("INSERT INTO cars(marka,data,nomer,condition_c, prih_summ,type_v,kurs,client_id)" +
-                "values (" +
-                "'" + marka.Text + "'," +
-                "'" + data.Text + "'," +
-                "'"+ nomer.Text + "'," +
-                "'"+ condition_t.Text + "'," +
-                "'" + activUSD.Replace(',','.') + "'," +
-                "'" + typeV+ "'," +
-                "'" + currency_id + "'," +
-                "'" +client_id+"')");
+            if (marka.Text != "" && data.Text != "" && nomer.Text != "" && ComboBox3.Text != "" && condition_t.Text != "" && activUSD != "0" && currency_id != "" && client_id != 0)
+            {
+                dbCon.Registr("INSERT INTO cars(marka,data,nomer,condition_c, prih_summ,type_v,kurs,client_id)" +
+                    "values (" +
+                    "'" + marka.Text + "'," +
+                    "'" + data.Text + "'," +
+                    "'" + nomer.Text + "'," +
+                    "'" + condition_t.Text + "'," +
+                    "'" + activUSD.Replace(',', '.') + "'," +
+                    "'" + typeV + "'," +
+                    "'" + currency_id + "'," +
+                    "'" + client_id + "')");
+
                 marka.Text = "";
                 data.Text = "";
                 nomer.Text = "";
@@ -56,24 +51,33 @@ namespace УчетнаяСистема.form_p
                 text_sum1.Text = "";
                 text_sum2.Text = "";
                 FIO.Text = "";
-                Display();
+                if (flag == true)
+                {
+                    clDel();
+                    this.Close();
+                }
+                else
+                    Display();
             }
             else
             {
-                MessageBox.Show("Maalymat tolgon");
+                MessageM messageM = new MessageM();
+                messageM.Mees = "Заполните все полии!";
+                messageM.ShowDialog();
             }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if (flag == false) { 
-            Display();
+            if (flag == false)
+            {
+                Display();
 
 
             }
             else
             {
-                dataGridView1.Visibility=Visibility.Collapsed;
+                dataGridView1.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -92,7 +96,7 @@ namespace УчетнаяСистема.form_p
 
         }
 
-        string id_1 = "", marka_1, prih_summ_1 = "", kurs_1 = "";
+        string id_1 = "";
 
         private void ComboBox3_DropDownClosed(object sender, EventArgs e)
         {
@@ -100,13 +104,14 @@ namespace УчетнаяСистема.form_p
         }
         void Raschot()
         {
-            if(ComboBox3.Text!="" && currency_id != "0") {
-            sena = text_sum1.Text!="" ?  Convert.ToDouble(text_sum1.Text) : 0;
-            LangName = lanG.ReturnName(ComboBox3.Text);
-            l1.Content = LangName[1];
-            l2.Content = LangName[2];
-            text_sum2.Text = Convert.ToString(raschetSum.Kurs(ComboBox3.Text, sena, usd, eur, rub));
-            activUSD = sena.ToString();
+            if (ComboBox3.Text != "" && currency_id != "0")
+            {
+                sena = text_sum1.Text != "" ? Convert.ToDouble(text_sum1.Text) : 0;
+                LangName = lanG.ReturnName(ComboBox3.Text);
+                l1.Content = LangName[1];
+                l2.Content = LangName[2];
+                text_sum2.Text = Convert.ToString(raschetSum.Kurs(ComboBox3.Text, sena, usd, eur, rub));
+                activUSD = sena.ToString();
                 if (LangName[1] == "(KGS)")
                 {
                     basaSum = text_sum1.Text.Replace(',', '.');
@@ -131,7 +136,7 @@ namespace УчетнаяСистема.form_p
             Raschot();
         }
 
-        int client_id =0;
+        int client_id = 0;
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
@@ -187,14 +192,14 @@ namespace УчетнаяСистема.form_p
                 CarsName = dataRow.Row.ItemArray[1].ToString();
                 if (id_1 != "")
                 {
-                    PriceCars= dbCon.ReadMassiv("SELECT  c.id, " +
+                    PriceCars = dbCon.ReadMassiv("SELECT  c.id, " +
                         "IF(c.type_v = '(KGS)', ROUND(c.prih_summ / cur.usd, 2), c.prih_summ) AS to_usd, " +
                         "IF(c.type_v = '(USD)', ROUND(c.prih_summ * cur.usd, 2), c.prih_summ) AS Rto_kgs, c.kurs  " +
-                        "FROM cars c INNER JOIN currency cur ON c.kurs = cur.id and c.id='"+ id_1 + "'");
-                   // MessageBox.Show(PriceCars[3]);
+                        "FROM cars c INNER JOIN currency cur ON c.kurs = cur.id and c.id='" + id_1 + "'");
+                    // MessageBox.Show(PriceCars[3]);
                     mes_(id_1, CarsName, PriceCars[1], PriceCars[2], PriceCars[3]);
                     this.Close();
-                    
+
                 }
             }
         }
@@ -227,13 +232,14 @@ namespace УчетнаяСистема.form_p
                 "IF(c.type_v = '(USD)', ROUND(c.prih_summ * cur.usd, 2), c.prih_summ) AS Rto_kgs, " +
                 "(SELECT name FROM client WHERE id = c.client_id) as client, " +
                 "datatim FROM cars c INNER JOIN currency cur ON c.kurs = cur.id WHERE c.remov = 0 and " +
-                "CONCAT_WS('', c.marka, c.nomer) LIKE '%"+ TextBox_search.Text +"%'");
+                "CONCAT_WS('', c.marka, c.nomer) LIKE '%" + TextBox_search.Text + "%'");
         }
 
         private void btn_valuta_Click(object sender, RoutedEventArgs e)
         {
             Kurs kurs = new Kurs();
-            kurs.del_ += (nid, nusd, neur, nrub) => {
+            kurs.del_ += (nid, nusd, neur, nrub) =>
+            {
                 currency_id = nid;
                 usd = Convert.ToDouble(nusd.Replace('.', ','));
                 eur = Convert.ToDouble(neur.Replace('.', ','));
@@ -243,6 +249,6 @@ namespace УчетнаяСистема.form_p
             kurs.ShowDialog();
         }
 
-        
+
     }
 }

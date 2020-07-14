@@ -117,23 +117,7 @@ namespace УчетнаяСистема
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                if (id_1 != "0") { 
-                MessageBoxResult result = MessageBox.Show("Вы хотите удалить данные?","Сообщения", MessageBoxButton.YesNo);
-
-                if(result== MessageBoxResult.Yes)
-                
-                    dbCon.RemoveData("bron", id_1);
-                Display();
-                }
-                else
-                {
-                    MessageBox.Show("");
-                }
-            }
-            catch { }
-
+            
         }
 
         private void dataGridView1_MouseUp(object sender, MouseButtonEventArgs e)
@@ -141,6 +125,23 @@ namespace УчетнаяСистема
             DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
             if(dataRow!=null)
             id_1 = dataRow.Row.ItemArray[0].ToString();
+        }
+
+        private void x1_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
+            if (dataRow != null)
+            {
+                id_1 = dataRow.Row.ItemArray[0].ToString();
+                MessageO messageO = new MessageO();
+                if (id_1 != "")
+                {
+                    messageO.Id = id_1;
+                    messageO.TableBasa = "bron";
+                    messageO.del_ += () => Display();
+                    messageO.ShowDialog();
+                }
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -169,7 +170,7 @@ namespace УчетнаяСистема
         {
             dbCon.eventDysplay += delegate (DataTable db)
             {
-                dataGridView1.ItemsSource = db.DefaultView;
+                //dataGridView1.ItemsSource = db.DefaultView;
             };
             dbCon.SoursData("SELECT b.id,b.flat_id, (SELECT name FROM client where id=b.client_id) as client," +
                 "IF(b.typev = '(KGS)', ROUND(b.price_kv / cur.usd, 2), b.price_kv) AS to_usd," +

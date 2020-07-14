@@ -38,7 +38,10 @@
                 <Label Content="Тел. номер" Canvas.Left="212" Canvas.Top="88" FontSize="13" />
                 <TextBox x:Name="AN" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" AN" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="678" Canvas.Top="22"/>
                 <Label Content="Адресс" Canvas.Left="214" Canvas.Top="122" FontSize="13" />
-                <TextBox x:Name="address" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Адресс" Height="73" Width="254" HorizontalAlignment="Right" Canvas.Left="298" Canvas.Top="123"/>
+                <TextBox x:Name="address" FontSize="14"  Style="{DynamicResource textbox_style}"
+                         Tag=" Адресс" Height="73" Width="254"
+                         TextWrapping="Wrap"
+                         HorizontalAlignment="Right" Canvas.Left="298" Canvas.Top="123"/>
                 <Label Content="Дата рож." Canvas.Left="212" Canvas.Top="53" FontSize="13" />
                 <DatePicker x:Name="data_r" Style="{DynamicResource styleDatePicker}" Canvas.Left="297" Canvas.Top="54" Width="252" Height="24"/>
                 <Label Content="AN" Canvas.Left="576" Canvas.Top="22" FontSize="13" />
@@ -54,7 +57,10 @@
                 <DatePicker x:Name="data_p" Style="{DynamicResource styleDatePicker}" Canvas.Left="679" Canvas.Top="53" Width="252" Height="24"/>
                 <Label Content="Адресс по пас." Canvas.Left="575" Canvas.Top="121" FontSize="13" />
                 <TextBox x:Name="address_p" FontSize="14"
-                        Style="{DynamicResource textbox_style}" Tag=" Адресс по паспорт" Height="73" Width="254" HorizontalAlignment="Right" Canvas.Left="679" Canvas.Top="122"/>
+                        Style="{DynamicResource textbox_style}" 
+                         TextWrapping="Wrap"
+                         Tag=" Адресс по паспорт" Height="73" Width="254" 
+                         HorizontalAlignment="Right" Canvas.Left="679" Canvas.Top="122"/>
 
                
                                               

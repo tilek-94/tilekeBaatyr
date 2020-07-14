@@ -28,9 +28,6 @@ namespace УчетнаяСистема.form_p
         string IdCarsCurs = "0", ItogPrice = "0", Vznos = "0", DebZa = "0";
         double UsdSum = 0, USDCars = 0;
         double VznosSum = 0, KgsSUM = 0, UsdCarsSum = 0;
-
-        double summ_cars = 0;
-        double kurs_cars = 0;
         double m2 = 0,sena=0, vznos=0,summ=0,KGS=0,USD=0;
         double usd = 0, eur = 0, rub = 0;
         int data11 = 1;
@@ -270,7 +267,7 @@ ComboBox2.Text = "";
         }
         void SummItogo()
         {
-            try { 
+            
             double M2sum = 0,M2sum2=0;
             if (textbox_Dol.Text != "")
                 M2sum = Convert.ToDouble(textbox_Dol.Text);
@@ -333,11 +330,7 @@ ComboBox2.Text = "";
                 typeV = "(KGS)";
                 Vznos = (VznosSum + UsdCarsSum).ToString().Replace(',', '.');
             }
-            }
-            catch (DivideByZeroException ex)
-            {
-
-            }
+            
 
         }
 

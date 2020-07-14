@@ -38,7 +38,7 @@ namespace УчетнаяСистема
         private void button_Click(object sender, RoutedEventArgs e)
         {
             if(Id!="" && TableBasa != "")
-            dbCon.RemoveData(TableBasa, Id);
+            dbCon.RemoveData(TableBasa, Id,staticClass.StaticEmplayID);
             del_();
             this.Close();
         }

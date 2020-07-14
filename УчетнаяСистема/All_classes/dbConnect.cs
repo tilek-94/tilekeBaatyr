@@ -21,12 +21,12 @@ namespace УчетнаяСистема.All_classes
         public delegate void DisplaySourse2(string[] a);
         public event DisplaySourse eventDysplay;
         public event DisplaySourse2 eventDysplay2;
-        public void RemoveData(string table, string id)
+        public void RemoveData(string table, string id,string empId)
         {
             connection.Open();
             MySqlCommand cmd = connection.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "UPDATE " + table + " SET remov='1' WHERE id='" + id + "';";
+            cmd.CommandText = "UPDATE " + table + " SET remov='"+ empId + "' WHERE id='" + id + "';";
             cmd.ExecuteNonQuery();
             connection.Close();
         }
@@ -90,7 +90,6 @@ namespace УчетнаяСистема.All_classes
         public string[] ReadMassiv(string s)
         {
             string[] a = new string[20];
-            int i = 0;
             connection.Open();
             string sql = s;
             MySqlCommand command = new MySqlCommand(sql, connection);

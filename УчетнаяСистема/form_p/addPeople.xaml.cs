@@ -153,8 +153,7 @@ namespace УчетнаяСистема.form_p
         {
             this.Close();
         }   
-        int client_id = 0;
-        string id_1 = "";
+         string id_1 = "";
         int columnIndex = 0;
         private void dataGridView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

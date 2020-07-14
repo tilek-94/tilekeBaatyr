@@ -127,7 +127,7 @@
                           MouseDoubleClick="dataGridView1_MouseDoubleClick"
                   Height="280"
                   ItemsSource="{Binding}"
-                          AutoGenerateColumns="False"
+                  AutoGenerateColumns="False"
                   ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1"
                          >
                     

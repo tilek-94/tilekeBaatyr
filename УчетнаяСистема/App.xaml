@@ -4,7 +4,36 @@
              xmlns:local="clr-namespace:УчетнаяСистема"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        
+        <Style x:Key="Togle_Button" TargetType="ToggleButton">
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="22"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Grid  Background="{x:Null}" >
+                            <Border x:Name="Fon" CornerRadius="10" Margin="5,5,5,5" Background="#FFD3D3C4" 
+                                    HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="30"/>
+                            <Ellipse Name="border" Height="22" Width="22" Fill="#FFCFCFAC" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="border" Property="Fill" Value="#0A6E9E"/>
+                                <Setter TargetName="border" Property="HorizontalAlignment" Value="Right"/>
+                                <Setter TargetName="Fon" Property="Background" Value="#FFCFCFAC"/>
+                            </Trigger>
+
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter TargetName="border" Property="Fill" Value="#FFCFCFAC"/>
+                                <Setter TargetName="border" Property="HorizontalAlignment" Value="Left"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
         <Style x:Key="Kurs_Valut_Button" TargetType="Button">
             <Setter Property="FontSize" Value="14"/>
@@ -78,7 +107,7 @@
 
         <Style x:Key="btnCloseOS" TargetType="Button">
             <Setter Property="Width" Value="35"/>
-            <Setter Property="Background" Value="Beige"/>
+            <Setter Property="Background" Value="White"/>
             <Setter Property="BorderThickness" Value="0,0,0,0"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
@@ -87,7 +116,7 @@
                         <Border Name="border"
                                 BorderThickness="0,0,0,0"
                                 BorderBrush="Red"
-                                Background="Beige"
+                                Background="White"
                                 >
                             <Grid>
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -357,6 +386,7 @@
 
 
         <Style x:Key="textbox_style" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+           
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
@@ -368,22 +398,24 @@
                                  x:Name="textSource" 
                                  Background="Transparent" 
                                  BorderBrush="#FFC1C0C0"  
-                                  
-                                     BorderThickness="1,1,1,1"
+                                  BorderThickness="1,1,1,1"
                                  Panel.ZIndex="2" />
-                            <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">
-                                <TextBox.Style>
-                                    <Style TargetType="{x:Type TextBox}">
-                                        <Setter Property="Foreground" Value="Transparent"/>
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
-                                                <Setter Property="Foreground" Value="LightGray"/>
-                                                <Setter Property="FontSize" Value="14"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBox.Style>
-                            </TextBox>
+                           
+                                <TextBox Text="{TemplateBinding Tag}"  Background="{TemplateBinding Background}" Panel.ZIndex="1">
+                                    <TextBox.Style>
+                                        <Style TargetType="{x:Type TextBox}">
+                                            <Setter Property="Foreground" Value="Transparent"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
+                                                    <Setter Property="Foreground" Value="LightGray"/>
+                                                    <Setter Property="FontSize" Value="14"/>
+                                                    
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBox.Style>
+                                </TextBox>
+                            
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -584,7 +616,7 @@
                                  Foreground="#40568D"
                                  BorderThickness="0,0,0,0"
                                  Panel.ZIndex="2" />
-                            <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">
+                            <TextBox Text="{TemplateBinding Tag}" BorderThickness="0,0,0,0" Background="{TemplateBinding Background}" Panel.ZIndex="1">
                                 <TextBox.Style>
                                     <Style TargetType="{x:Type TextBox}">
                                         <Setter Property="Foreground" Value="Transparent"/>
