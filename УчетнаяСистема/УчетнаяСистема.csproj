@@ -110,6 +110,9 @@
     <Compile Include="form_p\Bookeeping.xaml.cs">
       <DependentUpon>Bookeeping.xaml</DependentUpon>
     </Compile>
+    <Compile Include="form_p\BookeepingP.xaml.cs">
+      <DependentUpon>BookeepingP.xaml</DependentUpon>
+    </Compile>
     <Compile Include="form_p\Cars_pag.xaml.cs">
       <DependentUpon>Cars_pag.xaml</DependentUpon>
     </Compile>
@@ -118,6 +121,15 @@
     </Compile>
     <Compile Include="form_p\komplekc.xaml.cs">
       <DependentUpon>komplekc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="form_p\Operation.xaml.cs">
+      <DependentUpon>Operation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="form_p\Organization.xaml.cs">
+      <DependentUpon>Organization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="form_p\OrganizationP.xaml.cs">
+      <DependentUpon>OrganizationP.xaml</DependentUpon>
     </Compile>
     <Compile Include="form_p\Peple_pag.xaml.cs">
       <DependentUpon>Peple_pag.xaml</DependentUpon>
@@ -130,6 +142,12 @@
     </Compile>
     <Compile Include="form_p\Prod_pag2.xaml.cs">
       <DependentUpon>Prod_pag2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="form_p\Rashod.xaml.cs">
+      <DependentUpon>Rashod.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="form_p\RegistrEm.xaml.cs">
+      <DependentUpon>RegistrEm.xaml</DependentUpon>
     </Compile>
     <Compile Include="form_p\Search_cars2.xaml.cs">
       <DependentUpon>Search_cars2.xaml</DependentUpon>
@@ -164,6 +182,11 @@
     <Compile Include="registr\registr_type_flat.xaml.cs">
       <DependentUpon>registr_type_flat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Update.xaml.cs">
+      <DependentUpon>Update.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
@@ -197,6 +220,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="form_p\BookeepingP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="form_p\Cars_pag.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -206,6 +233,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="form_p\komplekc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="form_p\Operation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="form_p\Organization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="form_p\OrganizationP.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -222,6 +261,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="form_p\Prod_pag2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="form_p\Rashod.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="form_p\RegistrEm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -278,6 +325,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="registr\registr_type_flat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Update.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -430,6 +481,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\account_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -47,13 +47,14 @@
 
                 <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
-                          
                   HorizontalAlignment="Stretch" 
-                  ItemsSource="{Binding}" VerticalScrollBarVisibility="Auto"
-                          AutoGenerateColumns="False"
-                          Height="500"
-                  ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1" SelectionChanged="dataGridView1_SelectionChanged"
-                         LoadingRow="dataGridView1_LoadingRow"
+                  ItemsSource="{Binding}" 
+                  VerticalScrollBarVisibility="Auto"
+                  AutoGenerateColumns="False"
+                  Height="500"
+                  ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1" 
+                          SelectionChanged="dataGridView1_SelectionChanged"
+                  LoadingRow="dataGridView1_LoadingRow"
                           >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="№" Binding="{Binding id}" Width="50" />

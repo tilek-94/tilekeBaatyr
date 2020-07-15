@@ -33,7 +33,6 @@ namespace УчетнаяСистема.All_classes
 
         public void SoursData(string s)
         {
-            // string s = "select * from kvartira";
             connection.Open();
             MySqlCommand cmd = connection.CreateCommand();
             cmd.CommandType = CommandType.Text;

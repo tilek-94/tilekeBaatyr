@@ -1,0 +1,102 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using УчетнаяСистема.All_classes;
+
+namespace УчетнаяСистема.form_p
+{
+    /// <summary>
+    /// Interaction logic for Organization.xaml
+    /// </summary>
+    public partial class Organization : Window
+    {
+        public Organization()
+        {
+            InitializeComponent();
+        }
+        public delegate void MessageDel(string s);
+        public event MessageDel del;
+        dbConnect dbCon = new dbConnect();
+       
+        private void registr_btn_Click(object sender, RoutedEventArgs e)
+        {
+            dbCon.Registr("INSERT INTO organization(name, pname,inn,data_registr,registr_s,addres,tel,direct)" +
+                "VALUES('"+text1.Text+"'," +
+                "'" + text2.Text + "'," +
+                "'" + text3.Text + "'," +
+                "'" + text4.Text + "'," +
+                "'" + text5.Text + "'," +
+                "'" + text6.Text + "'," +
+                "'" + text7.Text + "'," +
+                "'" + text8.Text + "')");
+        }
+
+        string id_1 = "", NameO = "";
+
+        private void textbox_searsh_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void RegistData(string s)
+        {
+            dbCon.eventDysplay += delegate (DataTable db)
+            {
+                dataGridView1.ItemsSource = db.DefaultView;
+            };
+            dbCon.SoursData(s);
+
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            RegistData("SELECT * FROM organization WHERE remov='0' ");
+        }
+
+        private void x1_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
+            if (dataRow != null)
+            {
+                id_1 = dataRow.Row.ItemArray[0].ToString();
+                MessageO messageO = new MessageO();
+                if (id_1 != "")
+                {
+                    messageO.Id = id_1;
+                    messageO.TableBasa = "organization";
+                    messageO.del_ += () => RegistData("SELECT * FROM organization WHERE remov='0'");
+                    messageO.ShowDialog();
+                }
+            }
+        }
+
+        private void dataGridView1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
+            if (dataRow != null)
+            {
+                id_1 = dataRow.Row.ItemArray[0].ToString();
+                NameO = dataRow.Row.ItemArray[1].ToString();
+                if (id_1 != "")
+                {
+                    if (del != null) { 
+                    del(NameO);
+                    this.Close();
+                    }
+
+                }
+            }
+        }
+    }
+}

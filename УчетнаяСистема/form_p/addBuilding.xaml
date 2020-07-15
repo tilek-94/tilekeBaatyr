@@ -11,74 +11,201 @@
 
     <Grid Background="White">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400"/>
-            <ColumnDefinition Width="700"/>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Border Grid.Column="1" Padding="5" Background="#F4F4F4">
             <StackPanel  Background="White" >
                 <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
-                    <Label Content="KG Group Компаниясы" FontSize="16" Foreground="#00C3FF" ></Label>
+                    <Label Content="KG Group" FontSize="16" Foreground="#00C3FF" ></Label>
                     <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" Tag=" Поиск данные" Height="25" Width="200" Margin="5" HorizontalAlignment="Right">
 
                     </TextBox>
                 </DockPanel>
                 <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
-                  x:Name="dataGridView1"
-                  ColumnHeaderStyle="{DynamicResource hederstyle}" >
+                  HorizontalAlignment="Stretch" 
+                  ItemsSource="{Binding}" 
+                  VerticalScrollBarVisibility="Auto"
+                  AutoGenerateColumns="False"
+                  Height="600"
+                  ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1" 
+                          
+                          >
+                    <DataGrid.Columns>
+                    <DataGridTextColumn Header="№" Binding="{Binding id}" Width="50" />
+                        <DataGridTextColumn Width="200" Header="Названия комплекс" Binding="{Binding name}" />
+                    <DataGridTextColumn Header="Кол. этаж" Binding="{Binding floor}" />
+                    <DataGridTextColumn Header="Кол. подъезд" Binding="{Binding porch}" />
+                    <DataGridTextColumn Header="Кол. квартира" Binding="{Binding count_kv}" />
+                    <DataGridTextColumn Header="Кол. парковка" Binding="{Binding parking}" />
+                    <DataGridTextColumn Header="Адрес комплекса" Binding="{Binding addres}" />
+                   
+                </DataGrid.Columns>
+
+
+                <DataGrid.RowDetailsTemplate>
+                    <DataTemplate >
+
+                        <StackPanel  Orientation="Horizontal" Background="White">
+                            
+                            <StackPanel Orientation="Vertical" Margin="10,0,0,0">
+                                <StackPanel Orientation="Horizontal"  Margin="0,5,0,0">
+                                    <Label Content="Жилой комлекс"  Width="110" Foreground="#5C554F" FontSize="13"  />
+                                    <TextBox  FontSize="14" 
+                                              x:Name="Btext1"
+                                              Text="{Binding name}"
+                                              Style="{DynamicResource textbox_style}" Height="22"  Width="254"   />
+                                </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+                                    <Label Content="Кол. этаж  " Width="110" Foreground="#5C554F" FontSize="13"  />
+                                        <TextBox  FontSize="14" 
+                                              Text="{Binding floor}"
+                                                  x:Name="Btext2"
+                                              Style="{DynamicResource textbox_style}" Height="22"  Width="254"   />
+
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+                                    <Label Content="Кол. подъезд" Width="110"  Foreground="#5C554F" FontSize="13"  />
+                                    <TextBox 
+                                            Text="{Binding porch}"
+                                        x:Name="Btext3"
+                                            FontSize="14"  Style="{DynamicResource textbox_style}" Height="22"  Width="254" 
+                                       />
+                                </StackPanel>
+                                
+                                <StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+                                    <Label Content="Кол. квартира" Width="110"  Foreground="#5C554F" FontSize="13"  />
+                                    <TextBox  FontSize="14"
+                                                  Text="{Binding count_kv}"
+                                              x:Name="Btext4"
+                                                  Style="{DynamicResource textbox_style}" Height="22"  Width="254"  
+                                               />
+                                </StackPanel>
+                            </StackPanel>
+
+
+                            <StackPanel Orientation="Vertical" Margin="50,0,0,0">
+                                
+                                <StackPanel Orientation="Horizontal"  Margin="0,5,0,0">
+                                    <Label Content="Кол. порковка "
+                                           Width="110" 
+                                                Foreground="#5C554F"
+                                               FontSize="13"  />
+                                    <TextBox  FontSize="14" 
+                                              x:Name="Btext5"
+                                                  Text="{Binding parking}"
+                                                  Style="{DynamicResource textbox_style}" 
+                                                  Height="22"  Width="254"  />
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+                                        <Label Content="№ Дом  " Width="110"   Foreground="#5C554F" FontSize="13"  />
+                                    <TextBox  FontSize="14" Text="{Binding nom_flat}"
+                                              x:Name="Btext6"
+                                                  Style="{DynamicResource textbox_style}" 
+                                                  Height="22"  Width="254"   />
+                                </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+                                        <Label Content="Адресс" Width="110"  Foreground="#5C554F" FontSize="13"  />
+                                    <TextBox  FontSize="14" Text="{Binding addres}" 
+                                              x:Name="Btext7"
+                                                  Style="{DynamicResource textbox_style}"
+                                              Height="60"
+                                               Width="254"  />
+                                </StackPanel>
+                               
+
+                                    <StackPanel Orientation="Horizontal" Margin="0,10,0,15">
+
+                                        <Button Content="Обновить" Cursor="Hand"  Margin="240,0,0,0"
+                                     x:Name="btnRegistr" Click="btnUpade_Click"
+                                    Height="25" Width="126" Style="{DynamicResource  Button_blue}" />
+                                    </StackPanel>
+
+                                </StackPanel>
+
+                        </StackPanel>
+                    </DataTemplate>
+                </DataGrid.RowDetailsTemplate>
+
 
                 </DataGrid>
+
             </StackPanel>
         </Border>
-        <Canvas>
-            <Grid>
-                <Border Margin="14,44,-388,-394" BorderThickness="1" Padding="10" BorderBrush="#C1C0C0">
-                    <Canvas Margin="-7,-53,-17,-1">
+      
+            <Grid Grid.Column="0">
+                <Border Margin="10,40,10,10" 
+                        VerticalAlignment="Top" Height="450" BorderThickness="1" Padding="10" BorderBrush="#C1C0C0">
+                    <StackPanel>
                         <Label Content="Регистрация жилой комплекс" x:Name="messageReg" FontSize="16" Foreground="#00C3FF" Canvas.Left="115" Canvas.Top="54" ></Label>
-                        <TextBox FontSize="14" x:Name="text1"  Style="{DynamicResource textbox_style}" Tag=" Называния жилой комплекс" Height="24" Width="243" HorizontalAlignment="Right" Canvas.Left="111" Canvas.Top="91" />
-                        <TextBox FontSize="14" x:Name="text2" Style="{DynamicResource textbox_style}" Tag=" Количество этажей" Height="24" Width="139" HorizontalAlignment="Right" Canvas.Left="110" Canvas.Top="122" PreviewTextInput="text1_PreviewTextInput" />
-                        <TextBox FontSize="14" x:Name="text3" Style="{DynamicResource textbox_style}" Tag=" Количество квартир" Height="24" Width="140" HorizontalAlignment="Right" Canvas.Left="109" Canvas.Top="155" PreviewTextInput="text1_PreviewTextInput" />
-                        <TextBox FontSize="14" x:Name="text4"  Style="{DynamicResource textbox_style}" Tag=" Количество подезд" Height="24" Width="138" HorizontalAlignment="Right" Canvas.Left="109" Canvas.Top="187" PreviewTextInput="text1_PreviewTextInput" />
-                        <TextBox FontSize="14" x:Name="text5"  Style="{DynamicResource textbox_style}" Tag=" Адресс комплекса" Height="67" Width="243" HorizontalAlignment="Right" Canvas.Left="110" Canvas.Top="247" TextWrapping="Wrap" />
-                        <Button Content="Регистрация" 
-                    Canvas.Left="58"
-                     x:Name="btnRegistr" Click="btnRegistr_Click"
-                    Canvas.Top="326"
-                    Cursor="Hand"
-                    Height="24" Width="124" Background="White" BorderThickness="2" BorderBrush="#0A6E9E" >
-                            <Button.Style>
-                                <Style TargetType="Button">
-                                    <Setter Property="Foreground" Value="#0A6E9E"/>
-                                </Style>
-                            </Button.Style>
-                            <Button.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="5,0,0,5"/>
-                                </Style>
-                            </Button.Resources>
-                        </Button>
-                        <Button Content="Удалить"
-                    Canvas.Left="182" 
-                    Cursor="Hand"
-                    Canvas.Top="325" Height="25" Width="126" 
-                                Background="#0A6E9E" Foreground="White" BorderThickness="0" >
-                            <Button.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="0,5,5,0"/>
-                                </Style>
-                            </Button.Resources>
-                        </Button>
-                        <Label x:Name="label" Content="Названия" Canvas.Left="21" Canvas.Top="88" Width="79"/>
-                        <Label x:Name="label_Copy" Content="Этаж" Canvas.Left="22" Canvas.Top="117" Width="79"/>
-                        <Label x:Name="label_Copy1" Content="Кол. этаж" Canvas.Left="21" Canvas.Top="152" Width="84"/>
-                        <Label x:Name="label_Copy2" Content="Кол. подезд" Canvas.Left="21" Canvas.Top="182" Width="84"/>
-                        <TextBox FontSize="14" x:Name="text6"  Style="{DynamicResource textbox_style}" Tag=" Номер дом" Height="24" Width="138" HorizontalAlignment="Right" Canvas.Left="109" Canvas.Top="216" PreviewTextInput="text1_PreviewTextInput" />
-                        <Label x:Name="label_Copy3" Content="№" Canvas.Left="20" Canvas.Top="211" Width="84"/>
-                        <Label x:Name="label_Copy4" Content="Адресс" Canvas.Left="22" Canvas.Top="247" Width="84"/>
-                    </Canvas>
+
+                        <StackPanel Orientation="Horizontal">
+
+                        <Label x:Name="label" Content="Названия"  Width="100" />
+                                    <TextBox FontSize="14" x:Name="text1"  Style="{DynamicResource textbox_style}" 
+                                            Tag=" Называния жилой комплекс" Height="24" Width="243"   />
+                            
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <Label x:Name="label_Copy" Content="Этаж"  Width="100"/>
+                            
+                        <TextBox FontSize="14" x:Name="text2" Style="{DynamicResource textbox_style}" 
+                                     Tag=" Количество этажей" Height="24" Width="139"  PreviewTextInput="text1_PreviewTextInput" />
+                        
+
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <Label x:Name="label_Copy1" Content="Кол. подъезд" Width="100"/>
+                        <TextBox FontSize="14" x:Name="text4"  Style="{DynamicResource textbox_style}" 
+                                     Tag=" Количество подезд" Height="24" Width="138"  PreviewTextInput="text1_PreviewTextInput" />
+
+                    </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <Label x:Name="label_Copy2" Content="Кол. квартира"  Width="100"/>
+                        <TextBox FontSize="14" x:Name="text3" Style="{DynamicResource textbox_style}" 
+                             Tag=" Количество квартир" Height="24" Width="140" HorizontalAlignment="Right" 
+                                     
+                                      PreviewTextInput="text1_PreviewTextInput" />
+                       
+                        </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <Label  Content="Парковка"  Width="100" Margin="0,0,0,0"/>
+                        <TextBox FontSize="14" x:Name="text7"  Style="{DynamicResource textbox_style}" 
+                                             Margin="0,0,0,0"
+                                 PreviewTextInput="text1_PreviewTextInput"
+                                     Tag=" Количество парковка" Height="24" Width="240"    />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <Label x:Name="label_Copy3" Content="№"  Width="100"/>
+                            <TextBox FontSize="14" x:Name="text6"  Style="{DynamicResource textbox_style}" 
+                                     Tag=" Номер дом" Height="24" Width="138"   PreviewTextInput="text1_PreviewTextInput" />
+                        </StackPanel>
+                        
+                 
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <Label x:Name="label_Copy4" Content="Адресс"  Width="100"/>
+                            <TextBox FontSize="14" x:Name="text5"  Style="{DynamicResource textbox_style}" Tag=" Адресс комплекса" Height="67" Width="243" HorizontalAlignment="Right" Canvas.Left="110" Canvas.Top="247" TextWrapping="Wrap" />
+
+
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                            <Button Content="Отмена" 
+                                    x:Name="CancelData" Click="CancelData_Click"
+                    Height="24" Width="124"  Style="{DynamicResource Button_White}" />
+
+                            <Button Content="Регистрация" Cursor="Hand"  Margin="20,0,0,0"
+                                     x:Name="btnRegistr" Click="btnRegistr_Click"
+                                    Height="25" Width="126" Style="{DynamicResource  Button_blue}" />
+
+                        </StackPanel>
+
+                    </StackPanel>
                 </Border>
             </Grid>
-        </Canvas>
+       
     </Grid>
 </Page>
 

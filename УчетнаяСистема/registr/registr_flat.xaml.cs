@@ -1,21 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using УчетнаяСистема.All_classes;
-using УчетнаяСистема.form_p;
-using System.IO.Packaging;
 
 namespace УчетнаяСистема.registr
 {
@@ -50,8 +38,7 @@ namespace УчетнаяСистема.registr
         {
            
             s = dbCon.RedInfor("SELECT floor,porch,count_kv FROM dom WHERE id='18'");
-            //MessageBox.Show("1");
-
+         
             for (int i = 1; i <= Convert.ToInt16(s[0]); i++)
             {
                 ComboBox_E.Items.Add(i.ToString());

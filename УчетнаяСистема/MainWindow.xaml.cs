@@ -27,31 +27,15 @@ namespace УчетнаяСистема
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
         public delegate void OpenForm();
-       // public event OpenForm openform;
-
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            pag.Navigate(new System.Uri("form_p/addBuilding.xaml", UriKind.RelativeOrAbsolute));
-        }
-
-        private void button2_Click(object sender, RoutedEventArgs e)
-        {
-           /* registr_flat registr_Flat = new registr_flat();
-            registr_Flat.ShowDialog();*/
-           pag.Navigate(new System.Uri("form_p/analis.xaml", UriKind.RelativeOrAbsolute));
-
-        }
+       
 
         private void Loaded_Window(object sender, RoutedEventArgs e)
         {
             
             Kompleks_hause kompleks = new Kompleks_hause();
-            //Menu.Visibility= Visibility.Hidden;
             OpenWindows();
             kompleks.ShowDialog();
-            pag.Navigate(new System.Uri("form_p/analis.xaml", UriKind.RelativeOrAbsolute));
-            //this.IsEnabled = false;
-            
+                        
         }
 
         
@@ -64,7 +48,7 @@ namespace УчетнаяСистема
                 blur.Radius = Convert.ToInt32(x);
                 if (name != "admin") { 
                 Vod_Dannyx.Visibility = Visibility.Collapsed;
-                Vod_Dannyx_Grig.Visibility = Visibility.Collapsed;
+               // Vod_Dannyx_Grig.Visibility = Visibility.Collapsed;
                 }
 
             });
@@ -79,85 +63,14 @@ namespace УчетнаяСистема
                 window1.ShowDialog();
             }
         }
-        private void Button_Clic(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void button_people_Click(object sender, RoutedEventArgs e)
-        {
-            //
-            registr_type_flat registr_Type_Flat = new registr_type_flat();
-            registr_Type_Flat.ShowDialog();
-        }
-
-        private void button_cars_Click(object sender, RoutedEventArgs e)
-        {
-            pag.Navigate(new System.Uri("form_p/Cars_pag.xaml", UriKind.RelativeOrAbsolute));
-        }
+       
 
         private void lock_button_Click(object sender, RoutedEventArgs e)
         {
             OpenWindows();
         }
 
-
-        private void grafBtn_Click(object sender, RoutedEventArgs e)
-        {
-            //
-            registr_flat registr_Flat = new registr_flat();
-            registr_Flat.ShowDialog();
-
-        }
-
-        private void bron_btn_Click(object sender, RoutedEventArgs e)
-        {
-            Bron_WinDow bron_WinDow = new Bron_WinDow();
-            bron_WinDow.ShowDialog();
-        }
-
-        private void obmen_btn_Click(object sender, RoutedEventArgs e)
-        {
-            exchange ex = new exchange();
-            ex.ShowDialog();
-        }
-
-        private void prod_btn_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void but_people_Click(object sender, RoutedEventArgs e)
-        {
-            pag.Navigate(new System.Uri("form_p/Peple_pag.xaml", UriKind.RelativeOrAbsolute));
-        }
-
-        private void Btn_Click_Graf(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void prod_btn(object sender, RoutedEventArgs e)
-        {
-            pag.Navigate(new System.Uri("form_p/Prod_pag2.xaml", UriKind.RelativeOrAbsolute));
-        }
     }
-    public class Phone
-    {
-        public int id { get; set; }
-        public string Title { get; set; }
-        public string Company { get; set; }
-        public int Price { get; set; }
-    }
+    
 
-    public class Prod
-    {
-        public int id { get; set; }
-        public string kv { get; set; }
-        public string etaj { get; set; }
-        public string mkv { get; set; }
-        public string dog { get; set; }
-        public string fio { get; set; }
-        public string date { get; set; }
-    }
 }
