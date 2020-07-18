@@ -131,11 +131,17 @@
     <Compile Include="form_p\OrganizationP.xaml.cs">
       <DependentUpon>OrganizationP.xaml</DependentUpon>
     </Compile>
+    <Compile Include="form_p\Parking.xaml.cs">
+      <DependentUpon>Parking.xaml</DependentUpon>
+    </Compile>
     <Compile Include="form_p\Peple_pag.xaml.cs">
       <DependentUpon>Peple_pag.xaml</DependentUpon>
     </Compile>
     <Compile Include="form_p\ProdCars.xaml.cs">
       <DependentUpon>ProdCars.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="form_p\ProdPar.xaml.cs">
+      <DependentUpon>ProdPar.xaml</DependentUpon>
     </Compile>
     <Compile Include="form_p\Product.xaml.cs">
       <DependentUpon>Product.xaml</DependentUpon>
@@ -248,11 +254,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="form_p\Parking.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="form_p\Peple_pag.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="form_p\ProdCars.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="form_p\ProdPar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

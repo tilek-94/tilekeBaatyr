@@ -74,17 +74,16 @@
                          Tag=" Пароль" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="302" Canvas.Top="56" />
                 
                 <Label Content="Пароль:" Canvas.Left="220" Canvas.Top="55" FontSize="13" />
-                <ComboBox  x:Name="text3"
-                              IsEditable="True" 
-              Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="681" Canvas.Top="17" 
+                <ComboBox 
+                          SelectedValue="{Binding FilterService.TripLengthFrom, Mode=TwoWay}"
+                          BorderThickness="1 1 1 1" 
+                          x:Name="ComboBox_n" Background="{x:Null}" 
+                          IsEditable="True"
+                          DropDownClosed="ComboBox_P_DropDownClosed"
+                         
+                Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="681" Canvas.Top="17" 
                       >
-                    <TextBlock><Run Text="USD-KGS"/></TextBlock>
-                    <TextBlock><Run Text="KGS-USD"/></TextBlock>
-                    <TextBlock><Run Text="RUB-KGS"/></TextBlock>
-                    <TextBlock><Run Text="KGS-RUB"/></TextBlock>
-                    <TextBlock><Run Text="EUR-KGS"/></TextBlock>
-                    <TextBlock><Run Text="KGS-EUR"/></TextBlock>
-
+                   
                 </ComboBox>
 
                 
@@ -118,6 +117,7 @@
                     <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
                    CanUserAddRows="False"
+                         Height="250"     
                   x:Name="dataGridView1"
                    MouseDoubleClick="dataGridView1_MouseDoubleClick"           
                   SelectionChanged="dataGridView1_SelectionChanged"           
@@ -128,13 +128,15 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="№" Binding="{Binding id}" Width="50" />
                             <DataGridTextColumn Header="Ф.И.О" Binding="{Binding name}" />
-                            <DataGridTextColumn Header="Дата рождения" Binding="{Binding data}" />
+                            <DataGridTextColumn Header="Логин" Binding="{Binding login}" />
+                            <DataGridTextColumn Header="Роль" Binding="{Binding rol}" />
+                            <DataGridTextColumn Header="Дата рождения" Binding="{Binding data_r}" />
                             <DataGridTextColumn Header="Телефон номер" Binding="{Binding tel_nom}" />
-                            <DataGridTextColumn Header="Паспорт серии" Binding="{Binding AN}" />
-                            <DataGridTextColumn Header="Дата выдачи" Binding="{Binding data_vdan}" />
-                            <DataGridTextColumn Header="Орган выдавший документ" Binding="{Binding vdan_uch}" />
-                            <DataGridTextColumn Header="Место жительства" Binding="{Binding address_pas}" />
-                            <DataGridTextColumn Header="Фактический адресс" Binding="{Binding address}" />
+                            <DataGridTextColumn Header="Паспорт серии" Binding="{Binding an}" />
+                            <DataGridTextColumn Header="Дата выдачи" Binding="{Binding data_p}" />
+                            <DataGridTextColumn Header="Орган выдавший документ" Binding="{Binding vdan}" />
+                            <DataGridTextColumn Header="Место жительства" Binding="{Binding address_p}" />
+                            <DataGridTextColumn Header="Фактический адресс" Binding="{Binding addres}" />
                             <DataGridTemplateColumn Header="Удалить" Width="50" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>

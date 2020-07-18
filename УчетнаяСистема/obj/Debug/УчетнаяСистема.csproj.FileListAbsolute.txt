@@ -320,7 +320,6 @@ D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\ProdCars.b
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Bookeeping.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Bookeeping.baml
-D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.csprojAssemblyReference.cache
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\Update.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\Update.baml
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\BookeepingP.g.cs
@@ -335,3 +334,7 @@ D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Rashod.g.c
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Rashod.baml
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\RegistrEm.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\RegistrEm.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Parking.g.cs
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\ProdPar.g.cs
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Parking.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\ProdPar.baml

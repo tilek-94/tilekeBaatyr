@@ -186,7 +186,6 @@ ComboBox2.Text = "";
 
         private void show_client_btn_Click(object sender, RoutedEventArgs e)
         {
-            try { 
             Window1 window1 = new Window1();
           window1.ValueChanged += new Action<string,string>((x,y) =>
             {
@@ -195,13 +194,11 @@ ComboBox2.Text = "";
 
             });
             window1.ShowDialog();
-            }
-            catch { }
+           
         }
 
         private void show_client_Cars_Click(object sender, RoutedEventArgs e)
         {
-            try { 
             Search_cars2 search_Cars2 = new Search_cars2();
             search_Cars2.mes_ += (x,  y,  USD, KGS,IdCurs)=>
             {
@@ -214,8 +211,7 @@ ComboBox2.Text = "";
                 UsdCars = USD;
             };
             search_Cars2.ShowDialog();
-            }
-            catch { }
+          
         }
 
         string  kvm = "";
@@ -368,7 +364,6 @@ ComboBox2.Text = "";
 
         private void btn_valuta_Click(object sender, RoutedEventArgs e)
         {
-            try { 
 
             Kurs kurs = new Kurs();
             kurs.del_+=(nid,nusd,neur,nrub )=> {
@@ -379,11 +374,7 @@ ComboBox2.Text = "";
 
                 };
             kurs.ShowDialog();
-            }
-            catch
-            {
-
-            }
+            
         }
 
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)

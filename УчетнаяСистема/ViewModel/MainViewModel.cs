@@ -18,6 +18,7 @@ namespace УчетнаяСистема.ViewModel
         private Page BookeepingP;
         private Page OrganizationP;
         private Page Rashod;
+        private Page Parking;
        
         private Page _currentPage;
         public Page CurrentPage
@@ -51,10 +52,12 @@ namespace УчетнаяСистема.ViewModel
             BookeepingP = new BookeepingP();
             OrganizationP = new OrganizationP();
             Rashod = new Rashod();
+            Parking = new Parking();
             CurrentPage = Analis;
         }
 
 
+        public ICommand bMenuParking => new RelayCommand((obj) => CurrentPage = Parking);
         public ICommand bMenuRashod => new RelayCommand((obj) => CurrentPage = Rashod);
         public ICommand bMenuOrganizationP => new RelayCommand((obj) => CurrentPage = OrganizationP);
         public ICommand bMenuBookeepingP => new RelayCommand((obj) => CurrentPage = BookeepingP);

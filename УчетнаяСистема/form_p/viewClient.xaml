@@ -9,6 +9,10 @@
       Title="viewClient" Width="476.46">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="347*"/>
+            <ColumnDefinition Width="121*"/>
+        </Grid.ColumnDefinitions>
 
     </Grid>
 </Window>

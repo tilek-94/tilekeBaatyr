@@ -35,7 +35,7 @@ namespace УчетнаяСистема.registr
         {
             dbCon.Registr("INSERT INTO type_flat(dom_id,porch,room,type,name,kvm)" +
                 "values (" +
-                "'18'," +
+                "'"+staticClass.StaticDomID+"'," +
                 "'" + ComboBox_P.Text + "'," +
                 "" + ComboBox_flat.Text + "," +
                 "'" + ComboBox_Type.Text + "'," +
@@ -49,7 +49,7 @@ namespace УчетнаяСистема.registr
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            s = dbCon.RedInfor("SELECT floor,porch,count_kv FROM dom WHERE id='18'");
+            s = dbCon.RedInfor("SELECT floor,porch,count_kv FROM dom WHERE id='"+staticClass.StaticDomID+"'");
             for (int i = 1; i <= Convert.ToInt16(s[1]); i++)
             {
                 ComboBox_P.Items.Add(i.ToString());

@@ -1,0 +1,177 @@
+﻿<Window x:Class="УчетнаяСистема.form_p.ProdPar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:УчетнаяСистема"
+        mc:Ignorable="d"
+        Height="350"  Width="1000" WindowStartupLocation="CenterScreen" 
+       AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
+    <Grid Background="White" Margin="10">
+        <Grid.Effect>
+            <DropShadowEffect Opacity="0.5" Direction="260" ShadowDepth="1"/>
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition />
+            
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="#0A6E9E" Height="10" VerticalAlignment="Top"/>
+        <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
+
+        <Grid Grid.Row="1" Grid.RowSpan="2">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Margin="20,0,0,0">
+               
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <Label  Content="Ф.И.О"  Width="125"/>
+
+                    <TextBox FontSize="14" x:Name="text1"  Style="{DynamicResource textbox_style}" 
+                             Tag="Ф.И.О" Height="24" Width="250" HorizontalAlignment="Right"/>
+                    <Button Style="{DynamicResource Button_Add}" Width="32"
+                            x:Name="view_btn" Click="view_btn_Click"
+                            Height="26" Margin="10,0,0,0">
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Setter Property="Source" Value="../images/icon/add.png" />
+                                    <Setter Property="Width" Value="40"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="../images/icon/add1.png"/>
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label  Content="Номеры парковка" Width="125"/>
+                    <ComboBox Width="250" 
+                              x:Name="ComboBox1"
+                        IsEditable="True" Height="24" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <Label Content="Машина"  FontSize="14" Width="125" Foreground="#5C554F" />
+                        <TextBox x:Name="textbox_cars" FontSize="14"  Style="{DynamicResource textbox_style}"
+                     Tag=" Машина" Height="24" Width="250" HorizontalAlignment="Right" Canvas.Left="117" Canvas.Top="137"/>
+                        
+                    <Button Style="{StaticResource Add_Button_MRZ}" Content=""
+                x:Name="show_client_Cars"
+                Click="show_client_Cars_Click"
+                            Margin="10,0,0,0"
+                Width="32" Height="26"/>
+
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <Label  Content="Цена машину" Width="70"/>
+                        <Label Content="(USD)" x:Name="l" Width="55" Foreground="#5C554F" 
+                                 FontSize="13" />
+                        
+                        <TextBox FontSize="14"   
+                            x:Name="text4"
+                             Style="{DynamicResource textbox_style}"
+                             Tag="Цена машину" Height="24" Width="250" 
+                             HorizontalAlignment="Right"  />
+                    </StackPanel>
+
+
+                    <StackPanel Orientation="Horizontal" Margin="60,35,0,0" HorizontalAlignment="Center">
+                    <Button Style="{DynamicResource Button_blue}" 
+                            x:Name="registr_btn" Click="registr_btn_Click"
+                            Content="Сохранить" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221" Margin="0,0,0,0" />
+                    <Button Style="{DynamicResource Button_White}"
+                            Content="Удалить" Width="168" Height="26"
+                            Click="Button_Click"
+                            RenderTransformOrigin="0.494,-0.221" Margin="5,0,0,0"/>
+                </StackPanel>
+                </StackPanel>
+                <StackPanel Margin="20,0,0,0">
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <Label  Content="Курс валюта" Margin="0,0,0,0"/>
+                        <Button  Content="Валюта"
+                     
+                x:Name="btn_valuta"
+                Click="btn_valuta_Click"
+                 Width="113" Height="24"
+                RenderTransformOrigin="0.494,-0.221" Background="{x:Null}" 
+                BorderThickness="2,2,2,2"
+                BorderBrush="#FF0A6E9E"
+                Cursor="Hand"
+                Margin="50,0,37,0"  
+                Foreground="#FF0A6E9E"/>
+                        <ComboBox Width="99" x:Name="ComboBox3"
+                              IsEditable="True" 
+               DropDownClosed="ComboBox3_DropDownClosed"
+                      >
+                            <TextBlock><Run Text="USD-KGS"/></TextBlock>
+                            <TextBlock><Run Text="KGS-USD"/></TextBlock>
+                            <TextBlock><Run Text="RUB-KGS"/></TextBlock>
+                            <TextBlock><Run Text="KGS-RUB"/></TextBlock>
+                            <TextBlock><Run Text="EUR-KGS"/></TextBlock>
+                            <TextBlock><Run Text="KGS-EUR"/></TextBlock>
+
+                        </ComboBox>
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <Label  Content="Цена парковка" Width="85"/>
+                        <Label Content="(USD)" x:Name="l1" Foreground="#5C554F" 
+                                 FontSize="13" />
+                        <TextBox FontSize="14"   
+                             x:Name="text5"
+                             TextChanged="textBox1_TextChanged"
+                             Style="{DynamicResource textbox_style}"
+                             Tag="Цена порковку" Height="24" Width="250" 
+                             HorizontalAlignment="Right"  />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <Label  Content="Сумма" Width="70"/>
+                        <Label Content="(KGS)" x:Name="l2" Foreground="#5C554F" Margin="0,0,0,0"
+                                 FontSize="13" />
+                        <TextBox FontSize="14" 
+                             x:Name="text6"
+                             Style="{DynamicResource textbox_style}" 
+                             Tag="Сумма" Height="24" Width="250"
+                             HorizontalAlignment="Right"  Margin="18,0,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <Label  Content="Всего сумма" FontWeight="Bold" Width="85"/>
+                        <Label Content="(USD)"  Width="45" Foreground="#5C554F" 
+                                 FontSize="13" />
+
+                        <TextBox FontSize="14"   
+                            x:Name="text7"
+                             TextChanged="textBox1_TextChanged"
+                             Style="{DynamicResource textbox_style}"
+                             Tag="Всего сумма" Height="24" Width="250" 
+                             HorizontalAlignment="Right"  />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <Label  Content="Всего сумма" FontWeight="Bold" Width="85"/>
+                        <Label Content="(KGS)"  Width="45" Foreground="#5C554F" 
+                                 FontSize="13" />
+
+                        <TextBox FontSize="14"   
+                            x:Name="text8"
+                             TextChanged="textBox1_TextChanged"
+                             Style="{DynamicResource textbox_style}"
+                             Tag="Всего сумма" Height="24" Width="250" 
+                             HorizontalAlignment="Right"  />
+                    </StackPanel>
+
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Window>

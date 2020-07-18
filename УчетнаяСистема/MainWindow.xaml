@@ -118,7 +118,9 @@
                                
 
                                 <Border HorizontalAlignment="Left" Margin="5,0,0,0">
-                                    <Button Style="{DynamicResource menuButton}">
+                                    <Button Style="{DynamicResource menuButton}"
+                                            Command="{Binding bMenueRegEm}"
+                                            >
                                         <StackPanel>
 
                                             <Image>
@@ -141,51 +143,29 @@
                                     </Button>
                                 </Border>
 
-                                <Border HorizontalAlignment="Left" Margin="5,0,0,0" >
-                                    <Button Style="{DynamicResource menuButton}" Command="{Binding bMenuProdCars}">
-                                        <StackPanel>
+                             
 
-                                            <Image>
-                                                <Image.Style>
-                                                    <Style TargetType="Image">
-                                                        <Setter Property="Source" Value="images/key_2_512px.png" />
-                                                        <Setter Property="Width" Value="40"/>
-                                                        <Style.Triggers>
-                                                            <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Source" Value="images/key_2_512px.png"/>
-
-                                                            </Trigger>
-                                                        </Style.Triggers>
-                                                    </Style>
-                                                </Image.Style>
-                                            </Image>
-                                            <TextBlock Margin="0,6,0,0" Foreground="White" 
-                                                       FontSize="11">ПРОДАЖА МАШИНА</TextBlock>
-                                        </StackPanel>
-                                    </Button>
-                                </Border>
-
-                                <Border HorizontalAlignment="Left" Margin="5,0,0,0" >
+                                <Border HorizontalAlignment="Left" Margin="5,0,0,0">
                                     <Button Style="{DynamicResource menuButton}" 
-                                            Command="{Binding bMenueRegEm}">
+                                            x:Name="button_peopleV" Command="{Binding bMenuPeple_pag}">
                                         <StackPanel>
 
                                             <Image>
                                                 <Image.Style>
                                                     <Style TargetType="Image">
-                                                        <Setter Property="Source" Value="images/key_2_512px.png" />
-                                                        <Setter Property="Width" Value="40"/>
+                                                        <Setter Property="Source" Value="images/room_finder_500px.png" />
+                                                        <Setter Property="Width" Value="35"/>
                                                         <Style.Triggers>
                                                             <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Source" Value="images/key_2_512px.png"/>
+                                                                <Setter Property="Source" Value="images/room_finder_500px.png"/>
 
                                                             </Trigger>
                                                         </Style.Triggers>
                                                     </Style>
                                                 </Image.Style>
                                             </Image>
-                                            <TextBlock Margin="0,6,0,0" Foreground="White" 
-                                                       FontSize="11">РЕГИСТРАЦИЯ СОТРУДНИК</TextBlock>
+                                            <TextBlock Margin="0,10,0,0" Foreground="White"  TextAlignment="Center"
+                                 TextWrapping="Wrap" FontSize="12">БАЗА КЛИЕНТ</TextBlock>
                                         </StackPanel>
                                     </Button>
                                 </Border>
@@ -232,81 +212,7 @@
                             </Grid.RowDefinitions>
 
                             <DockPanel Grid.Row="0" x:Name="Menu2" >
-                               
-                                <Border HorizontalAlignment="Left" Margin="5,0,0,0">
-                                    <Button Style="{DynamicResource menuButton}"
-                                            x:Name="button2V" Command="{Binding bMenuAnalis}">
-                                        <StackPanel>
-
-                                            <Image>
-                                                <Image.Style>
-                                                    <Style TargetType="Image">
-                                                        <Setter Property="Source" Value="images/increase_480px.png" />
-                                                        <Setter Property="Width" Value="40"/>
-                                                        <Style.Triggers>
-                                                            <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Source" Value="images/increase_480px.png"/>
-
-                                                            </Trigger>
-                                                        </Style.Triggers>
-                                                    </Style>
-                                                </Image.Style>
-                                            </Image>
-                                            <TextBlock Margin="0,6,0,0" Foreground="White" FontSize="12">АНАЛИЗ КВАРТИРЫ</TextBlock>
-                                        </StackPanel>
-                                    </Button>
-                                </Border>
-
-                                <Border HorizontalAlignment="Left" Margin="5,0,0,0">
-                                    <Button Style="{DynamicResource menuButton}" 
-                                            x:Name="button_peopleV" Command="{Binding bMenuPeple_pag}">
-                                        <StackPanel>
-
-                                            <Image>
-                                                <Image.Style>
-                                                    <Style TargetType="Image">
-                                                        <Setter Property="Source" Value="images/room_finder_500px.png" />
-                                                        <Setter Property="Width" Value="35"/>
-                                                        <Style.Triggers>
-                                                            <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Source" Value="images/room_finder_500px.png"/>
-
-                                                            </Trigger>
-                                                        </Style.Triggers>
-                                                    </Style>
-                                                </Image.Style>
-                                            </Image>
-                                            <TextBlock Margin="0,10,0,0" Foreground="White"  TextAlignment="Center"
-                                 TextWrapping="Wrap" FontSize="12">БАЗА КЛИЕНТ</TextBlock>
-                                        </StackPanel>
-                                    </Button>
-                                </Border>
-
-
-                                <Border HorizontalAlignment="Left" Margin="5,0,0,0">
-                                    <Button Style="{DynamicResource menuButton}" x:Name="grafBtnV" 
-                                            >
-                                        <StackPanel>
-
-                                            <Image>
-                                                <Image.Style>
-                                                    <Style TargetType="Image">
-                                                        <Setter Property="Source" Value="images/schedule_208px.png" />
-                                                        <Setter Property="Width" Value="40"/>
-                                                        <Style.Triggers>
-                                                            <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Source" Value="images/schedule_208px.png"/>
-
-                                                            </Trigger>
-                                                        </Style.Triggers>
-                                                    </Style>
-                                                </Image.Style>
-                                            </Image>
-                                            <TextBlock Margin="0,6,0,0" Foreground="White" FontSize="12">ГРАФИК ОПЛАТЫ</TextBlock>
-                                        </StackPanel>
-                                    </Button>
-                                </Border>
-
+                         
                                 <Border HorizontalAlignment="Left" Margin="5,0,0,0">
                                     <Button Style="{DynamicResource menuButton}" 
                                             x:Name="prod_btnV" 
@@ -385,33 +291,34 @@
                                     </Button>
                                 </Border>
 
-                                <Border HorizontalAlignment="Left" Margin="5,0,0,0">
-                                    <Button Style="{DynamicResource menuButton}"
-                                            x:Name="button_carsV"
-                                            Command="{Binding bMenuCars_pag}">
+                                <Border HorizontalAlignment="Left" Margin="5,0,0,0" >
+                                    <Button Style="{DynamicResource menuButton}" Command="{Binding bMenuProdCars}">
                                         <StackPanel>
 
                                             <Image>
                                                 <Image.Style>
                                                     <Style TargetType="Image">
-                                                        <Setter Property="Source" Value="images/traffic_jam_480px.png" />
-                                                        <Setter Property="Width" Value="45"/>
+                                                        <Setter Property="Source" Value="images/key_2_512px.png" />
+                                                        <Setter Property="Width" Value="40"/>
                                                         <Style.Triggers>
                                                             <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Source" Value="images/traffic_jam_480px.png"/>
+                                                                <Setter Property="Source" Value="images/key_2_512px.png"/>
 
                                                             </Trigger>
                                                         </Style.Triggers>
                                                     </Style>
                                                 </Image.Style>
                                             </Image>
-                                            <TextBlock Margin="0,4,0,0" Foreground="White" FontSize="12">МАШИНЫ АНАЛИЗ</TextBlock>
+                                            <TextBlock Margin="0,6,0,0" Foreground="White" 
+                                                       FontSize="11">ПРОДАЖА МАШИНА</TextBlock>
                                         </StackPanel>
                                     </Button>
                                 </Border>
 
                                 <Border HorizontalAlignment="Left" Margin="5,0,0,0">
-                                    <Button Style="{DynamicResource menuButton}">
+                                    <Button Style="{DynamicResource menuButton}"
+                                            Command="{Binding bMenuParking}"
+                                            >
                                         <StackPanel>
 
                                             <Image>
@@ -432,7 +339,59 @@
                                         </StackPanel>
                                     </Button>
                                 </Border>
+                                <Border HorizontalAlignment="Left" Margin="5,0,0,0" >
+                                    <Button Style="{DynamicResource menuButton}" 
+                                            Command="{Binding bMenuBookeepingP}">
+                                        <StackPanel>
 
+                                            <Image>
+                                                <Image.Style>
+                                                    <Style TargetType="Image">
+                                                        <Setter Property="Source" Value="images/key_2_512px.png" />
+                                                        <Setter Property="Width" Value="40"/>
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Source" Value="images/key_2_512px.png"/>
+
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Image.Style>
+                                            </Image>
+                                            <TextBlock Margin="0,6,0,0" Foreground="White" 
+                                                       TextAlignment="Center"
+                                 TextWrapping="Wrap"
+                                                       FontSize="12">ПРИХОДНЫЙ КАССОВЫЙ ОРДЕР</TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                </Border>
+
+                                <Border HorizontalAlignment="Left" Margin="5,0,0,0" >
+                                    <Button Style="{DynamicResource menuButton}" 
+                                            Command="{Binding bMenuRashod}">
+                                        <StackPanel>
+
+                                            <Image>
+                                                <Image.Style>
+                                                    <Style TargetType="Image">
+                                                        <Setter Property="Source" Value="images/key_2_512px.png" />
+                                                        <Setter Property="Width" Value="40"/>
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Source" Value="images/key_2_512px.png"/>
+
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Image.Style>
+                                            </Image>
+                                            <TextBlock Margin="0,6,0,0" Foreground="White" 
+                                                       TextAlignment="Center"
+                                 TextWrapping="Wrap"
+                                                       FontSize="12">РАСХОДНЫЙ КАССОВЫЙ ОРДЕР</TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                </Border>
                                 <Border HorizontalAlignment="Left" Margin="5,0,0,0" >
                                     <Button Style="{DynamicResource menuButton}"
                                             x:Name="lock_buttonV" Click="lock_button_Click">
@@ -477,59 +436,34 @@
                             </Grid.RowDefinitions>
 
                             <DockPanel Grid.Row="0" x:Name="Menu3" >
+                                
                                 <Border HorizontalAlignment="Left" Margin="5,0,0,0">
-                                    <Button Style="{DynamicResource menuButton}" 
-                                            x:Name="button3" Command="{Binding bMenuaddBuilding}">
+                                    <Button Style="{DynamicResource menuButton}"
+                                            x:Name="button2V" Command="{Binding bMenuAnalis}">
                                         <StackPanel>
+
                                             <Image>
                                                 <Image.Style>
                                                     <Style TargetType="Image">
-                                                        <Setter Property="Source" Value="images/house.png" />
+                                                        <Setter Property="Source" Value="images/increase_480px.png" />
                                                         <Setter Property="Width" Value="40"/>
                                                         <Style.Triggers>
                                                             <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Source" Value="images/house2.png"/>
+                                                                <Setter Property="Source" Value="images/increase_480px.png"/>
 
                                                             </Trigger>
                                                         </Style.Triggers>
                                                     </Style>
                                                 </Image.Style>
                                             </Image>
-                                            <TextBlock Margin="0,6,0,0" Foreground="White" FontSize="12">ЖИЛОЙ КОМПЛЕКС</TextBlock>
+                                            <TextBlock Margin="0,6,0,0" Foreground="White" FontSize="12">АНАЛИЗ КВАРТИРЫ</TextBlock>
                                         </StackPanel>
                                     </Button>
                                 </Border>
 
-
                                 <Border HorizontalAlignment="Left" Margin="5,0,0,0">
-                                    <Button Style="{DynamicResource menuButton}" 
-                                            x:Name="button_people3" Command="{Binding bMenueRegTypeFlat}">
-                                        <StackPanel>
-
-                                            <Image>
-                                                <Image.Style>
-                                                    <Style TargetType="Image">
-                                                        <Setter Property="Source" Value="images/room_finder_500px.png" />
-                                                        <Setter Property="Width" Value="35"/>
-                                                        <Style.Triggers>
-                                                            <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Source" Value="images/room_finder_500px.png"/>
-
-                                                            </Trigger>
-                                                        </Style.Triggers>
-                                                    </Style>
-                                                </Image.Style>
-                                            </Image>
-                                            <TextBlock Margin="0,2,0,0" Foreground="White"  TextAlignment="Center"
-                                 TextWrapping="Wrap" FontSize="12">РЕГИСТРАЦ ТИП КВАРТИРЫ</TextBlock>
-                                        </StackPanel>
-                                    </Button>
-                                </Border>
-
-
-                                <Border HorizontalAlignment="Left" Margin="5,0,0,0">
-                                    <Button Style="{DynamicResource menuButton}" 
-                                            x:Name="grafBtn3" Command="{Binding bMenueRegFlat}">
+                                    <Button Style="{DynamicResource menuButton}" x:Name="grafBtnV" 
+                                            >
                                         <StackPanel>
 
                                             <Image>
@@ -546,111 +480,37 @@
                                                     </Style>
                                                 </Image.Style>
                                             </Image>
-                                            <TextBlock Margin="0,6,0,0" Foreground="White" TextWrapping="Wrap"  TextAlignment="Center" FontSize="12">РЕГИСТРАЦИЯ КВАРТИРА</TextBlock>
+                                            <TextBlock Margin="0,6,0,0" Foreground="White" FontSize="12">ГРАФИК ОПЛАТЫ</TextBlock>
                                         </StackPanel>
                                     </Button>
                                 </Border>
-
 
 
                                 <Border HorizontalAlignment="Left" Margin="5,0,0,0">
-                                    <Button Style="{DynamicResource menuButton}">
+                                    <Button Style="{DynamicResource menuButton}"
+                                            x:Name="button_carsV"
+                                            Command="{Binding bMenuCars_pag}">
                                         <StackPanel>
 
                                             <Image>
                                                 <Image.Style>
                                                     <Style TargetType="Image">
-                                                        <Setter Property="Source" Value="images/account_480px.png" />
-                                                        <Setter Property="Width" Value="40"/>
+                                                        <Setter Property="Source" Value="images/traffic_jam_480px.png" />
+                                                        <Setter Property="Width" Value="45"/>
                                                         <Style.Triggers>
                                                             <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Source" Value="images/account_480px.png"/>
+                                                                <Setter Property="Source" Value="images/traffic_jam_480px.png"/>
 
                                                             </Trigger>
                                                         </Style.Triggers>
                                                     </Style>
                                                 </Image.Style>
                                             </Image>
-                                            <TextBlock Margin="0,6,0,0" TextWrapping="Wrap"  TextAlignment="Center"
-                                                       Foreground="White" FontSize="12">РЕГИСТРАЦИЯ СОТРУДНИК</TextBlock>
+                                            <TextBlock Margin="0,4,0,0" Foreground="White" FontSize="12">МАШИНЫ АНАЛИЗ</TextBlock>
                                         </StackPanel>
                                     </Button>
                                 </Border>
 
-                                <Border HorizontalAlignment="Left" Margin="5,0,0,0" >
-                                    <Button Style="{DynamicResource menuButton}" Command="{Binding bMenuProdCars}">
-                                        <StackPanel>
-
-                                            <Image>
-                                                <Image.Style>
-                                                    <Style TargetType="Image">
-                                                        <Setter Property="Source" Value="images/key_2_512px.png" />
-                                                        <Setter Property="Width" Value="40"/>
-                                                        <Style.Triggers>
-                                                            <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Source" Value="images/key_2_512px.png"/>
-
-                                                            </Trigger>
-                                                        </Style.Triggers>
-                                                    </Style>
-                                                </Image.Style>
-                                            </Image>
-                                            <TextBlock Margin="0,6,0,0" Foreground="White" 
-                                                       FontSize="12">ПРОДАЖА МАШИНА</TextBlock>
-                                        </StackPanel>
-                                    </Button>
-                                </Border>
-
-                                <Border HorizontalAlignment="Left" Margin="5,0,0,0" >
-                                    <Button Style="{DynamicResource menuButton}" 
-                                            Command="{Binding bMenuBookeepingP}">
-                                        <StackPanel>
-
-                                            <Image>
-                                                <Image.Style>
-                                                    <Style TargetType="Image">
-                                                        <Setter Property="Source" Value="images/key_2_512px.png" />
-                                                        <Setter Property="Width" Value="40"/>
-                                                        <Style.Triggers>
-                                                            <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Source" Value="images/key_2_512px.png"/>
-
-                                                            </Trigger>
-                                                        </Style.Triggers>
-                                                    </Style>
-                                                </Image.Style>
-                                            </Image>
-                                            <TextBlock Margin="0,6,0,0" Foreground="White" 
-                                                       FontSize="12">Буукепинг</TextBlock>
-                                        </StackPanel>
-                                    </Button>
-                                </Border>
-
-
-                                <Border HorizontalAlignment="Left" Margin="5,0,0,0" >
-                                    <Button Style="{DynamicResource menuButton}" 
-                                            Command="{Binding bMenuRashod}">
-                                        <StackPanel>
-
-                                            <Image>
-                                                <Image.Style>
-                                                    <Style TargetType="Image">
-                                                        <Setter Property="Source" Value="images/key_2_512px.png" />
-                                                        <Setter Property="Width" Value="40"/>
-                                                        <Style.Triggers>
-                                                            <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Source" Value="images/key_2_512px.png"/>
-
-                                                            </Trigger>
-                                                        </Style.Triggers>
-                                                    </Style>
-                                                </Image.Style>
-                                            </Image>
-                                            <TextBlock Margin="0,6,0,0" Foreground="White" 
-                                                       FontSize="12">Расходный</TextBlock>
-                                        </StackPanel>
-                                    </Button>
-                                </Border>
 
                                 <Border HorizontalAlignment="Left" Margin="5,0,0,0" >
                                     <Button Style="{DynamicResource menuButton}" 

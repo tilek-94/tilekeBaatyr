@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
@@ -25,6 +27,8 @@ namespace УчетнаяСистема.form_p
         public RegistrEm()
         {
             InitializeComponent();
+            this.ComboBox_n.SelectedValuePath = "Key";
+            this.ComboBox_n.DisplayMemberPath = "Value";
         }
         dbConnect dbCon = new dbConnect();
         private void Button_Clic(object sender, RoutedEventArgs e)
@@ -34,8 +38,18 @@ namespace УчетнаяСистема.form_p
 
         private void textbox_searsh_KeyDown(object sender, KeyEventArgs e)
         {
-            
-           //  HashPassword("tilek");
+
+            //  HashPassword("tilek");
+        }
+
+        private void RegistData(string s)
+        {
+            dbCon.eventDysplay += delegate (DataTable db)
+            {
+                dataGridView1.ItemsSource = db.DefaultView;
+            };
+            dbCon.SoursData(s);
+
         }
 
         private void dataGridView1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -47,36 +61,83 @@ namespace УчетнаяСистема.form_p
         {
 
         }
-
+        string id_1 = "";
         private void x1_Click(object sender, RoutedEventArgs e)
         {
-
+            DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
+            if (dataRow != null)
+            {
+                id_1 = dataRow.Row.ItemArray[0].ToString();
+                MessageO messageO = new MessageO();
+                if (id_1 != "")
+                {
+                    messageO.Id = id_1;
+                    messageO.TableBasa = "users";
+                    messageO.del_ += () => RegistData("SELECT * FROM users WHERE remov='0' ");
+                    messageO.ShowDialog();
+                }
+            }
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            dbCon.Registr("INSERT INTO users(login,parol,rol,name,data_r,tel_nom,addres,an,data_p,vdan, address_p) VALUES(" +
-                 "'" + text1.Text + "'," +
-                 "'" + HashPassword(text2.Text) + "'," +
-                 "'" + text3.Text + "'," +
-                 "'" + text4.Text + "'," +
-                 "'" + text5.Text + "'," +
-                 "'" + text6.Text + "'," +
-                 "'" + text7.Text + "'," +
-                 "'" + text8.Text + "'," +
-                 "'" + text9.Text + "'," +
-                 "'" + text10.Text + "'," +
-                 "'" + text11.Text + "')");
+            if (text1.Text != "" && text2.Text != "" && ComboBox_n.Text != "" && text4.Text != "") {
+                dbCon.Registr("INSERT INTO users(login,parol,rol,name,data_r,tel_nom,addres,an,data_p,vdan, address_p) VALUES(" +
+                     "'" + text1.Text + "'," +
+                     "'" + HashPassword(text2.Text) + "'," +
+                     "'" + value + "'," +
+                     "'" + text4.Text + "'," +
+                     "'" + text5.Text + "'," +
+                     "'" + text6.Text + "'," +
+                     "'" + text7.Text + "'," +
+                     "'" + text8.Text + "'," +
+                     "'" + text9.Text + "'," +
+                     "'" + text10.Text + "'," +
+                     "'" + text11.Text + "')");
+                RegistData("SELECT * FROM users WHERE remov='0' ");
+                text1.Text = "";
+                ComboBox_n.Text = "";
+                text2.Text = "";
+                text4.Text = "";
+                text5.Text = "";
+                text6.Text = "";
+                text7.Text = "";
+                text8.Text = "";
+                text9.Text = "";
+                text10.Text = "";
+                text11.Text = "";
+            }
+            else
+            {
+                MessageM messageM = new MessageM();
+                messageM.Mees = "Заполните все полии!";
+                messageM.ShowDialog();
+            }
+        }
+        void AddNumber()
+        {
+            ComboBox_n.Items.Clear();
+            dbCon.connection.Open();
+            string sql = "SELECT name, name_p FROM roles";
+            MySqlCommand command = new MySqlCommand(sql, dbCon.connection);
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                ComboBox_n.Items.Add(new KeyValuePair<string, string>(reader[0].ToString(), reader[1].ToString()));
+            }
+            dbCon.connection.Close();
+
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-          MessageBox.Show(  VerifyHashedPassword("AJrrOtwOE+ZkubjJaYAd2TfI1HJSaxrhczfG+fX1pJAGzT7olrGOCIIXdEZSb/Ifag==", "113").ToString());
+            MessageBox.Show(VerifyHashedPassword("AJrrOtwOE+ZkubjJaYAd2TfI1HJSaxrhczfG+fX1pJAGzT7olrGOCIIXdEZSb/Ifag==", "113").ToString());
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            RegistData("SELECT * FROM users WHERE remov='0' ");
+            AddNumber();
         }
 
         public static string HashPassword(string password)
@@ -142,6 +203,20 @@ namespace УчетнаяСистема.form_p
                 areSame &= (a[i] == b[i]);
             }
             return areSame;
+        }
+        string value = "";
+        private void text3_DropDownClosed(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ComboBox_P_DropDownClosed(object sender, EventArgs e)
+        {
+            if (ComboBox_n.SelectedValue != null)
+            value = ComboBox_n.SelectedValue.ToString();
+
+
+            MessageBox.Show(value);
         }
     }
 }
