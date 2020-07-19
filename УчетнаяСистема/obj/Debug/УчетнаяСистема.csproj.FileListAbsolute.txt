@@ -338,3 +338,4 @@ D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Parking.g.
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\ProdPar.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Parking.baml
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\ProdPar.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.csprojAssemblyReference.cache

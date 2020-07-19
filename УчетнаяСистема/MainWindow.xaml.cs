@@ -32,9 +32,9 @@ namespace УчетнаяСистема
         private void Loaded_Window(object sender, RoutedEventArgs e)
         {
             
-            Kompleks_hause kompleks = new Kompleks_hause();
+            /*Kompleks_hause kompleks = new Kompleks_hause();
             OpenWindows();
-            kompleks.ShowDialog();
+            kompleks.ShowDialog();*/
                         
         }
 
