@@ -12,7 +12,7 @@ namespace УчетнаяСистема.form_p
     /// <summary>
     /// Логика взаимодействия для Prod_pag2.xaml
     /// </summary>
-    public partial class Prod_pag2 : Page
+    public partial class Prod_pag2 : UserControl
     {
         public Prod_pag2()
         {
@@ -47,8 +47,7 @@ namespace УчетнаяСистема.form_p
 
         void LoadDisplay()
         {
-        try
-        {
+        
             dbCon.eventDysplay += delegate (DataTable db)
             {
                 dataGridView1.ItemsSource = db.DefaultView;
@@ -59,8 +58,7 @@ namespace УчетнаяСистема.form_p
             string[] s = dbCon.RedInfor("SELECT floor,porch,count_kv FROM dom WHERE id='" + staticClass.StaticDomID + "'");
             DelegATE(Convert.ToInt32(s[2]));
 
-            }
-            catch { }
+           
         }
         private void DelegATE(int f)
         {
@@ -140,7 +138,7 @@ ComboBox2.Text = "";
 
         private void registr_client_btn_Click(object sender, RoutedEventArgs e)
         {
-            if (client_id != 0 && ComboBox2.Text!="" && currency_id !="0" && textbox_dogovor.Text!=null && basaSum!="0" && data_n!="" && data_k!="") {
+            if (textbox_dogovor.Text!=""&& client_id != 0 && ComboBox2.Text!="" && currency_id !="0" && textbox_dogovor.Text!=null && basaSum!="0" && data_n!="" && data_k!="") {
                 
             dbCon.Registr("INSERT INTO zakaz(" +
                 "dom_id," +
@@ -177,7 +175,7 @@ ComboBox2.Text = "";
             else
             {
                 MessageM messageM = new MessageM();
-                messageM.Mees = "Заполните все полии";
+                messageM.Mees = "Заполните все поля!";
                 messageM.ShowDialog();
                
             }

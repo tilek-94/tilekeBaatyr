@@ -145,7 +145,7 @@ namespace УчетнаяСистема.form_p
         int columnIndex = 0;
         private void dataGridView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            columnIndex = dataGridView1.CurrentColumn.DisplayIndex;
+            /*columnIndex = dataGridView1.CurrentColumn.DisplayIndex;
             if (columnIndex == 9)
             {
                 DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
@@ -161,7 +161,7 @@ namespace УчетнаяСистема.form_p
                         messageO.ShowDialog();
                     }
                 }
-            }
+            }*/
 
         }
 

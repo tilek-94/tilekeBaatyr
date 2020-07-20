@@ -1,37 +1,28 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using УчетнаяСистема.All_classes;
+using УчетнаяСистема.ViewModel;
 
 namespace УчетнаяСистема
 {
     /// <summary>
     /// Логика взаимодействия для Window3.xaml
     /// </summary>
-    public partial class Kompleks_hause : Window
+    public partial class Kompleks_hause : UserControl
     {
         dbConnect dbCon = new dbConnect();
+        string[] BuildName=new string[500]; 
         public Kompleks_hause()
         {
             InitializeComponent();
-            this.MaxWidth = SystemParameters.MaximizedPrimaryScreenWidth;
-            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+           
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            Panell.Children.Clear();
             dbCon.connection.Open();
             using (MySqlCommand cmd = new MySqlCommand("select id,name from dom", dbCon.connection))
             {
@@ -48,8 +39,8 @@ namespace УчетнаяСистема
                             button.Style = (Style)this.TryFindResource("menuCom");
                             button.Name = "Dom" + reader["id"].ToString();
                             button.Click += new RoutedEventHandler(Button_Click);
-                            //byte[] array = (byte[])reader["img"];
                             dbCon.For_Kompleks_Window(Panell, button, reader["name"].ToString());
+                            BuildName[Convert.ToInt16(reader["id"].ToString())] = reader["name"].ToString();
                         }
                     }
 
@@ -63,21 +54,12 @@ namespace УчетнаяСистема
         }
         public void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow win = new MainWindow();
             Button button = sender as Button;
             staticClass.StaticDomID = button.Name.ToString().Substring(3);
-            win.IsEnabled = true;
-           this.Hide();
+           FrameworkElement fe = sender as FrameworkElement;
+            button.Command = ((MainViewModel)fe.DataContext).bMenuAnalis;
+            staticClass.BuildName=BuildName[Convert.ToInt16( staticClass.StaticDomID)];
         }
 
-        private void Button_Close_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
     }
 }

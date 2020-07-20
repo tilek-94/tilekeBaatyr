@@ -20,7 +20,7 @@ namespace УчетнаяСистема.form_p
     /// <summary>
     /// Логика взаимодействия для Cars_pag.xaml
     /// </summary>
-    public partial class Cars_pag : Page
+    public partial class Cars_pag : UserControl
     {
         public Cars_pag()
         {

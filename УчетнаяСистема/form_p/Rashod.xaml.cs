@@ -20,7 +20,7 @@ namespace УчетнаяСистема.form_p
     /// <summary>
     /// Interaction logic for Rashod.xaml
     /// </summary>
-    public partial class Rashod : Page
+    public partial class Rashod : UserControl
     {
         public Rashod()
         {

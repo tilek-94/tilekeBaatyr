@@ -37,9 +37,9 @@ namespace УчетнаяСистема.form_p
             dbCon.eventDysplay += delegate (DataTable db)
             {
                 dataGridView1.ItemsSource = db.DefaultView;
-                 text1.Text = db.Rows[0][2].ToString();
+                text1.Text = db.Rows[0][2].ToString();
                 text2.Text = db.Rows[0][3].ToString();
-                text3.Text = db.Rows[0][4].ToString();
+                text3.Text = db.Rows[0][4].ToString();  
                 text4.Text = db.Rows[0][5].ToString();
             };
             dbCon.SoursData(s);

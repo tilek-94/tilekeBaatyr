@@ -126,6 +126,7 @@ namespace УчетнаяСистема.All_classes
 
         public void For_Kompleks_Window(WrapPanel Panell, Button button, string text)
         {
+            
             Grid grid = new Grid();
             grid.Height = 250;
             grid.Width = 190;

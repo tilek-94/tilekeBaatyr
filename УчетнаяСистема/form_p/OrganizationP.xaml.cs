@@ -20,7 +20,7 @@ namespace УчетнаяСистема.form_p
     /// <summary>
     /// Interaction logic for OrganizationP.xaml
     /// </summary>
-    public partial class OrganizationP : Page
+    public partial class OrganizationP : UserControl
     {
         public OrganizationP()
         {

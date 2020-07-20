@@ -50,7 +50,9 @@
                         Click="button2_Click"
                         Canvas.Top="222" Width="168" Height="26"/>
                 <Button Style="{DynamicResource  Button_blue}" Content="Сохранить"
-                    x:Name="button"  Click="button_Click" Canvas.Left="392" Canvas.Top="224" Width="168" Height="25"/>
+                    x:Name="button"  Click="button_Click" Canvas.Left="392" Canvas.Top="224"
+                        Width="168" Height="25"/>
+               
                 <TextBox x:Name="vdan" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Выданный" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="679" Canvas.Top="88" />
                 <Label Content="Выданный" Canvas.Left="576" Canvas.Top="87" FontSize="13" />
                 <Label Content="Дата выданный" Canvas.Left="575" Canvas.Top="50" FontSize="13" />
@@ -69,7 +71,7 @@
             <Border Grid.Row="2" Padding="5" Background="#F4F4F4">
                 <StackPanel  Background="White" >
                     <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
-                        <Label Content="KG Group Компаниясы" FontSize="16" Foreground="#00C3FF" ></Label>
+                        <Label Content="{Binding NameBuild}" FontSize="16" Foreground="#00C3FF" ></Label>
 
                         <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" 
                                  Tag=" Поиск данные" Height="25"

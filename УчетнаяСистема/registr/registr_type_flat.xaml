@@ -20,16 +20,21 @@
             <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.4"/>
         </Grid.Effect>
         <Grid Grid.Row="0" >
-            <Border  Background="#0A6E9E" Height="10" VerticalAlignment="Top" Width="660"/>
-            <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
+            <Border  Background="#0A6E9E" Height="25" VerticalAlignment="Top" >
+                <TextBlock Text="Окно регистрация тип квартира" FontSize="14" Foreground="White" Margin="10,3,0,0"/>
+            </Border>
+            <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35"
+                     Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right">
+                
+            </Button>
         </Grid>
         <Border Grid.Column="0" Grid.Row="1" >
 
             <Canvas>
                 <Button Style="{DynamicResource Button_blue}" Content="Сохранить"
                     x:Name="btn_registr_type" Click="btn_registr_type_Click"   Width="121" Height="26" Canvas.Left="135" Canvas.Top="143"/>
-                <Button Style="{DynamicResource Button_White}" Content="Удалить"
-                    x:Name="button2" Canvas.Left="280" Click="button2_Click" Canvas.Top="143" Width="101" Height="26"/>
+                <Button Style="{DynamicResource Button_White}" Content="Отмена"
+                    x:Name="button2" Canvas.Left="280" Click="button2_Click" Canvas.Top="143" Width="117" Height="26"/>
 
 
                 <TextBox FontSize="14" Name="textBox1"  Style="{DynamicResource textbox_style}"  
@@ -54,10 +59,13 @@
                        Canvas.Left="211" Canvas.Top="14" 
                        Height="26" Width="72" RenderTransformOrigin="1.069,0.596"/>
                 <Label x:Name="label2_Copy" Content="Названия" Canvas.Left="108" Canvas.Top="69" Height="26" Width="58" RenderTransformOrigin="0.513,0.038"/>
+                
                 <TextBox FontSize="14" x:Name="textBox2"
                          Style="{DynamicResource textbox_style}" 
                          Height="24" Width="102" 
+                         PreviewTextInput="NumberValidationTextBox"
                          HorizontalAlignment="Right" Canvas.Left="330" Canvas.Top="94" />
+                
                 <Label x:Name="label2_Copy1" Content="Квадрат м." Canvas.Left="325" Canvas.Top="69" Height="26" Width="69" RenderTransformOrigin="0.513,0.038"/>
                 <ComboBox Width="76" Canvas.Left="212" Canvas.Top="42"
                           BorderThickness="1 1 1 1" x:Name="ComboBox_flat" 
@@ -80,10 +88,28 @@
         <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
                   x:Name="type_flat_listwiew"
+                  AutoGenerateColumns="False"
                  SelectionChanged="type_flat_listwiew_SelectionChanged"
                  CanUserAddRows="False"
                   Grid.Row="2"
                   ColumnHeaderStyle="{DynamicResource hederstyle}" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Binding="{Binding id}" Visibility="Collapsed" Width="50" />
+               
+                <DataGridTextColumn Header="Названия" Binding="{Binding name}" />
+                <DataGridTextColumn Header="Плошадь" Binding="{Binding kvm}" />
+
+
+                <DataGridTemplateColumn Header="Удалить" Width="70" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Background="{x:Null}" x:Name="x1" Click="x1_Click"  BorderThickness="0,0,0,0" Cursor="Hand">
+                                <Image Source="/УчетнаяСистема;component/images/icon/udalit4.png" Width="20"/>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
 
         </DataGrid>
         <Border Grid.Row="3">

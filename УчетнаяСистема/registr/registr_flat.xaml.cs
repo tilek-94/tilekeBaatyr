@@ -27,8 +27,7 @@ namespace УчетнаяСистема.registr
             dbCon.eventDysplay += delegate (DataTable db)
             {
                 dataGridView2.ItemsSource = db.DefaultView;
-               // dataGridView2.Columns[0].Width=-1;
-                
+               
             };
             dbCon.SoursData("select id, number_f ,floor , porch ,type_flat  from flat WHERE remov='0'and dom_id='"+staticClass.StaticDomID+"' ");
 
@@ -68,7 +67,7 @@ namespace УчетнаяСистема.registr
                         ComboBox_kv.Items.Add(i.ToString());
                 }
             };
-            dbCon.Display("SELECT number_f FROM flat WHERE dom_id='" + staticClass.StaticDomID + "'");
+            dbCon.Display("SELECT number_f FROM flat WHERE dom_id='" + staticClass.StaticDomID + "' and remov='0'");
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -79,22 +78,18 @@ namespace УчетнаяСистема.registr
         private void button1_Click(object sender, RoutedEventArgs e)
         {
            
-            if (true)
-            {
-
+            
+                if (staticClass.StaticDomID!="0" && ComboBox_E.Text!="" && ComboBox_P.Text!="" && ComboBox_flat.Text!="" && ComboBox_t.Text!="" && ComboBox_kv.Text!="") { 
                 dbCon.Registr("INSERT INTO flat(dom_id,floor,porch,room,type_flat,number_f) " +
                   "values('" + staticClass.StaticDomID + "','" + ComboBox_E.Text + "','" + ComboBox_P.Text + "','" + ComboBox_flat.Text + "','" +ComboBox_t.Text + "','" + ComboBox_kv.Text + "')");
 
                 RegistData();
 
                 DelegATE(Convert.ToInt16(s[3]));
+                }
 
 
-            }
-            else
-            {
-               // MessageBox.Show("ds");   
-            }
+            
 
         }
 
@@ -126,7 +121,7 @@ namespace УчетнаяСистема.registr
             dbConnect dbCon = new dbConnect();
             dbCon.eventDysplay += delegate (DataTable db)
             {
-                for (int i = 0; i < db.Rows.Count; i++)
+                for (int i = 0; i <db.Rows.Count; i++)
                 {
                     ComboBox_flat.Items.Add(db.Rows[i][0].ToString());
 
@@ -134,8 +129,7 @@ namespace УчетнаяСистема.registr
 
 
             };
-           // MessageBox.Show(ComboBox_P.Text);
-            dbCon.SoursData("SELECT room FROM type_flat WHERE dom_id='" + staticClass.StaticDomID + "' and porch='" + ComboBox_P.Text + "' GROUP BY room");
+           dbCon.SoursData("SELECT room FROM type_flat WHERE dom_id='" + staticClass.StaticDomID + "' and porch='" + ComboBox_P.Text + "' GROUP BY room");
 
         }
 
@@ -188,7 +182,7 @@ namespace УчетнаяСистема.registr
         private void x1_Click(object sender, RoutedEventArgs e)
         {
             columnIndex = dataGridView2.CurrentColumn.DisplayIndex;
-            if (columnIndex == 9)
+            if (columnIndex == 5)
             {
                 DataRowView dataRow = (DataRowView)dataGridView2.SelectedItem;
                 if (dataRow != null)
@@ -207,32 +201,9 @@ namespace УчетнаяСистема.registr
         }
         int columnIndex=0;
         string id_1;
-        private void dataGridView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            columnIndex = dataGridView2.CurrentColumn.DisplayIndex;
-            if (columnIndex == 5)
-            {
-                DataRowView dataRow = (DataRowView)dataGridView2.SelectedItem;
-                if (dataRow != null)
-                {
-                    id_1 = dataRow.Row.ItemArray[0].ToString();
-                    MessageO messageO = new MessageO();
-                    if (id_1 != "")
-                    {
-                        messageO.Id = id_1;
-                        messageO.TableBasa = "flat";
-                        messageO.del_ += () => Display();
-                        messageO.ShowDialog();
-                    }
-                }
-            }
+        
 
-        }
-
-        private void button22_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void type_flat_listwiew_KeyUp(object sender, KeyEventArgs e)
         {
@@ -242,11 +213,24 @@ namespace УчетнаяСистема.registr
                 id_1 = dataRow.Row.ItemArray[0].ToString();
             }
         }
+
+        private void butCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            dbCon.eventDysplay += delegate (DataTable db)
+            {
+                dataGridView2.ItemsSource = db.DefaultView;
+
+            };
+            dbCon.SoursData("select id, number_f ,floor , porch ,type_flat  from flat " +
+                "WHERE number_f LIKE'%"+ SearshData.Text+ "%' && remov='0'and dom_id='" + staticClass.StaticDomID + "' ");
+
+        }
     }
-    public class Phone
-    {
-        public string Title { get; set; }
-        public string Company { get; set; }
-        public int Price { get; set; }
-    }
+    
 }

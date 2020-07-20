@@ -33,8 +33,9 @@ namespace УчетнаяСистема
         {
             
             /*Kompleks_hause kompleks = new Kompleks_hause();
-            OpenWindows();
             kompleks.ShowDialog();*/
+            OpenWindows();
+           
                         
         }
 

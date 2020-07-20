@@ -22,7 +22,9 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" >
-                <Border  Background="#0A6E9E" Height="10" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                <Border  Background="#0A6E9E" Height="25" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                    <TextBlock Text="Регистрация сотрудника" FontSize="14" Foreground="White" Margin="10,3,0,0" />
+                </Border>
                 <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
             </Grid>
             <Canvas Grid.Row="1" Grid.RowSpan="2">

@@ -20,7 +20,7 @@ namespace УчетнаяСистема.form_p
     /// <summary>
     /// Interaction logic for BookeepingP.xaml
     /// </summary>
-    public partial class BookeepingP : Page
+    public partial class BookeepingP : UserControl
     {
         public BookeepingP()
         {

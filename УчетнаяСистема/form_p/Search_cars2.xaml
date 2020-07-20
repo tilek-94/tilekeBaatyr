@@ -113,7 +113,7 @@
         <Border Grid.Row="2" Padding="5" Background="#F4F4F4">
             <StackPanel  Background="White" >
                 <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
-                    <Label Content="KG Group Компаниясы" FontSize="16" Foreground="#00C3FF" ></Label>
+                    <Label Content="Регистрация машина" FontSize="16" Foreground="#00C3FF" ></Label>
                     <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" 
                              x:Name="TextBox_search"
                              KeyDown="TextBox_KeyDown"

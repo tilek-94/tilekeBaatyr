@@ -10,7 +10,7 @@ namespace УчетнаяСистема.form_p
     /// <summary>
     /// Interaction logic for analis.xaml
     /// </summary>
-    public partial class analis : Page
+    public partial class analis : UserControl
     {
         public analis()
         {
@@ -27,7 +27,7 @@ namespace УчетнаяСистема.form_p
             {
                 dataGridView1.DataContext = db;
             };
-            dbCon.SoursData("SELECT * FROM display WHERE dom_id='"+staticClass.StaticDomID+"'");
+            dbCon.SoursData("SELECT * FROM display WHERE dom_id='"+staticClass.StaticDomID+"' and remov='0'");
 
         }
 
@@ -35,10 +35,11 @@ namespace УчетнаяСистема.form_p
         {
             int columnIndex =  dataGridView1.CurrentColumn.DisplayIndex;
             
-            if (columnIndex>0 && 4> columnIndex)
+            if (columnIndex>1 && 6> columnIndex)
             {
                 DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
-                string number_f = dataRow.Row.ItemArray[2].ToString();
+                string number_f = dataRow.Row.ItemArray[3].ToString();
+                MessageBox.Show(number_f);
                 viewFlat view_lat = new viewFlat();
                 view_lat.sqlQery = "SELECT t.name, t.kvm, f.floor,f.porch,f.number_f,f.room FROM flat f inner join " +
                     "type_flat t on t.dom_id = '"+ staticClass.StaticDomID + "' AND f.dom_id='" + staticClass.StaticDomID + "' and t.porch = f.porch " +
@@ -55,8 +56,8 @@ namespace УчетнаяСистема.form_p
                 DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
                 if (dataRow != null)
                 {
-                    if (dataRow.Row.ItemArray[13].ToString() != "") {
-                        string ClientId = dataRow.Row.ItemArray[13].ToString();
+                    if (dataRow.Row.ItemArray[14].ToString() != "") {
+                        string ClientId = dataRow.Row.ItemArray[14].ToString();
                         peopleinAnalis.ClientID = ClientId;
                         peopleinAnalis.ShowDialog();
                     }
@@ -68,29 +69,29 @@ namespace УчетнаяСистема.form_p
                 DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
                 if (dataRow != null)
                 {
-                    if (dataRow.Row.ItemArray[8].ToString() != "")
+                    if (dataRow.Row.ItemArray[9].ToString() != "")
                     {
                         ViewCarsinAnalise viewCarsinAnalise = new ViewCarsinAnalise();
-                        string CarsId = dataRow.Row.ItemArray[14].ToString();
+                        string CarsId = dataRow.Row.ItemArray[15].ToString();
                         viewCarsinAnalise.SqlQury = "SELECT * FROM carsid WHERE id='" + CarsId + "'";
                         viewCarsinAnalise.ShowDialog();
                     }
                 }
             }
-            else if (columnIndex>8)
+            else if (columnIndex>9)
             {
                 view_year View_Year = new view_year();
                 DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
                 if (dataRow != null) { 
-                    if(dataRow.Row.ItemArray[6].ToString()!="" && 
-                        dataRow.Row.ItemArray[7].ToString() != "" && 
-                        dataRow.Row.ItemArray[9].ToString() != "" &&
-                        dataRow.Row.ItemArray[10].ToString() != "" && 
-                        dataRow.Row.ItemArray[11].ToString() != "" &&
-                        dataRow.Row.ItemArray[12].ToString() != "") { 
-                string marka_1 = dataRow.Row.ItemArray[0].ToString();
-                string NumberF = dataRow.Row.ItemArray[2].ToString();
-                string ClientId = dataRow.Row.ItemArray[13].ToString();
+                    if(dataRow.Row.ItemArray[7].ToString()!="" && 
+                        dataRow.Row.ItemArray[8].ToString() != "" && 
+                        dataRow.Row.ItemArray[10].ToString() != "" &&
+                        dataRow.Row.ItemArray[11].ToString() != "" && 
+                        dataRow.Row.ItemArray[12].ToString() != "" &&
+                        dataRow.Row.ItemArray[13].ToString() != "") { 
+                string marka_1 = dataRow.Row.ItemArray[1].ToString();
+                string NumberF = dataRow.Row.ItemArray[3].ToString();
+                string ClientId = dataRow.Row.ItemArray[14].ToString();
                     //MessageBox.Show(marka_1);
                     View_Year.ZakazId = marka_1;
                     View_Year.NumberF= NumberF;

@@ -5,23 +5,26 @@ using System.Windows.Input;
 using УчетнаяСистема.form_p;
 using УчетнаяСистема.registr;
 using System.Windows;
+using System.Windows.Forms.VisualStyles;
+using УчетнаяСистема.All_classes;
 
 namespace УчетнаяСистема.ViewModel
 {
     class MainViewModel: INotifyPropertyChanged
     {
-        private Page Analis;
-        private Page Peple_pag;
-        private Page Prod_pag2;
-        private Page Cars_pag;
-        private Page addBuilding;
-        private Page BookeepingP;
-        private Page OrganizationP;
-        private Page Rashod;
-        private Page Parking;
-       
-        private Page _currentPage;
-        public Page CurrentPage
+        private UserControl Analis;
+        private UserControl Kompleks_hause;
+        private UserControl Peple_pag;
+        private UserControl Prod_pag2;
+        private UserControl Cars_pag;
+        private UserControl addBuilding;
+        private UserControl BookeepingP;
+        private UserControl OrganizationP;
+        private UserControl Rashod;
+        private UserControl Parking;
+
+        private UserControl _currentPage;
+        public UserControl CurrentPage
         {
             get { return _currentPage; }
             set
@@ -30,7 +33,15 @@ namespace УчетнаяСистема.ViewModel
                 OnPropertyChanged("CurrentPage");
             }
         }
-              
+        private string nameBuild;
+        public string NameBuild
+        {
+            get { return nameBuild; }
+            set { nameBuild = value;
+                OnPropertyChanged("NameBuild");
+            }
+        }
+        
         private double countT;
         public double CountT
         {
@@ -45,6 +56,7 @@ namespace УчетнаяСистема.ViewModel
         public MainViewModel()
         {
             Analis = new analis();
+            Kompleks_hause = new Kompleks_hause();
             Peple_pag = new Peple_pag();
             Prod_pag2 = new Prod_pag2();
             Cars_pag = new Cars_pag();
@@ -53,17 +65,21 @@ namespace УчетнаяСистема.ViewModel
             OrganizationP = new OrganizationP();
             Rashod = new Rashod();
             Parking = new Parking();
-            CurrentPage = Analis;
+            CurrentPage = Kompleks_hause;
+            NameBuild = staticClass.BuildName;
         }
 
-
+        public ICommand bMenuAnalis => new RelayCommand((obj) => {
+            CurrentPage = Analis;
+            NameBuild = staticClass.BuildName;
+        });
+        public ICommand bMenuComHaus => new RelayCommand((obj) => CurrentPage = Kompleks_hause);
         public ICommand bMenuParking => new RelayCommand((obj) => CurrentPage = Parking);
         public ICommand bMenuRashod => new RelayCommand((obj) => CurrentPage = Rashod);
         public ICommand bMenuOrganizationP => new RelayCommand((obj) => CurrentPage = OrganizationP);
         public ICommand bMenuBookeepingP => new RelayCommand((obj) => CurrentPage = BookeepingP);
         public ICommand bMenuCars_pag => new RelayCommand((obj) => CurrentPage = Cars_pag);
         public ICommand bMenuPeple_pag => new RelayCommand((obj) => CurrentPage = Peple_pag);
-        public ICommand bMenuAnalis => new RelayCommand((obj) => CurrentPage = Analis);
         public ICommand bMenuProd_pag2 => new RelayCommand((obj) => CurrentPage = Prod_pag2);
         public ICommand bMenuaddBuilding => new RelayCommand((obj) => CurrentPage = addBuilding);
         public ICommand btnClose => new RelayCommand((obj) => Application.Current.Shutdown());

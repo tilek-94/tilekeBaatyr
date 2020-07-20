@@ -78,13 +78,33 @@ namespace УчетнаяСистема.form_p
             this.Close();
         }
 
+        string id_1 = "";
+        private void x1_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
+            if (dataRow != null)
+            {
+                id_1 = dataRow.Row.ItemArray[0].ToString();
+                MessageO messageO = new MessageO();
+                if (id_1 != "")
+                {
+                    messageO.Id = id_1;
+                    messageO.TableBasa = "exchange";
+                    messageO.del_ += () => Display();
+                    messageO.ShowDialog();
+                }
+            }
+        }
+
         void Display()
         {
             dbCon.eventDysplay += delegate (DataTable db)
             {
                 dataGridView1.ItemsSource = db.DefaultView;
             };
-            dbCon.SoursData("SELECT * FROM exchange ORDER BY id DESC");
+            dbCon.SoursData("SELECT e.number_kv,c.name,p.name,e.`data` FROM (exchange e INNER JOIN client c ) " +
+                "INNER JOIN product p ON e.client_id = c.id AND p.id = e.product_id WHERE e.remov = '0'" +
+                "AND e.dom_id = '"+staticClass.StaticDomID+"'");
 
         }
 

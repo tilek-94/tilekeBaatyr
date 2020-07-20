@@ -10,6 +10,7 @@ namespace УчетнаяСистема.All_classes
     {
         public static string StaticDomID { get; set; } = "";
         public static string StaticEmplayID { get; set; } = "8";
+        public static string BuildName { get; set; } = "";
         
     }
 }

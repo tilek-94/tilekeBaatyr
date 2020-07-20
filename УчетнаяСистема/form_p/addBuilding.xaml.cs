@@ -22,7 +22,7 @@ namespace УчетнаяСистема.form_p
     /// Логика взаимодействия для addBuilding.xaml
     /// 
     /// </summary>
-    public partial class addBuilding : Page
+    public partial class addBuilding : UserControl
     {
         Open_File open = new Open_File();
         public addBuilding()

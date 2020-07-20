@@ -19,7 +19,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" >
-            <Border  Background="#0A6E9E" Height="10" VerticalAlignment="Top" Width="660"/>
+            <Border  Background="#0A6E9E" Height="25" VerticalAlignment="Top" Width="660">
+                <TextBlock Text="Регистрация товаров" Foreground="White" FontSize="14" Margin="10,3,0,0"/>
+            </Border>
             <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
         </Grid>
         <Grid Grid.Row="1" Margin="0,1,0,327" Grid.RowSpan="2">

@@ -7,7 +7,8 @@
         xmlns:vm="clr-namespace:УчетнаяСистема.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="650" Width="1496.562" AllowsTransparency="True" 
-        WindowStyle="None" WindowStartupLocation="CenterScreen" Background="{x:Null}" Loaded="Loaded_Window" WindowState="Maximized">
+        WindowStyle="None" WindowStartupLocation="CenterScreen" Background="{x:Null}" 
+        Loaded="Loaded_Window" WindowState="Maximized">
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
@@ -64,6 +65,28 @@
                                     </Button>
                                 </Border>
 
+                                <Border HorizontalAlignment="Left" Margin="5,0,0,0">
+                                    <Button Style="{DynamicResource menuButton}" 
+                                            Command="{Binding bMenuComHaus}">
+                                        <StackPanel>
+                                            <Image>
+                                                <Image.Style>
+                                                    <Style TargetType="Image">
+                                                        <Setter Property="Source" Value="images/house.png" />
+                                                        <Setter Property="Width" Value="40"/>
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Source" Value="images/house2.png"/>
+
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Image.Style>
+                                            </Image>
+                                            <TextBlock Margin="0,6,0,0" Foreground="White" FontSize="11">ЖИЛОЙ КОМПЛЕКС</TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                </Border>
                                 
                                 <Border HorizontalAlignment="Left" Margin="5,0,0,0">
                                     <Button Style="{DynamicResource menuButton}" 
@@ -148,7 +171,7 @@
                                 <Border HorizontalAlignment="Left" Margin="5,0,0,0">
                                     <Button Style="{DynamicResource menuButton}" 
                                             x:Name="button_peopleV" Command="{Binding bMenuPeple_pag}">
-                                        <StackPanel>
+                                        <StackPanel Width="108">
 
                                             <Image>
                                                 <Image.Style>
@@ -572,10 +595,8 @@
         </TabControl>
         <Grid Grid.Row="2" x:Name="Os_Grid" >
 
-            <Frame x:Name="pag" 
-             Content="{Binding CurrentPage}"
-            NavigationUIVisibility="Hidden"
-                   ></Frame>
+            <ContentControl Content="{Binding CurrentPage}"  />
+            
 
         </Grid>
     </Grid>

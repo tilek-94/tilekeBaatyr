@@ -18,7 +18,7 @@ namespace УчетнаяСистема.form_p
     /// <summary>
     /// Interaction logic for Parking.xaml
     /// </summary>
-    public partial class Parking : Page
+    public partial class Parking : UserControl
     {
         public Parking()
         {
