@@ -110,8 +110,12 @@
             <Label Content="" x:Name="l2" Foreground="#5C554F" 
                 Canvas.Left="770" Canvas.Top="87" FontSize="13" />
         </Canvas>
-        <Border Grid.Row="2" Padding="5" Background="#F4F4F4">
-            <StackPanel  Background="White" >
+        <Grid Grid.Row="2"  Background="#F4F4F4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+           
                 <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
                     <Label Content="Регистрация машина" FontSize="16" Foreground="#00C3FF" ></Label>
                     <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" 
@@ -123,10 +127,12 @@
                 </DockPanel>
                 <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
+                          Grid.Row="1"
                           SelectionChanged="dataGridView1_SelectionChanged"
                           MouseDoubleClick="dataGridView1_MouseDoubleClick"
                   Height="280"
                   ItemsSource="{Binding}"
+                  CanUserAddRows="False"        
                   AutoGenerateColumns="False"
                   ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1"
                          >
@@ -153,8 +159,8 @@
                     </DataGrid.Columns>
 
                 </DataGrid>
-            </StackPanel>
-        </Border>
+           
+        </Grid>
 
     </Grid>
 </Window>

@@ -34,7 +34,7 @@
                         Canvas.Left="21" Canvas.Top="20" Width="181">
                     <Image x:Name="image" Source="../images/foto_people/people.JPG"  Stretch="UniformToFill"/>
                 </Border>
-                
+
                 <TextBox x:Name="text4" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Ф.И.О" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="305" Canvas.Top="111" />
                 <Label Content="Ф.И.О" Canvas.Left="223" Canvas.Top="110" FontSize="13" />
                 <TextBox x:Name="text6" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Телефон номер" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="305" Canvas.Top="179"/>
@@ -48,34 +48,37 @@
                 <Label Content="Дата рож." Canvas.Left="220" Canvas.Top="143" FontSize="13" />
                 <DatePicker x:Name="text5" Style="{DynamicResource styleDatePicker}" Canvas.Left="305" Canvas.Top="144" Width="252" Height="24"/>
                 <Label Content="AN" Canvas.Left="584" Canvas.Top="112" FontSize="13" />
-                
+
                 <Button Style="{DynamicResource Button_White}" Content="Отмена"
                     x:Name="button2" Canvas.Left="567" 
                         Click="button2_Click"
                         Canvas.Top="271" Width="168" Height="26"/>
                 <Button Style="{DynamicResource  Button_blue}" Content="Сохранить"
                     x:Name="button"  Click="button_Click" Canvas.Left="390" Canvas.Top="271" Width="168" Height="25"/>
-                
-                
+
+
                 <TextBox x:Name="text10" FontSize="14"  Style="{DynamicResource textbox_style}" Tag=" Выданный" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="687" Canvas.Top="178" />
                 <Label Content="Выданный" Canvas.Left="584" Canvas.Top="177" FontSize="13" />
+
                 <Label Content="Дата выданный" Canvas.Left="583" Canvas.Top="140" FontSize="13" />
                 <DatePicker x:Name="text9" Style="{DynamicResource styleDatePicker}" Canvas.Left="687" Canvas.Top="143" Width="252" Height="24"/>
                 <Label Content="Адресс по пас." Canvas.Left="583" Canvas.Top="211" FontSize="13" />
-                
+
                 <TextBox x:Name="text11" FontSize="14"
                         Style="{DynamicResource textbox_style}" 
                          TextWrapping="Wrap"
                          Tag=" Адресс по паспорт" Height="48" Width="254" 
                          HorizontalAlignment="Right" Canvas.Left="687" Canvas.Top="212"/>
-                
-                <TextBox x:Name="text1" FontSize="14"  Style="{DynamicResource textbox_style}" 
+
+                <TextBox x:Name="text1" FontSize="14"  Style="{DynamicResource textbox_style}"
+                         PreviewTextInput="NumberValidationTextBox"
                          Tag=" Логин" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="302" Canvas.Top="19" />
                 <Label Content="Логин:" Canvas.Left="220" Canvas.Top="18" FontSize="13" />
-                <TextBox x:Name="text2" FontSize="14"  Style="{DynamicResource textbox_style}" 
-                         Tag=" Пароль" Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="302" Canvas.Top="56" />
-                
-                <Label Content="Пароль:" Canvas.Left="220" Canvas.Top="55" FontSize="13" />
+                <PasswordBox x:Name="textPassword" FontSize="14"   
+                         Tag=" Пароль" Height="24" Width="254" 
+                             HorizontalAlignment="Right" Canvas.Left="671" Canvas.Top="18" />
+
+                <Label Content="Пароль:" Canvas.Left="579" Canvas.Top="17" FontSize="13" />
                 <ComboBox 
                           SelectedValue="{Binding FilterService.TripLengthFrom, Mode=TwoWay}"
                           BorderThickness="1 1 1 1" 
@@ -83,19 +86,24 @@
                           IsEditable="True"
                           DropDownClosed="ComboBox_P_DropDownClosed"
                          
-                Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="681" Canvas.Top="17" 
+                Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="302" Canvas.Top="50" 
                       >
-                   
+
                 </ComboBox>
 
-                
-                <Label Content="Роль полз." Canvas.Left="599" Canvas.Top="16" FontSize="13" />
-                
+
+                <Label Content="Роль полз." Canvas.Left="220" Canvas.Top="49" FontSize="13" />
+
                 <Border BorderThickness="1" BorderBrush="#FFC1C0C0" Background="White" Panel.ZIndex="-1"
                         Height="85" Canvas.Left="214" Canvas.Top="6" Width="733"/>
                 <Border BorderBrush="#FFC1C0C0" BorderThickness="1" Background="White" Panel.ZIndex="-1"
                         Height="206" Canvas.Left="213" Canvas.Top="100" Width="734">
                 </Border>
+                <PasswordBox x:Name="textPassword2" FontSize="14"  
+                    Tag=" Пароль" Height="24" Width="254"
+                             HorizontalAlignment="Right" Canvas.Left="672" Canvas.Top="50" />
+                
+                <Label Content="Подвердите:" Canvas.Left="580" Canvas.Top="49" FontSize="13" />
 
 
 

@@ -46,8 +46,8 @@
                         <DataGridTextColumn Width="120" Header="Машина марка" Binding="{Binding Cars}" />
                         <DataGridTextColumn Width="120" Header="Цен доллор м2" Binding="{Binding to_usd}" />
                         <DataGridTextColumn  Width="120" Header="Цена сом м2" Binding="{Binding Rto_kgs}" />
-                        <DataGridTextColumn Width="120" Header="Сумма на доллар" Binding="{Binding data_n, StringFormat='dd-MM-yyyy '}" />
-                        <DataGridTextColumn Width="130" Header="Сумма на сом" Binding="{Binding data_k, StringFormat='dd-MM-yyyy '}" />
+                        <DataGridTextColumn Width="120" Header="Начало даты" Binding="{Binding data_n, StringFormat='dd-MM-yyyy '}" />
+                        <DataGridTextColumn Width="130" Header="Конец даты" Binding="{Binding data_k, StringFormat='dd-MM-yyyy '}" />
                         <DataGridTextColumn Width="130" Visibility="Hidden" Binding="{Binding klient_id}" />
                     </DataGrid.Columns>
 

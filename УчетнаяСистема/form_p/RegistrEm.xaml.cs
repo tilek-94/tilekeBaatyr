@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -81,10 +82,11 @@ namespace УчетнаяСистема.form_p
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            if (text1.Text != "" && text2.Text != "" && ComboBox_n.Text != "" && text4.Text != "") {
+            if (text1.Text != "" && textPassword.Password != "" && ComboBox_n.Text != "" && text4.Text != "") {
+                if (textPassword.Password.ToString()== textPassword2.Password.ToString()) { 
                 dbCon.Registr("INSERT INTO users(login,parol,rol,name,data_r,tel_nom,addres,an,data_p,vdan, address_p) VALUES(" +
                      "'" + text1.Text + "'," +
-                     "'" + HashPassword(text2.Text) + "'," +
+                     "'" + HashPassword(textPassword.Password.ToString()) + "'," +
                      "'" + value + "'," +
                      "'" + text4.Text + "'," +
                      "'" + text5.Text + "'," +
@@ -97,7 +99,8 @@ namespace УчетнаяСистема.form_p
                 RegistData("SELECT * FROM users WHERE remov='0' ");
                 text1.Text = "";
                 ComboBox_n.Text = "";
-                text2.Text = "";
+                textPassword.Password = "";
+                textPassword2.Password = "";
                 text4.Text = "";
                 text5.Text = "";
                 text6.Text = "";
@@ -106,6 +109,13 @@ namespace УчетнаяСистема.form_p
                 text9.Text = "";
                 text10.Text = "";
                 text11.Text = "";
+                }
+                else
+                {
+                    MessageM messageM = new MessageM();
+                    messageM.Mees = "Пароли не совпадают!";
+                    messageM.ShowDialog();
+                }
             }
             else
             {
@@ -113,6 +123,12 @@ namespace УчетнаяСистема.form_p
                 messageM.Mees = "Заполните все полии!";
                 messageM.ShowDialog();
             }
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9,a-z A-z]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
         void AddNumber()
         {
