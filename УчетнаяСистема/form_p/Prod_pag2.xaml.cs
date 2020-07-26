@@ -6,6 +6,10 @@ using System.Data;
 using УчетнаяСистема.All_classes;
 using System.Linq;
 using System.Text.RegularExpressions;
+using УчетнаяСистема.Model;
+using System.Collections.Generic;
+using System.Net.Http;
+using Google.Protobuf;
 
 namespace УчетнаяСистема.form_p
 {
@@ -17,14 +21,18 @@ namespace УчетнаяСистема.form_p
         public Prod_pag2()
         {
             InitializeComponent();
+           /* this.ComboBoxCars.SelectedValuePath = "Key";
+            this.ComboBoxCars.DisplayMemberPath = "Value";*/
         }
         dbConnect dbCon = new dbConnect();
         dbConnect dbCon2 = new dbConnect();
         RaschetSum raschetSum = new RaschetSum();
+        List<Cars> cars = new List<Cars>();
         lang lanG = new lang();
         int cars_id = 0;
         int client_id = 0;
-        string currency_id="0",KgsCars="0",UsdCars="0", basaSum = "0", typeV = "";
+        double KgsCars = 0, UsdCars = 0;
+        string currency_id="0", basaSum = "0", typeV = "";
         string IdCarsCurs = "0", ItogPrice = "0", Vznos = "0", DebZa = "0";
         double UsdSum = 0, USDCars = 0;
         double VznosSum = 0, KgsSUM = 0, UsdCarsSum = 0;
@@ -36,12 +44,11 @@ namespace УчетнаяСистема.form_p
         {
             
         }
-
+        CarsService ObjCarsService;
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            ObjCarsService = new CarsService();
             LoadDisplay();
-
-
 
         }
 
@@ -55,27 +62,30 @@ namespace УчетнаяСистема.form_p
             };
             dbCon.SoursData("SELECT * FROM dysplayaddbuild WHERE dom_id='" + staticClass.StaticDomID + "' ORDER BY id DESC");
 
-            string[] s = dbCon.RedInfor("SELECT floor,porch,count_kv FROM dom WHERE id='" + staticClass.StaticDomID + "'");
-            DelegATE(Convert.ToInt32(s[2]));
+              DelegATE();
 
            
         }
-        private void DelegATE(int f)
+        private void DelegATE()
         {
-            try { 
+            dbCon = new dbConnect();
             ComboBox2.Items.Clear();
-            dbCon.eventDysplay2 += delegate (string[] a)
+            dbCon.eventDysplay += delegate (DataTable db)
             {
-
-                for (int i = 0; i < f; i++)
-                {
-                    if (Array.IndexOf(a, i.ToString()) < 0)
-                        ComboBox2.Items.Add(i.ToString());
-                }
+               // MessageBox.Show(db.Rows[0][0].ToString());
+                  for(int i=0; i < db.Rows.Count;i++) 
+                ComboBox2.Items.Add(db.Rows[i][0].ToString());
+                
             };
-            dbCon.Display("SELECT number_f FROM zakaz");
-            }
-            catch { }
+
+            dbCon.SoursData("SELECT f.number_f FROM flat f WHERE f.number_f " +
+                "NOT IN(SELECT e.number_f FROM exchange e WHERE e.remov = '0' " +
+                "AND e.dom_id = '21') AND f.number_f " + 
+                "NOT IN(SELECT z.number_f FROM zakaz z WHERE z.remov = '0' " +
+                "AND z.dom_id = '21') AND f.number_f " +
+                "NOT IN(SELECT b.number_f FROM bron b WHERE b.remov = '0' AND b.dom_id = '21') " +
+                "AND f.dom_id = '21' AND f.remov = '0' ORDER BY number_f ");
+
         }
         private void dataGridView1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -122,7 +132,7 @@ namespace УчетнаяСистема.form_p
             FIO.Text = "";
 ComboBox2.Text = "";
             label_kvm.Text = "";
-            textbox_cars.Text = "";
+           // textbox_cars.Text = "";
             textbox_Dol.Text = "";
             textbox_Summ.Text = "";
             textBox_vz.Text = "";
@@ -138,6 +148,8 @@ ComboBox2.Text = "";
 
         private void registr_client_btn_Click(object sender, RoutedEventArgs e)
         {
+            
+            //string json = JsonParser.Serialize<List<Person>>(person);
             if (textbox_dogovor.Text!=""&& client_id != 0 && ComboBox2.Text!="" && currency_id !="0" && textbox_dogovor.Text!=null && basaSum!="0" && data_n!="" && data_k!="") {
                 
             dbCon.Registr("INSERT INTO zakaz(" +
@@ -195,20 +207,74 @@ ComboBox2.Text = "";
            
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+        private void x1_Click(object sender, RoutedEventArgs e)
+        {
+           // MessageBox.Show(ComboBoxCars.SelectedIndex.ToString());
+        }
+        Cars value;
+        Double RemovSumKg = 0,RemovSumUsd=0;
+
+        private void ComboBoxCars_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (ComboBoxCars.SelectedValue != null)
+                value = (Cars)ComboBoxCars.SelectedValue;
+            for (int index = 0; index < cars.Count; index++)
+            {
+                if (cars[index].Id == value.Id)
+                {
+                    RemovSumKg = cars[index].Kgs;
+                    RemovSumUsd = cars[index].Usd;
+                    UsdCars -= RemovSumUsd;
+                    KgsCars -= RemovSumKg;
+                    textboxCarsUsd.Text = UsdCars.ToString();
+                    textboxCarsKGS.Text = KgsCars.ToString();
+                    cars.RemoveAt(index);
+                    ComboBoxCars.ItemsSource = null;
+                    ComboBoxCars.ItemsSource = cars;
+                    break;
+                }
+            }
+
+
+        }
+
+        private void ComboBoxCars_DropDownClosed(object sender, EventArgs e)
+        {
+            
+        }
+
+       
         private void show_client_Cars_Click(object sender, RoutedEventArgs e)
         {
             Search_cars2 search_Cars2 = new Search_cars2();
             search_Cars2.mes_ += (x,  y,  USD, KGS,IdCurs)=>
             {
+                KgsCars = 0;
+                UsdCars = 0;
+                ComboBoxCars.ItemsSource=null;
                 cars_id = Convert.ToInt32(x);
-               textboxCarsUsd.Text = USD;
-                textboxCarsKGS.Text = KGS;
-                textbox_cars.Text = y;
+               
+                ComboBoxCars.Text = y;
                 IdCarsCurs = IdCurs;
-                KgsCars = KGS;
-                UsdCars = USD;
+                cars.Add(new Cars { Id = cars_id,Name=y,Kgs= Convert.ToDouble(KGS), Usd= Convert.ToDouble(USD) });
+                foreach (Cars c in cars)
+                {
+                    KgsCars+=c.Kgs;
+                    UsdCars += c.Usd;
+                   
+                }
+                ComboBoxCars.ItemsSource = cars;
+                textboxCarsUsd.Text = UsdCars.ToString(); 
+                textboxCarsKGS.Text = KgsCars.ToString();
             };
             search_Cars2.ShowDialog();
+            
           
         }
 
@@ -217,26 +283,22 @@ ComboBox2.Text = "";
 
         private void kon_d_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            try { 
             data_k = kon_d.DisplayDate.ToString("yyyy-MM-dd");
             
             d2 = kon_d.DisplayDate.ToString("dd");
             mon2 = kon_d.DisplayDate.ToString("MM");
             y2 = kon_d.DisplayDate.ToString("yyyy");
-            }
-            catch { }
+            
         }
 
         private void kon_n_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            try { 
             data_n=kon_n.DisplayDate.ToString("yyyy-MM-dd");
 
             d1 = kon_n.DisplayDate.ToString("dd");
             mon1 = kon_n.DisplayDate.ToString("MM");
             y1 = kon_n.DisplayDate.ToString("yyyy");
-            }
-            catch { }
+            
 
         }
 
@@ -335,8 +397,7 @@ ComboBox2.Text = "";
         }
 
         private void textbox_Dol_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            try { 
+        { 
             if (textbox_Dol.Text != "") { 
 
             if (label_kvm.Text != "") { 
@@ -353,11 +414,7 @@ ComboBox2.Text = "";
             }
                 SummItogo();
             }
-            }
-            catch
-            {
-
-            }
+            
         }
 
         private void btn_valuta_Click(object sender, RoutedEventArgs e)
@@ -390,10 +447,6 @@ ComboBox2.Text = "";
             else vznos = 0;
 
             textbox_Som_vz2.Text = raschetSum.Kurs(ComboBox3.Text, vznos, usd, eur, rub).ToString();
-
-            // MessageBox.Show();
-           // textboxCarsKGS.Text = raschetSum.ReaderBasa(ComboBox3.Text, Convert.ToDouble(KgsCars), IdCarsCurs).ToString();
-            //MessageBox.Show(raschetSum.ReaderBasa(ComboBox3.Text, Convert.ToDouble(KgsCars), IdCarsCurs).ToString());
             LangName = lanG.ReturnName(ComboBox3.Text);
             l1.Content = LangName[1];
             l2.Content = LangName[1];
@@ -405,10 +458,10 @@ ComboBox2.Text = "";
             l42.Content = LangName[2];
             li2.Content= LangName[2]+":";
             li1.Content=LangName[1]+":";
-            if(KgsCars!="0")
-            textboxCarsUsd.Text= raschetSum.ReaderBasa(ComboBox3.Text, Convert.ToDouble(KgsCars), IdCarsCurs).ToString();
-            if (UsdCars != "0")
-                textboxCarsKGS.Text= raschetSum.ReaderBasa2(ComboBox3.Text, Convert.ToDouble(UsdCars), IdCarsCurs).ToString();
+            if(KgsCars!=0)
+            textboxCarsUsd.Text= raschetSum.ReaderBasa(ComboBox3.Text, KgsCars, IdCarsCurs).ToString();
+            if (UsdCars != 0)
+                textboxCarsKGS.Text= raschetSum.ReaderBasa2(ComboBox3.Text, UsdCars, IdCarsCurs).ToString();
              SummItogo();
             }
             catch

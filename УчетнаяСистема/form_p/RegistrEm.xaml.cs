@@ -232,7 +232,7 @@ namespace УчетнаяСистема.form_p
             value = ComboBox_n.SelectedValue.ToString();
 
 
-            MessageBox.Show(value);
+            //MessageBox.Show(value);
         }
     }
 }

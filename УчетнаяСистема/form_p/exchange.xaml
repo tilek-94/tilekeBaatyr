@@ -80,7 +80,7 @@
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Button Style="{DynamicResource Button_blue}" Content="Сохранить"
                             x:Name="registr_btn" Click="registr_btn_Click"
-                            Width="293" Height="26" RenderTransformOrigin="0.494,-0.221" Margin="150,0,0,0"/>
+                            Width="293" Height="26" RenderTransformOrigin="0.494,-0.221" Margin="120,0,0,0"/>
                 </StackPanel>
 
             </StackPanel>
@@ -96,13 +96,14 @@
                 <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
                   CanUserAddRows="False"
-                          AutoGenerateColumns="False"
+                     AutoGenerateColumns="False"
                   ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="№" Binding="{Binding id}" Width="50" />
-                        <DataGridTextColumn Header="Номер квартира"  Width="80" Binding="{Binding name}" />
-                        <DataGridTextColumn Header="Ф.И.О Клиент" Binding="{Binding tel_nom}" />
-                        <DataGridTextColumn Header="Продукт" Binding="{Binding AN}" />
+                        <DataGridTextColumn Header="Номер квартира"  Width="80" Binding="{Binding number_f}" />
+                        <DataGridTextColumn Header="Ф.И.О Клиент" Binding="{Binding name}" />
+                        <DataGridTextColumn Header="Продукт" Binding="{Binding tovar}" />
+                        <DataGridTextColumn Header="Продукт" Binding="{Binding data, StringFormat='dd-MM-yyyy HH:mm'}" />
                          <DataGridTemplateColumn Header="Удалить" Width="50" >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>

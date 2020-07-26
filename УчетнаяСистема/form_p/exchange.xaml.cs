@@ -1,19 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using УчетнаяСистема.All_classes;
-using form_p = УчетнаяСистема.form_p;
 
 namespace УчетнаяСистема.form_p
 {
@@ -26,7 +14,8 @@ namespace УчетнаяСистема.form_p
         {
             InitializeComponent();
         }
-        dbConnect dbCon = new dbConnect();
+        dbConnect dbCon; 
+                
         int client_id = 0, product_id;
      
 
@@ -57,8 +46,8 @@ namespace УчетнаяСистема.form_p
         private void registr_btn_Click(object sender, RoutedEventArgs e)
         {
             if (ComboBox1.Text!="") { 
-            dbCon.Registr("INSERT INTO exchange(client_id,product_id,number_kv,dom_id)" +
-                "VALUES('" + client_id + "','" + product_id + "','" + ComboBox1.Text + "','6')");
+            dbCon.Registr("INSERT INTO exchange(client_id,product_id,number_f,dom_id)" +
+                "VALUES('" + client_id + "','" + product_id + "','" + ComboBox1.Text + "','" + staticClass.StaticDomID + "')");
             Display();
                 ComboBox1.Text = "";
             }
@@ -70,9 +59,32 @@ namespace УчетнаяСистема.form_p
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            /*string[] s = dbCon.RedInfor("SELECT floor,porch,count_kv FROM dom WHERE id='" + staticClass.StaticDomID + "'");
+           */ DelegATE();
             Display();
         }
 
+        private void DelegATE()
+        {
+            dbCon = new dbConnect();
+            ComboBox1.Items.Clear();
+            dbCon.eventDysplay += delegate (DataTable db)
+            {
+               // MessageBox.Show(db.Rows[0][0].ToString());
+                  for(int i=0; i < db.Rows.Count;i++) 
+                ComboBox1.Items.Add(db.Rows[i][0].ToString());
+                
+            };
+
+            dbCon.SoursData("SELECT f.number_f FROM flat f WHERE f.number_f " +
+                "NOT IN(SELECT e.number_f FROM exchange e WHERE e.remov = '0' " +
+                "AND e.dom_id = '21') AND f.number_f " + 
+                "NOT IN(SELECT z.number_f FROM zakaz z WHERE z.remov = '0' " +
+                "AND z.dom_id = '21') AND f.number_f " +
+                "NOT IN(SELECT b.number_f FROM bron b WHERE b.remov = '0' AND b.dom_id = '21') " +
+                "AND f.dom_id = '21' AND f.remov = '0' ORDER BY number_f ");
+
+        }
         private void Button_Clic(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -98,12 +110,13 @@ namespace УчетнаяСистема.form_p
 
         void Display()
         {
+            dbCon = new dbConnect();
             dbCon.eventDysplay += delegate (DataTable db)
             {
                 dataGridView1.ItemsSource = db.DefaultView;
             };
-            dbCon.SoursData("SELECT e.number_kv,c.name,p.name,e.`data` FROM (exchange e INNER JOIN client c ) " +
-                "INNER JOIN product p ON e.client_id = c.id AND p.id = e.product_id WHERE e.remov = '0'" +
+            dbCon.SoursData("SELECT e.id, e.number_f,c.name,p.name AS tovar,e.`data` FROM (exchange e INNER JOIN client c ) " +
+                "INNER JOIN product p ON e.client_id = c.id AND p.id = e.product_id WHERE e.remov = '0' " +
                 "AND e.dom_id = '"+staticClass.StaticDomID+"'");
 
         }

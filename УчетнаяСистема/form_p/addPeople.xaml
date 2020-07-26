@@ -68,7 +68,11 @@
                                               
             </Canvas>
 
-            <Border Grid.Row="2" Padding="5" Background="#F4F4F4">
+            <Grid Grid.Row="2"  Background="#F4F4F4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
                 <StackPanel  Background="White" >
                     <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
                         <Label Content="{Binding NameBuild}" FontSize="16" Foreground="#00C3FF" ></Label>
@@ -83,7 +87,9 @@
                         </TextBox>
 
                     </DockPanel>
-                    <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
+                </StackPanel>
+                
+                <DataGrid FontSize="12"  Grid.Row="1" Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
                    CanUserAddRows="False"
                   x:Name="dataGridView1"
@@ -115,8 +121,8 @@
                         </DataGrid.Columns>
 
                     </DataGrid>
-                </StackPanel>
-            </Border>
+                
+            </Grid>
         </Grid>
     </Grid>
 </Window>

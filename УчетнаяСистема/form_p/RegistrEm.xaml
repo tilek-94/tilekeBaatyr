@@ -86,7 +86,8 @@
                           IsEditable="True"
                           DropDownClosed="ComboBox_P_DropDownClosed"
                          
-                Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="302" Canvas.Top="50" 
+                Height="24" Width="254" HorizontalAlignment="Right" Canvas.Left="302" 
+                    Canvas.Top="50" 
                       >
 
                 </ComboBox>

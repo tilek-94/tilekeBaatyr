@@ -182,6 +182,8 @@
     <Compile Include="MessageO.xaml.cs">
       <DependentUpon>MessageO.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Cars.cs" />
+    <Compile Include="Model\CarsService.cs" />
     <Compile Include="registr\registr_flat.xaml.cs">
       <DependentUpon>registr_flat.xaml</DependentUpon>
     </Compile>
@@ -496,8 +498,6 @@
   <ItemGroup>
     <Resource Include="images\account_480px.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

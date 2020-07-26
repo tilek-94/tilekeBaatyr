@@ -32,10 +32,12 @@
                 <StackPanel Orientation="Horizontal">
                     <RadioButton FontSize="13" x:Name="Radio1"
                                  Click="Radio1_Checked"
-                                 GroupName="Languages" Content="Организация " IsChecked="True" />
+                                 GroupName="Languages" Content="Физические лица" IsChecked="True" />
                     <RadioButton Margin="40,0,0,0" 
-                                 Click="RadioButton_Checked"
-                                 FontSize="13" GroupName="Languages" Content="Физические лица " IsChecked="False" 
+                                 Click="Radio2_Checked"
+                                 x:Name="Radio2"
+                                 FontSize="13" GroupName="Languages"
+                                 Content="Организация " IsChecked="False" 
                                   />
                     
                 </StackPanel>
@@ -82,12 +84,12 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
-                    <Label  Content="Организация: " x:Name="LabelOrg" Width="85" />
+                    <Label  Content="Ф.И.О: " x:Name="LabelOrg" Width="85" />
                     
                     <TextBox FontSize="14"   
                              x:Name="TextBoxOrg"
                             Style="{DynamicResource textbox_style}"
-                             Tag=" Организация" Height="24" Width="250" />
+                             Tag=" Ф.И.О" Height="24" Width="250" />
 
                     <Button Style="{DynamicResource Button_Add}" Width="32"
                             x:Name="view_btn" 
@@ -121,13 +123,10 @@
                                  Tag=" 1 000 000 " Height="24" Width="150" HorizontalAlignment="Right" />
 
                     <Label  Content="Валюта: " Width="60" Margin="20,0,0,0" />
-                    <ComboBox Width="99" IsEditable="True"  x:Name="kurs" >
-                        <TextBlock><Run Text="USD"/></TextBlock>
-                        <TextBlock><Run Text="KGS"/></TextBlock>
-                        <TextBlock><Run Text="RUB"/></TextBlock>
-                        <TextBlock><Run Text="EUR"/></TextBlock>
+                    <TextBox Width="99"  Style="{DynamicResource textbox_style}"  Tag=" 1" x:Name="kurs" >
+                        
 
-                    </ComboBox>
+                    </TextBox>
 
                 </StackPanel>
 

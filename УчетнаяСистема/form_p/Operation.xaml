@@ -58,6 +58,7 @@
                               MouseDoubleClick="dataGridView1_MouseDoubleClick"
                   ItemsSource="{Binding}" 
                   VerticalScrollBarVisibility="Auto"
+                              CanUserAddRows="False"
                   AutoGenerateColumns="False"
                   Height="500"
                   ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1" 

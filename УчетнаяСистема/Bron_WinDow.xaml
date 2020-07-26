@@ -115,7 +115,11 @@
             </StackPanel>
         </Grid>
 
-        <Border Grid.Row="2" Padding="5" Background="#F4F4F4">
+        <Grid Grid.Row="2" Background="#F4F4F4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
             <StackPanel  Background="White" >
                 <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
                     <Label Content="Брон квартиры" FontSize="16" Foreground="#00C3FF" ></Label>
@@ -123,33 +127,32 @@
 
                     </TextBox>
                 </DockPanel>
-                
-                <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
+            </StackPanel>
+            <DataGrid FontSize="12" Grid.Row="1"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
-                  x:Name="dataGridView1"
-                  ItemsSource="{Binding}"
-                          AutoGenerateColumns="False"
-                  ColumnHeaderStyle="{DynamicResource hederstyle}" MouseUp="dataGridView1_MouseUp" >
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="№" Binding="{Binding id}" Width="50" />
-                        <DataGridTextColumn Header="Номер квартира" Binding="{Binding flat_id}" />
-                        <DataGridTextColumn Header="Клиент" Binding="{Binding client}" />
-                        <DataGridTextColumn Header="Цена за м2(USD)" Binding="{Binding to_usd}" />
-                        <DataGridTextColumn Header="Цена за м2(KGS)" Binding="{Binding Rto_kgs}" />
-                        <DataGridTextColumn Header="Дата" Binding="{Binding data, StringFormat='dd-MM-yyyy HH:mm'}" />
-                        </DataGrid.Columns>
+                  CanUserAddRows="False"
+                     AutoGenerateColumns="False"
+                  ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="№" Binding="{Binding id}" Width="50" />
+                    <DataGridTextColumn Header="Номер квартира"  Width="80" Binding="{Binding number_f}" />
+                    <DataGridTextColumn Header="Ф.И.О Клиент" Width="170" Binding="{Binding client}" />
+                    <DataGridTextColumn Header="Цена м2 (USD" Binding="{Binding to_usd}" />
+                    <DataGridTextColumn Header="Цена м2 (KGS)" Binding="{Binding Rto_kgs}" />
+                    <DataGridTextColumn Header="Продукт" Binding="{Binding data, StringFormat='dd-MM-yyyy HH:mm'}" />
                     <DataGridTemplateColumn Header="Удалить" Width="50" >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Background="{x:Null}" x:Name="x1" Click="x1_Click"  BorderThickness="0,0,0,0" Cursor="Hand">
-                                    <Image Source="images/icon/udalit4.png" Width="20"/>
+                                    <Image Source="/УчетнаяСистема;component/images/icon/udalit4.png" Width="20"/>
                                 </Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
+                </DataGrid.Columns>
 
-                </DataGrid>
-            </StackPanel>
-        </Border>
+            </DataGrid>
+
+        </Grid>
     </Grid>
 </Window>

@@ -7,6 +7,8 @@ using УчетнаяСистема.registr;
 using System.Windows;
 using System.Windows.Forms.VisualStyles;
 using УчетнаяСистема.All_classes;
+using System.Collections.ObjectModel;
+using УчетнаяСистема.Model;
 
 namespace УчетнаяСистема.ViewModel
 {
@@ -115,6 +117,22 @@ namespace УчетнаяСистема.ViewModel
             RegistrEm registrEm = new RegistrEm();
             registrEm.ShowDialog();
         });
+
+       /* private ObservableCollection<Cars> carsList;
+        public ObservableCollection<Cars> CarsList
+        {
+            get { return carsList; }
+            set
+            {
+                carsList = value;
+                OnPropertyChanged("CarsList");
+            }
+        }*/
+
+        /*private void LoadData()
+        {
+            CarsList = new ObservableCollection<Cars>(Cars.GetAll());
+        }*/
 
 
 

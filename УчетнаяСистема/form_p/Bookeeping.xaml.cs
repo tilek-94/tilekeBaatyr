@@ -1,17 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using УчетнаяСистема.All_classes;
 
 namespace УчетнаяСистема.form_p
@@ -29,10 +17,10 @@ namespace УчетнаяСистема.form_p
         public event MessageDel del;
         dbConnect dbCon = new dbConnect();
         public int Flag = 0;
+        int type_c=0;
         private void Radio1_Checked(object sender, RoutedEventArgs e)
         {
-            TextBoxOrg.Tag = "Организация";
-            LabelOrg.Content = "Организация";
+            
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
@@ -40,21 +28,25 @@ namespace УчетнаяСистема.form_p
             TextBoxOrg.Tag = " Ф.И.О";
             LabelOrg.Content = "Ф.И.О";
         }
-
+        string kodSchets = "";
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            string fmt = "№ 000000000.##";
             if (Flag == 1)
             {
+                int intdata = Convert.ToInt16(dbCon.DisplayReturn("Select max(`id`) as `maxid` from prihod")) + 1;
+                text1.Text = intdata.ToString(fmt);
                 TextHeader.Text = "Приходный кассовый ордер";
             }
             else if (Flag == 2) {
+                int intdata = Convert.ToInt16(dbCon.DisplayReturn("Select max(`id`) as `maxid` from rashod")) + 1;
+                text1.Text = intdata.ToString(fmt);
                 TextHeader.Text = "Расходный кассовый ордер";
             }
             
-            string fmt = "№ 000000000.##";
+           
             
-            int intdata = Convert.ToInt16( dbCon.DisplayReturn("SELECT COUNT(id) FROM finance"))+1; 
-            text1.Text =intdata.ToString(fmt);
+           
             DateTime thisDay = DateTime.Now;
             DataText.Text = thisDay.ToLocalTime().ToString();
         }
@@ -66,34 +58,71 @@ namespace УчетнаяСистема.form_p
             operation.del += s => text3.Text=s;
             operation.ShowDialog();
         }
-
+        int client_id = 0;
         private void view_btn_Click(object sender, RoutedEventArgs e)
         {
+            if (Radio1.IsChecked == true)
+            {
+
+                Window1 window1 = new Window1();
+                window1.ValueChanged += new Action<string, string>((x, y) =>
+                {
+                    client_id = Convert.ToInt32(x);
+                    TextBoxOrg.Text = y;
+
+                });
+                window1.ShowDialog();
+                type_c = 0;
+            }
+            else { 
             Organization organization = new Organization();
             organization.del += s => TextBoxOrg.Text = s;
-
             organization.Show();
+                type_c = 1;
+            }
+
         }
 
         private void registr_btn_Click(object sender, RoutedEventArgs e)
         {
-            dbCon.Registr("INSERT INTO finance (operationU,organ,summa,currency,typeO,sotrud)" +
+            if (Flag==2)
+            {
+                dbCon.Registr("INSERT INTO rashod (operationU,organ,summa,currency,sotrud)" +
                 "VALUES(" +
-                "'"+text3.Text+"'," +
-                "'"+TextBoxOrg.Text+"'," +
-                "'"+text4.Text+"'," +
-                "'"+kurs.Text+"'," +
-                "'"+Flag+"'," +
-                "'6'" +
+                "'" + text3.Text + "'," +
+                "'" + TextBoxOrg.Text + "'," +
+                "'" + text4.Text + "'," +
+                "'" + kurs.Text + "'," +
+                "'"+staticClass.StaticEmplayID+"'" +
                 ")");
-            del();
-            this.Close();
+                del();
+                this.Close();
+            }else if (Flag == 1)
+            {
+                dbCon.Registr("INSERT INTO prihod (operationU,organ,summa,currency,sotrud)" +
+                "VALUES(" +
+                "'" + text3.Text + "'," +
+                "'" + TextBoxOrg.Text + "'," +
+                "'" + text4.Text + "'," +
+                "'" + kurs.Text + "'," +
+                "'" + staticClass.StaticEmplayID + "'" +
+                ")");
+                del();
+                this.Close();
+            }
+            
             
         }
 
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Radio2_Checked(object sender, RoutedEventArgs e)
+        {
+            TextBoxOrg.Tag = "Организация";
+            LabelOrg.Content = "Организация";
         }
     }
 }

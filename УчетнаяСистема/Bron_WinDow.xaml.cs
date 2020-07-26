@@ -1,19 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using УчетнаяСистема.All_classes;
-using form_p = УчетнаяСистема.form_p;
 
 namespace УчетнаяСистема
 {
@@ -27,7 +17,7 @@ namespace УчетнаяСистема
             InitializeComponent();
         }
         int client_id;
-        dbConnect dbCon = new dbConnect();
+        dbConnect dbCon;
         string[] s;
         RaschetSum raschetSum = new RaschetSum();
         lang lanG = new lang();
@@ -90,29 +80,37 @@ namespace УчетнаяСистема
             Raschot();
         }
 
-        private void DelegATE(int f)
+        private void DelegATE()
         {
+            dbCon = new dbConnect();
             ComboBox1.Items.Clear();
-            dbCon.eventDysplay2 += delegate (string[] a)
+            dbCon.eventDysplay += delegate (DataTable db)
             {
-
-                for (int i = 0; i < f; i++)
-                {
-                    if (Array.IndexOf(a, i.ToString()) < 0)
-                        ComboBox1.Items.Add(i.ToString());
-                }
+               // MessageBox.Show(db.Rows[0][0].ToString());
+                  for(int i=0; i < db.Rows.Count;i++) 
+                ComboBox1.Items.Add(db.Rows[i][0].ToString());
+                
             };
-            dbCon.Display("SELECT number_f FROM zakaz");
+
+            dbCon.SoursData("SELECT f.number_f FROM flat f WHERE f.number_f " +
+                "NOT IN(SELECT e.number_f FROM exchange e WHERE e.remov = '0' " +
+                "AND e.dom_id = '"+staticClass.StaticDomID+"') AND f.number_f " + 
+                "NOT IN(SELECT z.number_f FROM zakaz z WHERE z.remov = '0' " +
+                "AND z.dom_id = '" + staticClass.StaticDomID + "') AND f.number_f " +
+                "NOT IN(SELECT b.number_f FROM bron b WHERE b.remov = '0' AND b.dom_id = '" + staticClass.StaticDomID + "') " +
+                "AND f.dom_id = '" + staticClass.StaticDomID + "' AND f.remov = '0' ORDER BY number_f ");
+
         }
 
         private void registr_btn_Click(object sender, RoutedEventArgs e)
         {
-            dbCon.Registr("INSERT INTO bron (client_id,flat_id,price_kv,typev,kurs,sotrudnic_id) " +
-                "VALUES ('"+ client_id + "','"+ComboBox1.Text+"','"+ basaSum + "','"+typeV+"','"+ currency_id + "','0')");
+            dbCon.Registr("INSERT INTO bron (client_id,dom_id,number_f,price_kv,typev,kurs,sotrudnic_id) " +
+                "VALUES ('"+ client_id + "','"+staticClass.StaticDomID+"','"+ComboBox1.Text+"','"+ basaSum + "','"+typeV+"','"+ currency_id + "','"+staticClass.StaticEmplayID+"')");
             Display();
             ComboBox1.Text = "";
             textBox1.Text = "";
             textBox2.Text = "";
+            DelegATE();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -146,8 +144,7 @@ namespace УчетнаяСистема
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            s = dbCon.RedInfor("SELECT floor,porch,count_kv FROM dom WHERE id='"+staticClass.StaticDomID+"'");
-            DelegATE(Convert.ToInt16(s[2]));
+            DelegATE();
             Display();
 
 
@@ -168,14 +165,18 @@ namespace УчетнаяСистема
 
         void Display()
         {
-            dbCon.eventDysplay += delegate (DataTable db)
+            dbCon =new dbConnect();
+            
+            dbCon.eventDysplay +=  (DataTable db)=>
             {
-                //dataGridView1.ItemsSource = db.DefaultView;
+                
+                dataGridView1.ItemsSource = db.DefaultView;
             };
-            dbCon.SoursData("SELECT b.id,b.flat_id, (SELECT name FROM client where id=b.client_id) as client," +
+            dbCon.SoursData("SELECT b.id,b.number_f, (SELECT name FROM client where id=b.client_id) as client," +
                 "IF(b.typev = '(KGS)', ROUND(b.price_kv / cur.usd, 2), b.price_kv) AS to_usd," +
                 "IF(b.typev = '(USD)', ROUND(b.price_kv * cur.usd, 2), b.price_kv) AS Rto_kgs," +
-                " b.data  FROM bron b INNER JOIN currency cur ON b.kurs = cur.id WHERE remov='0' ORDER BY b.id DESC");
+                " b.data  FROM bron b INNER JOIN currency cur ON b.kurs = cur.id WHERE remov='0'" +
+                "AND dom_id='"+staticClass.StaticDomID+"' ORDER BY b.id DESC");
 
         }
         private void textBox2_KeyUp(object sender, KeyEventArgs e)

@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using УчетнаяСистема.All_classes;
 
 namespace УчетнаяСистема.form_p
@@ -26,17 +14,28 @@ namespace УчетнаяСистема.form_p
         {
             InitializeComponent();
         }
-        dbConnect dbCon = new dbConnect();
-        dbConnect dbCon2 = new dbConnect();
+        dbConnect dbCon;
         private void registr_btn_Click(object sender, RoutedEventArgs e)
         {
             Bookeeping bookeeping = new Bookeeping();
             bookeeping.Flag = 1;
-            bookeeping.del += () => RegistData("SELECT * FROM finance WHERE remov='0' and typeO='1'");
+            bookeeping.del += () => RegistDataP("SELECT * FROM prihod WHERE remov='0'");
             bookeeping.ShowDialog();
         }
         private void RegistData(string s)
         {
+            dbCon = new dbConnect();
+            dbCon.eventDysplay += delegate (DataTable db)
+            {
+                myDataGrid2.ItemsSource = db.DefaultView;
+            };
+            dbCon.SoursData(s);
+
+        }
+
+        private void RegistDataP(string s)
+        {
+            dbCon = new dbConnect();
             dbCon.eventDysplay += delegate (DataTable db)
             {
                 myDataGrid.ItemsSource = db.DefaultView;
@@ -49,14 +48,15 @@ namespace УчетнаяСистема.form_p
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
 
-            RegistData("SELECT * FROM finance WHERE remov='0' and typeO='1'");
+            RegistData("SELECT * FROM rashod WHERE remov='0'");
+            RegistDataP("SELECT * FROM prihod WHERE remov='0'");
 
 
         }
         string id_1 = "";
         private void x1_Click(object sender, RoutedEventArgs e)
         {
-            DataRowView dataRow = (DataRowView)myDataGrid.SelectedItem;
+            DataRowView dataRow = (DataRowView)myDataGrid2.SelectedItem;
             if (dataRow != null)
             {
                 id_1 = dataRow.Row.ItemArray[0].ToString();
@@ -64,11 +64,19 @@ namespace УчетнаяСистема.form_p
                 if (id_1 != "")
                 {
                     messageO.Id = id_1;
-                    messageO.TableBasa = "finance";
-                    messageO.del_ += () => RegistData("SELECT * FROM finance WHERE remov='0' and typeO='1'");
+                    messageO.TableBasa = "rashod";
+                    messageO.del_ += () => RegistData("SELECT * FROM rashod WHERE remov='0'");
                     messageO.ShowDialog();
                 }
             }
+        }
+
+        private void registr_btn2_Click(object sender, RoutedEventArgs e)
+        {
+            Bookeeping bookeeping = new Bookeeping();
+            bookeeping.Flag = 2;
+            bookeeping.del += () => RegistData("SELECT * FROM rashod WHERE remov='0' ");
+            bookeeping.ShowDialog();
         }
     }
 }

@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using УчетнаяСистема.All_classes;
 
 namespace УчетнаяСистема.form_p
@@ -29,7 +19,7 @@ namespace УчетнаяСистема.form_p
         string[] LangName = new string[3];
         double usd = 0, eur = 0, rub = 0;
         RaschetSum raschetSum = new RaschetSum();
-        dbConnect dbCon = new dbConnect();
+        dbConnect dbCon; 
         lang lanG = new lang();
         private void show_client_Cars_Click(object sender, RoutedEventArgs e)
         {
@@ -45,7 +35,30 @@ namespace УчетнаяСистема.form_p
             };
             search_Cars2.ShowDialog();
         }
-      
+        string[] s;
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            dbCon = new dbConnect();
+            
+            s = dbCon.RedInfor("SELECT parking,id,id FROM dom WHERE id='" + staticClass.StaticDomID + "'");
+            DelegATE(Convert.ToInt16(s[0]));
+        }
+
+        private void DelegATE(int f)
+        {
+            ComboBox1.Items.Clear();
+            dbCon.eventDysplay2 += delegate (string[] a)
+            {
+
+                for (int i = 0; i < f; i++)
+                {
+                    if (Array.IndexOf(a, i.ToString()) < 0)
+                        ComboBox1.Items.Add(i.ToString());
+                }
+            };
+            dbCon.Display("SELECT number FROM parking WHERE dom_id='" + staticClass.StaticDomID + "' and remov='0'");
+        }
+
         private void view_btn_Click(object sender, RoutedEventArgs e)
         {
             Window1 window1 = new Window1();
@@ -126,7 +139,25 @@ namespace УчетнаяСистема.form_p
 
         private void registr_btn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show($"{basaSum} {typeV}");
+            //f(staticClass.StaticDomID != "0" && ComboBox_E.Text != "" && ComboBox_P.Text != "" && ComboBox_flat.Text != "" && ComboBox_t.Text != "" && ComboBox_kv.Text != "") {
+                
+            dbCon.Registr("INSERT INTO parking(dom_id,number,client_id,cars_id,itog,typev,curr_id) " +
+                  "values('" + staticClass.StaticDomID + "'," +
+                  "'" + ComboBox1.Text + "'," +
+                  "'" + client_id + "'," +
+                  "'" + cars_id + "'," +
+                  "'" + basaSum + "'," +
+                  "'" + typeV + "'," +
+                  "'" + currency_id + "'" +
+                  ")");
+
+                //RegistData();
+
+                DelegATE(Convert.ToInt16(s[3]));
+           // }
+
+
+            //MessageBox.Show($"{basaSum} {typeV}");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
