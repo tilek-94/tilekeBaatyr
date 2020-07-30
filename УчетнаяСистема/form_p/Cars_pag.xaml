@@ -15,8 +15,12 @@
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
-        <Border Padding="5" Background="#F4F4F4" Grid.RowSpan="2" Grid.Row="0">
-            <StackPanel  Background="White" >
+        <Grid  Background="#F4F4F4" Grid.RowSpan="2" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel  Background="White" Margin="0,10,0,0">
                 <Grid  Background="#F4F4F4" HorizontalAlignment="Stretch">
                     <Label Content="{Binding NameBuild}" FontSize="16" Foreground="#00C3FF" HorizontalAlignment="Left"></Label>
                    
@@ -44,16 +48,15 @@
                    
                    
                 </Grid>
-
-                <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
+            </StackPanel>
+            <DataGrid FontSize="12" Grid.Row="1"  Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
                   HorizontalAlignment="Stretch" 
                   ItemsSource="{Binding}" 
                   VerticalScrollBarVisibility="Auto"
                   AutoGenerateColumns="False"
-                  Height="500"
                   ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1" 
-                          SelectionChanged="dataGridView1_SelectionChanged"
+                  SelectionChanged="dataGridView1_SelectionChanged"
                   LoadingRow="dataGridView1_LoadingRow"
                           >
                     <DataGrid.Columns>
@@ -166,29 +169,8 @@
 
                 </DataGrid>
 
-            </StackPanel>
-        </Border>
-        <Grid Grid.Row="1">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,5">
-                <Button Style="{DynamicResource Pogination_Image}" Margin="0,0,-20,0" Click="Button_Click_2" Width="38">
-                    <Image Source="image_for_pages/Typicons.png" Height="40" Width="40" Margin="0,-5,0,0"/>
-                </Button>
-                <Button x:Name="Left" Style="{DynamicResource Pogination_Image}"  Margin="0,0,-10,0" Click="Button_Click_1">
-                    <Image Source="image_for_pages/left.png" Margin="0,-5,0,0" Height="40" Width="40" />
-                </Button>
-                <Button x:Name="b_1" Height="50" Style="{DynamicResource Pogination}" Content="1" Click="b_1_Click"/>
-                <Button x:Name="b_2" Height="50" Style="{DynamicResource Pogination}" Content="2" Click="b_2_Click"/>
-                <Button x:Name="b_3" Height="50" Style="{DynamicResource Pogination}" Content="3" Click="b_2_Click"/>
-                <Button x:Name="b_4" Height="50" Style="{DynamicResource Pogination}" Content="4" Click="b_2_Click"/>
-                <Button x:Name="b_5" Height="50" Style="{DynamicResource Pogination}" Content="5" Click="b_2_Click" Margin="5,0,-5,0"/>
-
-                <Button x:Name="Right" Style="{DynamicResource Pogination_Image}" Margin="0,0,-25,0" Click="Button_Click_1">
-                    <Image Source="image_for_pages/Typicons_e019(3)_48.png" Margin="0,-5,0,0" Height="40" Width="40"/>
-                </Button>
-                <Button Style="{DynamicResource Pogination_Image}" Margin="0,0,0,0" Click="Button_Click_3">
-                    <Image Source="image_for_pages/Typicons_e046(0)_48.png" Margin="0,-5,0,0" Height="40" Width="40"/>
-                </Button>
-            </StackPanel>
+        
         </Grid>
+        
     </Grid>
 </UserControl>

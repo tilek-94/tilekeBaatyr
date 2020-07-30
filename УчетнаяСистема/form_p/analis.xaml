@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:УчетнаяСистема.form_p"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="1200"
       Loaded="Page_Loaded">
 
     <Grid Background="White">
@@ -32,6 +32,7 @@
                           ItemsSource="{Binding}"
                           MouseDoubleClick="dataGridView1_MouseDoubleClick" 
                           ColumnDisplayIndexChanged="dataGridView1_ColumnDisplayIndexChanged"
+                  IsReadOnly="True"
                           >
 
                     <DataGrid.Columns>
@@ -50,12 +51,32 @@
                         <DataGridTextColumn Width="130" Header="Конец даты" Binding="{Binding data_k, StringFormat='dd-MM-yyyy '}" />
                         <DataGridTextColumn Width="130" Visibility="Hidden" Binding="{Binding klient_id}" />
                     </DataGrid.Columns>
-
-
+            <DataGrid.RowStyle>
+               
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="#99ffbb"/>
+                    <Style.Triggers>
+                        
+                        <DataTrigger Binding="{Binding client}" Value="Бранированный">
+                            <Setter Property="Background" Value="#DCACF7" />
+                            
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding client}" Value="Обмен">
+                            <Setter Property="Background" Value="#85DAFF" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding client}" Value="{x:Null}">
+                            <Setter Property="Background" Value="White" />
+                        </DataTrigger>
+                    </Style.Triggers>
                     
+                </Style>
+            </DataGrid.RowStyle>
 
 
-                </DataGrid>
+
+
+
+        </DataGrid>
            
 
 

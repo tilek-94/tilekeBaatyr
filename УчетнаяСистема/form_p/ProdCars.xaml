@@ -153,6 +153,7 @@
                   HeadersVisibility="Column"
                   x:Name="dataGridView1"
                   ItemsSource="{Binding}"
+                  CanUserAddRows="False"        
                   AutoGenerateColumns="False"
                   ColumnHeaderStyle="{DynamicResource hederstyle}"  >
                     <DataGrid.Columns>

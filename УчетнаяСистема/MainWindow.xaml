@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:УчетнаяСистема"
         xmlns:vm="clr-namespace:УчетнаяСистема.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="1496.562" AllowsTransparency="True" 
+        Title="MainWindow" AllowsTransparency="True" 
         WindowStyle="None" WindowStartupLocation="CenterScreen" Background="{x:Null}" 
-        Loaded="Loaded_Window" WindowState="Maximized">
+        Loaded="Loaded_Window" WindowState="Maximized" Height="600" Width="1100">
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
@@ -21,10 +21,15 @@
             <RowDefinition Height="110"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Border Background="Beige" Grid.Row="0">
+        <Border Background="Beige" Grid.Row="0" MouseLeftButtonDown="Border_MouseLeftButtonDown">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button  Width="40" Style="{DynamicResource btnCloseOS1}" Padding="0,0,0,-15" Click="Button_Click">
+                    <Image Source="images/icon/sver.png" VerticalAlignment="Bottom" Width="30" Height="25"/>
+                </Button>
+                <Button Width="35" Style="{DynamicResource btnCloseOS1}" Click="Button_Click_1">
+                    <Image Source="images/icon/Mini.png" VerticalAlignment="Bottom" Width="25" Height="25"/>
+                </Button>
                 <Button   Command="{Binding btnClose}"  Width="35" Style="{DynamicResource btnCloseOS}" />
-
             </StackPanel>
         </Border>
         <TabControl  BorderThickness="0" Grid.Row="1" Grid.RowSpan="2" Margin="0,-12,0,0" Height="130" HorizontalAlignment="Stretch"
@@ -60,7 +65,7 @@
                                                     </Style>
                                                 </Image.Style>
                                             </Image>
-                                            <TextBlock Margin="0,6,0,0" Foreground="White" FontSize="11">ЖИЛОЙ КОМПЛЕКС</TextBlock>
+                                            <TextBlock Margin="0,6,0,0" TextAlignment="Center" Foreground="White" FontSize="11" Text="ЖИЛОЙ КОМПЛЕКС РЕГИСТРАЦИЯ" TextWrapping="Wrap"></TextBlock>
                                         </StackPanel>
                                     </Button>
                                 </Border>
@@ -72,11 +77,11 @@
                                             <Image>
                                                 <Image.Style>
                                                     <Style TargetType="Image">
-                                                        <Setter Property="Source" Value="images/house.png" />
-                                                        <Setter Property="Width" Value="40"/>
+                                                        <Setter Property="Source" Value="images/complex.png" />
+                                                        <Setter Property="Width" Value="50"/>
                                                         <Style.Triggers>
                                                             <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Source" Value="images/house2.png"/>
+                                                                <Setter Property="Source" Value="images/complex.png"/>
 
                                                             </Trigger>
                                                         </Style.Triggers>
@@ -176,18 +181,18 @@
                                             <Image>
                                                 <Image.Style>
                                                     <Style TargetType="Image">
-                                                        <Setter Property="Source" Value="images/room_finder_500px.png" />
-                                                        <Setter Property="Width" Value="35"/>
+                                                        <Setter Property="Source" Value="images/base_cl.png" />
+                                                        <Setter Property="Width" Value="60"/>
                                                         <Style.Triggers>
                                                             <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Source" Value="images/room_finder_500px.png"/>
+                                                                <Setter Property="Source" Value="images/base_cl.png"/>
 
                                                             </Trigger>
                                                         </Style.Triggers>
                                                     </Style>
                                                 </Image.Style>
                                             </Image>
-                                            <TextBlock Margin="0,10,0,0" Foreground="White"  TextAlignment="Center"
+                                            <TextBlock Margin="0,-5,0,0" Foreground="White"  TextAlignment="Center"
                                  TextWrapping="Wrap" FontSize="12">БАЗА КЛИЕНТ</TextBlock>
                                         </StackPanel>
                                     </Button>
@@ -263,25 +268,25 @@
 
                                 <Border HorizontalAlignment="Left" Margin="5,0,0,0">
                                     <Button Style="{DynamicResource menuButton}" 
-                                            x:Name="obmen_btnV" Command="{Binding bMenuexchange}">
+                                            x:Name="obmen_btnV" Command="{Binding bMenuexchange}" Padding="0,0,0,-10">
                                         <StackPanel>
 
                                             <Image>
                                                 <Image.Style>
                                                     <Style TargetType="Image">
-                                                        <Setter Property="Source" Value="images/booking_480px.png" />
-                                                        <Setter Property="Width" Value="35
-                                                    "/>
+                                                        <Setter Property="Source" Value="images/exchange.png" />
+                                                        <Setter Property="Width" Value="55"/>
+                                                        <Setter Property="Height" Value="55"/>
                                                         <Style.Triggers>
                                                             <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Source" Value="images/booking_480px.png"/>
+                                                                <Setter Property="Source" Value="images/exchange.png"/>
 
                                                             </Trigger>
                                                         </Style.Triggers>
                                                     </Style>
                                                 </Image.Style>
                                             </Image>
-                                            <TextBlock Foreground="White"  Margin="0,10,0,0" TextAlignment="Center"
+                                            <TextBlock Foreground="White"  Margin="0,0,0,10" TextAlignment="Center"
                                  TextWrapping="Wrap" FontSize="12">ОБМЕН КВАРТИРЫ</TextBlock>
                                         </StackPanel>
                                     </Button>
@@ -321,11 +326,11 @@
                                             <Image>
                                                 <Image.Style>
                                                     <Style TargetType="Image">
-                                                        <Setter Property="Source" Value="images/key_2_512px.png" />
+                                                        <Setter Property="Source" Value="images/cars123.png" />
                                                         <Setter Property="Width" Value="40"/>
                                                         <Style.Triggers>
                                                             <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Source" Value="images/key_2_512px.png"/>
+                                                                <Setter Property="Source" Value="images/cars123.png"/>
 
                                                             </Trigger>
                                                         </Style.Triggers>
@@ -370,12 +375,11 @@
                                             <Image>
                                                 <Image.Style>
                                                     <Style TargetType="Image">
-                                                        <Setter Property="Source" Value="images/key_2_512px.png" />
-                                                        <Setter Property="Width" Value="40"/>
+                                                        <Setter Property="Source" Value="images/bron1.png" />
+                                                        <Setter Property="Width" Value="33"/>
                                                         <Style.Triggers>
                                                             <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Source" Value="images/key_2_512px.png"/>
-
+                                                                <Setter Property="Source" Value="images/bron1.png"/>
                                                             </Trigger>
                                                         </Style.Triggers>
                                                     </Style>
@@ -389,32 +393,7 @@
                                     </Button>
                                 </Border>
 
-                                <Border HorizontalAlignment="Left" Margin="5,0,0,0" >
-                                    <Button Style="{DynamicResource menuButton}" 
-                                            Command="{Binding bMenuRashod}">
-                                        <StackPanel>
-
-                                            <Image>
-                                                <Image.Style>
-                                                    <Style TargetType="Image">
-                                                        <Setter Property="Source" Value="images/key_2_512px.png" />
-                                                        <Setter Property="Width" Value="40"/>
-                                                        <Style.Triggers>
-                                                            <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Source" Value="images/key_2_512px.png"/>
-
-                                                            </Trigger>
-                                                        </Style.Triggers>
-                                                    </Style>
-                                                </Image.Style>
-                                            </Image>
-                                            <TextBlock Margin="0,6,0,0" Foreground="White" 
-                                                       TextAlignment="Center"
-                                 TextWrapping="Wrap"
-                                                       FontSize="12">РАСХОДНЫЙ КАССОВЫЙ ОРДЕР</TextBlock>
-                                        </StackPanel>
-                                    </Button>
-                                </Border>
+                                
                                 <Border HorizontalAlignment="Left" Margin="5,0,0,0" >
                                     <Button Style="{DynamicResource menuButton}"
                                             x:Name="lock_buttonV" Click="lock_button_Click">
@@ -449,7 +428,7 @@
 
             <TabItem x:Name="Vod_Dannyx3"  Header=" Анализ и отчет "
                      FontSize="16" Height="27"
-                     Cursor="Hand" Style="{DynamicResource Tab_Item}"  >
+                     Cursor="Hand" Style="{DynamicResource Tab_Item}">
                 <Grid  Background="#0A6E9E" Height="90">
                     <Border Background="#0A6E9E"  VerticalAlignment="Top" >
                         <Grid>
@@ -543,11 +522,11 @@
                                             <Image>
                                                 <Image.Style>
                                                     <Style TargetType="Image">
-                                                        <Setter Property="Source" Value="images/key_2_512px.png" />
+                                                        <Setter Property="Source" Value="images/organ.png" />
                                                         <Setter Property="Width" Value="40"/>
                                                         <Style.Triggers>
                                                             <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Source" Value="images/key_2_512px.png"/>
+                                                                <Setter Property="Source" Value="images/organ.png"/>
 
                                                             </Trigger>
                                                         </Style.Triggers>

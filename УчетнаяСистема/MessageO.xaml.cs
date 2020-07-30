@@ -29,6 +29,7 @@ namespace УчетнаяСистема
             dbCon.RemoveData(TableBasa, Id,staticClass.StaticEmplayID);
             del_();
             this.Close();
+
         }
     }
 }

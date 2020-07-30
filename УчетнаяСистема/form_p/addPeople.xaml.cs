@@ -1,22 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using УчетнаяСистема.All_classes;
 
 namespace УчетнаяСистема.form_p
 {
-    
+
     public partial class Window1 : Window
     {
         Open_File file = new Open_File();           
@@ -96,41 +87,14 @@ namespace УчетнаяСистема.form_p
         }
         string id = "0";
         string name = "";
-        private void myDataGrid_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            /*DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
-            int index = dataGridView1.CurrentCell.Column.DisplayIndex;
-             id = dataRow.Row.ItemArray[0].ToString();
-            name = dataRow.Row.ItemArray[1].ToString();
-            string data = dataRow.Row.ItemArray[2].ToString();
-            string tel = dataRow.Row.ItemArray[3].ToString();
-            string AN_data = dataRow.Row.ItemArray[4].ToString();
-            string data_v = dataRow.Row.ItemArray[5].ToString();
-            string vdan_uch = dataRow.Row.ItemArray[6].ToString();
-            string address_pas = dataRow.Row.ItemArray[7].ToString();
-            string addr = dataRow.Row.ItemArray[5].ToString();
-            FIO.Text = name;
-            data_r.Text = data;
-            AN.Text = AN_data;
-            tel_nom.Text = tel;
-            data_p.Text= data_v;
-            vdan.Text= vdan_uch;
-            address_p.Text = address_pas;
-            address.Text = addr;*/
-
-
-        }
-
+        
         private void button2_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            
-            
+                        
         }
 
-       
-
-        private void select_btn_Click(object sender, RoutedEventArgs e)
+               private void select_btn_Click(object sender, RoutedEventArgs e)
         {
             if (name != "")
             {

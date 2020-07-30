@@ -136,6 +136,36 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="btnCloseOS1" TargetType="Button">
+            <Setter Property="Width" Value="35"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="0,0,0,0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border"
+                                BorderThickness="0,0,0,0"
+                                BorderBrush="Red"
+                                Background="White"
+                                >
+                            <Grid>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
+                            </Grid>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="White"/>
+                                <Setter TargetName="border" Property="Background" Value="#D3E0F8"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <Style x:Key="menuButton" TargetType="Button">
             <Setter Property="Background" Value="White"/>
             <Setter Property="Margin" Value="0,0,0,1"/>
@@ -150,7 +180,7 @@
                                 BorderBrush="{x:Null}"
                                 Background="{x:Null}"
                                 >
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">

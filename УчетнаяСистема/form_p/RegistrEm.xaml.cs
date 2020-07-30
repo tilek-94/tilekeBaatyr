@@ -39,8 +39,7 @@ namespace УчетнаяСистема.form_p
 
         private void textbox_searsh_KeyDown(object sender, KeyEventArgs e)
         {
-
-            //  HashPassword("tilek");
+            RegistData("SELECT * FROM users WHERE remov='0' and name LIKE '%"+textbox_searsh.Text+"%' ");
         }
 
         private void RegistData(string s)
@@ -152,7 +151,7 @@ namespace УчетнаяСистема.form_p
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            RegistData("SELECT * FROM users WHERE remov='0' ");
+            RegistData("SELECT * FROM users WHERE remov='0' ORDER BY id DESC  ");
             AddNumber();
         }
 

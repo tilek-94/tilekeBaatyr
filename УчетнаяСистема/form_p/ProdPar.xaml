@@ -18,7 +18,7 @@
             
         </Grid.RowDefinitions>
         <Border Grid.Row="0" Background="#0A6E9E" Height="20" VerticalAlignment="Top">
-            <TextBlock Text="Продажа машина" Foreground="White" FontSize="14" Margin="10,0,0,0" />
+            <TextBlock Text="Продажа порковка" Foreground="White" FontSize="14" Margin="10,0,0,0" />
         </Border>
         <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
 
@@ -59,10 +59,24 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                         <Label Content="Машина"  FontSize="14" Width="125" Foreground="#5C554F" />
-                        <TextBox x:Name="textbox_cars" FontSize="14"  Style="{DynamicResource textbox_style}"
-                     Tag=" Машина" Height="24" Width="250" HorizontalAlignment="Right" Canvas.Left="117" Canvas.Top="137"/>
-                        
-                    <Button Style="{StaticResource Add_Button_MRZ}" Content=""
+                        <ComboBox Width="250" Canvas.Left="117" Canvas.Top="135" 
+                   SelectedItem="{Binding Id}"
+                   x:Name="ComboBoxCars"  IsEditable="True" Height="24" 
+                   SelectionChanged="ComboBoxCars_SelectionChanged"
+                      
+                >
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="{Binding Name}" Width="170" />
+                                        <Image Source="/УчетнаяСистема;component/images/icon/udalit4.png" Width="20"/>
+
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+                        <Button Style="{StaticResource Add_Button_MRZ}" Content=""
                 x:Name="show_client_Cars"
                 Click="show_client_Cars_Click"
                             Margin="10,0,0,0"
@@ -72,12 +86,24 @@
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
-                        <Label  Content="Цена машину" Width="70"/>
-                        <Label Content="(USD)" x:Name="l" Width="55" Foreground="#5C554F" 
+                        <Label  Content="Цена машину" Width="85"/>
+                        <Label Content="(USD)" x:Name="l" Width="40" Foreground="#5C554F" 
                                  FontSize="13" />
                         
                         <TextBox FontSize="14"   
-                            x:Name="text4"
+                            x:Name="textboxCarsUsd"
+                             Style="{DynamicResource textbox_style}"
+                             Tag="Цена машину" Height="24" Width="250" 
+                             HorizontalAlignment="Right"  />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <Label  Content="Цена машину" Width="85"/>
+                        <Label Content="(KGS)" x:Name="l2" Width="40" Foreground="#5C554F" 
+                                 FontSize="13" />
+
+                        <TextBox FontSize="14"   
+                            x:Name="textboxCarsKGS"
                              Style="{DynamicResource textbox_style}"
                              Tag="Цена машину" Height="24" Width="250" 
                              HorizontalAlignment="Right"  />
@@ -137,7 +163,7 @@
 
                     <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                         <Label  Content="Сумма" Width="70"/>
-                        <Label Content="(KGS)" x:Name="l2" Foreground="#5C554F" Margin="0,0,0,0"
+                        <Label Content="(KGS)" x:Name="l3" Foreground="#5C554F" Margin="0,0,0,0"
                                  FontSize="13" />
                         <TextBox FontSize="14" 
                              x:Name="text6"

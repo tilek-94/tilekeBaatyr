@@ -78,37 +78,7 @@ namespace УчетнаяСистема.form_p
                 " WHERE c.remov > 0 AND c.prod_cars = 0 OR c.remov = 0 " +
                 " ORDER BY  c.id DESC; ";
 
-        private void b_1_Click(object sender, RoutedEventArgs e)
-        {
-            //Viv("SELECT * FROM Test LIMIT " + col_Strok + " OFFSET " + (b1 - 1) * col_Strok + "");
-            dbCon.eventDysplay += delegate (DataTable db)
-            {
-                dataGridView1.DataContext = db;
-            };
-            dbCon.SoursData("SELECT id,marka,data,nomer,condition_c," +
-                "prih_summ, kurs, prih_summ * kurs as summ_som," +
-                "(SELECT name FROM client WHERE id = client_id) as client" +
-                ",datatim FROM cars LIMIT " + col_Strok + "OFFSET " + (b1) * col_Strok + "");
-            if (b1 > 1)
-            {
-                b1 -= 1;
-                b2 -= 1;
-                b3 -= 1;
-                b4 -= 1;
-                b5 -= 1;
-                b6 -= 1;
-                b7 -= 1;
-                b8 -= 1;
-                b9 -= 1;
-                b10 -= 1;
-                b_1.Content = b1;
-                b_2.Content = b2;
-                b_3.Content = b3;
-                b_4.Content = b4;
-                b_5.Content = b5;
-        
-            }
-        }
+       
 
         private void b_10_Click(object sender, RoutedEventArgs e)
         {
@@ -292,57 +262,6 @@ namespace УчетнаяСистема.form_p
             }*/
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            if (button.Name== "Right")
-            {               
-                int asd = count / col_Strok;
-                if (count % col_Strok != 0) { asd = (count / col_Strok) + 1; }
-                if (b10 < asd)
-                {
-                    b1 += 1;
-                    b2 += 1;
-                    b3 += 1;
-                    b4 += 1;
-                    b5 += 1;
-                    b6 += 1;
-                    b7 += 1;
-                    b8 += 1;
-                    b9 += 1;
-                    b10 += 1;
-                    b_1.Content = b1;
-                    b_2.Content = b2;
-                    b_3.Content = b3;
-                    b_4.Content = b4;
-                    b_5.Content = b5;
-                
-                }
-            }
-            else
-            {
-                if (b1 > 1)
-                {
-                    b1 -= 1;
-                    b2 -= 1;
-                    b3 -= 1;
-                    b4 -= 1;
-                    b5 -= 1;
-                    b6 -= 1;
-                    b7 -= 1;
-                    b8 -= 1;
-                    b9 -= 1;
-                    b10 -= 1;
-                    b_1.Content = b1;
-                    b_2.Content = b2;
-                    b_3.Content = b3;
-                    b_4.Content = b4;
-                    b_5.Content = b5;
-            
-                }
-            }
-
-
-        }
+       
     }
 }

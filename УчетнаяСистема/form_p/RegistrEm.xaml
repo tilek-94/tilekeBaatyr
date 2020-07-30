@@ -110,10 +110,14 @@
 
             </Canvas>
 
-            <Border Grid.Row="2" Padding="5" Background="White">
+            <Grid Grid.Row="2"  Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
                 <StackPanel  Background="White" >
                     <DockPanel HorizontalAlignment="Stretch" Background="White">
-                        <Label Content="KG Group Компаниясы" FontSize="16" Foreground="#00C3FF" ></Label>
+                        <Label Content="Регистрация сотрудника" FontSize="16" Foreground="#00C3FF" ></Label>
 
                         <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" 
                                  Tag=" Поиск данные" Height="25"
@@ -125,10 +129,12 @@
                         </TextBox>
 
                     </DockPanel>
-                    <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
+                </StackPanel>
+                <DataGrid FontSize="12" 
+                          Grid.Row="1"
+                          Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
                    CanUserAddRows="False"
-                         Height="250"     
                   x:Name="dataGridView1"
                    MouseDoubleClick="dataGridView1_MouseDoubleClick"           
                   SelectionChanged="dataGridView1_SelectionChanged"           
@@ -160,8 +166,8 @@
                         </DataGrid.Columns>
 
                     </DataGrid>
-                </StackPanel>
-            </Border>
+               
+            </Grid>
         </Grid>
     </Grid>
 </Window>

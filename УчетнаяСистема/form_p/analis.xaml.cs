@@ -73,7 +73,7 @@ namespace УчетнаяСистема.form_p
                     {
                         ViewCarsinAnalise viewCarsinAnalise = new ViewCarsinAnalise();
                         string CarsId = dataRow.Row.ItemArray[15].ToString();
-                        viewCarsinAnalise.SqlQury = "SELECT * FROM carsid WHERE id='" + CarsId + "'";
+                        viewCarsinAnalise.SqlQury = CarsId;
                         viewCarsinAnalise.ShowDialog();
                     }
                 }
@@ -105,7 +105,7 @@ namespace УчетнаяСистема.form_p
         }
 
         private void dataGridView1_ColumnDisplayIndexChanged(object sender, DataGridColumnEventArgs e)
-        {/*
+        {   /*
             int index = dataGridView1.SelectedCells[0].Column.DisplayIndex;
             MessageBox.Show("d");*/
         }

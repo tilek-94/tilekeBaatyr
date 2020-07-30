@@ -43,10 +43,11 @@
                           >
                         <DataGrid.Columns>
                             <DataGridTextColumn Width="50"  Header="№" Binding="{Binding id}"  />
-                            <DataGridTextColumn Header="Операция" Binding="{Binding operationU}" Width="200" />
-                            <DataGridTextColumn Header=" Физ. и частное лицо" Binding="{Binding organ}" Width="200" />
-                            <DataGridTextColumn Header="Сумма" Width="150" Binding="{Binding summa}" />
-                            <DataGridTextColumn Header="Тип валюта" Binding="{Binding currency}" Width="100" />
+                            <DataGridTextColumn Header="Номер порковки" Binding="{Binding NUMBER}" Width="200" />
+                            <DataGridTextColumn Header=" Клиент" Binding="{Binding client}" Width="200" />
+                            <DataGridTextColumn Header="Обмен машина" Width="150" Binding="{Binding cars}" />
+                            <DataGridTextColumn Header="Цена (USD)" Binding="{Binding to_usd}" Width="100" />
+                            <DataGridTextColumn Header="Цена (KGS)" Binding="{Binding Rto_kgs}" Width="100" />
                             <DataGridTextColumn Header="Дата" Binding="{Binding data, StringFormat='dd-MM-yyyy   HH:mm:ss'}" />
                             <DataGridTemplateColumn Header="Удалить" Width="50" >
                                 <DataGridTemplateColumn.CellTemplate>

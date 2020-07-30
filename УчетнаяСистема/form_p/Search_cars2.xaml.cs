@@ -142,7 +142,7 @@ namespace УчетнаяСистема.form_p
         {
             this.Close();
         }
-        int columnIndex = 0;
+        
         private void dataGridView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             /*columnIndex = dataGridView1.CurrentColumn.DisplayIndex;

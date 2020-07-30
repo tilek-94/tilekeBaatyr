@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using УчетнаяСистема.All_classes;
+using УчетнаяСистема.Model;
 
 namespace УчетнаяСистема.form_p
 {
@@ -27,65 +29,55 @@ namespace УчетнаяСистема.form_p
             InitializeComponent();
         }
 
-        string[] LangName = new string[3];
-        lang lanG = new lang();
         dbConnect dbCon = new dbConnect();
-        RaschetSum raschetSum = new RaschetSum();
-        string  KgsCars = "0", IdCarsCurs="0", UsdCars = "0";
-        public string SqlQury = "0";
+
+        public string SqlQury = "";
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-        {/*
-
-            dbCon.connection.Open();
-            string sql = "SELECT * FROM carsid WHERE id='"+ CarsId + "'";
-            MySqlCommand command = new MySqlCommand(sql, dbCon.connection);
-            MySqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                text1.Text = reader[1].ToString();
-                text2.Text = reader[2].ToString();
-                text3.Text = reader[3].ToString();
-                text4.Text = reader[4].ToString();
-                KgsCars = reader[7].ToString();
-                UsdCars = reader[8].ToString();
-                text7.Text = reader[5].ToString();
-                text8.Text = reader[6].ToString();
-                IdCarsCurs = reader[9].ToString();
-
-            }
-            dbCon.connection.Close();
-*/
-            RegistData(SqlQury);
+        {
+            Display();
         }
 
-        private void RegistData(string s)
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
 
-            LangName = lanG.ReturnName(ComboBox3.Text);
-            l1.Content = LangName[1];
-            l2.Content = LangName[2];
+        }
+
+        private void x1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        void Display()
+        {
+            string s = "";
+            int i = 0;
+            //MessageBox.Show(SqlQury);
+            List<Cars> cars = JsonConvert.DeserializeObject<List<Cars>>(SqlQury);
+            foreach (Cars c in cars)
+            {
+                if (cars.Count == 1)
+                    s = $" and c.id={c.Id}";
+                else
+                {
+                    i++;
+                    if (i == 1)
+                        s += $" and c.id={c.Id}";
+                    else
+                        s += $" or c.id={c.Id}";
+                }
+                //MessageBox.Show(s);
+            }
+
             dbCon.eventDysplay += delegate (DataTable db)
             {
-                text1.Text = db.Rows[0][2].ToString();
-                text2.Text = db.Rows[0][3].ToString();
-                text3.Text = db.Rows[0][4].ToString();
-                text4.Text = db.Rows[0][5].ToString();
-
-                text1.Text = db.Rows[0][1].ToString();
-                text2.Text = db.Rows[0][2].ToString();
-                text3.Text = db.Rows[0][3].ToString();
-                text4.Text = db.Rows[0][4].ToString();
-                KgsCars = db.Rows[0][7].ToString();
-                UsdCars = db.Rows[0][8].ToString();
-                text7.Text = db.Rows[0][5].ToString();
-                text8.Text = db.Rows[0][6].ToString();
-                IdCarsCurs = db.Rows[0][9].ToString();
+                dataGridView1.ItemsSource = db.DefaultView;
             };
-            dbCon.SoursData(s);
-
-            text5.Text = KgsCars;
-            text6.Text = UsdCars;
+            dbCon.SoursData("SELECT c.id,c.marka,c.data,c.nomer,c.condition_c," +
+                "IF(c.type_v = '(KGS)', ROUND(c.prih_summ / cur.usd, 2), c.prih_summ) AS to_usd," +
+                "IF(c.type_v = '(USD)', ROUND(c.prih_summ * cur.usd, 2), c.prih_summ) AS Rto_kgs," +
+                "(SELECT name FROM client WHERE id = c.client_id) as client, " +
+                "datatim FROM cars c INNER JOIN currency cur ON c.kurs = cur.id WHERE c.remov=0 " + s);
 
         }
 
@@ -95,15 +87,6 @@ namespace УчетнаяСистема.form_p
             this.Close();
         }
 
-        private void ComboBox3_DropDownClosed(object sender, EventArgs e)
-        {
 
-
-            if (KgsCars != "0")
-                text5.Text = raschetSum.ReaderBasa(ComboBox3.Text, Convert.ToDouble(UsdCars), IdCarsCurs).ToString();
-            if (UsdCars != "0")
-                text6.Text = raschetSum.ReaderBasa2(ComboBox3.Text, Convert.ToDouble(KgsCars), IdCarsCurs).ToString();
-
-        }
     }
 }

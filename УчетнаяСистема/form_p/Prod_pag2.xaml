@@ -193,8 +193,8 @@
                 Canvas.Left="525" Canvas.Top="205" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221"/>
             <ComboBox Width="200" Canvas.Left="117" Canvas.Top="135" 
                    SelectedItem="{Binding Id}"
-                   
-               x:Name="ComboBoxCars"  IsEditable="True" Height="24" SelectionChanged="ComboBoxCars_SelectionChanged"
+                   x:Name="ComboBoxCars"  IsEditable="True" Height="24" 
+                   SelectionChanged="ComboBoxCars_SelectionChanged"
                       
                 >
                 <ComboBox.ItemTemplate>
@@ -227,7 +227,7 @@
                  VerticalAlignment="Stretch"       
                   HeadersVisibility="Column"
                           CanUserAddRows="False"
-                          MaxHeight="300"
+                          
                            AutoGenerateColumns="False"
                    ItemsSource="{Binding}"
                   ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1"  
@@ -245,8 +245,16 @@
                         <DataGridTextColumn Header="Цена квартира (KGS)" Binding="{Binding Rto_kgs}" />
                         <DataGridTextColumn Header="Начало дата" Binding="{Binding data_n, StringFormat='dd-MM-yyyy'}" />
                         <DataGridTextColumn Header="Конец датат" Binding="{Binding data_k, StringFormat='dd-MM-yyyy'}" />
-
-                    </DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Удалить" Width="50" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Background="{x:Null}" x:Name="x1" Click="x1_Click"  BorderThickness="0,0,0,0" Cursor="Hand">
+                                    <Image Source="/УчетнаяСистема;component/images/icon/udalit4.png" Width="20"/>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
                 </DataGrid>
 
 
