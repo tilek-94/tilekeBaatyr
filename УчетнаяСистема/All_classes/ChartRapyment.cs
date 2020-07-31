@@ -35,7 +35,7 @@ namespace УчетнаяСистема.All_classes
             dbCon.connection.Close();
             string data = "";
             int j = 0, count = 0;
-            var start = new DateTime(Convert.ToInt32(y1), Convert.ToInt32(m1), Convert.ToInt32(d1));
+            var start = new DateTime(Convert.ToInt32(y1), Convert.ToInt32(m1)+1, Convert.ToInt32(d1));
             var end = new DateTime(Convert.ToInt32(y2), Convert.ToInt32(m2), Convert.ToInt32(d2));
 
             List<MyTable> result = new List<MyTable>(3);

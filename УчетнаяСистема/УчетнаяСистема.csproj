@@ -156,8 +156,14 @@
     <Compile Include="form_p\Rashod.xaml.cs">
       <DependentUpon>Rashod.xaml</DependentUpon>
     </Compile>
+    <Compile Include="form_p\RegistrBisnes.xaml.cs">
+      <DependentUpon>RegistrBisnes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="form_p\RegistrEm.xaml.cs">
       <DependentUpon>RegistrEm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="form_p\RepPar.xaml.cs">
+      <DependentUpon>RepPar.xaml</DependentUpon>
     </Compile>
     <Compile Include="form_p\Search_cars2.xaml.cs">
       <DependentUpon>Search_cars2.xaml</DependentUpon>
@@ -288,7 +294,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="form_p\RegistrBisnes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="form_p\RegistrEm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="form_p\RepPar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -534,6 +548,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\complex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\icon\sav.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\business.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

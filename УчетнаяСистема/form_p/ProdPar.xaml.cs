@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using УчетнаяСистема.All_classes;
 using УчетнаяСистема.Model;
 
@@ -17,7 +20,7 @@ namespace УчетнаяСистема.form_p
             InitializeComponent();
         }
         string client_id = "",  IdCarsCurs="", typeV = "";
-        string currency_id = "0", basaSum="0";
+        string currency_id = "0", basaSum="0" ,PriceSum;
         int cars_id = 0;
         string[] LangName = new string[3];
         double usd = 0, eur = 0, rub = 0;
@@ -48,6 +51,7 @@ namespace УчетнаяСистема.form_p
                 ComboBoxCars.ItemsSource = cars;
                 textboxCarsUsd.Text = UsdCars.ToString();
                 textboxCarsKGS.Text = KgsCars.ToString();
+                SummItogo();
             };
             search_Cars2.ShowDialog();
         }
@@ -93,6 +97,7 @@ namespace УчетнаяСистема.form_p
                     cars.RemoveAt(index);
                     ComboBoxCars.ItemsSource = null;
                     ComboBoxCars.ItemsSource = cars;
+                    SummItogo();
                     break;
                 }
             }
@@ -110,9 +115,76 @@ namespace УчетнаяСистема.form_p
             window1.ShowDialog();
         }
 
+        private void text9_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SummItogo();
+            double priceP = 0;
+            if (text9.Text != "")
+                priceP = Convert.ToDouble(text9.Text);
+            text10.Text = raschetSum.Kurs(ComboBox3.Text, priceP, usd, eur, rub).ToString();
+        }
+        void SummItogo()
+        {
+            GetDataCom();
+            text7.Text = (PriceUSD - CarsUSD -  PrihUSD).ToString();
+            text8.Text = (PriceKGS - CarsKGS - PrihKGS).ToString();
+
+            if (LangName[1] == "(KGS)")
+            {
+                basaSum = text7.Text.Replace(',', '.');
+                PriceSum=text5.Text.Replace(',', '.');
+                typeV = "(KGS)";
+
+
+            }
+            else if (LangName[1] == "(USD)")
+            {
+                basaSum = text7.Text.Replace(',', '.');
+                PriceSum = text5.Text.Replace(',', '.');
+                typeV = "(USD)";
+
+
+            }
+            else if (LangName[1] == "(EUR)" || LangName[1] == "(RUB)")
+            {
+                basaSum = text8.Text.Replace(',', '.');
+                PriceSum = text6.Text.Replace(',', '.');
+                typeV = "(KGS)";
+
+            }
+
+        }
+
+        double CarsUSD = 0,CarsKGS=0, PriceUSD=0, PriceKGS=0,PrihUSD=0,PrihKGS=0;
+        private void GetDataCom()
+        {  if(textboxCarsUsd.Text!="")
+                CarsUSD = Convert.ToDouble(textboxCarsUsd.Text);
+            if (textboxCarsKGS.Text != "")
+                CarsKGS = Convert.ToDouble(textboxCarsKGS.Text);
+            if (text5.Text != "")
+                PriceUSD = Convert.ToDouble(text5.Text);
+            if (text5.Text != "")
+                PriceKGS = Convert.ToDouble(text6.Text);
+            if (text9.Text != "")
+                PrihUSD = Convert.ToDouble(text9.Text);
+            if (text10.Text != "")
+                PrihKGS = Convert.ToDouble(text10.Text);
+                      
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9,]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
         private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
         {
             SummItogo();
+            double priceP = 0;
+            if (text5.Text != "")
+                priceP = Convert.ToDouble(text5.Text);
+            text6.Text = raschetSum.Kurs(ComboBox3.Text, priceP, usd, eur, rub).ToString();
         }
 
         private void btn_valuta_Click(object sender, RoutedEventArgs e)
@@ -139,66 +211,36 @@ namespace УчетнаяСистема.form_p
                 textboxCarsKGS.Text = raschetSum.ReaderBasa2(ComboBox3.Text, Convert.ToDouble(UsdCars), IdCarsCurs).ToString();
            
             LangName = lanG.ReturnName(ComboBox3.Text);
+            U1.Content= LangName[1];
+            U2.Content= LangName[1];
+            U3.Content= LangName[1];
+            U4.Content= LangName[1];
+
+            K1.Content = LangName[2];
+            K2.Content = LangName[2];
+            K3.Content = LangName[2];
+            K4.Content = LangName[2];
             SummItogo();
             
         }
 
-        void SummItogo()
-        {
-            if (textboxCarsUsd.Text!=""&& textboxCarsKGS.Text!="") {
-                if (text5.Text == "")
-                {
-                    text5.Text = "0";
-                    text6.Text = "0";
-                }
-            text7.Text = (Convert.ToDouble(text5.Text) - Convert.ToDouble(textboxCarsUsd.Text)).ToString();
-            text8.Text = (Convert.ToDouble(text6.Text) - Convert.ToDouble(textboxCarsKGS.Text)).ToString();
-            }
-            else
-            {
-                text7.Text = text5.Text;
-                text8.Text = text6.Text;
-            }
-            double priceP = 0;
-            if (text5.Text != "")
-                priceP = Convert.ToDouble(text5.Text);
-              text6.Text= raschetSum.Kurs(ComboBox3.Text, priceP, usd, eur, rub).ToString();
-
-            if (LangName[1] == "(KGS)")
-            {
-                basaSum = (priceP - Convert.ToDouble( KgsCars)).ToString().Replace(',', '.');
-                typeV = "(KGS)";
-
-                
-            }
-            else if (LangName[1] == "(USD)")
-            {
-                basaSum = (priceP - Convert.ToDouble(UsdCars)).ToString().Replace(',', '.');
-
-                typeV = "(USD)";
-               
-
-            }
-            else if (LangName[1] == "(EUR)" || LangName[1] == "(RUB)")
-            {
-                basaSum = (Convert.ToDouble(text6.Text) - Convert.ToDouble(KgsCars)).ToString().Replace(',', '.');
-                typeV = "(KGS)";
-               
-            }
-
-
-        }
+        
 
         private void registr_btn_Click(object sender, RoutedEventArgs e)
         {
+            string json = JsonConvert.SerializeObject(cars);
+            if (cars.Count == 0)
+                json = "";
+            SummItogo();
             //f(staticClass.StaticDomID != "0" && ComboBox_E.Text != "" && ComboBox_P.Text != "" && ComboBox_flat.Text != "" && ComboBox_t.Text != "" && ComboBox_kv.Text != "") {
-                
-            dbCon.Registr("INSERT INTO parking(dom_id,number,client_id,cars_id,itog,typev,curr_id) " +
+
+            dbCon.Registr("INSERT INTO parking(dom_id,number,client_id,cars_id,itogPrice,zadol,typev,curr_id) " +
                   "values('" + staticClass.StaticDomID + "'," +
                   "'" + ComboBox1.Text + "'," +
                   "'" + client_id + "'," +
-                  "'" + cars_id + "'," +
-                  "'" + basaSum + "'," +
+                  "'" + json + "'," +
+                  "'" + PriceSum  + "'," +
+                  "'" + basaSum  + "'," +
                   "'" + typeV + "'," +
                   "'" + currency_id + "'" +
                   ")");

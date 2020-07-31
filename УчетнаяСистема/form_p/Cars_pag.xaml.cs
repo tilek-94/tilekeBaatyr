@@ -31,7 +31,7 @@ namespace УчетнаяСистема.form_p
         int col_Strok = 2;
         int count = 0;
         string id_1 = "";
-        int b1 = 1, b2 = 2, b3 = 3, b4 = 4, b5 = 5, b6 = 6, b7 = 7, b8 = 8, b9 = 9, b10 = 10;//нужные переменные
+       
         string SqlQuery1 = "SELECT  CASE " +
             "WHEN(c.remov >0 AND c.prod_cars>0) THEN 'Продан'" +
             " WHEN(c.remov >0 AND c.prod_cars= 0) THEN 'Удален' " +

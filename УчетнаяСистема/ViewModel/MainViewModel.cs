@@ -91,6 +91,18 @@ namespace УчетнаяСистема.ViewModel
             exchange Exchange = new exchange();
             Exchange.ShowDialog();
         });
+
+        public ICommand bBisnes => new RelayCommand((obj) =>
+        {
+            RegistrBisnes registrBisnes = new RegistrBisnes();
+            registrBisnes.ShowDialog();
+        });
+
+        public ICommand bInsertDolg => new RelayCommand((obj) =>
+        {
+            Bron_Klient bron_Klient = new Bron_Klient();
+            bron_Klient.ShowDialog();
+        });
         public ICommand bMenuProdCars => new RelayCommand((obj) =>
         {
             ProdCars prodCars = new ProdCars();

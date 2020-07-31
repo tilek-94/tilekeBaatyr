@@ -40,10 +40,7 @@ namespace УчетнаяСистема.form_p
         double usd = 0, eur = 0, rub = 0;
         int data11 = 1;
 
-        private void DataGrid_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            
-        }
+        
         CarsService ObjCarsService;
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {

@@ -87,11 +87,12 @@
 
                     <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                         <Label  Content="Цена машину" Width="85"/>
-                        <Label Content="(USD)" x:Name="l" Width="40" Foreground="#5C554F" 
+                        <Label Content="" x:Name="U1" Width="40" Foreground="#5C554F" 
                                  FontSize="13" />
                         
                         <TextBox FontSize="14"   
                             x:Name="textboxCarsUsd"
+                                 IsReadOnly="True"
                              Style="{DynamicResource textbox_style}"
                              Tag="Цена машину" Height="24" Width="250" 
                              HorizontalAlignment="Right"  />
@@ -99,11 +100,12 @@
 
                     <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                         <Label  Content="Цена машину" Width="85"/>
-                        <Label Content="(KGS)" x:Name="l2" Width="40" Foreground="#5C554F" 
+                        <Label Content="" x:Name="K1" Width="40" Foreground="#5C554F" 
                                  FontSize="13" />
 
                         <TextBox FontSize="14"   
                             x:Name="textboxCarsKGS"
+                                 IsReadOnly="True"
                              Style="{DynamicResource textbox_style}"
                              Tag="Цена машину" Height="24" Width="250" 
                              HorizontalAlignment="Right"  />
@@ -151,52 +153,87 @@
 
                     <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                         <Label  Content="Цена парковка" Width="85"/>
-                        <Label Content="(USD)" x:Name="l1" Foreground="#5C554F" 
+                        <Label Content="" x:Name="U2" Width="45" Foreground="#5C554F" 
                                  FontSize="13" />
                         <TextBox FontSize="14"   
                              x:Name="text5"
                              TextChanged="textBox1_TextChanged"
+                              PreviewTextInput="NumberValidationTextBox"   
                              Style="{DynamicResource textbox_style}"
                              Tag="Цена порковку" Height="24" Width="250" 
                              HorizontalAlignment="Right"  />
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
-                        <Label  Content="Сумма" Width="70"/>
-                        <Label Content="(KGS)" x:Name="l3" Foreground="#5C554F" Margin="0,0,0,0"
+                        <Label  Content="Сумма" Width="85"/>
+                        <Label Content="" x:Name="K2" Width="45" Foreground="#5C554F" Margin="0,0,0,0"
                                  FontSize="13" />
                         <TextBox FontSize="14" 
                              x:Name="text6"
+                                 IsReadOnly="True"
                              Style="{DynamicResource textbox_style}" 
                              Tag="Сумма" Height="24" Width="250"
-                             HorizontalAlignment="Right"  Margin="18,0,0,0"/>
+                             HorizontalAlignment="Right"  />
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
-                        <Label  Content="Всего сумма" FontWeight="Bold" Width="85"/>
-                        <Label Content="(USD)"  Width="45" Foreground="#5C554F" 
+                        <Label  Content="Приход сумма" FontWeight="Bold" Width="85"/>
+                        <Label Content=""  Width="45" x:Name="U3" Foreground="#5C554F" 
+                                 FontSize="13" />
+
+                        <TextBox FontSize="14"   
+                            x:Name="text9"
+                             TextChanged="text9_TextChanged"
+                              PreviewTextInput="NumberValidationTextBox"
+                             Style="{DynamicResource textbox_style}"
+                             Tag="Приход сумма" Height="24" Width="250" 
+                             HorizontalAlignment="Right"  />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <Label  Content="Приход сумма" FontWeight="Bold" Width="85"/>
+                        <Label Content=""  Width="45" x:Name="K3" Foreground="#5C554F" 
+                                 FontSize="13" />
+
+                        <TextBox FontSize="14"   
+                            x:Name="text10"
+                                 IsReadOnly="True"
+                             Style="{DynamicResource textbox_style}"
+                             Tag="Приход сумма" Height="24" Width="250" 
+                             HorizontalAlignment="Right"  />
+                    </StackPanel>
+
+
+
+                    <StackPanel Orientation="Horizontal" Margin="0,35,0,0">
+                        <Label  Content="Итого:" FontWeight="Bold" Width="50"/>
+                        <Label Content=""  Width="45" x:Name="U4" Foreground="#5C554F" 
                                  FontSize="13" />
 
                         <TextBox FontSize="14"   
                             x:Name="text7"
+                                 IsReadOnly="True"
                              TextChanged="textBox1_TextChanged"
                              Style="{DynamicResource textbox_style}"
-                             Tag="Всего сумма" Height="24" Width="250" 
+                             Tag="Всего сумма" Height="24" Width="150" 
                              HorizontalAlignment="Right"  />
-                    </StackPanel>
 
-                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
-                        <Label  Content="Всего сумма" FontWeight="Bold" Width="85"/>
-                        <Label Content="(KGS)"  Width="45" Foreground="#5C554F" 
+                        <Label  Content="Итого:" FontWeight="Bold" Width="50" Margin="20,0,0,0"/>
+                        <Label Content="" x:Name="K4"  Width="45" Foreground="#5C554F" 
                                  FontSize="13" />
 
                         <TextBox FontSize="14"   
                             x:Name="text8"
+                                 IsReadOnly="True"
                              TextChanged="textBox1_TextChanged"
                              Style="{DynamicResource textbox_style}"
-                             Tag="Всего сумма" Height="24" Width="250" 
+                             Tag="Всего сумма" Height="24" Width="150" 
                              HorizontalAlignment="Right"  />
+
+
                     </StackPanel>
+
+                    
 
                 </StackPanel>
             </StackPanel>

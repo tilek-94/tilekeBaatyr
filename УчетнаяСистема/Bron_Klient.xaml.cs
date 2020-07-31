@@ -1,18 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using УчетнаяСистема.All_classes;
 
 namespace УчетнаяСистема
@@ -23,7 +13,6 @@ namespace УчетнаяСистема
     public partial class Bron_Klient : Window
     {
         dbConnect dbCon = new dbConnect();
-        double dollar = 0, kurs = 0, som = 0;
         public double KGS = 0, USD = 0;
         public string d1 = "0", d2 = "0", m1 = "0", m2 = "0", y1 = "0", y2 = "0";
         ChartRapyment chartRapyment = new ChartRapyment();
@@ -64,10 +53,7 @@ namespace УчетнаяСистема
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            staticClass.StaticDomID = "18";
-            /*
-            Frame_Bron_Klient.Navigate(new System.Uri("form_p/view_year.xaml", UriKind.RelativeOrAbsolute));
-        */}
+         }
 
 
         private void BasaQuery( string ZakazId)

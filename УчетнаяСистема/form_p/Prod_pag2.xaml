@@ -231,7 +231,7 @@
                            AutoGenerateColumns="False"
                    ItemsSource="{Binding}"
                   ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1"  
-                  MouseDown="DataGrid_MouseDown" MouseDoubleClick="dataGridView1_MouseDoubleClick">
+                   MouseDoubleClick="dataGridView1_MouseDoubleClick">
                     <DataGrid.Columns>
                         <DataGridTextColumn  Width="70" Header="№" Binding="{Binding id}" />
                         <DataGridTextColumn  Width="110" Header="Номер квартира" Binding="{Binding number_f}" />

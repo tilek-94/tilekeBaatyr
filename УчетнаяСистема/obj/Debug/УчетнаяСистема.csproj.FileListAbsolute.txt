@@ -341,3 +341,7 @@ D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\ProdPar.ba
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.csprojAssemblyReference.cache
 D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\Newtonsoft.Json.dll
 D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\Newtonsoft.Json.xml
+D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\RegistrBisnes.g.cs
+D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\RepPar.g.cs
+D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\RegistrBisnes.baml
+D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\RepPar.baml
