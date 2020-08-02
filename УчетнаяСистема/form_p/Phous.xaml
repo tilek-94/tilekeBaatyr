@@ -1,5 +1,5 @@
-﻿<UserControl x:Class="УчетнаяСистема.form_p.analis"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<UserControl x:Class="УчетнаяСистема.form_p.Phous"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
@@ -16,18 +16,18 @@
         <Border Grid.Row="0" Padding="5" Background="#F4F4F4">
             <StackPanel  Background="White" >
                 <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
-                    
+
                     <Label Content="{Binding NameBuild}" FontSize="16" Foreground="#00C3FF" ></Label>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
-                    <Button Style="{DynamicResource Button_blue}" 
+                        <Button Style="{DynamicResource Button_blue}" 
                             HorizontalAlignment="Center"
                             x:Name="registr_btn2" Click="registr_btn2_Click"
                             Content="Ввод данных" Width="168" Height="26" Margin="0,0,20,0"
                                 />
-                    
-                    <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" Tag=" Поиск данные" Height="25" Width="200" Margin="5" HorizontalAlignment="Right">
 
-                    </TextBox>
+                        <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" Tag=" Поиск данные" Height="25" Width="200" Margin="5" HorizontalAlignment="Right">
+
+                        </TextBox>
                     </StackPanel>
                 </DockPanel>
             </StackPanel>
@@ -40,25 +40,24 @@
                           CanUserAddRows="False"
                           ItemsSource="{Binding}"
                           MouseDoubleClick="dataGridView1_MouseDoubleClick" 
-                          ColumnDisplayIndexChanged="dataGridView1_ColumnDisplayIndexChanged"
-                  IsReadOnly="True"
+                        IsReadOnly="True"
                           >
 
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Width="0"  Visibility="Hidden" Foreground="White" Binding="{Binding Zid}" />
-                        <DataGridTextColumn Width="70" Header="№" Binding="{Binding id}" />
-                        <DataGridTextColumn Width="70" Header="Этаж" Binding="{Binding floor}" />
-                        <DataGridTextColumn Width="70" Header="Подезъд" Binding="{Binding porch}" />
-                        <DataGridTextColumn Width="90"  Header="м2 Квартира" Binding="{Binding kvm}" />
-                        <DataGridTextColumn Width="80" Header="№ Квартира" Binding="{Binding number_f}" />
-                        <DataGridTextColumn Width="100" Header="Контракт номер" Binding="{Binding contract}" />
-                        <DataGridTextColumn Width="200" Header="Клиент" Binding="{Binding client}" />
-                        <DataGridTextColumn Width="120" Header="Машина марка" Binding="{Binding Cars}" />
-                        <DataGridTextColumn Width="120" Header="Цен доллор м2" Binding="{Binding to_usd}" />
-                        <DataGridTextColumn  Width="120" Header="Цена сом м2" Binding="{Binding Rto_kgs}" />
-                        <DataGridTextColumn Width="120" Header="Начало даты" Binding="{Binding data_n, StringFormat='dd-MM-yyyy '}" />
-                        <DataGridTextColumn Width="130" Header="Конец даты" Binding="{Binding data_k, StringFormat='dd-MM-yyyy '}" />
-                        <DataGridTextColumn Width="130" Visibility="Hidden" Binding="{Binding klient_id}" />
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="0"  Visibility="Hidden" Foreground="White" Binding="{Binding Zid}" />
+                <DataGridTextColumn Width="70" Header="№" Binding="{Binding id}" />
+                <DataGridTextColumn Width="70" Header="Этаж" Binding="{Binding floor}" />
+                <DataGridTextColumn Width="70" Header="Подезъд" Binding="{Binding porch}" />
+                <DataGridTextColumn Width="90"  Header="м2 Квартира" Binding="{Binding kvm}" />
+                <DataGridTextColumn Width="80" Header="№ Квартира" Binding="{Binding number_f}" />
+                <DataGridTextColumn Width="100" Header="Контракт номер" Binding="{Binding contract}" />
+                <DataGridTextColumn Width="200" Header="Клиент" Binding="{Binding client}" />
+                <DataGridTextColumn Width="120" Header="Машина марка" Binding="{Binding Cars}" />
+                <DataGridTextColumn Width="120" Header="Цен доллор м2" Binding="{Binding to_usd}" />
+                <DataGridTextColumn  Width="120" Header="Цена сом м2" Binding="{Binding Rto_kgs}" />
+                <DataGridTextColumn Width="120" Header="Начало даты" Binding="{Binding data_n, StringFormat='dd-MM-yyyy '}" />
+                <DataGridTextColumn Width="130" Header="Конец даты" Binding="{Binding data_k, StringFormat='dd-MM-yyyy '}" />
+                <DataGridTextColumn Width="130" Visibility="Hidden" Binding="{Binding klient_id}" />
                 <DataGridTemplateColumn Header="Удалить" Width="50" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -70,14 +69,14 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
             <DataGrid.RowStyle>
-               
+
                 <Style TargetType="DataGridRow">
                     <Setter Property="Background" Value="#99ffbb"/>
                     <Style.Triggers>
-                        
+
                         <DataTrigger Binding="{Binding client}" Value="Бранированный">
                             <Setter Property="Background" Value="#DCACF7" />
-                            
+
                         </DataTrigger>
                         <DataTrigger Binding="{Binding client}" Value="Обмен">
                             <Setter Property="Background" Value="#85DAFF" />
@@ -86,7 +85,7 @@
                             <Setter Property="Background" Value="White" />
                         </DataTrigger>
                     </Style.Triggers>
-                    
+
                 </Style>
             </DataGrid.RowStyle>
 
@@ -95,7 +94,7 @@
 
 
         </DataGrid>
-           
+
 
 
     </Grid>

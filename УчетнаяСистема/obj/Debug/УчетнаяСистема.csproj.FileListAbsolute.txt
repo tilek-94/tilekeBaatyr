@@ -345,3 +345,7 @@ D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\RegistrBis
 D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\RepPar.g.cs
 D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\RegistrBisnes.baml
 D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\RepPar.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Phous.g.cs
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\ProdPhous.g.cs
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Phous.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\ProdPhous.baml

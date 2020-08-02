@@ -109,5 +109,30 @@ namespace УчетнаяСистема.form_p
             int index = dataGridView1.SelectedCells[0].Column.DisplayIndex;
             MessageBox.Show("d");*/
         }
+        string id_1 = "";
+        private void x1_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
+            if (dataRow != null)
+            {
+                id_1 = dataRow.Row.ItemArray[1].ToString();
+                MessageO messageO = new MessageO();
+                if (id_1 != "")
+                {
+                    MessageBox.Show(id_1);
+                    messageO.Id = id_1;
+                    messageO.TableBasa = "zakaz";
+                    messageO.del_ += () => Display();
+                    messageO.ShowDialog();
+                }
+            }
+        }
+
+        private void registr_btn2_Click(object sender, RoutedEventArgs e)
+        {
+            Prod_pag2 prod_Pag2 = new Prod_pag2();
+            prod_Pag2.del_ += () => Display();
+            prod_Pag2.ShowDialog();
+        }
     }
 }

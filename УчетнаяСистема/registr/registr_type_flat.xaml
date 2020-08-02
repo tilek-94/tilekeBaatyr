@@ -52,6 +52,15 @@
                     <TextBlock>4-тип</TextBlock>
                     <TextBlock>5-тип</TextBlock>
                     <TextBlock>6-тип</TextBlock>
+
+                    <TextBlock>1-тип ПентХаус</TextBlock>
+                    <TextBlock>2-тип ПентХаус</TextBlock>
+                    <TextBlock>3-тип ПентХаус</TextBlock>
+                    <TextBlock>4-тип ПентХаус</TextBlock>
+                    <TextBlock>5-тип ПентХаус</TextBlock>
+                    <TextBlock>6-тип ПентХаус</TextBlock>
+                    <TextBlock>7-тип ПентХаус</TextBlock>
+                    <TextBlock>8-тип ПентХаус</TextBlock>
                 </ComboBox>
                 <Label x:Name="label2" Content="Подъезд" Canvas.Left="108" Canvas.Top="13" Height="26" Width="58" RenderTransformOrigin="0.513,0.038"/>
                 <ComboBox Width="80" Canvas.Left="108" Canvas.Top="42" x:Name="ComboBox_P"  IsEditable="True" Height="23"/>

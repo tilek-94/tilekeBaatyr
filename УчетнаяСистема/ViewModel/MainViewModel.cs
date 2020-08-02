@@ -17,7 +17,7 @@ namespace УчетнаяСистема.ViewModel
         private UserControl Analis;
         private UserControl Kompleks_hause;
         private UserControl Peple_pag;
-        private UserControl Prod_pag2;
+        private UserControl Phous;
         private UserControl Cars_pag;
         private UserControl addBuilding;
         private UserControl BookeepingP;
@@ -60,7 +60,7 @@ namespace УчетнаяСистема.ViewModel
             Analis = new analis();
             Kompleks_hause = new Kompleks_hause();
             Peple_pag = new Peple_pag();
-            Prod_pag2 = new Prod_pag2();
+            Phous = new Phous();
             Cars_pag = new Cars_pag();
             addBuilding = new addBuilding();
             BookeepingP = new BookeepingP();
@@ -75,6 +75,7 @@ namespace УчетнаяСистема.ViewModel
             CurrentPage = Analis;
             NameBuild = staticClass.BuildName;
         });
+        public ICommand bMenuPhous => new RelayCommand((obj) => CurrentPage = Phous);
         public ICommand bMenuComHaus => new RelayCommand((obj) => CurrentPage = Kompleks_hause);
         public ICommand bMenuParking => new RelayCommand((obj) => CurrentPage = Parking);
         public ICommand bMenuRashod => new RelayCommand((obj) => CurrentPage = Rashod);
@@ -82,10 +83,14 @@ namespace УчетнаяСистема.ViewModel
         public ICommand bMenuBookeepingP => new RelayCommand((obj) => CurrentPage = BookeepingP);
         public ICommand bMenuCars_pag => new RelayCommand((obj) => CurrentPage = Cars_pag);
         public ICommand bMenuPeple_pag => new RelayCommand((obj) => CurrentPage = Peple_pag);
-        public ICommand bMenuProd_pag2 => new RelayCommand((obj) => CurrentPage = Prod_pag2);
+        
         public ICommand bMenuaddBuilding => new RelayCommand((obj) => CurrentPage = addBuilding);
         public ICommand btnClose => new RelayCommand((obj) => Application.Current.Shutdown());
 
+        public ICommand bMenuProd_pag2 => new RelayCommand((obj) => {
+            Prod_pag2 prod_Pag2 = new Prod_pag2();
+            prod_Pag2.ShowDialog();
+            });
         public ICommand bMenuexchange => new RelayCommand((obj) =>
         {
             exchange Exchange = new exchange();

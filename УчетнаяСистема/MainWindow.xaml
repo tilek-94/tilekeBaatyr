@@ -271,7 +271,7 @@
                                 <Border HorizontalAlignment="Left" Margin="5,0,0,0">
                                     <Button Style="{DynamicResource menuButton}" 
                                             x:Name="prod_btnV" 
-                                            Command="{Binding bMenuProd_pag2}">
+                                            Command="{Binding bMenuPhous}">
                                         <StackPanel>
 
                                             <Image>
