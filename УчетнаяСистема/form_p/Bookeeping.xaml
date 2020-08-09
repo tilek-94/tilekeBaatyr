@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Background="{x:Null}"
     Loaded="Window_Loaded"
-        Title="Bookeeping" Height="350" Width="750" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        Title="Bookeeping" Height="420" Width="750" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
     
     <Grid Background="White" Margin="10">
         
@@ -117,16 +117,48 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
-                    <Label  Content="Сумма: " Width="85" />
+                    <Label  Content="Курс валюта" Margin="0,0,0,0"/>
+                    <Button  Content="Валюта"
+                     
+                x:Name="btn_valuta"
+                Click="btn_valuta_Click"
+                 Width="113" Height="24"
+                Background="{x:Null}" 
+                BorderThickness="2,2,2,2"
+                BorderBrush="#FF0A6E9E"
+                Cursor="Hand"
+                Margin="10,0,37,0"  
+                Foreground="#FF0A6E9E"/>
+                    <ComboBox Width="99" x:Name="ComboBox3"
+                              IsEditable="True" 
+               DropDownClosed="ComboBox3_DropDownClosed"
+                      >
+                        <TextBlock><Run Text="USD-KGS"/></TextBlock>
+                        <TextBlock><Run Text="KGS-USD"/></TextBlock>
+                        <TextBlock><Run Text="RUB-KGS"/></TextBlock>
+                        <TextBlock><Run Text="KGS-RUB"/></TextBlock>
+                        <TextBlock><Run Text="EUR-KGS"/></TextBlock>
+                        <TextBlock><Run Text="KGS-EUR"/></TextBlock>
+
+                    </ComboBox>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label  Content="Сумма" Width="50"  />
+                    <Label  Content="(USD)" Width="45" x:Name="L1"/> 
                     <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" 
-                             x:Name="text4"
-                                 Tag=" 1 000 000 " Height="24" Width="150" HorizontalAlignment="Right" />
+                             x:Name="text4" Tag=" 1 000 000 " Height="24" Width="250" 
+                             HorizontalAlignment="Right" TextChanged="text4_TextChanged" />
 
-                    <Label  Content="Валюта: " Width="60" Margin="20,0,0,0" />
-                    <TextBox Width="99"  Style="{DynamicResource textbox_style}"  Tag=" 1" x:Name="kurs" >
-                        
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label  Content="Сумма " Width="50" />
+                    <Label  Content="(KGS)" Width="45" x:Name="L2" />
 
-                    </TextBox>
+                    <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" 
+                             x:Name="text5"
+                                 Tag=" 1 000 000 " Height="24" Width="250" HorizontalAlignment="Right" />
 
                 </StackPanel>
 

@@ -44,21 +44,19 @@
                           >
 
             <DataGrid.Columns>
-                <DataGridTextColumn Width="0"  Visibility="Hidden" Foreground="White" Binding="{Binding Zid}" />
-                <DataGridTextColumn Width="70" Header="№" Binding="{Binding id}" />
-                <DataGridTextColumn Width="70" Header="Этаж" Binding="{Binding floor}" />
-                <DataGridTextColumn Width="70" Header="Подезъд" Binding="{Binding porch}" />
-                <DataGridTextColumn Width="90"  Header="м2 Квартира" Binding="{Binding kvm}" />
-                <DataGridTextColumn Width="80" Header="№ Квартира" Binding="{Binding number_f}" />
-                <DataGridTextColumn Width="100" Header="Контракт номер" Binding="{Binding contract}" />
-                <DataGridTextColumn Width="200" Header="Клиент" Binding="{Binding client}" />
-                <DataGridTextColumn Width="120" Header="Машина марка" Binding="{Binding Cars}" />
-                <DataGridTextColumn Width="120" Header="Цен доллор м2" Binding="{Binding to_usd}" />
-                <DataGridTextColumn  Width="120" Header="Цена сом м2" Binding="{Binding Rto_kgs}" />
-                <DataGridTextColumn Width="120" Header="Начало даты" Binding="{Binding data_n, StringFormat='dd-MM-yyyy '}" />
-                <DataGridTextColumn Width="130" Header="Конец даты" Binding="{Binding data_k, StringFormat='dd-MM-yyyy '}" />
-                <DataGridTextColumn Width="130" Visibility="Hidden" Binding="{Binding klient_id}" />
-                <DataGridTemplateColumn Header="Удалить" Width="50" >
+                
+                <DataGridTextColumn Width="70" Visibility="Collapsed" Binding="{Binding pid}" />
+                 <DataGridTextColumn Width="70" Header="№" Binding="{Binding id}" />
+                <DataGridTextColumn Width="100" Header="Бизнес класс" Binding="{Binding name}" />
+                <DataGridTextColumn Width="220" Header="Клиент" Binding="{Binding client}" />
+                <DataGridTextColumn  Header="Цена за м2 (USD) " Binding="{Binding price_usd}" />
+                <DataGridTextColumn  Header="Цена за м2 (KGS) " Binding="{Binding price_kgs}" />
+                <DataGridTextColumn Header="Сумма  (USD)" Binding="{Binding summ_usd}" />
+                <DataGridTextColumn  Header="Сумма (KGS)" Binding="{Binding summ_kgs}" />
+                <DataGridTextColumn Width="120" Header="Дата" Binding="{Binding data , StringFormat='dd-MM-yyyy '}" />
+                <DataGridTextColumn Width="120" Header="Продавец" Binding="{Binding emp}" />
+                <DataGridTextColumn Width="120" Header="Продавец" Visibility="Collapsed" Binding="{Binding cl_id}" />
+                 <DataGridTemplateColumn Header="Удалить" Width="50" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Background="{x:Null}" x:Name="x1" Click="x1_Click"  BorderThickness="0,0,0,0" Cursor="Hand">
@@ -68,31 +66,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
-            <DataGrid.RowStyle>
-
-                <Style TargetType="DataGridRow">
-                    <Setter Property="Background" Value="#99ffbb"/>
-                    <Style.Triggers>
-
-                        <DataTrigger Binding="{Binding client}" Value="Бранированный">
-                            <Setter Property="Background" Value="#DCACF7" />
-
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding client}" Value="Обмен">
-                            <Setter Property="Background" Value="#85DAFF" />
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding client}" Value="{x:Null}">
-                            <Setter Property="Background" Value="White" />
-                        </DataTrigger>
-                    </Style.Triggers>
-
-                </Style>
-            </DataGrid.RowStyle>
-
-
-
-
-
+           
         </DataGrid>
 
 

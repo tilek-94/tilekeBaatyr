@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:УчетнаяСистема.form_p"
         mc:Ignorable="d"
-        Title="exchange" Height="650" Width="700" Background="{x:Null}" 
+        Title="exchange" Height="650" Width="900" Background="{x:Null}" 
         AllowsTransparency="True" Loaded="Window_Loaded" WindowStyle="None">
     <Grid Background="White" Margin="10">
         <Grid.RowDefinitions>
@@ -101,10 +101,11 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="№" Binding="{Binding id}" Width="50" />
                         <DataGridTextColumn Header="Номер квартира"  Width="80" Binding="{Binding number_f}" />
-                        <DataGridTextColumn Header="Ф.И.О Клиент" Binding="{Binding name}" />
+                        <DataGridTextColumn Header="Ф.И.О Клиент" Width="220" Binding="{Binding name}" />
                         <DataGridTextColumn Header="Продукт" Binding="{Binding tovar}" />
                         <DataGridTextColumn Header="Продукт" Binding="{Binding data, StringFormat='dd-MM-yyyy HH:mm'}" />
-                         <DataGridTemplateColumn Header="Удалить" Width="50" >
+                        <DataGridTextColumn Header="Сотрудник" Binding="{Binding name}" />
+                        <DataGridTemplateColumn Header="Удалить" Width="50" >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Background="{x:Null}" x:Name="x1" Click="x1_Click"  BorderThickness="0,0,0,0" Cursor="Hand">

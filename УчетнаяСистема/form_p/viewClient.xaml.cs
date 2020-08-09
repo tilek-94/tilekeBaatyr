@@ -24,5 +24,10 @@ namespace УчетнаяСистема.form_p
         {
             InitializeComponent();
         }
+
+        private void show_client_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -1,0 +1,174 @@
+﻿<Window x:Class="УчетнаяСистема.form_p.ProdBclass"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:УчетнаяСистема"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Height="280"  Width="950" WindowStartupLocation="CenterScreen" 
+       AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
+    <Grid Background="White" Margin="10">
+        <Grid.Effect>
+            <DropShadowEffect Opacity="0.5" Direction="260" ShadowDepth="1"/>
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition />
+
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="#0A6E9E" Height="20" VerticalAlignment="Top">
+            <TextBlock Text="Регистрация " Foreground="White" FontSize="14" Margin="10,0,0,0" />
+        </Border>
+        <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
+
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Margin="10,0,0,0" Grid.Column="0">
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+                    <Label Content="Клиент"  FontSize="14" Foreground="#5C554F" Width="80" />
+
+                    <TextBox x:Name="FIO" FontSize="14" 
+                     Style="{DynamicResource textbox_style}" 
+                     Tag=" Ф.И.О" Height="24" Width="230" 
+                     HorizontalAlignment="Right"  />
+
+                    <Button Style="{StaticResource Add_Button_MRZ}"
+                x:Name="show_client_btn"
+                Click="show_client_btn_Click"
+               Margin="10,0,0,0"
+                                Width="32" Height="26"/>
+                </StackPanel>
+                
+                
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Квартира" Width="80" FontSize="14" Foreground="#5C554F" />
+
+                    <ComboBox Width="230" 
+                      x:Name="ComboBox2"  IsEditable="True" Height="24"
+                               SelectedValue="{Binding FilterService.TripLengthFrom, Mode=TwoWay}"
+                      DropDownClosed="ComboBox2_DropDownClosed"
+                      />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+                    <Label Content="м2"  FontSize="14" Foreground="#5C554F" Width="80" />
+
+                    <TextBox  FontSize="14" 
+                              x:Name="textm2"
+                     Style="{DynamicResource textbox_style}" 
+                     Tag=" м2" Height="24" Width="230"
+                             
+                     HorizontalAlignment="Right"  />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,20" HorizontalAlignment="Center">
+                    <Button Style="{DynamicResource Button_blue}" 
+                                        x:Name="bRegistr"
+                                        Click="bRegistr_Click"
+                           Margin="0,20,0,0"
+                            Content="Регистрация" Width="168" Height="26" 
+                                 />
+
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel Margin="10,0,0,0" Grid.Column="1">
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Button  Content="Валюта"
+                    Margin="90,0,0,0"         
+                     x:Name="btn_valuta"
+                     Click="btn_valuta_Click"
+                     Width="99" Height="25"
+                    Background="{x:Null}" 
+                     BorderThickness="2,2,2,2"
+                     BorderBrush="#FF0A6E9E"
+                     Cursor="Hand"
+                     Foreground="#FF0A6E9E"/>
+
+                    <ComboBox Width="88" x:Name="ComboBox3" 
+                              Margin="20,0,0,0"
+                              IsEditable="True" Height="24"
+               
+                DropDownClosed="ComboBox3_DropDownClosed"
+                      >
+                        <TextBlock>USD-KGS</TextBlock>
+                        <TextBlock>KGS-USD</TextBlock>
+                        <TextBlock>RUB-KGS</TextBlock>
+                        <TextBlock>KGS-RUB</TextBlock>
+                        <TextBlock>EUR-KGS</TextBlock>
+                        <TextBlock>KGS-EUR</TextBlock>
+
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+
+                    <Label Content="Цена м2."  FontSize="14" Foreground="#5C554F" Width="68" />
+                    <Label Content="" x:Name="l1" Foreground="#5C554F" Width="42" FontSize="13" />
+
+                    <TextBox  FontSize="14" 
+                              x:Name="textDol"
+                              PreviewTextInput="NumberValidationTextBox"
+                     Style="{DynamicResource textbox_style}" 
+                     Tag="  Цена квартира за м2" Height="24" Width="200" 
+                     HorizontalAlignment="Right" TextChanged="TextBox_TextChanged" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+
+                    <Label Content="Цена м2."  FontSize="14" Foreground="#5C554F" Width="68" />
+                    <Label Content="" x:Name="l2" Foreground="#5C554F" Width="42" FontSize="13" />
+
+                    <TextBox  FontSize="14" 
+                              x:Name="textSom"
+                     Style="{DynamicResource textbox_style}" 
+                     Tag="  Цена квартира за м2" Height="24" Width="200" 
+                     HorizontalAlignment="Right"  />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Сумма" Width="68" Foreground="#5C554F"
+                    FontSize="14" />
+                    <Label Content="" x:Name="l21" Width="42" Foreground="#5C554F"
+                    FontSize="13"   />
+                   
+                    <TextBox  
+                             FontSize="14" 
+                    x:Name="textSumDol"
+                    Style="{DynamicResource textbox_style}"
+                    Tag=" Сумма" Height="24" Width="200" 
+                    HorizontalAlignment="Right" 
+                             Margin="0,0,-19,0"/>
+
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Label Content="Сумма" Width="68" Foreground="#5C554F"
+                    FontSize="14" />
+                    <Label Content="" x:Name="l22" Width="42" Foreground="#5C554F"
+                    FontSize="13"   />
+
+                    <TextBox  FontSize="14" 
+                              x:Name="textSumKg"
+                              PreviewTextInput="NumberValidationTextBox"
+                    Style="{DynamicResource textbox_style}" Tag=" Сумма" 
+                    Height="24" Width="200" 
+                    HorizontalAlignment="Right" 
+                              Margin="0,0,-19,0"/>
+
+                </StackPanel>
+
+            </StackPanel>
+            <Calendar Grid.Column="2" HorizontalAlignment="Left" 
+                      x:Name="CalendarM"
+                      Margin="11,6,0,0" VerticalAlignment="Top" Height="168"
+                      Width="179" Foreground="White" BorderBrush="#FF1D61D8"
+                      OpacityMask="White" Background="White"/>
+
+
+        </Grid>
+
+    </Grid>
+</Window>

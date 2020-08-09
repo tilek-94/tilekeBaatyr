@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:УчетнаяСистема"
         mc:Ignorable="d"
-          Height="700"  Width="700" WindowStartupLocation="CenterScreen" 
+          Height="700"  Width="900" WindowStartupLocation="CenterScreen" 
         AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" Loaded="Window_Loaded">
 
     <Grid Background="White" Margin="10">
@@ -26,7 +26,10 @@
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Ф.И.О  клиент" Margin="0,0,0,0"/>
 
-                    <TextBox FontSize="14" x:Name="text1"  Style="{DynamicResource textbox_style}" Tag="Ф.И.О" Height="24" Width="250" HorizontalAlignment="Right"  Margin="43,0,0,0"/>
+                    <TextBox FontSize="14" x:Name="text1"  
+                             Style="{DynamicResource textbox_style}" Tag="Ф.И.О" 
+                             Height="24" Width="300" HorizontalAlignment="Right"  
+                             Margin="43,0,0,0"/>
                     <Button Style="{DynamicResource Button_Add}" Width="32"
                             x:Name="view_btn" Click="view_btn_Click"
                             Height="26" Margin="20,0,0,0">
@@ -48,7 +51,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Номер квартира" Margin="0,0,0,0"/>
-                    <ComboBox Width="247" 
+                    <ComboBox Width="300" 
                               Margin="30,0,0,0"
                           SelectedValue="{Binding FilterService.TripLengthFrom, Mode=TwoWay}"
                           BorderThickness="1 1 1 1" 
@@ -59,14 +62,15 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Дата" Margin="0,0,0,0"/>
-                    <DatePicker x:Name="data1" Height="26" Margin="94,0,0,0" Width="245" Style="{DynamicResource styleDatePicker}" ></DatePicker>
+                    <DatePicker x:Name="data1" Height="26" Margin="94,0,0,0" Width="300" Style="{DynamicResource styleDatePicker}" ></DatePicker>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Доллар" Margin="0,0,0,0"/>
                     <TextBox FontSize="14"   
                              x:Name="textBox1"
-                             Style="{DynamicResource textbox_style}" Tag="Доллар" Height="24" Width="247" HorizontalAlignment="Right"  Margin="78,0,0,0"/>
+                             Style="{DynamicResource textbox_style}"
+                             Tag="Доллар" Height="24" Width="300" HorizontalAlignment="Right"  Margin="78,0,0,0"/>
 
 
                 </StackPanel>
@@ -75,7 +79,8 @@
                     <Label  Content="Сумма сом" Margin="0,0,0,0"/>
                     <TextBox FontSize="14" 
                              x:Name="textBox3"
-                             Style="{DynamicResource textbox_style}" Tag="Сумма сом" Height="24" Width="243" HorizontalAlignment="Right"  Margin="60,0,0,0"/>
+                             Style="{DynamicResource textbox_style}"
+                             Tag="Сумма сом" Height="24" Width="300" HorizontalAlignment="Right"  Margin="60,0,0,0"/>
 
 
                 </StackPanel>
@@ -83,7 +88,7 @@
                     <Button Style="{DynamicResource Button_blue}" 
                             x:Name="registr_btn" Click="registr_btn_Click"
                             Content="Сохранить" Width="168" Height="26" 
-                            RenderTransformOrigin="0.494,-0.221" Margin="0,0,0,0" />
+                            RenderTransformOrigin="0.494,-0.221" Margin="-120,0,0,0" />
                 </StackPanel>
             </StackPanel>
         </Grid>
@@ -101,13 +106,14 @@
                           Height="355"
                           Style="{DynamicResource grid_xml}" 
                           CanUserAddRows="False"
-                          HeadersVisibility="Column" ColumnHeaderStyle="{DynamicResource hederstyle}"
+                          HeadersVisibility="Column"
+                          ColumnHeaderStyle="{DynamicResource hederstyle}"
                           HorizontalScrollBarVisibility="Hidden"
                           AutoGenerateColumns="False"
                           >
                         <DataGrid.Columns>
                             <DataGridTextColumn Width="50"  Header="№" Binding="{Binding Id}"  />
-                            <DataGridTextColumn Width="70" Header="Год" Binding="{Binding Year_c}" />
+                            <DataGridTextColumn Width="100" Header="Год" Binding="{Binding Year_c}" />
                             <DataGridTextColumn Header="Месяц" Binding="{Binding Month_c}" />
                             <DataGridTextColumn Header="Цена сумма (USD)" Binding="{Binding Dollark}" />
                             <DataGridTextColumn Header="Цена сумма (KGS)" Binding="{Binding Summak}" />

@@ -349,3 +349,9 @@ D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Phous.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\ProdPhous.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Phous.baml
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\ProdPhous.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\ProdBclass.g.cs
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\ProdBclass.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\AnalisCars.g.cs
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\AnalisCars.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\otchet\BisnesClass.g.cs
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\otchet\BisnesClass.baml

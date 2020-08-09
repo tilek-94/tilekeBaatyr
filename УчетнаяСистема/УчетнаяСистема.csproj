@@ -111,6 +111,9 @@
     <Compile Include="form_p\analis.xaml.cs">
       <DependentUpon>analis.xaml</DependentUpon>
     </Compile>
+    <Compile Include="form_p\AnalisCars.xaml.cs">
+      <DependentUpon>AnalisCars.xaml</DependentUpon>
+    </Compile>
     <Compile Include="form_p\Bookeeping.xaml.cs">
       <DependentUpon>Bookeeping.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,9 @@
     </Compile>
     <Compile Include="form_p\Phous.xaml.cs">
       <DependentUpon>Phous.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="form_p\ProdBclass.xaml.cs">
+      <DependentUpon>ProdBclass.xaml</DependentUpon>
     </Compile>
     <Compile Include="form_p\ProdCars.xaml.cs">
       <DependentUpon>ProdCars.xaml</DependentUpon>
@@ -200,6 +206,9 @@
     </Compile>
     <Compile Include="Model\Cars.cs" />
     <Compile Include="Model\CarsService.cs" />
+    <Compile Include="otchet\BisnesClass.xaml.cs">
+      <DependentUpon>BisnesClass.xaml</DependentUpon>
+    </Compile>
     <Compile Include="registr\registr_flat.xaml.cs">
       <DependentUpon>registr_flat.xaml</DependentUpon>
     </Compile>
@@ -237,6 +246,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="form_p\analis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="form_p\AnalisCars.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -281,6 +294,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="form_p\Phous.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="form_p\ProdBclass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -365,6 +382,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MessageO.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="otchet\BisnesClass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -568,6 +589,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\business.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\online_payment_480px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

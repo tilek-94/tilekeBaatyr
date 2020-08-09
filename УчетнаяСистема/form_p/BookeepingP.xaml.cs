@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using УчетнаяСистема.All_classes;
+using УчетнаяСистема.otchet;
 
 namespace УчетнаяСистема.form_p
 {
@@ -19,7 +20,7 @@ namespace УчетнаяСистема.form_p
         {
             Bookeeping bookeeping = new Bookeeping();
             bookeeping.Flag = 1;
-            bookeeping.del += () => RegistDataP("SELECT * FROM prihod WHERE remov='0'");
+            bookeeping.del += () => RegistDataP("SELECT * FROM otchetprihod");
             bookeeping.ShowDialog();
         }
         private void RegistData(string s)
@@ -44,12 +45,29 @@ namespace УчетнаяСистема.form_p
 
         }
 
+        private void ReadSum()
+        {
+            dbCon = new dbConnect();
+            dbCon.eventDysplay += delegate (DataTable db)
+            {
+                itogUSD.Text = "$ " + db.Rows[0][0].ToString();
+                itogKGS.Text = db.Rows[0][1].ToString()+" Сом";
+            };
+            dbCon.SoursData("SELECT ROUND(SUM(to_usd),2),ROUND(SUM(Rto_kgs),2) FROM otchetprihod");
+
+        }
+
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
 
-            RegistData("SELECT * FROM rashod WHERE remov='0'");
-            RegistDataP("SELECT * FROM prihod WHERE remov='0'");
+            RegistData("SELECT r.id,r.operationU,r.organ, " +
+                "if ((`r`.`typev` = '(KGS)'), round((`r`.summa / `cur`.`usd`),2),`r`.summa) AS `to_usd`, " +
+                "if ((`r`.`typev` = '(USD)'),round((`r`.summa * `cur`.`usd`),2),`r`.summa) AS `Rto_kgs`, " +
+                "r.`data` ,u.name AS users,(SELECT name FROM users WHERE id = r.remov) AS remov " +
+                "FROM(rashod r INNER JOIN currency cur) INNER JOIN users u  ON r.kurs = cur.id AND r.sotrud = u.id; ");
+            RegistDataP("SELECT * FROM otchetprihod");
+            ReadSum();
 
 
         }
@@ -75,8 +93,21 @@ namespace УчетнаяСистема.form_p
         {
             Bookeeping bookeeping = new Bookeeping();
             bookeeping.Flag = 2;
-            bookeeping.del += () => RegistData("SELECT * FROM rashod WHERE remov='0' ");
+            bookeeping.del += () => RegistData("SELECT r.id,r.operationU,r.organ, " +
+                "if ((`r`.`typev` = '(KGS)'), round((`r`.summa / `cur`.`usd`),2),`r`.summa) AS `to_usd`, " +
+                "if ((`r`.`typev` = '(USD)'),round((`r`.summa * `cur`.`usd`),2),`r`.summa) AS `Rto_kgs`, " +
+                "r.`data` ,u.name AS users,(SELECT name FROM users WHERE id = r.remov) AS remov " +
+                "FROM(rashod r INNER JOIN currency cur) INNER JOIN users u  ON r.kurs = cur.id AND r.sotrud = u.id; ");
             bookeeping.ShowDialog();
+        }
+
+        private void myDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            DataRowView dataRow = (DataRowView)myDataGrid.SelectedItem;
+            string number_f = dataRow.Row.ItemArray[0].ToString();
+            BisnesClass bisnesClass = new BisnesClass();
+            bisnesClass.ShowDialog();
+            //number_f;
         }
     }
 }

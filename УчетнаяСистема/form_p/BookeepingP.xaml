@@ -11,7 +11,12 @@
     <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-              </Grid.ColumnDefinitions>
+           
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
         <Grid Grid.Column="1" >
             <TextBlock>Приход</TextBlock>
         </Grid>
@@ -49,24 +54,14 @@
                           ItemsSource="{Binding}"
                               HorizontalScrollBarVisibility="Hidden"
                           AutoGenerateColumns="False"
+                          MouseDoubleClick="myDataGrid_MouseDoubleClick"
                           >
                         <DataGrid.Columns>
-                            <DataGridTextColumn Width="50"  Header="№" Binding="{Binding id}"  />
-                            <DataGridTextColumn Header="Операция" Binding="{Binding operationU}" Width="200" />
-                            <DataGridTextColumn Header=" Физ. и частное лицо" Binding="{Binding organ}" Width="200" />
-                            <DataGridTextColumn Header="Сумма" Width="150" Binding="{Binding summa}" />
-                            <DataGridTextColumn Header="Тип валюта" Binding="{Binding currency}" Width="100" />
-                            <DataGridTextColumn Header="Дата" Binding="{Binding data, StringFormat='dd-MM-yyyy   HH:mm:ss'}" />
-                            <DataGridTemplateColumn Header="Удалить" Width="50" >
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Background="{x:Null}" x:Name="x1" Click="x1_Click"  BorderThickness="0,0,0,0" Cursor="Hand">
-                                            <Image Source="/УчетнаяСистема;component/images/icon/udalit4.png" Width="20"/>
-                                        </Button>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        
+                            <DataGridTextColumn Header="Операция" Binding="{Binding class}" Width="200" />
+                            <DataGridTextColumn Header=" Приход сумма (USD)" Binding="{Binding to_usd}" Width="200" />
+                        <DataGridTextColumn Header="Приход сумма (KGS)" Width="150" Binding="{Binding Rto_kgs}" />
+                           <DataGridTextColumn Header="Дата" Binding="{Binding data, StringFormat='dd-MM-yyyy   HH:mm:ss'}" />
+                           
                         </DataGrid.Columns>
 
                         <DataGrid.GroupStyle>
@@ -134,11 +129,12 @@
                           >
                         <DataGrid.Columns>
                             <DataGridTextColumn Width="50"  Header="№" Binding="{Binding id}"  />
-                            <DataGridTextColumn Header="Операция" Binding="{Binding operationU}" Width="130" />
+                            <DataGridTextColumn Header="Операция" Binding="{Binding operationU}" Width="120" />
                             <DataGridTextColumn Header=" Физ. и частное лицо" Binding="{Binding organ}"  />
-                            <DataGridTextColumn Header="Сумма" Width="100" Binding="{Binding summa}" />
-                            <DataGridTextColumn Header="Тип валюта" Binding="{Binding currency}" Width="100" />
+                            <DataGridTextColumn Header="Сумма" Width="100" Binding="{Binding to_usd}" />
+                            <DataGridTextColumn Header="Тип валюта" Binding="{Binding Rto_kgs}" Width="100" />
                             <DataGridTextColumn Header="Дата" Binding="{Binding data, StringFormat='dd-MM-yyyy   HH:mm:ss'}" />
+                            <DataGridTextColumn Header="Дата" Binding="{Binding users}" />
                             <DataGridTemplateColumn Header="Удалить" Width="50" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -188,7 +184,22 @@
                
             </Grid>
         </Grid>
-
+        <Grid  Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" Margin="20,10,0,0" Grid.Column="0">
+                <TextBlock FontSize="16" FontWeight="Bold" >Всего приход сумма: </TextBlock>
+                <TextBlock FontSize="16" FontWeight="Bold" x:Name="itogUSD" Foreground="Red" Margin="10,0,0,0" >$ 0</TextBlock>
+                <TextBlock FontSize="16" FontWeight="Bold" x:Name="itogKGS" Foreground="Red" Margin="100,0,0,0"> 0 Сом</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="20,10,0,0" Grid.Column="1">
+                <TextBlock FontSize="16" FontWeight="Bold" >Всего приход сумма:</TextBlock>
+                <TextBlock FontSize="16" FontWeight="Bold" x:Name="itogRUSD" Foreground="Red" Margin="10,0,0,0" >$ 354000</TextBlock>
+                <TextBlock FontSize="16" FontWeight="Bold" x:Name="itogRKGS" Foreground="Red" Margin="100,0,0,0"> 1522450000 Сом</TextBlock>
+            </StackPanel>
+        </Grid>
       
     </Grid>
 </UserControl>

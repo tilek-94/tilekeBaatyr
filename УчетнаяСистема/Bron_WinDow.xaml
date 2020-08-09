@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:УчетнаяСистема"
         mc:Ignorable="d"
-        Height="700"  Width="700" WindowStartupLocation="CenterScreen" 
+        Height="700"  Width="900" WindowStartupLocation="CenterScreen" 
         Loaded="Window_Loaded"
         AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
     <Grid Background="White" Margin="10">
@@ -17,14 +17,17 @@
             <RowDefinition Height="280"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" Background="#0A6E9E" Height="10" VerticalAlignment="Top"/>
+        <Border Grid.Row="0" Background="#0A6E9E" Height="25" VerticalAlignment="Top">
+            <TextBlock Foreground="White" FontSize="14" Text="Бронирования квартира" Margin="10,2,0,0"/>
+        </Border>
         <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
         <Grid Grid.Row="1" Margin="0,1,0,334" Grid.RowSpan="2">
             <StackPanel Margin="88,-1,116,1">
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Ф.И.О" Margin="0,0,0,0"/>
 
-                    <TextBox FontSize="14" x:Name="text1"  Style="{DynamicResource textbox_style}" Tag="Ф.И.О" Height="24" Width="250" HorizontalAlignment="Right"  Margin="85,0,0,0"/>
+                    <TextBox FontSize="14" x:Name="text1"  Style="{DynamicResource textbox_style}" 
+                             Tag="Ф.И.О" Height="24" Width="300" HorizontalAlignment="Right"  Margin="85,0,0,0"/>
                     <Button Style="{DynamicResource Button_Add}" Width="32"
                             x:Name="view_btn" Click="view_btn_Click"
                             Height="26" Margin="20,0,0,0">
@@ -47,7 +50,7 @@
                 
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Номеры квартира" Margin="0,0,0,0"/>
-                    <ComboBox Width="250" Margin="18,0,0,0"
+                    <ComboBox Width="300" Margin="18,0,0,0"
                               x:Name="ComboBox1"
                         IsEditable="True" Height="22" />
                 </StackPanel>
@@ -88,7 +91,7 @@
                              x:Name="textBox1"
                              TextChanged="textBox1_TextChanged"
                              Style="{DynamicResource textbox_style}"
-                             Tag="Цена за квартира" Height="24" Width="250" 
+                             Tag="Цена за квартира" Height="24" Width="300" 
                              HorizontalAlignment="Right"  Margin="15,0,0,0"/>
                 </StackPanel>
                 
@@ -99,10 +102,10 @@
                     <TextBox FontSize="14" 
                              x:Name="textBox2"
                              Style="{DynamicResource textbox_style}" 
-                             Tag="Сумма сом" Height="24" Width="250"
+                             Tag="Сумма сом" Height="24" Width="300"
                              HorizontalAlignment="Right"  Margin="18,0,0,0"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,15,0,0" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Margin="-120,15,0,0" HorizontalAlignment="Center">
                     <Button Style="{DynamicResource Button_blue}" 
                             x:Name="registr_btn" Click="registr_btn_Click"
                             Content="Сохранить" Width="168" Height="26" RenderTransformOrigin="0.494,-0.221" Margin="0,0,0,0" />
@@ -136,10 +139,11 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="№" Binding="{Binding id}" Width="50" />
                     <DataGridTextColumn Header="Номер квартира"  Width="80" Binding="{Binding number_f}" />
-                    <DataGridTextColumn Header="Ф.И.О Клиент" Width="170" Binding="{Binding client}" />
+                    <DataGridTextColumn Header="Ф.И.О Клиент" Width="220" Binding="{Binding client}" />
                     <DataGridTextColumn Header="Цена м2 (USD" Binding="{Binding to_usd}" />
                     <DataGridTextColumn Header="Цена м2 (KGS)" Binding="{Binding Rto_kgs}" />
                     <DataGridTextColumn Header="Продукт" Binding="{Binding data, StringFormat='dd-MM-yyyy HH:mm'}" />
+                    <DataGridTextColumn Header="Сотрудник" Binding="{Binding name}" />
                     <DataGridTemplateColumn Header="Удалить" Width="50" >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>

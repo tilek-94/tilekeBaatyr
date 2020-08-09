@@ -193,24 +193,9 @@ namespace УчетнаяСистема.form_p
         {
 
         }
-        string id_1;
+       
         private void x1_Click(object sender, RoutedEventArgs e)
-        {/*
-            DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
-            if (dataRow != null)
-            {
-                id_1 = dataRow.Row.ItemArray[0].ToString();
-                MessageO messageO = new MessageO();
-                if (id_1 != "")
-                {
-                    messageO.Id = id_1;
-                    MessageBox.Show(id_1);
-                    messageO.TableBasa = "zakaz";
-                    messageO.del_ += () => LoadDisplay();
-                    messageO.ShowDialog();
-                }
-            }*/
-
+        {
         }
         Cars value;
         Double RemovSumKg = 0, RemovSumUsd = 0;

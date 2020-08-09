@@ -39,8 +39,7 @@ namespace УчетнаяСистема.form_p
             {
                 DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
                 string number_f = dataRow.Row.ItemArray[3].ToString();
-                MessageBox.Show(number_f);
-                viewFlat view_lat = new viewFlat();
+               viewFlat view_lat = new viewFlat();
                 view_lat.sqlQery = "SELECT t.name, t.kvm, f.floor,f.porch,f.number_f,f.room FROM flat f inner join " +
                     "type_flat t on t.dom_id = '"+ staticClass.StaticDomID + "' AND f.dom_id='" + staticClass.StaticDomID + "' and t.porch = f.porch " +
                     "and t.room = f.room and t.`type`= f.type_flat and f.number_f = '"+ number_f + "' ";

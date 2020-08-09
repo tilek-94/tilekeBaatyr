@@ -46,9 +46,13 @@ namespace УчетнаяСистема.form_p
         private void registr_btn_Click(object sender, RoutedEventArgs e)
         {
             if (ComboBox1.Text!="") { 
-            dbCon.Registr("INSERT INTO exchange(client_id,product_id,number_f,dom_id)" +
-                "VALUES('" + client_id + "','" + product_id + "','" + ComboBox1.Text + "','" + staticClass.StaticDomID + "')");
-            Display();
+            dbCon.Registr("INSERT INTO exchange(client_id,product_id,number_f,emp,dom_id)" +
+                "VALUES('" + client_id + "'," +
+                "'" + product_id + "'," +
+                "'" + ComboBox1.Text + "'," +
+                "'" + staticClass.StaticEmplayID + "'," +
+                "'" + staticClass.StaticDomID + "')");
+                Display();
                 ComboBox1.Text = "";
             }
             else
@@ -115,9 +119,10 @@ namespace УчетнаяСистема.form_p
             {
                 dataGridView1.ItemsSource = db.DefaultView;
             };
-            dbCon.SoursData("SELECT e.id, e.number_f,c.name,p.name AS tovar,e.`data` FROM (exchange e INNER JOIN client c ) " +
-                "INNER JOIN product p ON e.client_id = c.id AND p.id = e.product_id WHERE e.remov = '0' " +
-                "AND e.dom_id = '"+staticClass.StaticDomID+"'");
+            dbCon.SoursData("SELECT e.id, e.number_f,c.name,p.name AS tovar,e.`data`, u.name " +
+                "FROM exchange e INNER JOIN client c  INNER JOIN product p INNER JOIN users u " +
+                "ON e.client_id = c.id AND p.id = e.product_id AND e.emp = u.id " +
+                "WHERE e.remov = '0' AND e.dom_id = '"+staticClass.StaticDomID+"'");
 
         }
 

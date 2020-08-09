@@ -28,7 +28,6 @@ namespace УчетнаяСистема.form_p
         }
         public event Action<string, string> ValueChanged;
         dbConnect dbCon = new dbConnect();
-        string[] s;
         string id = "";
         RaschetSum raschetSum = new RaschetSum();
         lang lanG = new lang();

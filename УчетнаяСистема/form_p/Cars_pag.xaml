@@ -62,13 +62,14 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="№" Binding="{Binding id}" Width="50" />
                         <DataGridTextColumn Header="Статус машины" Binding="{Binding STATUS}" x:Name="ColumStatus" Visibility="Collapsed" />
-                        <DataGridTextColumn Header="Марка" Binding="{Binding marka}" />
+                    <DataGridTextColumn Header="ЭЭси" Width="220" Binding="{Binding client}" />
+                    <DataGridTextColumn Header="Марка" Binding="{Binding marka}" />
                         <DataGridTextColumn Header="Год выпуска" Binding="{Binding data}" />
                         <DataGridTextColumn Header="Номер машина" Binding="{Binding nomer}" />
                         <DataGridTextColumn Header="Состояние" Binding="{Binding condition_c}" />
                         <DataGridTextColumn Header="Цена машина (USD)" Binding="{Binding to_usd}" />
                         <DataGridTextColumn Header="Цена машина (KGS)" Binding="{Binding Rto_kgs}" />
-                        <DataGridTextColumn Header="ЭЭси" Binding="{Binding client}" />
+                        
                         <DataGridTextColumn Header="Дата" Binding="{Binding datatim, StringFormat='dd-MM-yyyy HH:mm'}" />
                         <DataGridTemplateColumn Header="Удалить" Width="50" x:Name="ColumRemov" >
                             <DataGridTemplateColumn.CellTemplate>

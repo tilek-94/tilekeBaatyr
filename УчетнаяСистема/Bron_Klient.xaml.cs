@@ -108,9 +108,10 @@ namespace УчетнаяСистема
         private void ComboBox_P_DropDownClosed(object sender, EventArgs e)
         {
             // ComboBoxItem typeItem = (ComboBoxItem)ComboBox_n.SelectedValue;
-           value = ComboBox_n.SelectedValue.ToString();
-            //MessageBox.Show(value);
+            if (ComboBox_n.SelectedValue != null) { 
+            value = ComboBox_n.SelectedValue.ToString();
             BasaQuery(value);
+            }
         }
 
         private void Button_Close_Click(object sender, RoutedEventArgs e)

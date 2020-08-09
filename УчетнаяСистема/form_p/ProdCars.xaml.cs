@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using УчетнаяСистема.All_classes;
 
 namespace УчетнаяСистема.form_p
@@ -78,11 +68,7 @@ namespace УчетнаяСистема.form_p
             {
                 dataGridView1.ItemsSource = db.DefaultView;
             };
-            dbCon.SoursData("SELECT p.id,(SELECT marka FROM cars where id=p.cars_id) AS cars," +
-                " (SELECT name FROM client where id=p.client_id) as client, " +
-                "IF(p.typev = '(KGS)', ROUND(p.price / cur.usd, 2), p.price) AS to_usd, " +
-                "IF(p.typev = '(USD)', ROUND(p.price * cur.usd, 2), p.price) AS Rto_kgs, " +
-                "p.data  FROM prod_cars p INNER JOIN currency cur ON p.curren_id = cur.id WHERE remov = '0' ORDER BY p.id DESC");
+            dbCon.SoursData("SELECT * FROM prod_cars_pred");
 
         }
 

@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using УчетнаяСистема.All_classes;
 
 namespace УчетнаяСистема.form_p
@@ -29,19 +18,31 @@ namespace УчетнаяСистема.form_p
         dbConnect dbCon; 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-
+            Display();
         }
 
         private void registr_btn2_Click(object sender, RoutedEventArgs e)
         {
-            ProdPhous prodPhous = new ProdPhous();
+            ProdBclass prodPhous = new ProdBclass();
             prodPhous.del_ += () => Display();
             prodPhous.ShowDialog();
         }
-
+        string id_1;
         private void x1_Click(object sender, RoutedEventArgs e)
         {
-
+            DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
+            if (dataRow != null)
+            {
+                id_1 = dataRow.Row.ItemArray[0].ToString();
+                MessageO messageO = new MessageO();
+                if (id_1 != "")
+                {
+                    messageO.Id = id_1;
+                    messageO.TableBasa = "prodbclass";
+                    messageO.del_ += () => Display();
+                    messageO.ShowDialog();
+                }
+            }
         }
         void Display()
         {
@@ -51,13 +52,38 @@ namespace УчетнаяСистема.form_p
             {
                 dataGridView1.DataContext = db;
             };
-            dbCon.SoursData("SELECT * FROM display WHERE dom_id='" + staticClass.StaticDomID + "' and remov='0'");
+            dbCon.SoursData("SELECT p.id as pid, bi.id,bi.name,cl.name as client, " +
+                "if ((`p`.`typev` = '(KGS)'), round((`p`.price / `cur`.`usd`),2),`p`.price) AS `price_usd`," +
+                "if ((`p`.`typev` = '(USD)'),round((`p`.price * `cur`.`usd`),2),`p`.price) AS `price_kgs`, " +
+                "if ((`p`.`typev` = '(KGS)'), round((`p`.summ / `cur`.`usd`),2),`p`.summ) AS `summ_usd`, " +
+                "if ((`p`.`typev` = '(USD)'),round((`p`.summ * `cur`.`usd`),2),`p`.summ) AS `summ_kgs`, " +
+                "p.`data`,u.name as emp, cl.id as cl_id FROM bisnesclass bi LEFT JOIN ( prodbclass p INNER JOIN client c INNER JOIN currency cur " +
+                "INNER JOIN client cl INNER JOIN users u) " +
+                "ON p.client_id = c.id AND p.kurs = cur.id " +
+                "AND p.number_id = bi.id AND p.client_id = cl.id AND p.emp = u.id AND p.remov = '0' WHERE bi.dom_id = '21'");
 
         }
 
         private void dataGridView1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            int columnIndex = dataGridView1.CurrentColumn.DisplayIndex;
 
+            if ( columnIndex==2)
+            {
+                viewPeopleinAnalis peopleinAnalis = new viewPeopleinAnalis();
+
+
+                DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
+                if (dataRow != null)
+                {
+                    if (dataRow.Row.ItemArray[9].ToString() != "")
+                    {
+                        string ClientId = dataRow.Row.ItemArray[9].ToString();
+                        peopleinAnalis.ClientID = ClientId;
+                        peopleinAnalis.ShowDialog();
+                    }
+                }
+            }
         }
     }
 }

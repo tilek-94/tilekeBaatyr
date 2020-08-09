@@ -18,7 +18,6 @@ namespace УчетнаяСистема
         }
         int client_id;
         dbConnect dbCon;
-        string[] s;
         RaschetSum raschetSum = new RaschetSum();
         lang lanG = new lang();
         string currency_id = "0", basaSum="0",typeV="";
@@ -172,11 +171,7 @@ namespace УчетнаяСистема
                 
                 dataGridView1.ItemsSource = db.DefaultView;
             };
-            dbCon.SoursData("SELECT b.id,b.number_f, (SELECT name FROM client where id=b.client_id) as client," +
-                "IF(b.typev = '(KGS)', ROUND(b.price_kv / cur.usd, 2), b.price_kv) AS to_usd," +
-                "IF(b.typev = '(USD)', ROUND(b.price_kv * cur.usd, 2), b.price_kv) AS Rto_kgs," +
-                " b.data  FROM bron b INNER JOIN currency cur ON b.kurs = cur.id WHERE remov='0'" +
-                "AND dom_id='"+staticClass.StaticDomID+"' ORDER BY b.id DESC");
+            dbCon.SoursData("SELECT * FROM bron_pres b WHERE b.dom_id='"+staticClass.StaticDomID+"'");
 
         }
         private void textBox2_KeyUp(object sender, KeyEventArgs e)
