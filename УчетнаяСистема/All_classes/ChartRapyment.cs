@@ -46,8 +46,7 @@ namespace УчетнаяСистема.All_classes
                 j = 0;
                 data = range.Start.ToString("MM") + "-" + range.Start.ToString("yyyy");
                 j = Array.IndexOf(month, data);
-               // MessageBox.Show(j.ToString() + $"-{summ[j]}, {USD[j]}");
-
+             
                 if (j >= 0)
                 {
                     

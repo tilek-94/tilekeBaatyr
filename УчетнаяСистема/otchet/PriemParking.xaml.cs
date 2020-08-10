@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 using УчетнаяСистема.All_classes;
@@ -18,6 +19,8 @@ namespace УчетнаяСистема.otchet
             this.ComboBox_n.SelectedValuePath = "Key";
             this.ComboBox_n.DisplayMemberPath = "Value";
         }
+        public delegate void DelegateM();
+        public event DelegateM del;
         dbConnect dbCon = new dbConnect();
         public double KGS = 0, USD = 0;
         public string d1 = "0", d2 = "0", m1 = "0", m2 = "0", y1 = "0", y2 = "0";
@@ -55,11 +58,14 @@ namespace УчетнаяСистема.otchet
         {
         }
 
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9,]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
 
         private void BasaQuery(string ZakazId)
         {
-
-
             dbCon.connection.Open();
             string sql = "SELECT * FROM _graf_parking WHERE id='" + ZakazId + "'";
             MySqlCommand command = new MySqlCommand(sql, dbCon.connection);
@@ -84,6 +90,7 @@ namespace УчетнаяСистема.otchet
             dbCon.connection.Close();
             string SqlQry = "SELECT SUM(summa), SUM(usd),DATE_FORMAT(data_month, '%m-%Y') " +
                 "FROM repayment_parking WHERE client_id='" + client_id + "' AND dom_id='" + staticClass.StaticDomID + "' AND number_f='" + ComboBox_n.Text + "' GROUP by DATE_FORMAT(data_month, '%yyyy %m')";
+            
             chartRapyment.Display(SqlQry, Math.Round(KGS, 2), Math.Round(USD, 2), myDataGrid, d1, m1, y1, d2, m2, y2);
 
         }
@@ -91,13 +98,21 @@ namespace УчетнаяСистема.otchet
 
         private void registr_btn_Click(object sender, RoutedEventArgs e)
         {
-            dbCon.Registr("INSERT INTO repayment_parking(dom_id,number_f,client_id,summa,usd,data_month)VALUES(" +
+            dbCon.Registr("INSERT INTO repayment_parking(" +
+                "dom_id," +
+                "number_f," +
+                "client_id," +
+                "usd," +
+                "summa," +
+                "data_month," +
+                "emp)VALUES(" +
                 "'" + staticClass.StaticDomID + "'," +
                 "'" + ComboBox_n.Text + "'," +
                 "'" + client_id.ToString() + "'," +
                 "'" + textBox1.Text.ToString().Replace(',', '.') + "'," +
                 "'" + textBox3.Text.ToString().Replace(',', '.') + "'," +
-                "'" + data1.DisplayDate.ToString("yyyy-MM-dd") + "')");
+                "'" + data1.DisplayDate.ToString("yyyy-MM-dd") + "'," +
+                "'"+staticClass.StaticEmplayID+"')");
             data1.Text = "";
             text1.Text = "";
             textBox1.Text = "";
@@ -117,6 +132,7 @@ namespace УчетнаяСистема.otchet
 
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
+            del();
             this.Close();
         }
 

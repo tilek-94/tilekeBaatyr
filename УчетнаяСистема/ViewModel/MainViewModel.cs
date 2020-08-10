@@ -26,6 +26,9 @@ namespace УчетнаяСистема.ViewModel
         private UserControl Rashod;
         private UserControl Parking;
         private UserControl AnalisCars;
+        private UserControl RepParkingPage;
+        private UserControl RepFlatPage;
+        private UserControl AnalisDohodPage;
 
         private UserControl _currentPage;
         public UserControl CurrentPage
@@ -70,6 +73,9 @@ namespace УчетнаяСистема.ViewModel
             Rashod = new Rashod();
             Parking = new Parking();
             AnalisCars = new AnalisCars();
+            RepFlatPage = new RepFlatPage();
+            AnalisDohodPage = new AnalisDohodPage();
+            RepParkingPage = new RepParkingPage();
             CurrentPage = Kompleks_hause;
             NameBuild = staticClass.BuildName;
         }
@@ -78,6 +84,9 @@ namespace УчетнаяСистема.ViewModel
             CurrentPage = Analis;
             NameBuild = staticClass.BuildName;
         });
+        public ICommand bAnalisDohodPage => new RelayCommand((obj) => CurrentPage = AnalisDohodPage);
+        public ICommand bRepFlat => new RelayCommand((obj) => CurrentPage = RepFlatPage);
+        public ICommand bRepPar => new RelayCommand((obj) => CurrentPage = RepParkingPage);
         public ICommand button_carsA => new RelayCommand((obj) => CurrentPage = AnalisCars);
         public ICommand bMenuPhous => new RelayCommand((obj) => CurrentPage = Phous);
         public ICommand bMenuComHaus => new RelayCommand((obj) => CurrentPage = Kompleks_hause);

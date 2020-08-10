@@ -69,6 +69,7 @@
                     <Label  Content="Доллар" Margin="0,0,0,0"/>
                     <TextBox FontSize="14"   
                              x:Name="textBox1"
+                             PreviewTextInput="NumberValidationTextBox"
                              Style="{DynamicResource textbox_style}"
                              Tag="Доллар" Height="24" Width="300" HorizontalAlignment="Right"  Margin="78,0,0,0"/>
 
@@ -79,6 +80,7 @@
                     <Label  Content="Сумма сом" Margin="0,0,0,0"/>
                     <TextBox FontSize="14" 
                              x:Name="textBox3"
+                              PreviewTextInput="NumberValidationTextBox"
                              Style="{DynamicResource textbox_style}"
                              Tag="Сумма сом" Height="24" Width="300" HorizontalAlignment="Right"  Margin="60,0,0,0"/>
 

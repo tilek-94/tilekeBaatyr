@@ -103,8 +103,11 @@ namespace УчетнаяСистема.form_p
                 {
                     if (dataRow.Row.ItemArray[0].ToString() != "")
                     {
-                        string ClientId = dataRow.Row.ItemArray[0].ToString();
-                        viewGrafParking.ZakazId= ClientId;
+                        string ClientId = dataRow.Row.ItemArray[10].ToString();
+                        viewGrafParking.NumberF = dataRow.Row.ItemArray[1].ToString();
+                        string marka_1 = dataRow.Row.ItemArray[0].ToString();
+                        viewGrafParking.ZakazId= marka_1;
+                        viewGrafParking.ClientId = ClientId;
                         viewGrafParking.ShowDialog();
                     }
                 }

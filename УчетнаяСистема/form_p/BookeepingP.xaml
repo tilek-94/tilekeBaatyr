@@ -196,8 +196,8 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="20,10,0,0" Grid.Column="1">
                 <TextBlock FontSize="16" FontWeight="Bold" >Всего приход сумма:</TextBlock>
-                <TextBlock FontSize="16" FontWeight="Bold" x:Name="itogRUSD" Foreground="Red" Margin="10,0,0,0" >$ 354000</TextBlock>
-                <TextBlock FontSize="16" FontWeight="Bold" x:Name="itogRKGS" Foreground="Red" Margin="100,0,0,0"> 1522450000 Сом</TextBlock>
+                <TextBlock FontSize="16" FontWeight="Bold" x:Name="itogRUSD" Foreground="Red" Margin="10,0,0,0" >$ 0</TextBlock>
+                <TextBlock FontSize="16" FontWeight="Bold" x:Name="itogRKGS" Foreground="Red" Margin="100,0,0,0"> 0 Сом</TextBlock>
             </StackPanel>
         </Grid>
       

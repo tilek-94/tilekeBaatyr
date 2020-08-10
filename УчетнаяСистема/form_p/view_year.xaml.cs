@@ -67,6 +67,7 @@ namespace УчетнаяСистема.form_p
             dbCon.connection.Close();
             string SqlQry = "SELECT SUM(summa), SUM(usd),DATE_FORMAT(data_month, '%m-%Y') " +
                 "FROM repayment WHERE client_id='" + ClientId + "' AND dom_id='" + staticClass.StaticDomID + "' AND number_f='" + NumberF + "' GROUP by DATE_FORMAT(data_month, '%yyyy %m')";
+            MessageBox.Show(SqlQry);
             chartRapyment.Display(SqlQry, Math.Round(KGS, 2), Math.Round(USD, 2), myDataGrid, d1, m1, y1, d2, m2, y2);
 
         }

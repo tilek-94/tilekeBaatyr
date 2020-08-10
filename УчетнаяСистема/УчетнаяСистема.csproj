@@ -174,8 +174,14 @@
     <Compile Include="form_p\RegistrEm.xaml.cs">
       <DependentUpon>RegistrEm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="form_p\RepFlatPage.xaml.cs">
+      <DependentUpon>RepFlatPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="form_p\RepPar.xaml.cs">
       <DependentUpon>RepPar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="form_p\RepParkingPage.xaml.cs">
+      <DependentUpon>RepParkingPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="form_p\Search_cars2.xaml.cs">
       <DependentUpon>Search_cars2.xaml</DependentUpon>
@@ -206,6 +212,9 @@
     </Compile>
     <Compile Include="Model\Cars.cs" />
     <Compile Include="Model\CarsService.cs" />
+    <Compile Include="otchet\AnalisDohodPage.xaml.cs">
+      <DependentUpon>AnalisDohodPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="otchet\BisnesClass.xaml.cs">
       <DependentUpon>BisnesClass.xaml</DependentUpon>
     </Compile>
@@ -339,7 +348,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="form_p\RepFlatPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="form_p\RepPar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="form_p\RepParkingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -388,6 +405,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MessageO.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="otchet\AnalisDohodPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

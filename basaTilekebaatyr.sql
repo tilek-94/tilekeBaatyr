@@ -730,14 +730,14 @@ CREATE TABLE IF NOT EXISTS `prihod` (
   `typev` char(50) DEFAULT NULL,
   `kurs` int(11) DEFAULT NULL,
   `data` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `sotrud` int(11) DEFAULT NULL,
+  `emp` int(11) DEFAULT NULL,
   `remov` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 -- Дамп данных таблицы u_system.prihod: ~6 rows (приблизительно)
 /*!40000 ALTER TABLE `prihod` DISABLE KEYS */;
-INSERT INTO `prihod` (`id`, `operationU`, `organ`, `summa`, `typev`, `kurs`, `data`, `sotrud`, `remov`) VALUES
+INSERT INTO `prihod` (`id`, `operationU`, `organ`, `summa`, `typev`, `kurs`, `data`, `emp`, `remov`) VALUES
 	(3, 'Темир', 'Албазбеков Аскар Даниярович', 5000, '(USD)', 193, '2020-08-24 11:49:42', 8, 0),
 	(4, 'Темир', 'Албазбеков Аскар Даниярович', 55000, '(USD)', 198, '2020-08-24 11:55:30', 8, 0),
 	(5, 'Арматура', 'Умаров Тилек Муталибович', 5500, '(USD)', 197, '2020-07-24 12:07:13', 8, 0),
@@ -931,20 +931,22 @@ CREATE TABLE IF NOT EXISTS `repayment` (
   `remov` int(11) DEFAULT '0',
   `emp` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы u_system.repayment: ~8 rows (приблизительно)
+-- Дамп данных таблицы u_system.repayment: ~10 rows (приблизительно)
 /*!40000 ALTER TABLE `repayment` DISABLE KEYS */;
 INSERT INTO `repayment` (`id`, `dom_id`, `number_f`, `client_id`, `summa`, `usd`, `data_month`, `data`, `remov`, `emp`) VALUES
-	(1, 21, 7, 17, 1314, 100763, '2020-07-31', '2020-07-31 13:44:58', 0, 0),
-	(2, 21, 10, 17, 1797, 137833, '2020-08-01', '2020-07-31 13:46:49', 0, 0),
-	(3, 21, 10, 17, 500, 1000, '2020-08-01', '2020-07-31 13:47:29', 0, 0),
-	(4, 21, 10, 17, 500, 1000, '2020-08-01', '2020-07-31 13:47:54', 0, 0),
-	(5, 21, 10, 17, 1797, 137833, '2020-06-01', '2020-07-31 13:49:14', 0, 0),
-	(6, 21, 10, 17, 13733, 1797, '2020-07-01', '2020-07-31 13:49:57', 0, 0),
-	(7, 21, 15, 15, 406450, 3125677.73, '2020-08-05', '2020-08-05 20:26:30', 0, 0),
-	(8, 21, 10, 17, 1797, 137833, '2020-10-01', '2020-08-09 20:34:27', 0, 0),
-	(9, 21, 10, 17, 1500, 130000, '2022-05-01', '2020-08-09 20:36:52', 0, 0);
+	(1, 21, 7, 17, 1314, 100763, '2020-07-31', '2020-08-11 01:51:57', 0, 12),
+	(2, 21, 10, 17, 1797, 137833, '2020-08-01', '2020-08-11 01:51:59', 0, 13),
+	(3, 21, 10, 17, 500, 1000, '2020-08-01', '2020-08-11 01:52:01', 0, 12),
+	(4, 21, 10, 17, 500, 1000, '2020-08-01', '2020-08-11 01:52:04', 0, 12),
+	(5, 21, 10, 17, 1797, 137833, '2020-06-01', '2020-08-11 01:52:06', 0, 13),
+	(6, 21, 10, 17, 13733, 1797, '2020-07-01', '2020-08-11 01:52:10', 0, 12),
+	(7, 21, 15, 15, 406450, 3125677.73, '2020-08-05', '2020-08-11 01:52:12', 0, 13),
+	(8, 21, 10, 17, 1797, 137833, '2020-10-01', '2020-08-11 01:52:15', 0, 12),
+	(9, 21, 10, 17, 1500, 130000, '2022-05-01', '2020-08-11 01:52:17', 0, 12),
+	(10, 21, 10, 17, 1797, 137833, '2020-09-01', '2020-08-11 02:03:20', 0, 12),
+	(11, 21, 18, 18, 728, 56118, '2020-09-01', '2020-08-11 02:05:47', 0, 13);
 /*!40000 ALTER TABLE `repayment` ENABLE KEYS */;
 
 -- Дамп структуры для таблица u_system.repayment_parking
@@ -960,13 +962,17 @@ CREATE TABLE IF NOT EXISTS `repayment_parking` (
   `remov` int(11) DEFAULT '0',
   `emp` int(11) DEFAULT '0',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы u_system.repayment_parking: ~2 rows (приблизительно)
+-- Дамп данных таблицы u_system.repayment_parking: ~6 rows (приблизительно)
 /*!40000 ALTER TABLE `repayment_parking` DISABLE KEYS */;
 INSERT INTO `repayment_parking` (`id`, `dom_id`, `number_f`, `client_id`, `summa`, `usd`, `data_month`, `data`, `remov`, `emp`) VALUES
-	(8, 21, 13, 13, 78000, 1000, '2020-08-09', '2020-08-09 19:38:52', 0, 12),
-	(9, 21, 1, 13, 78000, 1000, '2020-08-09', '2020-08-10 12:02:01', 0, 13);
+	(9, 21, 1, 15, 78000, 1000, '2020-08-09', '2020-08-11 01:24:22', 0, 13),
+	(10, 21, 16, 17, 10161, 782924, '2020-09-01', '2020-08-11 01:23:44', 0, 12),
+	(11, 21, 13, 16, 89891, 1166, '2020-09-01', '2020-08-11 01:44:56', 13, 13),
+	(12, 21, 13, 17, 89891, 1166, '2020-10-01', '2020-08-11 01:41:53', 13, 12),
+	(13, 21, 13, 17, 89891, 1166, '2020-11-01', '2020-08-11 01:23:52', 0, 12),
+	(14, 21, 16, 17, 782924, 10161, '2020-10-01', '2020-08-11 01:38:20', 0, 13);
 /*!40000 ALTER TABLE `repayment_parking` ENABLE KEYS */;
 
 -- Дамп структуры для таблица u_system.reppar
@@ -1135,6 +1141,20 @@ INSERT INTO `zakaz` (`id`, `dom_id`, `klient_id`, `number_f`, `cars_id`, `contra
 	(36, 21, 18, 18, '[{"Id":32,"Name":"BMW x6","Usd":8900.0,"Kgs":685745.0}]', '165', 519.14, 38364.7, 3244.65, 0, 26220.05, '(USD)', 261, '2020-08-09', '2023-08-09', '2020-08-09 20:29:13', 73.9, 7);
 /*!40000 ALTER TABLE `zakaz` ENABLE KEYS */;
 
+-- Дамп структуры для представление u_system._analis_dohod
+-- Создание временной таблицы для обработки ошибок зависимостей представлений
+CREATE TABLE `_analis_dohod` (
+	`tabl` VARCHAR(10) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`class` VARCHAR(19) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`dom` MEDIUMTEXT NULL COLLATE 'utf8_general_ci',
+	`n_prod` LONGTEXT NULL COLLATE 'utf8_general_ci',
+	`client` LONGTEXT NULL COLLATE 'utf8_general_ci',
+	`to_usd` DOUBLE(22,0) NULL,
+	`Rto_kgs` DOUBLE(22,0) NULL,
+	`data` DATETIME NULL,
+	`emp` VARCHAR(50) NULL COLLATE 'utf8mb4_general_ci'
+) ENGINE=MyISAM;
+
 -- Дамп структуры для представление u_system._graf_parking
 -- Создание временной таблицы для обработки ошибок зависимостей представлений
 CREATE TABLE `_graf_parking` (
@@ -1178,7 +1198,7 @@ CREATE TABLE `_prod_parking` (
 	`usd` DOUBLE(22,2) NULL,
 	`kgs` DOUBLE(22,2) NULL,
 	`d_usd` DOUBLE(19,2) NULL,
-	`d_kgs` DOUBLE(22,2) NULL,
+	`d_kgs` DOUBLE(19,2) NULL,
 	`data_n` DATE NULL,
 	`data_k` DATE NULL,
 	`dom_id` INT(11) NULL,
@@ -1186,6 +1206,36 @@ CREATE TABLE `_prod_parking` (
 	`cars_id` MEDIUMTEXT NULL COLLATE 'utf8_general_ci',
 	`cars1` VARCHAR(5) NOT NULL COLLATE 'utf8mb4_general_ci',
 	`emp` VARCHAR(50) NULL COLLATE 'utf8mb4_general_ci'
+) ENGINE=MyISAM;
+
+-- Дамп структуры для представление u_system._repayment_flat
+-- Создание временной таблицы для обработки ошибок зависимостей представлений
+CREATE TABLE `_repayment_flat` (
+	`id` INT(11) NOT NULL,
+	`name` TEXT(65535) NULL COLLATE 'utf8_general_ci',
+	`number_f` INT(11) NOT NULL,
+	`client` VARCHAR(50) NULL COLLATE 'utf8_general_ci',
+	`summa` DOUBLE(22,0) NULL,
+	`usd` DOUBLE(22,0) NULL,
+	`data_month` DATE NULL,
+	`data` TIMESTAMP NULL,
+	`emp` VARCHAR(50) NULL COLLATE 'utf8mb4_general_ci',
+	`dom_id` INT(11) NOT NULL
+) ENGINE=MyISAM;
+
+-- Дамп структуры для представление u_system._repayment_parking
+-- Создание временной таблицы для обработки ошибок зависимостей представлений
+CREATE TABLE `_repayment_parking` (
+	`id` INT(11) NOT NULL,
+	`name` TEXT(65535) NULL COLLATE 'utf8_general_ci',
+	`number_f` INT(11) NOT NULL,
+	`client` VARCHAR(50) NULL COLLATE 'utf8_general_ci',
+	`summa` DOUBLE(22,0) NULL,
+	`usd` DOUBLE(22,0) NULL,
+	`data_month` DATE NULL,
+	`data` TIMESTAMP NULL,
+	`emp` VARCHAR(50) NULL COLLATE 'utf8mb4_general_ci',
+	`dom_id` INT(11) NOT NULL
 ) ENGINE=MyISAM;
 
 -- Дамп структуры для представление u_system.analis_cars
@@ -1233,6 +1283,11 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `otchetprihod` AS select 'p
 DROP TABLE IF EXISTS `prod_cars_pred`;
 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `prod_cars_pred` AS select `p`.`id` AS `id`,(select `cars`.`marka` from `cars` where (`cars`.`id` = `p`.`cars_id`)) AS `cars`,(select `client`.`name` from `client` where (`client`.`id` = `p`.`client_id`)) AS `client`,if((`p`.`typev` = '(KGS)'),round((`p`.`price` / `cur`.`usd`),2),`p`.`price`) AS `to_usd`,if((`p`.`typev` = '(USD)'),round((`p`.`price` * `cur`.`usd`),2),`p`.`price`) AS `Rto_kgs`,`p`.`data` AS `data`,`u`.`name` AS `name` from ((`prod_cars` `p` join `currency` `cur`) join `users` `u` on(((`p`.`curren_id` = `cur`.`id`) and (`p`.`employee_id` = `u`.`id`)))) where (`p`.`remov` = '0') order by `p`.`id` desc;
 
+-- Дамп структуры для представление u_system._analis_dohod
+-- Удаление временной таблицы и создание окончательной структуры представления
+DROP TABLE IF EXISTS `_analis_dohod`;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `_analis_dohod` AS select 'prodbclass' AS `tabl`,'Проджа бизнес класс' AS `class`,`d`.`name` AS `dom`,`b`.`name` AS `n_prod`,`cl`.`name` AS `client`,if((`p`.`typev` = '(KGS)'),round((`p`.`summ` / `cur`.`usd`),2),`p`.`summ`) AS `to_usd`,if((`p`.`typev` = '(USD)'),round((`p`.`summ` * `cur`.`usd`),2),`p`.`summ`) AS `Rto_kgs`,`p`.`data` AS `data`,`u`.`name` AS `emp` from (((((`prodbclass` `p` join `currency` `cur`) join `bisnesclass` `b`) join `dom` `d`) join `client` `cl`) join `users` `u` on(((`p`.`kurs` = `cur`.`id`) and (`p`.`summ` > 0) and (`p`.`emp` = `u`.`id`) and (`p`.`remov` = '0') and (`b`.`id` = `p`.`number_id`) and (`b`.`dom_id` = `d`.`id`) and (`cl`.`id` = `p`.`client_id`) and (month(`p`.`data`) = month(now())) and (year(`p`.`data`) = year(now()))))) union select 'prod_cars' AS `tabl`,'Продажа машина' AS `class`,' ' AS `dom`,`c`.`marka` AS `n_prod`,`cl`.`name` AS `client`,if((`pr`.`typev` = '(KGS)'),round((`pr`.`price` / `cur`.`usd`),2),`pr`.`price`) AS `to_usd`,if((`pr`.`typev` = '(USD)'),round((`pr`.`price` * `cur`.`usd`),2),`pr`.`price`) AS `Rto_kgs`,`pr`.`data` AS `data`,`u`.`name` AS `emp` from ((((`prod_cars` `pr` join `currency` `cur`) join `cars` `c`) join `client` `cl`) join `users` `u` on(((`pr`.`curren_id` = `cur`.`id`) and (`pr`.`price` > 0) and (`pr`.`cars_id` = `c`.`id`) and (`pr`.`client_id` = `cl`.`id`) and (`pr`.`remov` = '0') and (month(`pr`.`data`) = month(now())) and (year(`pr`.`data`) = year(now()))))) union select 'parking' AS `tabl`,'Парковка' AS `class`,`d`.`name` AS `dom`,`par`.`number` AS `n_prod`,`cl`.`name` AS `client`,if((`par`.`typev` = '(KGS)'),round((`par`.`zadol` / `cur`.`usd`),2),`par`.`zadol`) AS `to_usd`,if((`par`.`typev` = '(USD)'),round((`par`.`zadol` * `cur`.`usd`),2),`par`.`zadol`) AS `Rto_kgs`,`par`.`data` AS `data`,`u`.`name` AS `emp` from ((((`parking` `par` join `currency` `cur`) join `dom` `d`) join `client` `cl`) join `users` `u` on(((`par`.`curr_id` = `cur`.`id`) and (`par`.`zadol` > 0) and (`d`.`id` = `par`.`dom_id`) and (`par`.`client_id` = `cl`.`id`) and (`par`.`emp` = `u`.`id`) and (`par`.`remov` = '0') and (month(`par`.`data`) = month(now())) and (year(`par`.`data`) = year(now()))))) union select 'repayment' AS `tabl`,'Платеж дом' AS `class`,`d`.`name` AS `dom`,`r`.`number_f` AS `n_prod`,`cl`.`name` AS `client`,`r`.`summa` AS `summa`,`r`.`usd` AS `usd`,`r`.`data` AS `data`,`u`.`name` AS `emp` from (((`repayment` `r` join `dom` `d`) join `client` `cl`) join `users` `u` on(((`r`.`dom_id` = `d`.`id`) and (`r`.`client_id` = `cl`.`id`) and (`r`.`emp` = `u`.`id`) and (`r`.`remov` = '0') and (month(`r`.`data`) = month(now())) and (year(`r`.`data`) = year(now()))))) union select 'repayment' AS `tabl`,'Платеж паркинг' AS `class`,`d`.`name` AS `dom`,`r`.`number_f` AS `n_prod`,`cl`.`name` AS `client`,`r`.`summa` AS `summa`,`r`.`usd` AS `usd`,`r`.`data` AS `data`,`u`.`name` AS `emp` from (((`repayment_parking` `r` join `dom` `d`) join `client` `cl`) join `users` `u` on(((`r`.`dom_id` = `d`.`id`) and (`r`.`client_id` = `cl`.`id`) and (`r`.`emp` = `u`.`id`) and (`r`.`remov` = '0') and (month(`r`.`data`) = month(now())) and (year(`r`.`data`) = year(now()))))) union select 'prihod' AS `tabl`,'Наличный' AS `class`,' ' AS `dom`,`pri`.`operationU` AS `n_prod`,`pri`.`organ` AS `client`,if((`pri`.`typev` = '(KGS)'),round((`pri`.`summa` / `cur`.`usd`),2),`pri`.`summa`) AS `to_usd`,if((`pri`.`typev` = '(USD)'),round((`pri`.`summa` * `cur`.`usd`),2),`pri`.`summa`) AS `Rto_kgs`,`pri`.`data` AS `data`,`u`.`name` AS `emp` from ((`prihod` `pri` join `currency` `cur`) join `users` `u` on(((`pri`.`kurs` = `cur`.`id`) and (`pri`.`emp` = `u`.`id`) and (`pri`.`summa` > 0) and (`pri`.`remov` = '0') and (month(`pri`.`data`) = month(now())) and (year(`pri`.`data`) = year(now())))));
+
 -- Дамп структуры для представление u_system._graf_parking
 -- Удаление временной таблицы и создание окончательной структуры представления
 DROP TABLE IF EXISTS `_graf_parking`;
@@ -1246,7 +1301,17 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `_otchet_bclass` AS select 
 -- Дамп структуры для представление u_system._prod_parking
 -- Удаление временной таблицы и создание окончательной структуры представления
 DROP TABLE IF EXISTS `_prod_parking`;
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `_prod_parking` AS select `p`.`id` AS `id`,`p`.`number_f` AS `number_f`,`c`.`name` AS `name`,if((`p`.`typev` = '(KGS)'),round((`p`.`price` / `cur`.`usd`),2),`p`.`price`) AS `usd`,if((`p`.`typev` = '(USD)'),round((`p`.`price` * `cur`.`usd`),2),`p`.`price`) AS `kgs`,(if((`p`.`typev` = '(KGS)'),round((`p`.`debu_za` / `cur`.`usd`),2),`p`.`debu_za`) - (select if(isnull(sum(`r`.`usd`)),0,sum(`r`.`usd`)) from `repayment_parking` `r` where ((`p`.`dom_id` = `r`.`dom_id`) and (`r`.`number_f` = `p`.`number_f`)))) AS `d_usd`,if((`p`.`typev` = '(USD)'),round((`p`.`debu_za` * `cur`.`usd`),2),`p`.`debu_za`) AS `d_kgs`,`p`.`data_n` AS `data_n`,`p`.`data_k` AS `data_k`,`p`.`dom_id` AS `dom_id`,`p`.`klient_id` AS `klient_id`,`p`.`cars_id` AS `cars_id`,if((`p`.`cars_id` = ''),' ','Имеит') AS `cars1`,`u`.`name` AS `emp` from (((`prod_parking` `p` join `currency` `cur`) join `client` `c`) join `users` `u` on(((`p`.`kurs` = `cur`.`id`) and (`p`.`klient_id` = `c`.`id`) and (`p`.`emp` = `u`.`id`) and (`p`.`remov` = '0'))));
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `_prod_parking` AS select `p`.`id` AS `id`,`p`.`number_f` AS `number_f`,`c`.`name` AS `name`,if((`p`.`typev` = '(KGS)'),round((`p`.`price` / `cur`.`usd`),2),`p`.`price`) AS `usd`,if((`p`.`typev` = '(USD)'),round((`p`.`price` * `cur`.`usd`),2),`p`.`price`) AS `kgs`,(if((`p`.`typev` = '(KGS)'),round((`p`.`debu_za` / `cur`.`usd`),2),`p`.`debu_za`) - (select if(isnull(sum(`r`.`usd`)),0,sum(`r`.`usd`)) from `repayment_parking` `r` where ((`p`.`dom_id` = `r`.`dom_id`) and (`r`.`number_f` = `p`.`number_f`) and (`r`.`remov` = '0')))) AS `d_usd`,(if((`p`.`typev` = '(USD)'),round((`p`.`debu_za` * `cur`.`usd`),2),`p`.`debu_za`) - (select if(isnull(sum(`r`.`summa`)),0,sum(`r`.`summa`)) from `repayment_parking` `r` where ((`p`.`dom_id` = `r`.`dom_id`) and (`r`.`number_f` = `p`.`number_f`) and (`r`.`remov` = '0')))) AS `d_kgs`,`p`.`data_n` AS `data_n`,`p`.`data_k` AS `data_k`,`p`.`dom_id` AS `dom_id`,`p`.`klient_id` AS `klient_id`,`p`.`cars_id` AS `cars_id`,if((`p`.`cars_id` = ''),' ','Имеит') AS `cars1`,`u`.`name` AS `emp` from (((`prod_parking` `p` join `currency` `cur`) join `client` `c`) join `users` `u` on(((`p`.`kurs` = `cur`.`id`) and (`p`.`klient_id` = `c`.`id`) and (`p`.`emp` = `u`.`id`) and (`p`.`remov` = '0'))));
+
+-- Дамп структуры для представление u_system._repayment_flat
+-- Удаление временной таблицы и создание окончательной структуры представления
+DROP TABLE IF EXISTS `_repayment_flat`;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `_repayment_flat` AS select `p`.`id` AS `id`,`d`.`name` AS `name`,`p`.`number_f` AS `number_f`,`c`.`name` AS `client`,`p`.`summa` AS `summa`,`p`.`usd` AS `usd`,`p`.`data_month` AS `data_month`,`p`.`data` AS `data`,`u`.`name` AS `emp`,`p`.`dom_id` AS `dom_id` from (((`repayment` `p` join `client` `c`) join `dom` `d`) join `users` `u` on(((`p`.`client_id` = `c`.`id`) and (`p`.`dom_id` = `d`.`id`) and (`p`.`remov` = '0') and (`p`.`emp` = `u`.`id`))));
+
+-- Дамп структуры для представление u_system._repayment_parking
+-- Удаление временной таблицы и создание окончательной структуры представления
+DROP TABLE IF EXISTS `_repayment_parking`;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `_repayment_parking` AS select `p`.`id` AS `id`,`d`.`name` AS `name`,`p`.`number_f` AS `number_f`,`c`.`name` AS `client`,`p`.`summa` AS `summa`,`p`.`usd` AS `usd`,`p`.`data_month` AS `data_month`,`p`.`data` AS `data`,`u`.`name` AS `emp`,`p`.`dom_id` AS `dom_id` from (((`repayment_parking` `p` join `client` `c`) join `dom` `d`) join `users` `u` on(((`p`.`client_id` = `c`.`id`) and (`p`.`dom_id` = `d`.`id`) and (`p`.`remov` = '0') and (`p`.`emp` = `u`.`id`))));
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

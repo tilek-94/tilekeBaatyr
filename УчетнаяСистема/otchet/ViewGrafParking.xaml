@@ -134,10 +134,11 @@
                     <DataGridTextColumn Width="70"  Header="№" Binding="{Binding Id}"  />
                     <DataGridTextColumn Width="100" Header="Год" Binding="{Binding Year_c}" />
                     <DataGridTextColumn Header="Месяц" Binding="{Binding Month_c}" />
-                    <DataGridTextColumn Header="Цена сумма (KGS)" Binding="{Binding Summak}" />
-                    <DataGridTextColumn Header="Цена сумма (USD)" Binding="{Binding Dollark}" />
-                    <DataGridTextColumn Header="Цена сумма (KGS)" Binding="{Binding Summa}" />
+                    <DataGridTextColumn Header="Цена сумма (KGS)" Binding="{Binding Dollark }" />
+                    <DataGridTextColumn Header="Цена сумма (USD)" Binding="{Binding Summak}" />
                     <DataGridTextColumn Header="Цена сумма (USD)" Binding="{Binding Dollar}" />
+                    <DataGridTextColumn Header="Цена сумма (KGS)" Binding="{Binding Summa}" />
+                   
 
                 </DataGrid.Columns>
 

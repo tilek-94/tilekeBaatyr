@@ -65,20 +65,18 @@ namespace УчетнаяСистема.otchet
             dbCon.connection.Close();
             string SqlQry = "SELECT SUM(summa), SUM(usd),DATE_FORMAT(data_month, '%m-%Y') " +
                 "FROM repayment_parking WHERE client_id='" + ClientId + "' AND dom_id='" + staticClass.StaticDomID + "' AND number_f='" + NumberF + "' GROUP by DATE_FORMAT(data_month, '%yyyy %m')";
+            /*MessageBox.Show(SqlQry);
+            textBox8.Text = SqlQry;*/
             chartRapyment.Display(SqlQry, Math.Round(KGS, 2), Math.Round(USD, 2), myDataGrid, d1, m1, y1, d2, m2, y2);
 
         }
 
         private void BasaPred()
         {
-
-            // MessageBox.Show($"1{d1}, {m1}, {y1}, {d2}, {m2}, {y2}");
             dbCon.connection.Close();
             string SqlQry = "SELECT SUM(summa), SUM(usd),DATE_FORMAT(data_month, '%m-%Y') " +
                 "FROM repayment_parking WHERE client_id='" + ClientId + "' AND dom_id='" + staticClass.StaticDomID + "' AND number_f='" + NumberF + "' GROUP by DATE_FORMAT(data_month, '%yyyy %m')";
             chartRapyment.Display(SqlQry, Math.Round(KGS, 2), Math.Round(USD, 2), myDataGrid, d1, m1, y1, d2, m2, y2);
-
-
         }
 
         private void Button_Clic(object sender, RoutedEventArgs e)

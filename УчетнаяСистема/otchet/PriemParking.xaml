@@ -67,7 +67,8 @@
 
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label  Content="Доллар" Margin="0,0,0,0"/>
-                    <TextBox FontSize="14"   
+                    <TextBox FontSize="14" 
+                              PreviewTextInput="NumberValidationTextBox"
                              x:Name="textBox1"
                              Style="{DynamicResource textbox_style}"
                              Tag="Доллар" Height="24" Width="300" HorizontalAlignment="Right"  Margin="78,0,0,0"/>
@@ -79,6 +80,7 @@
                     <Label  Content="Сумма сом" Margin="0,0,0,0"/>
                     <TextBox FontSize="14" 
                              x:Name="textBox3"
+                             PreviewTextInput="NumberValidationTextBox"
                              Style="{DynamicResource textbox_style}"
                              Tag="Сумма сом" Height="24" Width="300" HorizontalAlignment="Right"  Margin="60,0,0,0"/>
 
@@ -115,8 +117,8 @@
                             <DataGridTextColumn Width="50"  Header="№" Binding="{Binding Id}"  />
                             <DataGridTextColumn Width="100" Header="Год" Binding="{Binding Year_c}" />
                             <DataGridTextColumn Header="Месяц" Binding="{Binding Month_c}" />
-                            <DataGridTextColumn Header="Цена сумма (USD)" Binding="{Binding Summak}" />
-                            <DataGridTextColumn Header="Цена сумма (KGS)" Binding="{Binding Dollark }" />
+                            <DataGridTextColumn Header="Цена сумма (USD)" Binding="{Binding Dollark}" />
+                            <DataGridTextColumn Header="Цена сумма (KGS)" Binding="{Binding Summak }" />
                             <DataGridTextColumn Header="Цена сумма (USD)" Binding="{Binding Dollar}" />
                             <DataGridTextColumn Header="Цена сумма (KGS)" Binding="{Binding Summa}" />
                         </DataGrid.Columns>

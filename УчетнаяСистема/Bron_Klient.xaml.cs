@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 using УчетнаяСистема.All_classes;
@@ -19,6 +20,8 @@ namespace УчетнаяСистема
             this.ComboBox_n.SelectedValuePath = "Key";
             this.ComboBox_n.DisplayMemberPath = "Value";
         }
+        public delegate void DelegateM();
+        public event DelegateM del;
         dbConnect dbCon = new dbConnect();
         public double KGS = 0, USD = 0;
         public string d1 = "0", d2 = "0", m1 = "0", m2 = "0", y1 = "0", y2 = "0";
@@ -56,6 +59,11 @@ namespace УчетнаяСистема
         {
          }
 
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9,]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
 
         private void BasaQuery( string ZakazId)
         {
@@ -92,12 +100,20 @@ namespace УчетнаяСистема
 
         private void registr_btn_Click(object sender, RoutedEventArgs e)
         {
-           dbCon.Registr("INSERT INTO repayment(dom_id,number_f,client_id,summa,usd,data_month)VALUES(" +
+           dbCon.Registr("INSERT INTO repayment(" +
+               "dom_id," +
+               "number_f," +
+               "client_id," +
+               "summa," +
+               "usd," +
+               "emp," +
+               "data_month)VALUES(" +
                "'" +staticClass.StaticDomID + "'," +
                "'" +ComboBox_n.Text + "'," +
                "'" +client_id.ToString() + "'," +
                "'" + textBox1.Text.ToString().Replace(',','.') + "'," +
                "'" + textBox3.Text.ToString().Replace(',','.') + "'," +
+               "'" + staticClass.StaticEmplayID + "'," +
                "'" + data1.DisplayDate.ToString("yyyy-MM-dd") + "')");
             data1.Text = "";
             text1.Text = "";
@@ -117,19 +133,14 @@ namespace УчетнаяСистема
 
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
+            if(del!=null)
+                del();
             this.Close();
         }
 
         private void textBox2_KeyUp(object sender, KeyEventArgs e)
         {
-/*
-            if (textBox1.Text != "" && textBox2.Text != "")
-            {
-                dollar = Convert.ToDouble(textBox1.Text);
-                kurs = Convert.ToDouble(textBox2.Text);
-                som = dollar * kurs;
-                textBox3.Text = Convert.ToString(som);
-            }*/
+
         }
     }
 }

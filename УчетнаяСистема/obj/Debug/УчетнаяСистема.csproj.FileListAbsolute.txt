@@ -359,3 +359,9 @@ D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\otchet\ViewGrafPa
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\otchet\ViewGrafParking.baml
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\otchet\PriemParking.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\otchet\PriemParking.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\RepParkingPage.g.cs
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\RepParkingPage.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\RepFlatPage.g.cs
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\RepFlatPage.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\otchet\AnalisDohodPage.g.cs
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\otchet\AnalisDohodPage.baml
