@@ -1,4 +1,4 @@
-﻿<Window x:Class="УчетнаяСистема.Bron_Klient"
+﻿<Window x:Class="УчетнаяСистема.otchet.PriemParking"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -36,11 +36,11 @@
                         <Image>
                             <Image.Style>
                                 <Style TargetType="Image">
-                                    <Setter Property="Source" Value="images/icon/add.png" />
+                                    <Setter Property="Source" Value="../images/icon/add.png" />
                                     <Setter Property="Width" Value="40"/>
                                     <Style.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Source" Value="images/icon/add1.png"/>
+                                            <Setter Property="Source" Value="../images/icon/add1.png"/>
 
                                         </Trigger>
                                     </Style.Triggers>
@@ -119,7 +119,7 @@
                             <DataGridTextColumn Header="Цена сумма (KGS)" Binding="{Binding Dollark }" />
                             <DataGridTextColumn Header="Цена сумма (USD)" Binding="{Binding Dollar}" />
                             <DataGridTextColumn Header="Цена сумма (KGS)" Binding="{Binding Summa}" />
-                         </DataGrid.Columns>
+                        </DataGrid.Columns>
 
                         <DataGrid.GroupStyle>
                             <GroupStyle>

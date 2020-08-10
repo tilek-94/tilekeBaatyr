@@ -82,11 +82,11 @@ namespace УчетнаяСистема.form_p
 
             dbCon.SoursData("SELECT f.number_f FROM flat f WHERE f.number_f " +
                 "NOT IN(SELECT e.number_f FROM exchange e WHERE e.remov = '0' " +
-                "AND e.dom_id = '21') AND f.number_f " + 
+                "AND e.dom_id = '"+staticClass.StaticDomID+"') AND f.number_f " + 
                 "NOT IN(SELECT z.number_f FROM zakaz z WHERE z.remov = '0' " +
-                "AND z.dom_id = '21') AND f.number_f " +
-                "NOT IN(SELECT b.number_f FROM bron b WHERE b.remov = '0' AND b.dom_id = '21') " +
-                "AND f.dom_id = '21' AND f.remov = '0' ORDER BY number_f ");
+                "AND z.dom_id = '" + staticClass.StaticDomID + "') AND f.number_f " +
+                "NOT IN(SELECT b.number_f FROM bron b WHERE b.remov = '0' AND b.dom_id = '" + staticClass.StaticDomID + "') " +
+                "AND f.dom_id = '" + staticClass.StaticDomID + "' AND f.remov = '0' ORDER BY number_f ");
 
         }
         private void Button_Clic(object sender, RoutedEventArgs e)

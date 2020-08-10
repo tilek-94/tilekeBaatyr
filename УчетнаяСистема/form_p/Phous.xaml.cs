@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using УчетнаяСистема.All_classes;
+using УчетнаяСистема.otchet;
 
 namespace УчетнаяСистема.form_p
 {
@@ -60,7 +61,7 @@ namespace УчетнаяСистема.form_p
                 "p.`data`,u.name as emp, cl.id as cl_id FROM bisnesclass bi LEFT JOIN ( prodbclass p INNER JOIN client c INNER JOIN currency cur " +
                 "INNER JOIN client cl INNER JOIN users u) " +
                 "ON p.client_id = c.id AND p.kurs = cur.id " +
-                "AND p.number_id = bi.id AND p.client_id = cl.id AND p.emp = u.id AND p.remov = '0' WHERE bi.dom_id = '21'");
+                "AND p.number_id = bi.id AND p.client_id = cl.id AND p.emp = u.id AND p.remov = '0' WHERE bi.dom_id = '"+staticClass.StaticDomID+"'");
 
         }
 
@@ -84,6 +85,7 @@ namespace УчетнаяСистема.form_p
                     }
                 }
             }
+            
         }
     }
 }

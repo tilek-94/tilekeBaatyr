@@ -61,7 +61,7 @@ namespace УчетнаяСистема.registr
             dbCon.eventDysplay2 += delegate (string[] a)
             {
                 
-                for (int i = 0; i < f; i++)
+                for (int  i = 1; i <= f; i++)
                 {
                     if (Array.IndexOf(a, i.ToString()) < 0)
                         ComboBox_kv.Items.Add(i.ToString());

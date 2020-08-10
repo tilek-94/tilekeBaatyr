@@ -9,6 +9,7 @@ using System.Windows.Forms.VisualStyles;
 using УчетнаяСистема.All_classes;
 using System.Collections.ObjectModel;
 using УчетнаяСистема.Model;
+using УчетнаяСистема.otchet;
 
 namespace УчетнаяСистема.ViewModel
 {
@@ -138,16 +139,22 @@ namespace УчетнаяСистема.ViewModel
             registrEm.ShowDialog();
         });
 
-       /* private ObservableCollection<Cars> carsList;
-        public ObservableCollection<Cars> CarsList
+        public ICommand bMenuePriemP => new RelayCommand((obj) =>
         {
-            get { return carsList; }
-            set
-            {
-                carsList = value;
-                OnPropertyChanged("CarsList");
-            }
-        }*/
+            PriemParking registrEm = new PriemParking();
+            registrEm.ShowDialog();
+        });
+
+        /* private ObservableCollection<Cars> carsList;
+         public ObservableCollection<Cars> CarsList
+         {
+             get { return carsList; }
+             set
+             {
+                 carsList = value;
+                 OnPropertyChanged("CarsList");
+             }
+         }*/
 
         /*private void LoadData()
         {

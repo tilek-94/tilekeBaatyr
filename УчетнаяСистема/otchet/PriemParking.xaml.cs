@@ -5,15 +5,14 @@ using System.Windows;
 using System.Windows.Input;
 using УчетнаяСистема.All_classes;
 
-namespace УчетнаяСистема
+namespace УчетнаяСистема.otchet
 {
     /// <summary>
-    /// Логика взаимодействия для Bron_Klient.xaml
+    /// Interaction logic for PriemParking.xaml
     /// </summary>
-    public partial class Bron_Klient : Window
+    public partial class PriemParking : Window
     {
-        
-        public Bron_Klient()
+        public PriemParking()
         {
             InitializeComponent();
             this.ComboBox_n.SelectedValuePath = "Key";
@@ -37,16 +36,16 @@ namespace УчетнаяСистема
             window1.ShowDialog();
 
         }
-         void AddNumber( string IdClient)
+        void AddNumber(string IdClient)
         {
             ComboBox_n.Items.Clear();
             dbCon.connection.Open();
-            string sql = "SELECT id, number_f FROM zakaz z WHERE z.klient_id='" + IdClient + "' AND z.dom_id='"+staticClass.StaticDomID+"'";
+            string sql = "SELECT id, number_f FROM prod_parking z WHERE z.klient_id='" + IdClient + "' AND z.dom_id='" + staticClass.StaticDomID + "'";
             MySqlCommand command = new MySqlCommand(sql, dbCon.connection);
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                ComboBox_n.Items.Add(new KeyValuePair<string,string>( reader[0].ToString(), reader[1].ToString()));
+                ComboBox_n.Items.Add(new KeyValuePair<string, string>(reader[0].ToString(), reader[1].ToString()));
             }
             dbCon.connection.Close();
 
@@ -54,22 +53,22 @@ namespace УчетнаяСистема
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-         }
+        }
 
 
-        private void BasaQuery( string ZakazId)
+        private void BasaQuery(string ZakazId)
         {
 
 
             dbCon.connection.Open();
-            string sql = "SELECT * FROM grafplat WHERE id='" + ZakazId + "'";
+            string sql = "SELECT * FROM _graf_parking WHERE id='" + ZakazId + "'";
             MySqlCommand command = new MySqlCommand(sql, dbCon.connection);
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-              string sumUsd = reader[7].ToString();
-               
-               string sumKgs = reader[8].ToString();
+                string sumUsd = reader[5].ToString();
+
+                string sumKgs = reader[6].ToString();
 
                 d1 = reader[10].ToString();
                 m1 = reader[11].ToString();
@@ -84,7 +83,7 @@ namespace УчетнаяСистема
             }
             dbCon.connection.Close();
             string SqlQry = "SELECT SUM(summa), SUM(usd),DATE_FORMAT(data_month, '%m-%Y') " +
-                "FROM repayment WHERE client_id='" + client_id + "' AND dom_id='" + staticClass.StaticDomID + "' AND number_f='" + ComboBox_n.Text + "' GROUP by DATE_FORMAT(data_month, '%yyyy %m')";
+                "FROM repayment_parking WHERE client_id='" + client_id + "' AND dom_id='" + staticClass.StaticDomID + "' AND number_f='" + ComboBox_n.Text + "' GROUP by DATE_FORMAT(data_month, '%yyyy %m')";
             chartRapyment.Display(SqlQry, Math.Round(KGS, 2), Math.Round(USD, 2), myDataGrid, d1, m1, y1, d2, m2, y2);
 
         }
@@ -92,13 +91,13 @@ namespace УчетнаяСистема
 
         private void registr_btn_Click(object sender, RoutedEventArgs e)
         {
-           dbCon.Registr("INSERT INTO repayment(dom_id,number_f,client_id,summa,usd,data_month)VALUES(" +
-               "'" +staticClass.StaticDomID + "'," +
-               "'" +ComboBox_n.Text + "'," +
-               "'" +client_id.ToString() + "'," +
-               "'" + textBox1.Text.ToString().Replace(',','.') + "'," +
-               "'" + textBox3.Text.ToString().Replace(',','.') + "'," +
-               "'" + data1.DisplayDate.ToString("yyyy-MM-dd") + "')");
+            dbCon.Registr("INSERT INTO repayment_parking(dom_id,number_f,client_id,summa,usd,data_month)VALUES(" +
+                "'" + staticClass.StaticDomID + "'," +
+                "'" + ComboBox_n.Text + "'," +
+                "'" + client_id.ToString() + "'," +
+                "'" + textBox1.Text.ToString().Replace(',', '.') + "'," +
+                "'" + textBox3.Text.ToString().Replace(',', '.') + "'," +
+                "'" + data1.DisplayDate.ToString("yyyy-MM-dd") + "')");
             data1.Text = "";
             text1.Text = "";
             textBox1.Text = "";
@@ -109,9 +108,10 @@ namespace УчетнаяСистема
         private void ComboBox_P_DropDownClosed(object sender, EventArgs e)
         {
             // ComboBoxItem typeItem = (ComboBoxItem)ComboBox_n.SelectedValue;
-            if (ComboBox_n.SelectedValue != null) { 
-            value = ComboBox_n.SelectedValue.ToString();
-            BasaQuery(value);
+            if (ComboBox_n.SelectedValue != null)
+            {
+                value = ComboBox_n.SelectedValue.ToString();
+                BasaQuery(value);
             }
         }
 
@@ -122,14 +122,14 @@ namespace УчетнаяСистема
 
         private void textBox2_KeyUp(object sender, KeyEventArgs e)
         {
-/*
-            if (textBox1.Text != "" && textBox2.Text != "")
-            {
-                dollar = Convert.ToDouble(textBox1.Text);
-                kurs = Convert.ToDouble(textBox2.Text);
-                som = dollar * kurs;
-                textBox3.Text = Convert.ToString(som);
-            }*/
+            /*
+                        if (textBox1.Text != "" && textBox2.Text != "")
+                        {
+                            dollar = Convert.ToDouble(textBox1.Text);
+                            kurs = Convert.ToDouble(textBox2.Text);
+                            som = dollar * kurs;
+                            textBox3.Text = Convert.ToString(som);
+                        }*/
         }
     }
 }

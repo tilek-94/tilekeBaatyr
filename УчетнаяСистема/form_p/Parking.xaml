@@ -39,24 +39,25 @@
                           HeadersVisibility="Column" ColumnHeaderStyle="{DynamicResource hederstyle}"
                           ItemsSource="{Binding}"
                               MouseDoubleClick="dataGridView1_MouseDoubleClick" 
-                         
+                         IsReadOnly="True"
                               HorizontalScrollBarVisibility="Hidden"
                           AutoGenerateColumns="False"
                           >
                         <DataGrid.Columns>
                             <DataGridTextColumn Width="50"  Header="№" Binding="{Binding id}"  />
-                            <DataGridTextColumn Header="Номер порковки" Binding="{Binding NUMBER, StringFormat={}{0}-порковка}" Width="100" />
+                            <DataGridTextColumn Header="Номер порковки" Binding="{Binding number_f}" Width="100" />
                             <DataGridTextColumn Binding="{Binding client_id}" Visibility="Hidden"/>
                             <DataGridTextColumn Binding="{Binding cars_id}" Visibility="Hidden" />
-                            <DataGridTextColumn Header=" Клиент" Binding="{Binding client}" Width="200" />
-                            <DataGridTextColumn Header="Обмен машина" Width="150" Binding="{Binding Cars}" />
-                            <DataGridTextColumn Header="Цена (USD)" Binding="{Binding to_usd}" Width="100" />
-                            <DataGridTextColumn Header="Цена (KGS)" Binding="{Binding Rto_kgs}" Width="100" />
+                            <DataGridTextColumn Header=" Клиент" Binding="{Binding name}" Width="200" />
+                            <DataGridTextColumn Header="Обмен машина" Width="150" Binding="{Binding cars1}" />
+                            <DataGridTextColumn Header="Цена (USD)" Binding="{Binding usd}"  />
+                            <DataGridTextColumn Header="Цена (KGS)" Binding="{Binding kgs}"  />
 
-                            <DataGridTextColumn Header="Долг (USD)" Binding="{Binding dolg}" Width="100" />
-                            <DataGridTextColumn Header="Долг (KGS)" Binding="{Binding dolg2}" Width="100" />
-                            <DataGridTextColumn Header="Дата" Binding="{Binding data, StringFormat='dd-MM-yyyy   HH:mm:ss'}" />
-                            <DataGridTextColumn Header="Сотрудник" Binding="{Binding empl}" Width="100" />
+                            <DataGridTextColumn Header="Долг (USD)" Binding="{Binding d_usd}"  />
+                            <DataGridTextColumn Header="Долг (KGS)" Binding="{Binding d_kgs}"  />
+                            <DataGridTextColumn Header="Дата" Binding="{Binding data_n, StringFormat='dd-MM-yyyy' }" />
+                            <DataGridTextColumn Header="Дата" Binding="{Binding data_k, StringFormat='dd-MM-yyyy'}" />
+                            <DataGridTextColumn Header="Сотрудник" Binding="{Binding emp}" Width="100" />
 
                             <DataGridTemplateColumn Header="Удалить" Width="50" >
                                 <DataGridTemplateColumn.CellTemplate>

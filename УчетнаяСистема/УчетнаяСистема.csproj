@@ -209,6 +209,12 @@
     <Compile Include="otchet\BisnesClass.xaml.cs">
       <DependentUpon>BisnesClass.xaml</DependentUpon>
     </Compile>
+    <Compile Include="otchet\PriemParking.xaml.cs">
+      <DependentUpon>PriemParking.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="otchet\ViewGrafParking.xaml.cs">
+      <DependentUpon>ViewGrafParking.xaml</DependentUpon>
+    </Compile>
     <Compile Include="registr\registr_flat.xaml.cs">
       <DependentUpon>registr_flat.xaml</DependentUpon>
     </Compile>
@@ -386,6 +392,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="otchet\BisnesClass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="otchet\PriemParking.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="otchet\ViewGrafParking.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

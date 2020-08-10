@@ -355,3 +355,7 @@ D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\AnalisCars
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\AnalisCars.baml
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\otchet\BisnesClass.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\otchet\BisnesClass.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\otchet\ViewGrafParking.g.cs
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\otchet\ViewGrafParking.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\otchet\PriemParking.g.cs
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\otchet\PriemParking.baml

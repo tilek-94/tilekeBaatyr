@@ -58,7 +58,7 @@ namespace УчетнаяСистема.All_classes
         public void Display(string s)
         {
             string[] a = new string[10000];
-            int i = 0;
+            int i = 1;
             connection.Open();
             string sql = s;
             MySqlCommand command = new MySqlCommand(sql, connection);

@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using УчетнаяСистема.All_classes;
+using УчетнаяСистема.otchet;
 
 namespace УчетнаяСистема.form_p
 {
@@ -31,7 +32,7 @@ namespace УчетнаяСистема.form_p
                 if (id_1 != "")
                 {
                     messageO.Id = id_1;
-                    messageO.TableBasa = "parking";
+                    messageO.TableBasa = "prod_parking";
                     messageO.del_ += () => Display();
                     messageO.ShowDialog();
                 }
@@ -46,14 +47,7 @@ namespace УчетнаяСистема.form_p
             {
                 myDataGrid.DataContext = db;
             };
-            dbCon.SoursData("SELECT p.id, p.remov,p.client_id, p.cars_id , p.dom_id,p.NUMBER, " +
-                "(SELECT NAME FROM client WHERE client.id = p.client_id) AS client, " +
-                "if ((`p`.cars_id <> ''),'Имеиит','') AS `Cars`, " +
-                "if ((`p`.`typev` = '(KGS)'), round((`p`.itogPrice / `cur`.`usd`),2),`p`.itogPrice) AS `to_usd`, " +
-                "if ((`p`.`typev` = '(USD)'),round((`p`.itogPrice * `cur`.`usd`),2),`p`.itogPrice) AS `Rto_kgs`, " +
-                "if ((`p`.`typev` = '(KGS)'), round((`p`.zadol / `cur`.`usd`),2),`p`.zadol ) AS `dolg`, " +
-                "if ((`p`.`typev` = '(USD)'),round((`p`.zadol * `cur`.`usd`),2),`p`.zadol ) AS `dolg2`, p.`data`,( SELECT name FROM users WHERE id= p.emp) AS empl " +
-                "FROM parking p join currency cur ON p.curr_id = cur.id WHERE p.dom_id = '21' and remov = '0'");
+            dbCon.SoursData("SELECT * FROM _prod_parking");
 
         }
 
@@ -75,9 +69,9 @@ namespace УчетнаяСистема.form_p
                 DataRowView dataRow = (DataRowView)myDataGrid.SelectedItem;
                 if (dataRow != null)
                 {
-                    if (dataRow.Row.ItemArray[2].ToString() != "")
+                    if (dataRow.Row.ItemArray[10].ToString() != "")
                     {
-                        string ClientId = dataRow.Row.ItemArray[2].ToString();
+                        string ClientId = dataRow.Row.ItemArray[10].ToString();
                         peopleinAnalis.ClientID = ClientId;
                         peopleinAnalis.ShowDialog();
                     }
@@ -89,16 +83,32 @@ namespace УчетнаяСистема.form_p
                 DataRowView dataRow = (DataRowView)myDataGrid.SelectedItem;
                 if (dataRow != null)
                 {
-                    if (dataRow.Row.ItemArray[3].ToString() != "")
+                    if (dataRow.Row.ItemArray[11].ToString() != "")
                     {
                         ViewCarsinAnalise viewCarsinAnalise = new ViewCarsinAnalise();
-                        string CarsId = dataRow.Row.ItemArray[3].ToString();
+                        string CarsId = dataRow.Row.ItemArray[11].ToString();
                         viewCarsinAnalise.SqlQury = CarsId;
                         viewCarsinAnalise.ShowDialog();
                     }
                 }
             }
+            else
+            if (columnIndex > 5 && columnIndex<10)
+            {
+                ViewGrafParking viewGrafParking = new ViewGrafParking();
 
+
+                DataRowView dataRow = (DataRowView)myDataGrid.SelectedItem;
+                if (dataRow != null)
+                {
+                    if (dataRow.Row.ItemArray[0].ToString() != "")
+                    {
+                        string ClientId = dataRow.Row.ItemArray[0].ToString();
+                        viewGrafParking.ZakazId= ClientId;
+                        viewGrafParking.ShowDialog();
+                    }
+                }
+            }
 
 
         }

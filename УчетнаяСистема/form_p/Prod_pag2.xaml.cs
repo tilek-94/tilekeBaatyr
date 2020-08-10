@@ -78,11 +78,11 @@ namespace УчетнаяСистема.form_p
 
             dbCon.SoursData("SELECT f.number_f FROM flat f WHERE f.number_f " +
                 "NOT IN(SELECT e.number_f FROM exchange e WHERE e.remov = '0' " +
-                "AND e.dom_id = '21') AND f.number_f " + 
+                "AND e.dom_id = '"+staticClass.StaticDomID+"') AND f.number_f " + 
                 "NOT IN(SELECT z.number_f FROM zakaz z WHERE z.remov = '0' " +
-                "AND z.dom_id = '21') AND f.number_f " +
-                "NOT IN(SELECT b.number_f FROM bron b WHERE b.remov = '0' AND b.dom_id = '21') " +
-                "AND f.dom_id = '21' AND f.remov = '0' ORDER BY number_f ");
+                "AND z.dom_id = '" + staticClass.StaticDomID + "') AND f.number_f " +
+                "NOT IN(SELECT b.number_f FROM bron b WHERE b.remov = '0' AND b.dom_id = '" + staticClass.StaticDomID + "') " +
+                "AND f.dom_id = '" + staticClass.StaticDomID + "' AND f.remov = '0' ORDER BY number_f ");
 
         }
         private void dataGridView1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -169,6 +169,8 @@ namespace УчетнаяСистема.form_p
         {
             
             string json = JsonConvert.SerializeObject(cars);
+            if (cars.Count == 0)
+                json = "";
             if (textbox_dogovor.Text!=""&& client_id != 0 && ComboBox2.Text!="" && currency_id !="0" && textbox_dogovor.Text!=null && basaSum!="0" && data_n!="" && data_k!="") {
                 
             dbCon.Registr("INSERT INTO zakaz(" +
@@ -390,7 +392,7 @@ namespace УчетнаяСистема.form_p
                 typeV = "(KGS)";
                 
                 // первоначальный взнос
-                Vznos= (VznosSum + UsdCarsSum).ToString().Replace(',', '.');
+                Vznos= VznosSum.ToString().Replace(',', '.');
 
             }
             else if (LangName[1] == "(USD)")
@@ -399,7 +401,7 @@ namespace УчетнаяСистема.form_p
                 ItogPrice = UsdSum.ToString().Replace(',', '.');
                 DebZa = USD.ToString().Replace(',', '.');
                 typeV = "(USD)";
-                Vznos= (vznos + USDCars).ToString().Replace(',', '.');
+                Vznos= vznos.ToString().Replace(',', '.');
 
             }
             else if (LangName[1] == "(EUR)" || LangName[1] == "(RUB)")
@@ -408,7 +410,7 @@ namespace УчетнаяСистема.form_p
                 ItogPrice = KgsSUM.ToString().Replace(',', '.');
                 DebZa = KGS.ToString().Replace(',', '.');
                 typeV = "(KGS)";
-                Vznos = (VznosSum + UsdCarsSum).ToString().Replace(',', '.');
+                Vznos = VznosSum.ToString().Replace(',', '.');
             }
             
 

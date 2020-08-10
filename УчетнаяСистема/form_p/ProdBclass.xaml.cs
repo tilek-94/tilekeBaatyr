@@ -114,7 +114,7 @@ namespace УчетнаяСистема.form_p
 
             dbCon.SoursData("SELECT id,name FROM bisnesclass b WHERE b.id " +
                 "NOT IN(SELECT p.number_id FROM prodbclass p WHERE p.remov = '0') " +
-                "AND b.remov = '0' ; ");
+                "AND b.remov = '0' AND b.dom_id='"+staticClass.StaticDomID+"'");
 
         }
         private void NumberValidationTextBox(object sender, System.Windows.Input.TextCompositionEventArgs e)
