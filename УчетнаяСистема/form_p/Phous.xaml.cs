@@ -87,5 +87,10 @@ namespace УчетнаяСистема.form_p
             }
             
         }
+
+        private void textbox_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //MessageBox.Show("123");
+        }
     }
 }

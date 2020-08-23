@@ -91,7 +91,7 @@ namespace УчетнаяСистема.form_p
                 "IF(c.type_v = '(KGS)', ROUND(c.prih_summ / cur.usd, 2), c.prih_summ) AS to_usd," +
                 "IF(c.type_v = '(USD)', ROUND(c.prih_summ * cur.usd, 2), c.prih_summ) AS Rto_kgs," +
                 "(SELECT name FROM client WHERE id = c.client_id) as client, " +
-                "datatim FROM cars c INNER JOIN currency cur ON c.kurs = cur.id WHERE c.remov=0 " +
+                "datatim FROM cars c INNER JOIN currency cur ON c.kurs = cur.id WHERE c.remov=0 AND c.prod_cars='0' " +
                 "ORDER BY  c.id DESC;");
 
         }
@@ -231,7 +231,7 @@ namespace УчетнаяСистема.form_p
                 "IF(c.type_v = '(KGS)', ROUND(c.prih_summ / cur.usd, 2), c.prih_summ) AS to_usd," +
                 "IF(c.type_v = '(USD)', ROUND(c.prih_summ * cur.usd, 2), c.prih_summ) AS Rto_kgs, " +
                 "(SELECT name FROM client WHERE id = c.client_id) as client, " +
-                "datatim FROM cars c INNER JOIN currency cur ON c.kurs = cur.id WHERE c.remov = 0 and " +
+                "datatim FROM cars c INNER JOIN currency cur ON c.kurs = cur.id WHERE c.remov = 0 and c.prod_cars='0' and " +
                 "CONCAT_WS('', c.marka, c.nomer) LIKE '%" + TextBox_search.Text + "%'");
         }
 

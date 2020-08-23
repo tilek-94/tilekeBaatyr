@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using УчетнаяСистема.All_classes;
 
 namespace УчетнаяСистема.form_p
@@ -25,12 +14,15 @@ namespace УчетнаяСистема.form_p
         {
             InitializeComponent();
         }
-        public delegate void MessageDel(string s);
+        public delegate void MessageDel();
+        public delegate void MessageDel2(string s);
         public event MessageDel del;
+        public event MessageDel2 del2;
         dbConnect dbCon = new dbConnect();
        
         private void registr_btn_Click(object sender, RoutedEventArgs e)
         {
+            if(text1.Text!="" && text8.Text != "") { 
             dbCon.Registr("INSERT INTO organization(name, pname,inn,data_registr,registr_s,addres,tel,direct)" +
                 "VALUES('"+text1.Text+"'," +
                 "'" + text2.Text + "'," +
@@ -40,13 +32,23 @@ namespace УчетнаяСистема.form_p
                 "'" + text6.Text + "'," +
                 "'" + text7.Text + "'," +
                 "'" + text8.Text + "')");
+            del();
+            this.Close();
+            }
+            else
+            {
+                MessageM messageM = new MessageM();
+                messageM.Mees = "Заполните необходимые поля!";
+                messageM.ShowDialog();
+            }
         }
 
         string id_1 = "", NameO = "";
 
         private void textbox_searsh_KeyDown(object sender, KeyEventArgs e)
         {
-
+            RegistData("SELECT * FROM organization  WHERE remov='0' AND  " +
+                "(name LIKE '%"+ textbox_searsh.Text + "%' OR direct LIKE '%" + textbox_searsh.Text + "%')");
         }
 
         private void RegistData(string s)
@@ -81,6 +83,16 @@ namespace УчетнаяСистема.form_p
             }
         }
 
+        private void Button_Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
         private void dataGridView1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
@@ -90,8 +102,8 @@ namespace УчетнаяСистема.form_p
                 NameO = dataRow.Row.ItemArray[1].ToString();
                 if (id_1 != "")
                 {
-                    if (del != null) { 
-                    del(NameO);
+                    if (del2 != null) {
+                        del2(NameO);
                     this.Close();
                     }
 

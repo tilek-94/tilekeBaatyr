@@ -79,6 +79,7 @@
                 Canvas.Left="1048" Canvas.Top="121" Width="32" Height="26"/>
             <Label Content="Состояние" Canvas.Left="325" Canvas.Top="125" FontSize="13" />
             <TextBox FontSize="14"  Style="{DynamicResource textbox_style}" 
+                     IsReadOnly="True"
                      Text="{Binding SelectedItem.datatim, ElementName=dataGridView1, StringFormat='dd-MM-yyyy hh:mm'}"
                      Tag=" Дата покупки" Height="24" Width="231" HorizontalAlignment="Right" Canvas.Left="833" Canvas.Top="157"/>
             <Label Content="Дата покупки" Canvas.Left="725" Canvas.Top="156" FontSize="13" />

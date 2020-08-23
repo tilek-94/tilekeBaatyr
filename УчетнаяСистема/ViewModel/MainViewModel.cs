@@ -101,52 +101,53 @@ namespace УчетнаяСистема.ViewModel
         public ICommand btnClose => new RelayCommand((obj) => Application.Current.Shutdown());
 
         public ICommand bMenuProd_pag2 => new RelayCommand((obj) => {
-            Prod_pag2 prod_Pag2 = new Prod_pag2();
-            prod_Pag2.ShowDialog();
+            
             });
-        public ICommand bMenuexchange => new RelayCommand((obj) =>
+        /*public ICommand bMenuexchange => new RelayCommand((obj) =>
         {
             exchange Exchange = new exchange();
             Exchange.ShowDialog();
-        });
+        });*/
 
-        public ICommand bBisnes => new RelayCommand((obj) =>
+        /*public ICommand bBisnes => new RelayCommand((obj) =>
         {
             RegistrBisnes registrBisnes = new RegistrBisnes();
             registrBisnes.ShowDialog();
-        });
+        });*/
 
         public ICommand bInsertDolg => new RelayCommand((obj) =>
         {
             Bron_Klient bron_Klient = new Bron_Klient();
             bron_Klient.ShowDialog();
         });
-        public ICommand bMenuProdCars => new RelayCommand((obj) =>
+        /*public ICommand bMenuProdCars => new RelayCommand((obj) =>
         {
             ProdCars prodCars = new ProdCars();
             prodCars.ShowDialog();
-        });
-         public ICommand bMenueBron_WinDow => new RelayCommand((obj) =>
+        });*/
+         /*public ICommand bMenueBron_WinDow => new RelayCommand((obj) =>
         {
             Bron_WinDow bron_WinDow = new Bron_WinDow();
             bron_WinDow.ShowDialog();
-        });
-       public ICommand bMenueRegTypeFlat => new RelayCommand((obj) =>
+        });*/
+       /*public ICommand bMenueRegTypeFlat => new RelayCommand((obj) =>
         {
+            MainWindow main = new MainWindow();
             registr_type_flat registr_Type_Flat = new registr_type_flat();
+            registr_Type_Flat.Owner = main;
             registr_Type_Flat.ShowDialog();
-        });
-        public ICommand bMenueRegFlat => new RelayCommand((obj) =>
+        });*/
+        /*public ICommand bMenueRegFlat => new RelayCommand((obj) =>
         {
             registr_flat registr_Flat = new registr_flat();
             registr_Flat.ShowDialog();
-        });
+        });*/
 
-        public ICommand bMenueRegEm => new RelayCommand((obj) =>
+        /*public ICommand bMenueRegEm => new RelayCommand((obj) =>
         {
             RegistrEm registrEm = new RegistrEm();
             registrEm.ShowDialog();
-        });
+        });*/
 
         public ICommand bMenuePriemP => new RelayCommand((obj) =>
         {

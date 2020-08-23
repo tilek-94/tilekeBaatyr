@@ -20,8 +20,8 @@ namespace УчетнаяСистема.form_p
         {
             Bookeeping bookeeping = new Bookeeping();
             bookeeping.Flag = 1;
-            bookeeping.del += () => RegistDataP("SELECT * FROM otchetprihod");
-            bookeeping.ShowDialog();
+            bookeeping.del += () => RegistDataP("SELECT * FROM _prihod");
+           bookeeping.ShowDialog();
         }
         private void RegistData(string s)
         {
@@ -65,8 +65,8 @@ namespace УчетнаяСистема.form_p
                 "if ((`r`.`typev` = '(KGS)'), round((`r`.summa / `cur`.`usd`),2),`r`.summa) AS `to_usd`, " +
                 "if ((`r`.`typev` = '(USD)'),round((`r`.summa * `cur`.`usd`),2),`r`.summa) AS `Rto_kgs`, " +
                 "r.`data` ,u.name AS users,(SELECT name FROM users WHERE id = r.remov) AS remov " +
-                "FROM(rashod r INNER JOIN currency cur) INNER JOIN users u  ON r.kurs = cur.id AND r.sotrud = u.id; ");
-            RegistDataP("SELECT * FROM otchetprihod");
+                "FROM(rashod r INNER JOIN currency cur) INNER JOIN users u  ON r.kurs = cur.id AND r.sotrud = u.id AND r.remov='0'; ");
+            RegistDataP("SELECT * FROM _prihod");
             ReadSum();
 
 
@@ -83,7 +83,11 @@ namespace УчетнаяСистема.form_p
                 {
                     messageO.Id = id_1;
                     messageO.TableBasa = "rashod";
-                    messageO.del_ += () => RegistData("SELECT * FROM rashod WHERE remov='0'");
+                    messageO.del_ += () => RegistData("SELECT r.id,r.operationU,r.organ, " +
+                "if ((`r`.`typev` = '(KGS)'), round((`r`.summa / `cur`.`usd`),2),`r`.summa) AS `to_usd`, " +
+                "if ((`r`.`typev` = '(USD)'),round((`r`.summa * `cur`.`usd`),2),`r`.summa) AS `Rto_kgs`, " +
+                "r.`data` ,u.name AS users,(SELECT name FROM users WHERE id = r.remov) AS remov " +
+                "FROM(rashod r INNER JOIN currency cur) INNER JOIN users u  ON r.kurs = cur.id AND r.sotrud = u.id AND r.remov='0';");
                     messageO.ShowDialog();
                 }
             }
@@ -97,17 +101,9 @@ namespace УчетнаяСистема.form_p
                 "if ((`r`.`typev` = '(KGS)'), round((`r`.summa / `cur`.`usd`),2),`r`.summa) AS `to_usd`, " +
                 "if ((`r`.`typev` = '(USD)'),round((`r`.summa * `cur`.`usd`),2),`r`.summa) AS `Rto_kgs`, " +
                 "r.`data` ,u.name AS users,(SELECT name FROM users WHERE id = r.remov) AS remov " +
-                "FROM(rashod r INNER JOIN currency cur) INNER JOIN users u  ON r.kurs = cur.id AND r.sotrud = u.id; ");
+                "FROM(rashod r INNER JOIN currency cur) INNER JOIN users u  ON r.kurs = cur.id AND r.sotrud = u.id AND r.remov='0'; ");
             bookeeping.ShowDialog();
         }
 
-        private void myDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            DataRowView dataRow = (DataRowView)myDataGrid.SelectedItem;
-            string number_f = dataRow.Row.ItemArray[0].ToString();
-            BisnesClass bisnesClass = new BisnesClass();
-            bisnesClass.ShowDialog();
-            //number_f;
-        }
-    }
+      }
 }

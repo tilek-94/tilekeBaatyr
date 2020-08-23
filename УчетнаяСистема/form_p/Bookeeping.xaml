@@ -172,7 +172,9 @@
 
                     <Button Style="{DynamicResource Button_White}"
                             Content="Отмена" Width="168" Height="26"
-                            RenderTransformOrigin="0.494,-0.221" Margin="5,0,0,0"/>
+                            RenderTransformOrigin="0.494,-0.221" 
+                            Click="Button_Click_1"
+                            Margin="5,0,0,0"/>
 
                 </StackPanel>
 

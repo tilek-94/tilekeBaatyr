@@ -117,7 +117,7 @@
                 </Grid.RowDefinitions>
                 <StackPanel  Background="White" >
                     <DockPanel HorizontalAlignment="Stretch" Background="White">
-                        <Label Content="Регистрация сотрудника" FontSize="16" Foreground="#00C3FF" ></Label>
+                        <Label Content="Регистрация сотрудников" FontSize="16" Foreground="#00C3FF" ></Label>
 
                         <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" 
                                  Tag=" Поиск данные" Height="25"

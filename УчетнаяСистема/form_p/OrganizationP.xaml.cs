@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using УчетнаяСистема.All_classes;
 
 namespace УчетнаяСистема.form_p
@@ -40,18 +28,42 @@ namespace УчетнаяСистема.form_p
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            RegistData("SELECT * FROM organization");
+            RegistData("SELECT * FROM organization WHERE remov='0'");
         }
-
+        string id_1 = "";
         private void x1_Click(object sender, RoutedEventArgs e)
         {
 
+            DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
+            if (dataRow != null)
+            {
+                id_1 = dataRow.Row.ItemArray[0].ToString();
+                MessageO messageO = new MessageO();
+                if (id_1 != "")
+                {
+                    messageO.Id = id_1;
+                    messageO.TableBasa = "organization";
+                    messageO.del_ += () => RegistData("SELECT * FROM organization WHERE remov='0'");
+                    messageO.ShowDialog();
+                }
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Organization organization = new Organization();
+            organization.del += () =>
+            {
+                RegistData("SELECT * FROM organization WHERE remov='0'");
+            };
             organization.ShowDialog();
+        }
+
+        private void textSerch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            RegistData("SELECT * FROM organization  WHERE remov='0' AND  " +
+                "(name LIKE '%" + textSerch.Text + "%' OR direct LIKE '%" + textSerch.Text + "%')");
+
         }
     }
 }

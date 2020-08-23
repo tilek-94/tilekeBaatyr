@@ -23,11 +23,21 @@
                 <StackPanel  Background="White" >
                     <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
                         <Label Content="Приход платежей" FontSize="16" Foreground="#00C3FF" ></Label>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <Button Style="{DynamicResource Button_blue}" 
                                 HorizontalAlignment="Right"
                             x:Name="registr_btn" Click="registr_btn_Click"
                             Content="Ввод данных" Width="168" Height="26"
                                 RenderTransformOrigin="0.494,-0.221" Margin="0,0,10,0" />
+
+                        <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" 
+                                 Tag=" Поиск данные" Height="25" Width="200" Margin="5"
+                                 x:Name="Serachtrext"
+                                 TextChanged="TextBox_TextChanged"
+                                 HorizontalAlignment="Right">
+
+                        </TextBox>
+                        </StackPanel>
 
                     </DockPanel>
                     <DataGrid x:Name="myDataGrid"

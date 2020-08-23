@@ -22,7 +22,8 @@
         </Grid.Effect>
         <Grid Grid.Row="0" >
             <Border  Background="#0A6E9E" Height="25" VerticalAlignment="Top" HorizontalAlignment="Stretch">
-                <TextBlock Text="Регистрация сотрудника" FontSize="14" Foreground="White" Margin="10,3,0,0" />
+                <TextBlock Text="Регистрация квартир" FontSize="14" 
+                           Foreground="White" Margin="10,3,0,0" />
             </Border>
 
             <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35"
@@ -110,7 +111,8 @@
         <Border Grid.Row="2" Padding="5" Background="#F4F4F4" Grid.Column="1">
             <StackPanel  Background="White" >
                 <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
-                    <Label Content="KG Group Компаниясы" FontSize="16" Foreground="#00C3FF" ></Label>
+                    <Label Content="ЮНИТРАСТ стоительная компания" 
+                           FontSize="16" Foreground="#00C3FF" ></Label>
                     <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" 
                              Tag=" Поиск данные" Height="25" Width="200" Margin="5"
                              x:Name="SearshData"

@@ -12,20 +12,27 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Border Grid.Row="0" Padding="5" Background="#F4F4F4">
             <StackPanel  Background="White" >
                 <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
 
-                    <Label Content="{Binding NameBuild}" FontSize="16" Foreground="#00C3FF" ></Label>
+                    <Label Content="Отчет о прибылях" FontSize="16" Foreground="#00C3FF" ></Label>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
+                        
                         <Button Style="{DynamicResource Button_blue}" 
                             HorizontalAlignment="Center"
                             x:Name="registr_btn2" Click="registr_btn2_Click"
                             Content="Ввод данных" Width="168" Height="26" Margin="0,0,20,0"
                                 />
 
-                        <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" Tag=" Поиск данные" Height="25" Width="200" Margin="5" HorizontalAlignment="Right">
+                        <TextBox FontSize="14"  
+                                 Style="{DynamicResource placeHolder}" 
+                                 x:Name="texbox_serch"
+                                 TextChanged="TextBox_TextChanged"
+                                 Tag=" Поиск данные" Height="25" Width="200" Margin="5" 
+                                 HorizontalAlignment="Right">
 
                         </TextBox>
                     </StackPanel>
@@ -45,13 +52,27 @@
 
             <DataGrid.Columns>
                 <DataGridTextColumn Width="0"  Visibility="Hidden" Foreground="White" Binding="{Binding Zid}" />
-                <DataGridTextColumn Width="70" Header="№" Binding="{Binding id}" />
+                <DataGridTextColumn Width="40" Header="№" Binding="{Binding id}" />
                 <DataGridTextColumn Width="170" Header="Тип операции" Binding="{Binding class}" />
                 <DataGridTextColumn Width="170" Header="Жилой комплекс" Binding="{Binding dom}" />
                 <DataGridTextColumn Width="150"  Header="Наименование продукт" Binding="{Binding n_prod}" />
                 <DataGridTextColumn Width="200" Header="Контрагенты" Binding="{Binding client}" />
-                <DataGridTextColumn Width="150" Header="Приход сумма (USD)" Binding="{Binding to_usd}" />
-                <DataGridTextColumn Width="150" Header="Приход сумма (KGS)" Binding="{Binding Rto_kgs}" />
+                <DataGridTextColumn Width="150" Header="Приход сумма (USD)" Binding="{Binding to_usd}" >
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" 
+                                Value="#b3ecff" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="150" Header="Приход сумма (KGS)" Binding="{Binding Rto_kgs}">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" 
+                                Value="#b3ecff" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
                 <DataGridTextColumn Width="150" Header="Даты" Binding="{Binding data, StringFormat='dd-MM-yyyy HH:mm:ss'}" />
                 <DataGridTextColumn Width="130" Header="Сотрудник" Binding="{Binding emp}" />
                 
@@ -64,6 +85,20 @@
 
         </DataGrid>
 
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Height="30" Width="700" HorizontalAlignment="Right">
+            <StackPanel Orientation="Horizontal" Width="350">
+                <Label Content="Сумма в долларах:" FontSize="14" />
+                <Label Content="0" FontSize="14" x:Name="lablelUsd" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="350" >
+                <Label Content="Сумма в сомах:" FontSize="14" />
+                <Label Content="0" FontSize="14" x:Name="lablelKgs" FontWeight="Bold"/>
+            </StackPanel>
+
+
+
+
+        </StackPanel>
 
 
     </Grid>

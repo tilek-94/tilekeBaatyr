@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ubitrast.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
@@ -217,6 +220,9 @@
     </Compile>
     <Compile Include="otchet\BisnesClass.xaml.cs">
       <DependentUpon>BisnesClass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="otchet\dataRepord.xaml.cs">
+      <DependentUpon>dataRepord.xaml</DependentUpon>
     </Compile>
     <Compile Include="otchet\PriemParking.xaml.cs">
       <DependentUpon>PriemParking.xaml</DependentUpon>
@@ -413,6 +419,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="otchet\BisnesClass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="otchet\dataRepord.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -627,6 +637,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\online_payment_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\report_file_512px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\carpool_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ubitrast.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ubitrast.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

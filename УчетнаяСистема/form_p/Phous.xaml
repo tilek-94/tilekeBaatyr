@@ -25,7 +25,11 @@
                             Content="Ввод данных" Width="168" Height="26" Margin="0,0,20,0"
                                 />
 
-                        <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" Tag=" Поиск данные" Height="25" Width="200" Margin="5" HorizontalAlignment="Right">
+                        <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" 
+                                 x:Name="textbox_Search"
+                                 TextChanged="textbox_Search_TextChanged"
+                                 Tag=" Поиск данные" Height="25" Width="200" Margin="5"
+                                 HorizontalAlignment="Right">
 
                         </TextBox>
                     </StackPanel>

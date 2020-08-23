@@ -61,5 +61,7 @@ namespace УчетнаяСистема
             staticClass.BuildName=BuildName[Convert.ToInt16( staticClass.StaticDomID)];
         }
 
+       
+
     }
 }

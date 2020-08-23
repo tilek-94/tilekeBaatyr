@@ -71,7 +71,7 @@ namespace УчетнаяСистема.form_p
             Button b = sender as Button;
             MessageBox.Show(b.Name.ToString());
             MainWindow win = new MainWindow();
-            win.Vod_Dannyx.IsSelected = true;
+           // win.Vod_Dannyx.IsSelected = true;
         }
 
     }

@@ -64,6 +64,11 @@ namespace УчетнаяСистема.otchet
             e.Handled = regex.IsMatch(e.Text);
         }
 
+        private void textbox_Sersh_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+
+        }
+
         private void BasaQuery(string ZakazId)
         {
             dbCon.connection.Open();
@@ -98,6 +103,8 @@ namespace УчетнаяСистема.otchet
 
         private void registr_btn_Click(object sender, RoutedEventArgs e)
         {
+            if (staticClass.StaticDomID!="" && ComboBox_n.Text!="" && client_id.ToString()!=""
+                && textBox1.Text!="" && textBox3.Text!="" && data1.DisplayDate.ToString("yyyy-MM-dd")!="") { 
             dbCon.Registr("INSERT INTO repayment_parking(" +
                 "dom_id," +
                 "number_f," +
@@ -118,6 +125,15 @@ namespace УчетнаяСистема.otchet
             textBox1.Text = "";
             textBox3.Text = "";
             BasaQuery(value);
+
+            }
+            else
+            {
+                MessageM messageM = new MessageM();
+                messageM.Mees = "Заполните все полии!";
+                messageM.Owner = this;
+                messageM.ShowDialog();
+            }
         }
         string value = "0";
         private void ComboBox_P_DropDownClosed(object sender, EventArgs e)
@@ -138,14 +154,6 @@ namespace УчетнаяСистема.otchet
 
         private void textBox2_KeyUp(object sender, KeyEventArgs e)
         {
-            /*
-                        if (textBox1.Text != "" && textBox2.Text != "")
-                        {
-                            dollar = Convert.ToDouble(textBox1.Text);
-                            kurs = Convert.ToDouble(textBox2.Text);
-                            som = dollar * kurs;
-                            textBox3.Text = Convert.ToString(som);
-                        }*/
         }
     }
 }

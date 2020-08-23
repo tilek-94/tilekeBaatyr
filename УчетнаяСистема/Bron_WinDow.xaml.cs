@@ -103,6 +103,7 @@ namespace УчетнаяСистема
 
         private void registr_btn_Click(object sender, RoutedEventArgs e)
         {
+            if(client_id!=0 && ComboBox1.Text != "" && textBox1.Text != "" & textBox2.Text != "")
             dbCon.Registr("INSERT INTO bron (client_id,dom_id,number_f,price_kv,typev,kurs,sotrudnic_id) " +
                 "VALUES ('"+ client_id + "','"+staticClass.StaticDomID+"','"+ComboBox1.Text+"','"+ basaSum + "','"+typeV+"','"+ currency_id + "','"+staticClass.StaticEmplayID+"')");
             Display();

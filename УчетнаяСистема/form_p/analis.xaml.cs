@@ -15,19 +15,50 @@ namespace УчетнаяСистема.form_p
         public analis()
         {
             InitializeComponent();
+            
         }
-        dbConnect dbCon = new dbConnect();
+
+        DataTable db1;
+        dbConnect dbCon;
+        
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Display();
+           
+            Display("SELECT * FROM _zakaz_otchot WHERE dom_id='" + staticClass.StaticDomID + "' and remov='0'");
+
         }
-        void Display()
+        
+        private void Display(string s)
         {
+            if(db1!=null)
+            db1.Clear();
+            dbCon = new dbConnect();
             dbCon.eventDysplay += delegate (DataTable db)
             {
                 dataGridView1.DataContext = db;
+                db1 = db;
             };
-            dbCon.SoursData("SELECT * FROM display WHERE dom_id='"+staticClass.StaticDomID+"' and remov='0'");
+            dbCon.SoursData(s);
+
+            dbCon = new dbConnect();
+            DataRow dr1 = db1.NewRow();
+            dbCon.eventDysplay += delegate (DataTable db)
+            {
+                if (db.Rows.Count > 0 && db.Rows[0][0].ToString() != "")
+                {
+                    
+                    dr1[10] = db.Rows[0][0].ToString();
+                    dr1[11] = db.Rows[0][1].ToString();
+                    dr1[12] = db.Rows[0][2].ToString();
+                    dr1[13] = db.Rows[0][3].ToString();
+                    db1.Rows.Add(dr1);
+                    dataGridView1.ItemsSource = db1.AsDataView();
+                }
+
+            };
+            dbCon.SoursData("SELECT ROUND( SUM(to_usd),2),ROUND ( SUM(Rto_kgs),2) " +
+                           ", ROUND(SUM(usd), 2), ROUND(SUM(kgs), 2) " +
+                           "FROM _zakaz_otchot WHERE dom_id='" + staticClass.StaticDomID + "' and remov='0'");
 
         }
 
@@ -55,8 +86,8 @@ namespace УчетнаяСистема.form_p
                 DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
                 if (dataRow != null)
                 {
-                    if (dataRow.Row.ItemArray[14].ToString() != "") {
-                        string ClientId = dataRow.Row.ItemArray[14].ToString();
+                    if (dataRow.Row.ItemArray[16].ToString() != "") {
+                        string ClientId = dataRow.Row.ItemArray[16].ToString();
                         peopleinAnalis.ClientID = ClientId;
                         peopleinAnalis.ShowDialog();
                     }
@@ -68,16 +99,16 @@ namespace УчетнаяСистема.form_p
                 DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
                 if (dataRow != null)
                 {
-                    if (dataRow.Row.ItemArray[9].ToString() != "")
+                    if (dataRow.Row.ItemArray[17].ToString() != "")
                     {
                         ViewCarsinAnalise viewCarsinAnalise = new ViewCarsinAnalise();
-                        string CarsId = dataRow.Row.ItemArray[15].ToString();
+                        string CarsId = dataRow.Row.ItemArray[17].ToString();
                         viewCarsinAnalise.SqlQury = CarsId;
                         viewCarsinAnalise.ShowDialog();
                     }
                 }
             }
-            else if (columnIndex>9)
+            else if (columnIndex>8)
             {
                 view_year View_Year = new view_year();
                 DataRowView dataRow = (DataRowView)dataGridView1.SelectedItem;
@@ -90,7 +121,7 @@ namespace УчетнаяСистема.form_p
                         dataRow.Row.ItemArray[13].ToString() != "") { 
                 string marka_1 = dataRow.Row.ItemArray[1].ToString();
                 string NumberF = dataRow.Row.ItemArray[3].ToString();
-                string ClientId = dataRow.Row.ItemArray[14].ToString();
+                string ClientId = dataRow.Row.ItemArray[16].ToString();
                     //MessageBox.Show(marka_1);
                     View_Year.ZakazId = marka_1;
                     View_Year.NumberF= NumberF;
@@ -102,6 +133,10 @@ namespace УчетнаяСистема.form_p
 
             }
         }
+
+        double Total = 0;
+        
+
 
         private void dataGridView1_ColumnDisplayIndexChanged(object sender, DataGridColumnEventArgs e)
         {   /*
@@ -118,10 +153,9 @@ namespace УчетнаяСистема.form_p
                 MessageO messageO = new MessageO();
                 if (id_1 != "")
                 {
-                    MessageBox.Show(id_1);
                     messageO.Id = id_1;
                     messageO.TableBasa = "zakaz";
-                    messageO.del_ += () => Display();
+                    messageO.del_ += () => Display("SELECT * FROM _zakaz_otchot WHERE dom_id='" + staticClass.StaticDomID + "' and remov='0'");
                     messageO.ShowDialog();
                 }
             }
@@ -130,8 +164,15 @@ namespace УчетнаяСистема.form_p
         private void registr_btn2_Click(object sender, RoutedEventArgs e)
         {
             Prod_pag2 prod_Pag2 = new Prod_pag2();
-            prod_Pag2.del_ += () => Display();
+            prod_Pag2.del_ += () => Display("SELECT * FROM _zakaz_otchot WHERE dom_id='" + staticClass.StaticDomID + "' and remov='0'");
             prod_Pag2.ShowDialog();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Display("SELECT * FROM _zakaz_otchot z " +
+                "WHERE dom_id = '"+staticClass.StaticDomID+"' AND " +
+                "(z.number_f LIKE '%"+ Search_Text.Text + "%' OR z.contract LIKE '%" + Search_Text.Text + "%' OR z.`client` LIKE '%" + Search_Text.Text + "%') and remov = '0'");
         }
     }
 }

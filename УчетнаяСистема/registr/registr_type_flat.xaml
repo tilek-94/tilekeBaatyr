@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="registr_type_flat" Height="650" Width="542" 
         Background="{x:Null}"
-        Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None">
+        Loaded="Window_Loaded" WindowStartupLocation="CenterOwner" AllowsTransparency="True" WindowStyle="None">
     <Grid Margin="10" Background="White">
         
         <Grid.RowDefinitions>

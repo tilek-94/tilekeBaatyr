@@ -338,7 +338,6 @@ D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Parking.g.
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\ProdPar.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\Parking.baml
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\ProdPar.baml
-D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.csprojAssemblyReference.cache
 D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\Newtonsoft.Json.dll
 D:\project\TilekeBaatyr\УчетнаяСистема\bin\Debug\Newtonsoft.Json.xml
 D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\RegistrBisnes.g.cs
@@ -365,3 +364,6 @@ D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\RepFlatPag
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\form_p\RepFlatPage.baml
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\otchet\AnalisDohodPage.g.cs
 D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\otchet\AnalisDohodPage.baml
+D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\otchet\dataRepord.g.cs
+D:\project\tilekeBaatyr\УчетнаяСистема\obj\Debug\otchet\dataRepord.baml
+D:\project\TilekeBaatyr\УчетнаяСистема\obj\Debug\УчетнаяСистема.csprojAssemblyReference.cache

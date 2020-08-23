@@ -1,30 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using УчетнаяСистема.All_classes;
 using УчетнаяСистема.form_p;
 using УчетнаяСистема.registr;
 
 namespace УчетнаяСистема
 {
-    
+
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-            this.MaxWidth = SystemParameters.MaximizedPrimaryScreenWidth;
-            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+            
         }
         public delegate void OpenForm();
        
@@ -44,14 +33,29 @@ namespace УчетнаяСистема
         private void OpenWindows()
         {
             Window1 window1 = new Window1();
-            window1.ValueChanged += new Action<string,string>((x,name) =>//подписываемся на событие
+            window1.ValueChanged += new Action<string, string>((x, name) =>//подписываемся на событие
             {
                 blur.Radius = Convert.ToInt32(x);
-                if (name != "admin") { 
-                Vod_Dannyx.Visibility = Visibility.Collapsed;
-               // Vod_Dannyx_Grig.Visibility = Visibility.Collapsed;
+                if (name == "admin")
+                {
+                    M1.Visibility = Visibility.Visible;
+                    btn1.Visibility = Visibility.Visible;
+                    btm08.Visibility = Visibility.Visible;
                 }
 
+                if (name == "manager")
+                {
+                    M1.Visibility = Visibility.Collapsed;
+                    btn1.Visibility = Visibility.Collapsed;
+                    btm08.Visibility = Visibility.Collapsed;
+
+                }
+
+                if (name == "accountant")
+                {
+                    M1.Visibility = Visibility.Collapsed;
+
+                }
             });
 
             if (blur.Radius == 15)
@@ -65,6 +69,20 @@ namespace УчетнаяСистема
             }
         }
        
+        private void DiabledPanel()
+        {
+            btn2.IsEnabled = false;
+            btn3.IsEnabled = false;
+            btn4.IsEnabled = false;
+            btn5.IsEnabled = false;
+            btn6.IsEnabled = false;
+            btn7.IsEnabled = false;
+            btn8.IsEnabled = false;
+            btn9.IsEnabled = false;
+            btn10.IsEnabled = false;
+            btn11.IsEnabled = false;
+           
+        }
 
         private void lock_button_Click(object sender, RoutedEventArgs e)
         {
@@ -91,6 +109,55 @@ namespace УчетнаяСистема
             {
                 this.WindowState = WindowState.Maximized;
             }
+        }
+
+        private void button_people_Click(object sender, RoutedEventArgs e)
+        {
+            registr_type_flat registr_Type_Flat = new registr_type_flat();
+            registr_Type_Flat.Owner = this;
+            registr_Type_Flat.ShowDialog();
+        }
+
+        private void grafBtn_Click(object sender, RoutedEventArgs e)
+        {
+            registr_flat registr_Flat = new registr_flat();
+            registr_Flat.Owner = this;
+            registr_Flat.ShowDialog();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            RegistrEm registrEm = new RegistrEm();
+            registrEm.Owner = this;
+            registrEm.ShowDialog();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            RegistrBisnes registrBisnes = new RegistrBisnes();
+            registrBisnes.Owner = this;
+            registrBisnes.ShowDialog();
+        }
+
+        private void obmen_btnV_Click(object sender, RoutedEventArgs e)
+        {
+            exchange Exchange = new exchange();
+            Exchange.Owner = this;
+            Exchange.ShowDialog();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            ProdCars prodCars = new ProdCars();
+            prodCars.Owner = this;
+            prodCars.ShowDialog();
+        }
+
+        private void bron_btnV_Click(object sender, RoutedEventArgs e)
+        {
+            Bron_WinDow bron_WinDow = new Bron_WinDow();
+            bron_WinDow.Owner = this;
+            bron_WinDow.ShowDialog();
         }
     }
     

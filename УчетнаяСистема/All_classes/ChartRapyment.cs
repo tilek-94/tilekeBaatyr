@@ -14,13 +14,14 @@ namespace УчетнаяСистема.All_classes
 {
     class ChartRapyment
     {
+        dbConnect dbCon;
         public void Display(string sql,double Som, double Dol , DataGrid dataGrid, string d1, string m1, string y1, string d2, string m2, string y2)
         {
             string[] month = new string[100];
             string[] summ = new string[100];
             string[] USD = new string[100];
             int i = 0;
-            dbConnect dbCon = new dbConnect();
+             dbCon = new dbConnect();
             dbCon.connection.Open();
             
             MySqlCommand command = new MySqlCommand(sql, dbCon.connection);
@@ -30,14 +31,15 @@ namespace УчетнаяСистема.All_classes
                 summ[i] = reader[0].ToString();
                 USD[i] = reader[1].ToString();
                 month[i] = reader[2].ToString();
+                
                 i++;
             }
             dbCon.connection.Close();
             string data = "";
             int j = 0, count = 0;
-            var start = new DateTime(Convert.ToInt32(y1), Convert.ToInt32(m1)+1, Convert.ToInt32(d1));
+            var start = new DateTime(Convert.ToInt32(y1), Convert.ToInt32(m1), Convert.ToInt32(d1));
             var end = new DateTime(Convert.ToInt32(y2), Convert.ToInt32(m2), Convert.ToInt32(d2));
-
+            
             List<MyTable> result = new List<MyTable>(3);
             DateTimeFormatInfo d = DateTimeFormatInfo.CurrentInfo;
             foreach (var range in EnumerateRanges(start, end, months: 1))
@@ -46,11 +48,10 @@ namespace УчетнаяСистема.All_classes
                 j = 0;
                 data = range.Start.ToString("MM") + "-" + range.Start.ToString("yyyy");
                 j = Array.IndexOf(month, data);
-             
+                  
                 if (j >= 0)
                 {
-                    
-                    result.Add(new MyTable(count, range.Start.ToString("yyyy"), range.Start.ToString("MMMM", CultureInfo.CurrentCulture), summ[j]+" Сом", USD[j]+" $", Som.ToString() + " Сом",Dol.ToString() + " $"));
+                    result.Add(new MyTable(count, range.Start.ToString("yyyy"), range.Start.ToString("MMMM", CultureInfo.CurrentCulture), summ[j]+" $", USD[j]+ " Сом", Som.ToString() + " Сом",Dol.ToString() + " $"));
                 }
                 else
                 {
@@ -70,11 +71,12 @@ namespace УчетнаяСистема.All_classes
 
         }
         IEnumerable<(DateTime Start, DateTime End)>
+
                 EnumerateRanges(DateTime startDate, DateTime endDate, int months = 0)
         {
             DateTime start = startDate;
             DateTime next = start.AddMonths(months);
-            while (next <= endDate)
+            while (next < endDate)
             {
                 yield return (start, next.AddSeconds(-1));
                 start = next;

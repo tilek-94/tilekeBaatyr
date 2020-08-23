@@ -50,10 +50,16 @@ namespace УчетнаяСистема.form_p
         private void registr_btn_Click(object sender, RoutedEventArgs e)
         {
             if(cars_id!="0" && client_id!="0" && basaSum!="0" && typeV!="" && currency_id != "0") { 
-            dbCon.Registr("UPDATE cars SET remov = '"+staticClass.StaticEmplayID+ "' , prod_cars='" + staticClass.StaticEmplayID + "' WHERE id = '" + cars_id + "'; " +
+            dbCon.Registr("UPDATE cars SET  prod_cars='" + staticClass.StaticEmplayID + "' WHERE id = '" + cars_id + "'; " +
                 "INSERT INTO prod_cars (cars_id,client_id,price,typev,curren_id,employee_id) " +
                 "VALUES ('" + cars_id + "','" + client_id + "','" + basaSum + "','" + typeV + "','" + currency_id + "','" + staticClass.StaticEmplayID + "')");
             Display();
+                text1.Text = "";
+                text2.Text = "";
+                 textBox1.Text = "";
+                textBox2.Text = "";
+                cars_id = "0";
+                client_id = "0";
             }
             else
             {
@@ -75,7 +81,16 @@ namespace УчетнаяСистема.form_p
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Display();
-            staticClass.StaticEmplayID = "7";
+         }
+
+        private void textbox_search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            dbCon.eventDysplay += delegate (DataTable db)
+            {
+                dataGridView1.ItemsSource = db.DefaultView;
+            };
+            dbCon.SoursData("SELECT * FROM prod_cars_pred p " +
+                "WHERE p.cars LIKE '%"+ textbox_search.Text + "%' OR p.`client` LIKE '%" + textbox_search.Text + "%'  ");
         }
 
         private void x1_Click(object sender, RoutedEventArgs e)

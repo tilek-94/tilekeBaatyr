@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/add1.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ubitrast.ico")]
 
 

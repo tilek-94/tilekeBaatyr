@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using УчетнаяСистема.All_classes;
 
 namespace УчетнаяСистема.otchet
@@ -30,22 +18,46 @@ namespace УчетнаяСистема.otchet
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
 
-            Display();
+            Display("SELECT * FROM _analis_dohod ");
+            Summa("SELECT ROUND( SUM(to_usd),2), ROUND(SUM(Rto_kgs),2) FROM _analis_dohod ");
         }
-        void Display()
+        void Display(string s)
         {
             dbCon = new dbConnect();
             dbCon.eventDysplay += delegate (DataTable db)
             {
                 dataGridView1.DataContext = db;
             };
-            dbCon.SoursData("SELECT * FROM _analis_dohod ");
+            dbCon.SoursData(s);
+            
+        }
+
+        void Summa(string s)
+        {
+            dbCon = new dbConnect();
+            dbCon.eventDysplay += delegate (DataTable db)
+            {
+                lablelUsd.Content = db.Rows[0][0].ToString()+" $";
+                lablelKgs.Content = db.Rows[0][1].ToString() + " Сом";
+            };
+            dbCon.SoursData(s);
 
         }
 
         private void registr_btn2_Click(object sender, RoutedEventArgs e)
         {
+            dataRepord dataRepord = new dataRepord();
+            dataRepord.del_ += (x,x1 )=> {
+                Display(x);
+                Summa(x1);
+                };
+            dataRepord.ShowDialog();
+        }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Display("SELECT * FROM _analis_dohod WHERE client like '%"+ texbox_serch.Text + "%' ");
+            Summa("SELECT ROUND( SUM(to_usd),2), ROUND(SUM(Rto_kgs),2) FROM _analis_dohod WHERE client like '%" + texbox_serch.Text + "%' ");
         }
     }
 }

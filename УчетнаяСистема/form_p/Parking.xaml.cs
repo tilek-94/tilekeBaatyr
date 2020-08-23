@@ -19,6 +19,7 @@ namespace УчетнаяСистема.form_p
         private void registr_btn_Click(object sender, RoutedEventArgs e)
         {
             ProdPar prodPar = new ProdPar();
+            prodPar.del_ += () => Display();
             prodPar.ShowDialog();
         }
         string id_1 = "";
@@ -114,6 +115,16 @@ namespace УчетнаяСистема.form_p
             }
 
 
+        }
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            dbCon = new dbConnect();
+            dbCon.eventDysplay += delegate (DataTable db)
+            {
+                myDataGrid.DataContext = db;
+            };
+            dbCon.SoursData("SELECT * FROM _prod_parking " +
+                "WHERE number_f LIKE '%"+ Serachtrext.Text+ "%' or name LIKE '%" + Serachtrext.Text + "%'  ");
         }
     }
 }

@@ -52,13 +52,13 @@
                 <DataGridTextColumn Width="70" Visibility="Collapsed" Binding="{Binding pid}" />
                 <DataGridTextColumn Width="70" Header="№" Binding="{Binding id}" />
                 <DataGridTextColumn Width="200" Header="Жилой комплекс" Binding="{Binding name}" />
-                <DataGridTextColumn Width="100" Header="Номер порковки" Binding="{Binding number_f}" />
+                <DataGridTextColumn Width="100" Header="№ Квартиры" Binding="{Binding number_f}" />
                 <DataGridTextColumn Width="220" Header="Клиент" Binding="{Binding client}" />
-                <DataGridTextColumn  Header="Цена за м2 (USD) " Binding="{Binding usd}" />
-                <DataGridTextColumn  Header="Цена за м2 (KGS) " Binding="{Binding summa}" />
+                <DataGridTextColumn  Header="Цена ежемесячный (USD) " Binding="{Binding summa }" />
+                <DataGridTextColumn  Header="Цена ежемесячный (KGS) " Binding="{Binding usd}" />
                 <DataGridTextColumn Width="120" Header="Дата графика" Binding="{Binding data_month , StringFormat='dd-MM-yyyy '}" />
                 <DataGridTextColumn Width="140" Header="Дата погошения" Binding="{Binding data , StringFormat='dd-MM-yyyy   HH:mm:ss'}" />
-                <DataGridTextColumn Width="120" Header="Продавец" Binding="{Binding emp}" />
+                <DataGridTextColumn Width="120" Header="Сотрудник" Binding="{Binding emp}" />
                 <DataGridTextColumn Width="120" Header="Продавец" Visibility="Collapsed" Binding="{Binding cl_id}" />
                 <DataGridTemplateColumn Header="Удалить" Width="50" >
                     <DataGridTemplateColumn.CellTemplate>

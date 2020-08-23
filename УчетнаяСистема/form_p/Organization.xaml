@@ -25,7 +25,7 @@
         <Border Grid.Row="0" Background="#0A6E9E"  Height="25" VerticalAlignment="Top">
             <TextBlock Foreground="White" FontSize="12" Margin="5">Организация</TextBlock>
         </Border>
-        <Button x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right" />
+        <Button x:Name="Button_Close" Click="Button_Close_Click"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right" />
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -110,8 +110,10 @@
                             Click="registr_btn_Click"
                             Content="Записать " Width="168" Height="26"
                                  Margin="15,0,0,0" />
+                    
                     <Button Style="{DynamicResource Button_White}"
-                            Content="Закрыть" Width="168" Height="26"
+                            Click="Button_Click"
+                            Content="Отмена" Width="168" Height="26"
                              Margin="10,0,0,0"/>
 
 
@@ -125,7 +127,7 @@
             <Border Grid.Column="1" Padding="5" Background="#F4F4F4">
                 <StackPanel  Background="White" >
                     <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
-                        <Label Content="KG Group Компаниясы" FontSize="16" Foreground="#00C3FF" ></Label>
+                        <Label Content="Организации" FontSize="16" Foreground="#00C3FF" ></Label>
 
                         <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" 
                                  Tag=" Поиск данные" Height="25"

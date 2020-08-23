@@ -83,7 +83,7 @@ namespace УчетнаяСистема.form_p
             }
             else { 
             Organization organization = new Organization();
-            organization.del += s => TextBoxOrg.Text = s;
+            organization.del2 += s => TextBoxOrg.Text = s;
             organization.Show();
                 type_c = 1;
             }
@@ -107,7 +107,7 @@ namespace УчетнаяСистема.form_p
                 this.Close();
             }else if (Flag == 1)
             {
-                dbCon.Registr("INSERT INTO prihod (operationU,organ,summa,typev,kurs,sotrud)" +
+                dbCon.Registr("INSERT INTO prihod (operationU,organ,summa,typev,kurs,emp)" +
                 "VALUES(" +
                 "'" + text3.Text + "'," +
                 "'" + TextBoxOrg.Text + "'," +
@@ -139,6 +139,11 @@ namespace УчетнаяСистема.form_p
             SummItogo();
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
         private void ComboBox3_DropDownClosed(object sender, EventArgs e)
         {
             SummItogo();
@@ -158,7 +163,7 @@ namespace УчетнаяСистема.form_p
 
             if (LangName[1] == "(KGS)")
             {
-                basaSum = text5.Text.Replace(',', '.');
+                basaSum = text4.Text.Replace(',', '.');
                 typeV = "(KGS)";
 
 

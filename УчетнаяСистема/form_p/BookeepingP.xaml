@@ -35,7 +35,8 @@
                 
                 <StackPanel  Background="White" >
                     <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
-                        <Label Content="Приход платежей" FontSize="16" Foreground="#00C3FF" ></Label>
+                        <Label Content="ПРИХОД" FontWeight="Bold"
+                               FontSize="16" Foreground="#00C3FF" ></Label>
                         <Button Style="{DynamicResource Button_blue}" 
                                 HorizontalAlignment="Right"
                             x:Name="registr_btn" Click="registr_btn_Click"
@@ -44,7 +45,7 @@
                 
                 </DockPanel>
                 </StackPanel>
-                
+               
                 <DataGrid x:Name="myDataGrid"
                           FontSize="12"  
                           Grid.Row="1"
@@ -54,15 +55,17 @@
                           ItemsSource="{Binding}"
                               HorizontalScrollBarVisibility="Hidden"
                           AutoGenerateColumns="False"
-                          MouseDoubleClick="myDataGrid_MouseDoubleClick"
+                        IsReadOnly="True"
                           >
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Операция" Binding="{Binding class}" Width="200" />
-                            <DataGridTextColumn Header=" Приход сумма (USD)" Binding="{Binding to_usd}" Width="200" />
-                        <DataGridTextColumn Header="Приход сумма (KGS)" Width="150" Binding="{Binding Rto_kgs}" />
-                           <DataGridTextColumn Header="Дата" Binding="{Binding data, StringFormat='dd-MM-yyyy   HH:mm:ss'}" />
-                           
-                        </DataGrid.Columns>
+                            <DataGridTextColumn Header="№" Binding="{Binding id}" Width="50" />
+                            <DataGridTextColumn Header="Операция" Binding="{Binding operationU}" Width="150" />
+                        <DataGridTextColumn Header="Контрагент" Width="150" Binding="{Binding organ}" />
+                        <DataGridTextColumn Header="Приход сумма (USD)" Width="130" Binding="{Binding usd}" />
+                        <DataGridTextColumn Header="Приход сумма (KGS)" Width="130" Binding="{Binding kgs}" />
+                        <DataGridTextColumn Header="Дата" Width="120" Binding="{Binding data, StringFormat='dd-MM-yyyy   HH:mm:ss'}" />
+                        <DataGridTextColumn Header="Сотрудник" Width="150" Binding="{Binding emp}" />
+                    </DataGrid.Columns>
 
                         <DataGrid.GroupStyle>
                             <GroupStyle>
@@ -108,7 +111,9 @@
                 </Grid.RowDefinitions>
                 <StackPanel  Background="White" >
                     <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
-                        <Label Content="Расход" FontSize="16" Foreground="#00C3FF" ></Label>
+                        <Label Content="РАСХОД" FontSize="16"
+                               FontWeight="Bold"
+                               Foreground="#00C3FF" ></Label>
                         <Button Style="{DynamicResource Button_blue}" 
                                 HorizontalAlignment="Right"
                             x:Name="registr_btn2" Click="registr_btn2_Click"
@@ -126,6 +131,7 @@
                           ItemsSource="{Binding}"
                               HorizontalScrollBarVisibility="Hidden"
                           AutoGenerateColumns="False"
+                          IsReadOnly="True"
                           >
                         <DataGrid.Columns>
                             <DataGridTextColumn Width="50"  Header="№" Binding="{Binding id}"  />

@@ -32,7 +32,8 @@
             <TextBox FontSize="14" x:Name="textBox2"  Style="{DynamicResource textbox_style}" Tag=" Сумма товар"  Width="252" Height="25" HorizontalAlignment="Right" Margin="0,157,92,135" />
             <Button Style="{DynamicResource Button_blue}" Content="Сохранить"
                 x:Name="button_save" Click="button_save_Click" Margin="97,201,265,88"/>
-            <Button Style="{DynamicResource Button_blue}" Content="Удалить"
+            <Button Style="{DynamicResource Button_White}" Content="Отмена"
+                    Click="button2_Click"
                 x:Name="button2" Margin="275,202,87,88"/>
 
 
@@ -73,8 +74,12 @@
         <Border Grid.Row="2" Padding="5" Background="#F4F4F4">
             <StackPanel  Background="White" >
                 <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
-                    <Label Content="KG Group Компаниясы" FontSize="16" Foreground="#00C3FF" ></Label>
-                    <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" Tag=" Поиск данные" Height="25" Width="200" Margin="5" HorizontalAlignment="Right">
+                    <Label Content="Список товаров" FontSize="16" Foreground="#00C3FF" ></Label>
+                    <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" 
+                             Tag=" Поиск данные" Height="25" Width="200" Margin="5" 
+                             x:Name="textbox_search"
+                             TextChanged="textbox_search_TextChanged"
+                             HorizontalAlignment="Right">
 
                     </TextBox>
                 </DockPanel>

@@ -138,42 +138,9 @@ namespace УчетнаяСистема.form_p
         private void btn_clear_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            //Reset();
+            
         }
-        /*private void Reset()
-        {
-
-            FIO.Text = "";
-            ComboBox2.Text = "";
-            label_kvm.Text = "";
-            // textbox_cars.Text = "";
-            textbox_Dol.Text = "";
-            textbox_Summ.Text = "";
-            textBox_vz.Text = "";
-            textboxCarsUsd.Text = "";
-            textbox_m2.Text = "";
-            textbox_summ.Text = "";
-            textbox_Som_vz2.Text = "";
-            textboxCarsKGS.Text = "";
-            textbox_dogovor.Text = "";
-            label_summ_Dol_itog.Text = "";
-            label_summ_Som_itog.Text = "";
-
-
-            client_id = 0;
-            ComboBox2.Text = "";
-            textbox_dogovor.Text = "";
-            basaSum = "";
-            ItogPrice = "";
-            Vznos = "";
-            DebZa = "";
-            typeV = "";
-            currency_id = "";
-            kvm = "";
-            data_n = "";
-            data_k = "";
-            ComboBoxCars.Items.Clear();
-        }*/
+       
 
         private void registr_client_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -195,6 +162,7 @@ namespace УчетнаяСистема.form_p
                     "typev," +
                     "kurs," +
                     "data_n," +
+                    "emp," +
                     "data_k) " +
 
                       "values('" + staticClass.StaticDomID + "'," +
@@ -208,11 +176,13 @@ namespace УчетнаяСистема.form_p
                       "'" + DebZa + "'," +
                       "'" + typeV + "'," +
                       "'" + currency_id + "'," +
-                     "'" + data_n + "','" + data_k + "')");
+                     "'" + data_n + "'," +
+                     "'" + staticClass.StaticEmplayID + "'," +
+                     "'" + data_k + "')");
                 LoadDisplay();
                 DelegATE(Convert.ToInt16(s[0]));
-                /*del_();
-                this.Close();*/
+                del_();
+                this.Close();
             }
             else
             {
@@ -397,7 +367,7 @@ namespace УчетнаяСистема.form_p
                 // Валютанын тиби
                 typeV = "(KGS)";
                 // первоначальный взнос
-                Vznos = (VznosSum + UsdCarsSum).ToString().Replace(',', '.');
+                Vznos = VznosSum.ToString().Replace(',', '.');
 
             }
             else if (LangName[1] == "(USD)")
@@ -407,7 +377,7 @@ namespace УчетнаяСистема.form_p
                 DebZa = USD.ToString().Replace(',', '.');
                 CarsSum = USDCars.ToString().Replace(',', '.');
                 typeV = "(USD)";
-                Vznos = (vznos + USDCars).ToString().Replace(',', '.');
+                Vznos = vznos.ToString().Replace(',', '.');
 
             }
             else if (LangName[1] == "(EUR)" || LangName[1] == "(RUB)")
@@ -417,7 +387,7 @@ namespace УчетнаяСистема.form_p
                 DebZa = KGS.ToString().Replace(',', '.');
                 typeV = "(KGS)";
                 CarsSum = UsdCarsSum.ToString().Replace(',', '.');
-                Vznos = (VznosSum + UsdCarsSum).ToString().Replace(',', '.');
+                Vznos = VznosSum.ToString().Replace(',', '.');
             }
 
 
@@ -481,11 +451,10 @@ namespace УчетнаяСистема.form_p
             LangName = lanG.ReturnName(ComboBox3.Text);
             l1.Content = LangName[1];
             l2.Content = LangName[1];
-            l3.Content = LangName[1];
+           
             l4.Content = LangName[1];
             l12.Content = LangName[2];
             l22.Content = LangName[2];
-            l32.Content = LangName[2];
             l42.Content = LangName[2];
             li2.Content = LangName[2] + ":";
             li1.Content = LangName[1] + ":";

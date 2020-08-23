@@ -37,7 +37,7 @@
                      Style="{DynamicResource textbox_style}"
                      Tag=" Договор" Height="24" Width="101" HorizontalAlignment="Right" Canvas.Left="1059" Canvas.Top="132"/>
 
-            <Label Content="Цена м2."  Foreground="#5C554F"
+            <Label Content="Цена пор."  Foreground="#5C554F"
                    Canvas.Left="369" Canvas.Top="31" FontSize="14" />
 
             <Label Content="Парковка" Canvas.Left="35" Canvas.Top="79" FontSize="14" Foreground="#5C554F" />
@@ -121,25 +121,21 @@
                          SelectedDateChanged="kon_d_SelectedDateChanged"
                         Width="200"/>
             <Label Content="" x:Name="l1" Foreground="#5C554F"
-                Canvas.Left="431" Canvas.Top="31" FontSize="13"  />
+                Canvas.Left="440" Canvas.Top="30" FontSize="13" RenderTransformOrigin="5.5,0.741"  />
             <Label Content="" x:Name="l2" Foreground="#5C554F" 
-                Canvas.Left="420" Canvas.Top="66" FontSize="13" />
-            <Label Content="" x:Name="l3" Foreground="#5C554F" 
-                Canvas.Left="411" Canvas.Top="114" FontSize="13" />
+                Canvas.Left="418" Canvas.Top="94" FontSize="13" />
             <Label Content="" x:Name="l4" Foreground="#5C554F" 
                 Canvas.Left="465" Canvas.Top="141" FontSize="13" />
-            <Label Content="Цена м2"  Foreground="#5C554F"
+            <Label Content="Цена пор."  Foreground="#5C554F"
                 Canvas.Left="706" Canvas.Top="29" FontSize="14" />
             <Label Content="Цена машина" Canvas.Left="707" Canvas.Top="135" FontSize="14" Foreground="#5C554F" />
             <TextBlock Text="Первоначальный взнос" TextWrapping="Wrap" Foreground="#5C554F"
                 Canvas.Left="710" Canvas.Top="79" FontSize="14" Height="36" Width="113" />
 
             <Label Content="" x:Name="l12" Foreground="#5C554F"
-                Canvas.Left="765" Canvas.Top="30" FontSize="13" />
+                Canvas.Left="778" Canvas.Top="30" FontSize="13" />
             <Label Content="" x:Name="l22" Foreground="#5C554F" 
-                Canvas.Left="757" Canvas.Top="60" FontSize="13" />
-            <Label Content="" x:Name="l32" Foreground="#5C554F"
-                Canvas.Left="748" Canvas.Top="108" FontSize="13" />
+                Canvas.Left="755" Canvas.Top="95" FontSize="13" />
             <Label Content="" x:Name="l42" Foreground="#5C554F" 
                 Canvas.Left="800" Canvas.Top="135" FontSize="13" />
             <Label Content="" x:Name="li1" Foreground="#5C554F" FontWeight="Bold"

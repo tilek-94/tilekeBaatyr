@@ -21,7 +21,9 @@ namespace УчетнаяСистема.form_p
 
         private void view_client_btn_Click(object sender, RoutedEventArgs e)
         {
-            form_p.Window1 window1 = new form_p.Window1();
+            if (Radio1.IsChecked == true)
+            {
+                form_p.Window1 window1 = new form_p.Window1();
             window1.ValueChanged += new Action<string, string>((x, y) =>
             {
                 client_id = Convert.ToInt32(x);
@@ -29,6 +31,17 @@ namespace УчетнаяСистема.form_p
 
             });
             window1.ShowDialog();
+
+           
+
+                
+            }
+            else
+            {
+                Organization organization = new Organization();
+                organization.del2 += s => text1.Text = s;
+                organization.Show();
+                }
         }
 
         private void view_product_btn_Click(object sender, RoutedEventArgs e)
@@ -45,10 +58,10 @@ namespace УчетнаяСистема.form_p
 
         private void registr_btn_Click(object sender, RoutedEventArgs e)
         {
-            if (ComboBox1.Text!="") { 
+            if (ComboBox1.Text!="" ) { 
             dbCon.Registr("INSERT INTO exchange(client_id,product_id,number_f,emp,dom_id)" +
-                "VALUES('" + client_id + "'," +
-                "'" + product_id + "'," +
+                "VALUES('" + text1.Text + "'," +
+                "'" + text2.Text + "'," +
                 "'" + ComboBox1.Text + "'," +
                 "'" + staticClass.StaticEmplayID + "'," +
                 "'" + staticClass.StaticDomID + "')");
@@ -119,10 +132,9 @@ namespace УчетнаяСистема.form_p
             {
                 dataGridView1.ItemsSource = db.DefaultView;
             };
-            dbCon.SoursData("SELECT e.id, e.number_f,c.name,p.name AS tovar,e.`data`, u.name " +
-                "FROM exchange e INNER JOIN client c  INNER JOIN product p INNER JOIN users u " +
-                "ON e.client_id = c.id AND p.id = e.product_id AND e.emp = u.id " +
-                "WHERE e.remov = '0' AND e.dom_id = '"+staticClass.StaticDomID+"'");
+            dbCon.SoursData("SELECT e.id, e.number_f,e.client_id as name,e.product_id AS tovar, e.`data`, u.name as emp " +
+                "FROM exchange e   JOIN  users u ON e.emp = u.id " +
+                "WHERE e.remov = '0'  AND e.dom_id = '"+staticClass.StaticDomID+"'");
 
         }
 

@@ -120,6 +120,24 @@ namespace УчетнаяСистема.form_p
             kurs.ShowDialog();
         }
 
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void textbox_search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            dbCon.eventDysplay += delegate (DataTable db)
+            {
+                dataGridView1.ItemsSource = db.DefaultView;
+            };
+            dbCon.SoursData("SELECT c.id, c.name, " +
+                "    IF(c.typev = '(KGS)', ROUND(c.price / cur.usd, 2), c.price) AS to_usd," +
+                "    IF(c.typev = '(USD)', ROUND(c.price * cur.usd, 2), c.price) AS Rto_kgs, c.data " +
+                "    FROM product c    INNER JOIN currency cur ON c.kurs = cur.id WHERE c.name LIKE '%"+textbox_search.Text+"%'");
+
+        }
+
         private void ComboBox3_DropDownClosed(object sender, EventArgs e)
         {
             Raschot();
