@@ -23,7 +23,6 @@ namespace УчетнаяСистема.All_classes
             int i = 0;
              dbCon = new dbConnect();
             dbCon.connection.Open();
-            
             MySqlCommand command = new MySqlCommand(sql, dbCon.connection);
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
@@ -46,7 +45,7 @@ namespace УчетнаяСистема.All_classes
             {
                 count++;
                 j = 0;
-                data = range.Start.ToString("MM") + "-" + range.Start.ToString("yyyy");
+                data =  range.Start.ToString("yyyy") + "-" + range.Start.ToString("MM") ;
                 j = Array.IndexOf(month, data);
                   
                 if (j >= 0)

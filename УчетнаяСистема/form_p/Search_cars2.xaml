@@ -116,7 +116,7 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-           
+            
                 <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
                     <Label Content="Регистрация машина" FontSize="16" Foreground="#00C3FF" ></Label>
                     <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" 
@@ -131,8 +131,7 @@
                           Grid.Row="1"
                           SelectionChanged="dataGridView1_SelectionChanged"
                           MouseDoubleClick="dataGridView1_MouseDoubleClick"
-                  Height="280"
-                  ItemsSource="{Binding}"
+                   ItemsSource="{Binding}"
                   CanUserAddRows="False"        
                   AutoGenerateColumns="False"
                   ColumnHeaderStyle="{DynamicResource hederstyle}" x:Name="dataGridView1"

@@ -11,13 +11,11 @@ namespace УчетнаяСистема.All_classes
 {
     class dbConnect
     {
-
-
         //public MySqlConnection connection = new MySqlConnection("datasource=localhost; port=3306;Initial Catalog='u_system';username=root;password=123456;CharSet=utf8;");
-       public MySqlConnection connection = new MySqlConnection("datasource=192.168.1.126; port=3306;Initial Catalog='u_system';username=STROI2;password=123456;CharSet=utf8;");
+       //public MySqlConnection connection = new MySqlConnection("datasource=192.168.1.126; port=3306;Initial Catalog='u_system';username=STROI2;password=123456;CharSet=utf8;");
+       public MySqlConnection connection = new MySqlConnection("datasource=161.35.67.17; port=2796;Initial Catalog='u_system';username=admin;password=Abc123456Tilek#;CharSet=utf8;");
         //public MySqlConnection connection = new MySqlConnection("datasource=192.168.0.101; port=3306;Initial Catalog='u_system';username=Maksatbek;password=708141998m;CharSet=utf8;");
-
-       
+               
         public delegate void DisplaySourse(DataTable db);
         public delegate void DisplaySourse2(string[] a);
         public event DisplaySourse eventDysplay;

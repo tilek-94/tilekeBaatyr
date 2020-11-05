@@ -13,7 +13,9 @@ namespace УчетнаяСистема
         public MainWindow()
         {
             InitializeComponent();
-            
+            this.MaxWidth = SystemParameters.MaximizedPrimaryScreenWidth;
+            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+
         }
         public delegate void OpenForm();
        

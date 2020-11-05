@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:УчетнаяСистема.form_p"
         mc:Ignorable="d"
         Title="exchange" Height="650" Width="900" Background="{x:Null}" 
-        AllowsTransparency="True" Loaded="Window_Loaded" WindowStyle="None">
+        AllowsTransparency="True" Loaded="Window_Loaded" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid Background="White" Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
@@ -102,15 +102,27 @@
 
             </StackPanel>
         </Grid>
-        <Border Grid.Row="2" Padding="5" Background="#F4F4F4">
+        <Grid Grid.Row="2"  Background="#F4F4F4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
             <StackPanel  Background="White" >
                 <DockPanel HorizontalAlignment="Stretch" Background="#F4F4F4">
-                    <Label Content="{Binding NameBuild}" FontSize="16" Foreground="#00C3FF" ></Label>
-                    <TextBox FontSize="14"  Style="{DynamicResource placeHolder}" Tag=" Поиск данные" Height="25" Width="200" Margin="5" HorizontalAlignment="Right">
+                    <Label Content="{Binding NameBuild}" FontSize="16" 
+                           Foreground="#00C3FF" ></Label>
+                    <TextBox FontSize="14"  Style="{DynamicResource placeHolder}"
+                             x:Name="searchText"
+                             TextChanged="TextBox_TextChanged"
+                             Tag=" Поиск данные" Height="25" Width="200" 
+                             Margin="5" HorizontalAlignment="Right">
 
                     </TextBox>
                 </DockPanel>
-                <DataGrid FontSize="12"  Style="{DynamicResource grid_xml}" 
+                </StackPanel>
+            
+                <DataGrid FontSize="12" Grid.Row="1"  
+                          Style="{DynamicResource grid_xml}" 
                   HeadersVisibility="Column"
                   CanUserAddRows="False"
                      AutoGenerateColumns="False"
@@ -134,8 +146,8 @@
                     </DataGrid.Columns>
 
                 </DataGrid>
-            </StackPanel>
-        </Border>
+            
+        </Grid>
 
 
     </Grid>

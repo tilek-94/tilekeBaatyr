@@ -65,6 +65,7 @@ namespace УчетнаяСистема.form_p
                 "'" + ComboBox1.Text + "'," +
                 "'" + staticClass.StaticEmplayID + "'," +
                 "'" + staticClass.StaticDomID + "')");
+                DelegATE();
                 Display();
                 ComboBox1.Text = "";
             }
@@ -123,6 +124,18 @@ namespace УчетнаяСистема.form_p
                     messageO.ShowDialog();
                 }
             }
+        }
+
+        private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            dbCon = new dbConnect();
+            dbCon.eventDysplay += delegate (DataTable db)
+            {
+                dataGridView1.ItemsSource = db.DefaultView;
+            };
+            dbCon.SoursData("SELECT e.id, e.number_f,e.client_id as name,e.product_id AS tovar, e.`data`, u.name as emp " +
+                "FROM exchange e   JOIN  users u ON e.emp = u.id " +
+                "WHERE e.remov = '0'  AND e.dom_id = '" + staticClass.StaticDomID + "' AND e.number_f LIKE '%"+ searchText .Text+ "%'");
         }
 
         void Display()

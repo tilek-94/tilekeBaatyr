@@ -23,7 +23,7 @@
         <Grid Grid.Row="0" >
             <Border  Background="#0A6E9E" Height="20" 
                      VerticalAlignment="Top" HorizontalAlignment="Stretch">
-                <TextBlock Text="Продажа квартира" FontSize="14" Foreground="White" Margin="10,0,0,0"/>
+                <TextBlock Text="Продажа порковка" FontSize="14" Foreground="White" Margin="10,0,0,0"/>
             </Border>
             <Button  Click="Button_Clic" x:Name="Button_Close"  Width="35" Style="{DynamicResource btnCloseOS}" Height="35" HorizontalAlignment="Right"/>
         </Grid>

@@ -172,7 +172,7 @@ namespace УчетнаяСистема.form_p
         {
             Display("SELECT * FROM _zakaz_otchot z " +
                 "WHERE dom_id = '"+staticClass.StaticDomID+"' AND " +
-                "(z.number_f LIKE '%"+ Search_Text.Text + "%' OR z.contract LIKE '%" + Search_Text.Text + "%' OR z.`client` LIKE '%" + Search_Text.Text + "%') and remov = '0'");
+                "(z.number_f LIKE '%"+ Search_Text.Text + "%' OR z.contract LIKE '%" + Search_Text.Text + "%' OR z.`client` LIKE '%" + Search_Text.Text + "%' or z.name LIKE '%" + Search_Text.Text + "%') and remov = '0'");
         }
     }
 }

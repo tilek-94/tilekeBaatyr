@@ -65,8 +65,11 @@ namespace УчетнаяСистема.form_p
 
             }
             dbCon.connection.Close();
-            string SqlQry = "SELECT SUM(summa), SUM(usd),DATE_FORMAT(data_month, '%m-%Y') " +
-                "FROM repayment WHERE client_id='" + ClientId + "' AND dom_id='" + staticClass.StaticDomID + "' AND number_f='" + NumberF + "' GROUP by DATE_FORMAT(data_month, '%yyyy %m')";
+            string SqlQry = "SELECT  SUM(r.summa), SUM(r.usd), r.datem " +
+                "FROM repayment_summ r WHERE r.client_id='" + ClientId + "' " +
+                "AND r.dom_id='" + staticClass.StaticDomID + "' " +
+                "AND r.number_f='" + NumberF + "' " +
+                "GROUP by r.datem";
            chartRapyment.Display(SqlQry, Math.Round(KGS, 2), Math.Round(USD, 2), myDataGrid, d1, m1, y1, d2, m2, y2);
 
         }
@@ -76,8 +79,11 @@ namespace УчетнаяСистема.form_p
 
             // MessageBox.Show($"1{d1}, {m1}, {y1}, {d2}, {m2}, {y2}");
             dbCon.connection.Close();
-            string SqlQry = "SELECT SUM(summa), SUM(usd),DATE_FORMAT(data_month, '%m-%Y') " +
-                "FROM repayment WHERE client_id='" + ClientId + "' AND dom_id='" + staticClass.StaticDomID + "' AND number_f='" + NumberF + "' GROUP by DATE_FORMAT(data_month, '%yyyy %m')";
+            string SqlQry = "SELECT  SUM(r.summa), SUM(r.usd), r.datem " +
+                "FROM repayment_summ r WHERE r.client_id='" + ClientId + "' " +
+                "AND r.dom_id='" + staticClass.StaticDomID + "' " +
+                "AND r.number_f='" + NumberF + "' " +
+                "GROUP by r.datem";
             chartRapyment.Display(SqlQry, Math.Round(KGS, 2), Math.Round(USD, 2), myDataGrid, d1, m1, y1, d2, m2, y2);
 
 

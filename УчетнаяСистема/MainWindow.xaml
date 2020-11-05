@@ -15,7 +15,8 @@
     </Window.DataContext>
     <Grid Background="White" Margin="5,5,10,5">
         <Grid.Effect>
-            <BlurEffect Radius="0" RenderingBias="Performance" KernelType="Gaussian" x:Name="blur"/>
+            <BlurEffect Radius="0" RenderingBias="Performance" KernelType="Gaussian" 
+                        x:Name="blur"/>
         </Grid.Effect>
         <Grid.RowDefinitions>
             <RowDefinition Height="28" />
